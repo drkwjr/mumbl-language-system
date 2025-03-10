@@ -59,7 +59,7 @@ class TestWiktionaryScraper:
 
             output_path = os.path.join(temp_dir, "output")
 
-            # Call the run_spider function with the word list
+            # Call the run_spider function with multiple words
             result = run_spider(
                 language="en",
                 words=["test", "cat"],

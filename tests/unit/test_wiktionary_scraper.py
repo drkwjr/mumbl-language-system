@@ -22,24 +22,20 @@ class TestWiktionaryScraper:
         return mock
 
     @patch("scraper.wiktionary_scraper.CrawlerProcess")
-    def test_run_spider_single_word(self, mock_crawler_process, mock_process):
+    @patch("scraper.wiktionary_scraper.datetime")
+    def test_run_spider_single_word(self, mock_datetime, mock_crawler_process, mock_process):
         """Test running the spider with a single word."""
+        # Mock the datetime to return a fixed value for the output filename
+        mock_datetime.now.return_value.strftime.return_value = "20250310_123456"
+        
         # Setup the mock
         mock_crawler_process.return_value = mock_process
 
         # Create a temporary directory for output
         with tempfile.TemporaryDirectory() as temp_dir:
-            # Mock the output file that would be created by the spider
-            output_file = os.path.join(temp_dir, "mock_output.json")
-            with open(output_file, "w") as f:
-                f.write(
-                    '[{"word": "test", "language": "en", '
-                    '"definitions": [{"definition": "A test definition"}]}]'
-                )
-
-            # Mock the spider to return our mock output file
-            mock_process.settings = {"OUTPUT_FILE": output_file}
-
+            # Expected output file based on the mocked datetime
+            expected_output = os.path.join(temp_dir, "wiktionary_en_20250310_123456.json")
+            
             # Call the function
             result = run_spider(
                 language="en",
@@ -53,12 +49,16 @@ class TestWiktionaryScraper:
             mock_crawler_process.assert_called_once()
             mock_process.crawl.assert_called_once()
 
-            # Verify the result is the path to the output file
-            assert result == output_file
+            # Verify the result is the expected path
+            assert result == expected_output
 
     @patch("scraper.wiktionary_scraper.CrawlerProcess")
-    def test_run_spider_word_list(self, mock_crawler_process, mock_process):
+    @patch("scraper.wiktionary_scraper.datetime")
+    def test_run_spider_word_list(self, mock_datetime, mock_crawler_process, mock_process):
         """Test running the spider with a word list."""
+        # Mock the datetime to return a fixed value for the output filename
+        mock_datetime.now.return_value.strftime.return_value = "20250310_123456"
+        
         # Setup the mock
         mock_crawler_process.return_value = mock_process
 
@@ -69,13 +69,8 @@ class TestWiktionaryScraper:
             with open(word_list_path, "w") as f:
                 f.write("test\ncat\n")
 
-            # Mock the output file that would be created by the spider
-            output_file = os.path.join(temp_dir, "mock_output.json")
-            with open(output_file, "w") as f:
-                f.write('[{"word": "test", "language": "en"}, {"word": "cat", "language": "en"}]')
-
-            # Mock the spider to return our mock output file
-            mock_process.settings = {"OUTPUT_FILE": output_file}
+            # Expected output file based on the mocked datetime
+            expected_output = os.path.join(temp_dir, "wiktionary_en_20250310_123456.json")
 
             # Call the function
             result = run_spider(
@@ -90,8 +85,8 @@ class TestWiktionaryScraper:
             mock_crawler_process.assert_called_once()
             mock_process.crawl.assert_called_once()
 
-            # Verify the result is the path to the output file
-            assert result == output_file
+            # Verify the result is the expected path
+            assert result == expected_output
 
     def test_argparser(self):
         """Test the argument parser setup with various combinations."""
