@@ -1,0 +1,10 @@
+cat
+dog
+house
+run
+beautiful
+computer
+language
+science
+water
+book 
