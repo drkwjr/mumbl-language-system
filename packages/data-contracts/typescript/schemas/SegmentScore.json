@@ -1,0 +1,79 @@
+{
+  "properties": {
+    "clarity": {
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Clarity",
+      "type": "number"
+    },
+    "alignment": {
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Alignment",
+      "type": "number"
+    },
+    "diarization": {
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Diarization",
+      "type": "number"
+    },
+    "transcript_accuracy": {
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Transcript Accuracy",
+      "type": "number"
+    },
+    "validity": {
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Validity",
+      "type": "number"
+    },
+    "shape": {
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Shape",
+      "type": "number"
+    },
+    "total": {
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Total",
+      "type": "number"
+    },
+    "eligible_learner": {
+      "title": "Eligible Learner",
+      "type": "boolean"
+    },
+    "eligible_training": {
+      "title": "Eligible Training",
+      "type": "boolean"
+    },
+    "notes": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Notes"
+    }
+  },
+  "required": [
+    "clarity",
+    "alignment",
+    "diarization",
+    "transcript_accuracy",
+    "validity",
+    "shape",
+    "total",
+    "eligible_learner",
+    "eligible_training"
+  ],
+  "title": "SegmentScore",
+  "type": "object"
+}

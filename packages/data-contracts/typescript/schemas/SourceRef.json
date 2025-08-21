@@ -1,0 +1,23 @@
+{
+  "properties": {
+    "doc_id": {
+      "title": "Doc Id",
+      "type": "string"
+    },
+    "start": {
+      "title": "Start",
+      "type": "integer"
+    },
+    "end": {
+      "title": "End",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "doc_id",
+    "start",
+    "end"
+  ],
+  "title": "SourceRef",
+  "type": "object"
+}

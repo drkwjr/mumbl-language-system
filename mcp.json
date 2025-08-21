@@ -1,0 +1,89 @@
+{
+    "mcpServers": {
+      "mcp-installer": {
+        "command": "npx",
+        "args": [
+          "@anaisbetts/mcp-installer"
+        ]
+      },
+      "filesystem": {
+        "command": "npx",
+        "args": [
+          "@modelcontextprotocol/server-filesystem",
+          "."
+        ]
+      },
+      "commands": {
+        "command": "npx",
+        "args": [
+          "mcp-server-commands"
+        ]
+      },
+      "nodejs-debugger": {
+        "command": "npx",
+        "args": [
+          "@hyperdrive-eng/mcp-nodejs-debugger"
+        ]
+      },
+      "inspector": {
+        "command": "npx",
+        "args": [
+          "mcp-inspector"
+        ]
+      },
+      "memory": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-memory"
+        ],
+        "env": {
+          "MEMORY_FILE_PATH": "/Users/samdarkwa/Documents/cursor-workspaces/suffolk-chatbot/memory.json"
+        }
+      },
+      "postgres": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-postgres",
+          "postgresql://localhost/suffolk_chatbot"
+        ]
+      },
+      "supabase": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@supabase/mcp-server-supabase@latest",
+          "--access-token",
+          "sbp_ccf41e17df3fb9df82857fbd032a9c17dcc0096d",
+          "--project-ref",
+          "usukmqjudeyaonspeyug"
+        ]
+      },
+      "airtable": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@felores/airtable-mcp-server"
+        ],
+        "env": {
+          "AIRTABLE_API_KEY": "patlt3gZPXvL2El1e.81a1fc39befabe65225fbd40929e8a40324c815c6dc44e271ed1daed5909f131"
+        }
+      },
+      "web-eval-agent": {
+        "command": "uvx",
+        "args": [
+          "--refresh-package",
+          "webEvalAgent",
+          "--from",
+          "git+https://github.com/Operative-Sh/web-eval-agent.git",
+          "webEvalAgent"
+        ],
+        "env": {
+          "OPERATIVE_API_KEY": "op-eorQ759Om8DYlHx1R_uKXTowCTYj9IiONY0D0U8fIOU"
+        }
+      }
+    }
+  }
+  
+  

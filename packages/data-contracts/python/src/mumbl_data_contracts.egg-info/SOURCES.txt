@@ -1,0 +1,10 @@
+pyproject.toml
+src/mumbl_data_contracts/__init__.py
+src/mumbl_data_contracts/profiles.py
+src/mumbl_data_contracts/scores.py
+src/mumbl_data_contracts/segments.py
+src/mumbl_data_contracts.egg-info/PKG-INFO
+src/mumbl_data_contracts.egg-info/SOURCES.txt
+src/mumbl_data_contracts.egg-info/dependency_links.txt
+src/mumbl_data_contracts.egg-info/requires.txt
+src/mumbl_data_contracts.egg-info/top_level.txt

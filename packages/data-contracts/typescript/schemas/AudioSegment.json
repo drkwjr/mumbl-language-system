@@ -1,0 +1,98 @@
+{
+  "properties": {
+    "audio_file": {
+      "title": "Audio File",
+      "type": "string"
+    },
+    "start": {
+      "title": "Start",
+      "type": "number"
+    },
+    "end": {
+      "title": "End",
+      "type": "number"
+    },
+    "speaker_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Speaker Id"
+    },
+    "transcript_text": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Transcript Text"
+    },
+    "lang": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Lang"
+    },
+    "dialect_probs": {
+      "anyOf": [
+        {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Dialect Probs"
+    },
+    "alignment_confidence": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Alignment Confidence"
+    },
+    "diarization_confidence": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Diarization Confidence"
+    }
+  },
+  "required": [
+    "audio_file",
+    "start",
+    "end"
+  ],
+  "title": "AudioSegment",
+  "type": "object"
+}

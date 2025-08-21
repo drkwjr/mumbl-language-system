@@ -1,0 +1,106 @@
+{
+  "properties": {
+    "text": {
+      "title": "Text",
+      "type": "string"
+    },
+    "lang": {
+      "title": "Lang",
+      "type": "string"
+    },
+    "labels": {
+      "$ref": "#/definitions/Labels"
+    },
+    "source_ref": {
+      "$ref": "#/definitions/SourceRef"
+    }
+  },
+  "required": [
+    "text",
+    "lang",
+    "labels",
+    "source_ref"
+  ],
+  "title": "TextSegment",
+  "type": "object",
+  "definitions": {
+    "Labels": {
+      "properties": {
+        "is_dialogue": {
+          "title": "Is Dialogue",
+          "type": "boolean"
+        },
+        "topic": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Topic"
+        },
+        "register_type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Register Type"
+        },
+        "code_switch_spans": {
+          "default": [],
+          "items": {
+            "maxItems": 2,
+            "minItems": 2,
+            "prefixItems": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "integer"
+              }
+            ],
+            "type": "array"
+          },
+          "title": "Code Switch Spans",
+          "type": "array"
+        }
+      },
+      "required": [
+        "is_dialogue"
+      ],
+      "title": "Labels",
+      "type": "object"
+    },
+    "SourceRef": {
+      "properties": {
+        "doc_id": {
+          "title": "Doc Id",
+          "type": "string"
+        },
+        "start": {
+          "title": "Start",
+          "type": "integer"
+        },
+        "end": {
+          "title": "End",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "doc_id",
+        "start",
+        "end"
+      ],
+      "title": "SourceRef",
+      "type": "object"
+    }
+  }
+}

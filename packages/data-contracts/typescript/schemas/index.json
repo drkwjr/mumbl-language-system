@@ -1,0 +1,32 @@
+{
+  "schemas": [
+    "LanguageProfileV1.json",
+    "G2PRule.json",
+    "G2POverride.json",
+    "TTSDefaults.json",
+    "CurationTargets.json",
+    "TextSegment.json",
+    "AudioSegment.json",
+    "SourceRef.json",
+    "Labels.json",
+    "SegmentScore.json"
+  ],
+  "models": {
+    "profiles": [
+      "LanguageProfileV1",
+      "G2PRule",
+      "G2POverride",
+      "TTSDefaults",
+      "CurationTargets"
+    ],
+    "segments": [
+      "TextSegment",
+      "AudioSegment",
+      "SourceRef",
+      "Labels"
+    ],
+    "scores": [
+      "SegmentScore"
+    ]
+  }
+}

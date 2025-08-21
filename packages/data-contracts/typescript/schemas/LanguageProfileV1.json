@@ -1,0 +1,292 @@
+{
+  "properties": {
+    "language": {
+      "title": "Language",
+      "type": "string"
+    },
+    "dialect": {
+      "title": "Dialect",
+      "type": "string"
+    },
+    "script": {
+      "title": "Script",
+      "type": "string"
+    },
+    "version": {
+      "default": "1.0.0",
+      "title": "Version",
+      "type": "string"
+    },
+    "updated_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Updated At"
+    },
+    "phoneme_inventory": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Phoneme Inventory",
+      "type": "array"
+    },
+    "g2p_rules": {
+      "default": [],
+      "items": {
+        "$ref": "#/definitions/G2PRule"
+      },
+      "title": "G2P Rules",
+      "type": "array"
+    },
+    "g2p_overrides": {
+      "default": [],
+      "items": {
+        "$ref": "#/definitions/G2POverride"
+      },
+      "title": "G2P Overrides",
+      "type": "array"
+    },
+    "lexicon_refs": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Lexicon Refs",
+      "type": "array"
+    },
+    "register_defaults": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "default": {
+        "formal": 0.3,
+        "informal": 0.7
+      },
+      "title": "Register Defaults",
+      "type": "object"
+    },
+    "style_tokens": {
+      "default": [
+        "calm",
+        "conversational",
+        "storytelling"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "title": "Style Tokens",
+      "type": "array"
+    },
+    "emotion_tokens": {
+      "default": [
+        "neutral",
+        "excited",
+        "reassuring"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "title": "Emotion Tokens",
+      "type": "array"
+    },
+    "tts_defaults": {
+      "$ref": "#/definitions/TTSDefaults",
+      "default": {
+        "speaking_rate": 1.0,
+        "pitch_bias": 0.0,
+        "pause_bias": 0.1,
+        "filler_bias": 0.05
+      }
+    },
+    "fallback_chain": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Fallback Chain",
+      "type": "array"
+    },
+    "curation_targets": {
+      "$ref": "#/definitions/CurationTargets",
+      "default": {
+        "min_minutes_90": 0.0,
+        "phoneme_coverage": 0.9,
+        "target_dialect_mix": null
+      }
+    },
+    "tts_strategy": {
+      "default": "standalone",
+      "enum": [
+        "standalone",
+        "grouped",
+        "cloud_fallback"
+      ],
+      "title": "Tts Strategy",
+      "type": "string"
+    }
+  },
+  "required": [
+    "language",
+    "dialect",
+    "script",
+    "phoneme_inventory"
+  ],
+  "title": "LanguageProfileV1",
+  "type": "object",
+  "definitions": {
+    "CurationTargets": {
+      "properties": {
+        "min_minutes_90": {
+          "default": 0.0,
+          "title": "Min Minutes 90",
+          "type": "number"
+        },
+        "phoneme_coverage": {
+          "default": 0.9,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Phoneme Coverage",
+          "type": "number"
+        },
+        "target_dialect_mix": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "type": "number"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Target Dialect Mix"
+        }
+      },
+      "title": "CurationTargets",
+      "type": "object"
+    },
+    "G2POverride": {
+      "properties": {
+        "word": {
+          "title": "Word",
+          "type": "string"
+        },
+        "ipa": {
+          "title": "Ipa",
+          "type": "string"
+        },
+        "dialect": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Dialect"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notes"
+        }
+      },
+      "required": [
+        "word",
+        "ipa"
+      ],
+      "title": "G2POverride",
+      "type": "object"
+    },
+    "G2PRule": {
+      "properties": {
+        "pattern": {
+          "title": "Pattern",
+          "type": "string"
+        },
+        "ipa": {
+          "title": "Ipa",
+          "type": "string"
+        },
+        "conditions": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Conditions"
+        },
+        "priority": {
+          "default": 0,
+          "title": "Priority",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "pattern",
+        "ipa"
+      ],
+      "title": "G2PRule",
+      "type": "object"
+    },
+    "TTSDefaults": {
+      "properties": {
+        "speaking_rate": {
+          "default": 1.0,
+          "maximum": 1.8,
+          "minimum": 0.5,
+          "title": "Speaking Rate",
+          "type": "number"
+        },
+        "pitch_bias": {
+          "default": 0.0,
+          "maximum": 12,
+          "minimum": -12,
+          "title": "Pitch Bias",
+          "type": "number"
+        },
+        "pause_bias": {
+          "default": 0.1,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Pause Bias",
+          "type": "number"
+        },
+        "filler_bias": {
+          "default": 0.05,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Filler Bias",
+          "type": "number"
+        }
+      },
+      "title": "TTSDefaults",
+      "type": "object"
+    }
+  }
+}

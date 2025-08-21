@@ -1,0 +1,55 @@
+{
+  "properties": {
+    "is_dialogue": {
+      "title": "Is Dialogue",
+      "type": "boolean"
+    },
+    "topic": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Topic"
+    },
+    "register_type": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Register Type"
+    },
+    "code_switch_spans": {
+      "default": [],
+      "items": {
+        "maxItems": 2,
+        "minItems": 2,
+        "prefixItems": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "integer"
+          }
+        ],
+        "type": "array"
+      },
+      "title": "Code Switch Spans",
+      "type": "array"
+    }
+  },
+  "required": [
+    "is_dialogue"
+  ],
+  "title": "Labels",
+  "type": "object"
+}

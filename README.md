@@ -1,95 +1,118 @@
-# Mumbl Language System
+# mumbl-language-system
 
-A comprehensive system for collecting, processing, and managing linguistic data.
+Pipelines, profiles, and tooling for Mumbl language ingestion, labeling, curation, TTS training, and runtime speech generation.
 
-## Overview
+This repo is separate from the `mumbl` product backend. The backend will call into `apps/runtime` or the API layer later.
 
-The Mumbl Language System is designed to facilitate the collection, processing, and management of linguistic data from various sources. The system currently includes a Wiktionary scraper with formatting capabilities and plans for manual data upload features.
+## 🏗️ Architecture
 
-## Features
+- **`apps/*`**: Worker and service applications
+  - `admin-ui/`: Modern React dashboard for system management
+  - `intake-worker/`: Data ingestion from various sources
+  - `text-lane/`: Text processing and LangExtract pipelines
+  - `audio-lane/`: Audio processing and transcription
+  - `curator/`: Quality control and segment scoring
+  - `profile-builder/`: Language profile generation
+  - `tts-trainer/`: TTS model training
+  - `synth-gen/`: Speech synthesis
+  - `runtime/`: Runtime API service
 
-### Wiktionary Scraper
+- **`packages/*`**: Shared libraries and contracts
+  - `data-contracts/`: Python Pydantic + TypeScript models
+  - `langextract-schemas/`: LangExtract schemas and few-shots
+  - `scoring/`: Quality scoring algorithms
+  - `storage/`: Database abstractions
+  - `logging/`: Structured logging and telemetry
+  - `utils/`: Common utilities
 
-- Scrapes linguistic data (definitions, pronunciations, examples, etc.) from Wiktionary
-- Supports scraping from both word lists and single words
-- Formats output in both JSON and Markdown
-- Includes progress tracking with ETA
-- Configurable limits for scraping
+- **`infra/*`**: Infrastructure and deployment
+  - `db/`: Database migrations and schema
+  - `docker/`: Container configurations
+  - `k8s/`: Kubernetes manifests
 
-### Planned Features
+- **`tests/*`**: Unit, integration, and e2e tests
+- **`docs/*`**: ADRs, runbooks, and playbooks
+- **`legacy/*`**: Migration holding area for previous repo modules
 
-- Manual data upload capabilities
-- Advanced data processing and analysis
-- Database integration for structured storage
-- API for accessing the linguistic data
-
-## Project Structure
-
-```
-mumbl-language-system/
-├── scraper/                  # Wiktionary scraper module
-│   ├── wiktionary_scraper.py # Main scraper script
-│   ├── format_output.py      # Formatting script for JSON output
-│   ├── scrape_and_format.py  # Combined script for scraping and formatting
-│   ├── scraper_config.py     # Configuration settings for the scraper
-│   └── README.md             # Documentation for the scraper
-├── word_lists/               # Lists of words for scraping
-├── scraped_data/             # Output directory for scraped data
-│   └── formatted/            # Formatted markdown output
-├── database/                 # Database module (future)
-├── docs/                     # Documentation
-└── utils/                    # Utility functions
-```
-
-## Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
+- Python 3.9+ (3.11 recommended)
+- Node 20+
+- Git
 
-- Python 3.6 or higher
-- Required Python packages (see requirements.txt)
+### Setup
+```bash
+# Clone and setup
+git clone <repository-url>
+cd mumbl-language-system
 
-### Installation
+# Bootstrap environment
+make bootstrap
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/drkwjr/mumbl-language-system.git
-   cd mumbl-language-system
-   ```
-
-2. Install the required packages:
-   ```
-   pip install -r requirements.txt
-   ```
-
-### Usage
-
-#### Wiktionary Scraper
-
-To use the Wiktionary scraper with a word list:
-
-```
-python scraper/scrape_and_format.py --word-list word_lists/your_wordlist.txt --print
+# Run checks
+make check
 ```
 
-To scrape a single word:
+### Development
 
+#### Admin UI
+```bash
+cd apps/admin-ui
+npm run dev  # Starts on http://localhost:5173
 ```
-python scraper/scrape_and_format.py --single-word "example" --print
+
+#### Profile Validation
+```bash
+# Validate a language profile
+python scripts/profile_validate.py profile.json
+
+# Create example profile
+python scripts/profile_validate.py --create-example example.json
 ```
 
-For more options, see the documentation in `scraper/README.md`.
+#### Data Contracts
+```bash
+# Generate schemas from Python models
+python scripts/generate_schemas.py
 
-## Development
+# Generate TypeScript types
+python scripts/generate_typescript_types.py
 
-This project uses a branching strategy with:
-- `main` - The main branch containing stable code
-- `dev` - Development branch for ongoing work
-- `prod` - Production branch for released versions
+# Build TypeScript package
+cd packages/data-contracts/typescript && npm run build
+```
 
-## License
+## 📋 Status
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+### ✅ Completed
+- **Monorepo Structure**: Clean, organized architecture
+- **Data Contracts**: Python Pydantic + TypeScript models with validation
+- **Admin UI**: Modern React dashboard with Tailwind CSS
+- **Profile Validation CLI**: Command-line validation tool
+- **Legacy Migration**: All old modules moved to `legacy/` with migration plan
 
-## Contact
+### 🔄 Next Steps
+- Migrate legacy modules to new structure
+- Implement core pipeline applications
+- Add comprehensive test coverage
+- Deploy infrastructure components
 
-For questions or suggestions, please open an issue on GitHub. 
+## 📚 Documentation
+
+- **Architecture**: See `docs/ADRs/` for design decisions
+- **Runbooks**: Operational procedures in `docs/runbooks/`
+- **Playbooks**: Strategic guides in `docs/playbooks/`
+- **Migration**: Detailed plan in `legacy/MIGRATION_NOTES.md`
+
+## 🤝 Contributing
+
+1. Follow the established monorepo structure
+2. Use the data contracts for type safety
+3. Add tests for new functionality
+4. Update documentation for changes
+5. Follow the migration plan for legacy code
+
+## 📄 License
+
+Copyright (c) 2025 Mumbl. All rights reserved. 

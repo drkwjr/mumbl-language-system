@@ -1,0 +1,34 @@
+{
+  "name": "@mumbl/data-contracts",
+  "version": "0.1.0",
+  "description": "TypeScript data contracts for Mumbl language system",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "npm run generate-types && tsc",
+    "generate-types": "json2ts -i schemas/index.json -o src/generated",
+    "generate-types-all": "for file in schemas/*.json; do json2ts -i \"$file\" -o src/generated; done",
+    "watch": "tsc --watch",
+    "clean": "rm -rf dist src/generated"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "json-schema-to-typescript": "^13.0.0"
+  },
+  "peerDependencies": {
+    "typescript": ">=4.5.0"
+  },
+  "files": [
+    "dist/**/*",
+    "schemas/**/*"
+  ],
+  "keywords": [
+    "mumbl",
+    "language",
+    "types",
+    "contracts"
+  ],
+  "license": "UNLICENSED",
+  "private": true
+}

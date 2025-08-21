@@ -1,0 +1,148 @@
+---
+alwaysApply: true
+---
+# DocketMath • Cursor Project Rules
+
+## 0) Purpose and Scope
+Ensure high engineering quality, minimal mistakes, small surgical changes, and fast recovery when things go wrong. These rules apply to all tasks: features, refactors, documentation updates, and hotfixes.
+
+## 1) Precedence and Context
+- **Inherit from devbrainsystem/***: These project rules extend, never contradict the base devbrain system
+- **Conflict resolution**: If conflicts exist, follow devbrainsystem first, then these rules
+- **Context requirement**: Always read `/context/docs/*` before changing related areas
+- **Documentation first**: Check product roadmap, token economy docs, and known bugs before starting
+
+## 2) Default Working Style
+**Plan first, then code.** Always start with:
+
+1. **File tree scan**: Use grep/ripgrep to find key terms and understand current implementation
+2. **Impact analysis**: Create short plan listing impacted files, data models, and potential risks
+3. **Testing strategy**: Propose specific tests and a clear rollback plan
+4. **Surgical changes**: Keep changes small, focused, and diff-friendly
+
+## 3) Acceptance Criteria Template (Per Task)
+For every task, define:
+- **Problem statement**: What problem this solves, who benefits, and measurable outcome
+- **Documentation updates**: Which `/context/docs/*` files need updating
+- **Test coverage**: New tests added or existing tests updated
+- **Observability**: Telemetry events and metrics added
+- **Recovery plan**: Backout steps verified and documented
+- **Quality gates**: No new lints or TypeScript errors
+
+## 4) Change Management
+- **Additive approach**: Prefer additive changes over complete rewrites
+- **Risk mitigation**: Feature flag anything risky or user-facing
+- **Database safety**: One schema change per migration, always reversible
+- **Single responsibility**: One clear responsibility per pull request
+- **Verification**: Include a "verification script" or manual test steps in PR description
+
+## 5) Coding Standards
+- **Type safety**: Strong typing everywhere possible, especially at boundaries
+- **Architecture**: Pure functions for business logic, thin controllers for HTTP handling
+- **Security-first**: No client-trusted values for pricing, tokens, or entitlements
+- **Idempotency**: Idempotency keys for any action that can be retried (especially token operations)
+- **Concurrency safety**: Guard against race conditions with transactions or locks
+- **Error handling**: Clear error taxonomy with actionable user messages
+
+## 6) Database and Migrations
+- **Reversibility**: Write migrations that can be safely rolled back
+- **Performance**: Backfill data in batches, never block the main thread
+- **Data integrity**: Add safe defaults and non-null constraints where valid
+- **Concurrency control**: Use `FOR UPDATE` or equivalent for token lots and balances
+- **Validation**: Include a data validation query in PR description
+
+## 7) Security and Privacy
+- **Logging safety**: Never log secrets, payment card numbers, or personally identifiable information
+- **Input validation**: Validate all inputs server-side, never trust client data
+- **Rate limiting**: Implement rate limits on sensitive endpoints (token operations, payments)
+- **Access control**: Role-based access control (RBAC) for admin paths
+- **Secrets management**: Stripe secrets and webhook secrets in environment variables only
+- **Least privilege**: Follow least privilege principle for API tokens and keys
+
+## 8) Reliability, Observability, and Telemetry
+**Key events to emit**:
+- `token.reserved`, `token.settled`, `token.released`
+- `calc.run.started`, `calc.run.succeeded`, `calc.run.failed`
+- `payment.processing`, `payment.succeeded`, `payment.failed`
+
+**Metrics to track**:
+- Error rates and latency percentiles
+- Token insufficiency events and retry patterns
+- Calculator usage patterns and performance
+
+**Structured logging**:
+- Include correlation IDs and idempotency keys
+- Add health and readiness routes in backend services
+
+## 9) Token Economy Invariants
+- **Server-side charging**: Tokens are charged only on the server, never trusted from client
+- **Reservation pattern**: Reserve tokens first, then settle or release based on outcome
+- **Fair ordering**: FIFO by expiry date, then by bucket priority
+- **Immutable ledger**: Ledger entries are immutable, token lots reconcile with ledger
+- **Idempotency protection**: Never double-charge on duplicate idempotency keys
+- **Documentation**: Document any calculator pricing changes in `/context/docs/token-economy.md`
+
+## 10) UI, UX, and Accessibility
+- **Performance baseline**: Keep workspace dashboard performant and responsive
+- **Accessibility**: Keyboard navigation and screen reader friendly controls
+- **Token visibility**: Show token balance and recent activity clearly in UI
+- **Non-blocking navigation**: Never block core navigation on background API loads
+- **User-friendly errors**: Clear error messages explaining "what happened" and "what to do next"
+- **Visual consistency**: Follow existing design patterns and maintain light mode preference
+
+## 11) Documentation and Architecture Decision Records (ADRs)
+- **Feature documentation**: For each feature, update relevant files in `/context/docs/*` and link from roadmap
+- **Decision records**: Use short ADRs for decisions affecting data models, pricing, or security
+- **API documentation**: Keep example requests and responses current in documentation
+- **Context updates**: Update file maps and context when adding new areas of code
+
+## 12) Testing Requirements
+**Required test coverage**:
+- **Unit tests**: Pure business logic functions, especially token calculations
+- **Integration tests**: Key API endpoints and database effects
+- **Concurrency tests**: Token reservation race conditions and concurrent access
+- **Idempotency tests**: Execute paths with duplicate idempotency keys
+- **Contract tests**: Stripe webhook payload handling with test stubs
+- **Manual QA**: Include a manual QA checklist in PR description
+
+## 13) Release, Deploy, and Rollback
+- **Feature flags**: Use feature flags for new user-facing surfaces
+- **Gradual rollout**: Dark launch where possible, then gradual user enablement
+- **Rollback readiness**: Include rollback script or clear manual steps in every PR
+- **Post-deploy verification**: Check metrics, logs, and run simple smoke tests
+- **Monitoring**: Set up alerts for key metrics before deploying risky changes
+
+## 14) Payments and Stripe Integration
+- **Test mode**: Until live mode, use test keys and verify webhook signatures
+- **Credit flow**: Credit tokens on successful webhook processing only
+- **Audit trail**: Record Stripe object IDs in ledger entry metadata
+- **Usage reporting**: Overage usage reporting must be batched, idempotent, and auditable
+- **Webhook reliability**: Implement retry logic and dead letter queues for webhook processing
+
+## 15) Performance and Cost Optimization
+- **Query efficiency**: Avoid N+1 queries in ledger and token lots operations
+- **Pagination**: Implement pagination for activity feeds and large data sets
+- **Caching strategy**: Cache calculator pricing server-side with short TTL
+- **Background processing**: Queue long-running or LLM-heavy tasks for background processing
+- **Resource monitoring**: Track database query performance and API response times
+
+## 16) Anti-Patterns to Avoid
+- **Big-bang refactors**: Prefer incremental improvements over complete rewrites
+- **Logic placement**: No business logic in HTTP controllers or React components
+- **Silent failures**: No silent catches without proper telemetry and error handling
+- **Partial failure**: Plan for partial failures when writing to multiple systems
+- **Tight coupling**: Avoid tight coupling between UI components and internal pricing logic
+
+## 17) Definition of Done Checklist
+Before marking any task complete:
+- [ ] Plan agreed upon and documented in PR comments
+- [ ] Code, tests, and documentation updated
+- [ ] Security considerations reviewed (threat model if applicable)
+- [ ] Telemetry implemented, dashboards updated if needed
+- [ ] Feature flag default value set appropriately
+- [ ] PR description includes test plan and rollback steps
+- [ ] All acceptance criteria met and verified
+
+## 18) Cursor Prompt Templates
+
+### Investigation Prompt

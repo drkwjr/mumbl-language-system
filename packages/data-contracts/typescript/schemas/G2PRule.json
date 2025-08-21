@@ -1,0 +1,38 @@
+{
+  "properties": {
+    "pattern": {
+      "title": "Pattern",
+      "type": "string"
+    },
+    "ipa": {
+      "title": "Ipa",
+      "type": "string"
+    },
+    "conditions": {
+      "anyOf": [
+        {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Conditions"
+    },
+    "priority": {
+      "default": 0,
+      "title": "Priority",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "pattern",
+    "ipa"
+  ],
+  "title": "G2PRule",
+  "type": "object"
+}

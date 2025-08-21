@@ -1,0 +1,42 @@
+{
+  "properties": {
+    "word": {
+      "title": "Word",
+      "type": "string"
+    },
+    "ipa": {
+      "title": "Ipa",
+      "type": "string"
+    },
+    "dialect": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Dialect"
+    },
+    "notes": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Notes"
+    }
+  },
+  "required": [
+    "word",
+    "ipa"
+  ],
+  "title": "G2POverride",
+  "type": "object"
+}

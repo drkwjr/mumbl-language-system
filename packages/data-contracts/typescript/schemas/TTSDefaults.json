@@ -1,0 +1,34 @@
+{
+  "properties": {
+    "speaking_rate": {
+      "default": 1.0,
+      "maximum": 1.8,
+      "minimum": 0.5,
+      "title": "Speaking Rate",
+      "type": "number"
+    },
+    "pitch_bias": {
+      "default": 0.0,
+      "maximum": 12,
+      "minimum": -12,
+      "title": "Pitch Bias",
+      "type": "number"
+    },
+    "pause_bias": {
+      "default": 0.1,
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Pause Bias",
+      "type": "number"
+    },
+    "filler_bias": {
+      "default": 0.05,
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Filler Bias",
+      "type": "number"
+    }
+  },
+  "title": "TTSDefaults",
+  "type": "object"
+}
