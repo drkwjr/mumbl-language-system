@@ -1,0 +1,7 @@
+{
+  "batch_id": "text-2025-08-21-001",
+  "lane": "text",
+  "language": "es",
+  "dialect": "es-MX",
+  "inputs": [{"uri":"s3://bucket/path/doc1.txt","doc_id":"SRC:doc1"}]
+}

@@ -1,0 +1,2 @@
+[console_scripts]
+dataset-build = mumbl_dataset_builder.tools.dataset_build:main

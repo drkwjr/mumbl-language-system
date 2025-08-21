@@ -1,0 +1,16 @@
+[project]
+name = "mumbl_format_guardians"
+version = "0.1.0"
+requires-python = ">=3.9"
+dependencies = [
+  "pydantic>=2.6,<3",
+]
+
+[project.scripts]
+profile-validate = "mumbl_format_guardians.tools.profile_validate:main"
+validate-text-jsonl = "mumbl_format_guardians.tools.validate_text_jsonl:main"
+validate-audio-dataset = "mumbl_format_guardians.tools.validate_audio_dataset:main"
+validate-scores = "mumbl_format_guardians.tools.validate_scores:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

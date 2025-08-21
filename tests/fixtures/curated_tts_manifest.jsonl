@@ -1,0 +1,2 @@
+{"wav":"clips/aaa.wav","sample_rate":24000,"duration_s":2.5,"text":"good morning","phonemes":"G UW D M AO R N IH NG","lang":"en","dialect":"en-IE","speaker_id":"en_mary","style_tags":["calm"],"granularity":"sentence"}
+{"wav":"clips/bbb.wav","sample_rate":24000,"duration_s":3.9,"text":"how are you","phonemes":"HH AW AA R Y UW","lang":"en","dialect":"en-IE","speaker_id":"en_mary","style_tags":["calm"],"granularity":"sentence"}

@@ -18,3 +18,12 @@
 - Record granularity honestly.  
 - Budget caps per language per day.  
 - Option to delete raw audio after clips are cut.
+
+## Orchestration
+
+Launch via API:
+```bash
+curl -X POST http://localhost:8000/flows/audio \
+-H "Content-Type: application/json" \
+-d @docs/examples/batch-manifest.json
+```

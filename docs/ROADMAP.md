@@ -162,6 +162,27 @@ This roadmap is the execution guide for the scaffolded repo. Tasks are grouped b
 
 ---
 
+## Implementation TODOs (Format Guardians & Orchestration)
+
+**Recent Implementation**: Added Format Guardians, Dataset Builder, Orchestration, and Runtime API packages.
+
+**Next Priority Tasks:**
+- [ ] **Wire real LangExtract** in text lane flows (replace stubs in `mumbl_orchestration.flows_text`)
+- [ ] **Integrate audio processing providers** in audio lane flows (replace stubs in `mumbl_orchestration.flows_audio`)
+- [ ] **Call validators from flows** - integrate format guardians into orchestration validation steps
+- [ ] **Implement curator scoring/dedupe** logic in curator flows (replace stubs in `mumbl_orchestration.flows_curator`)
+- [ ] **Replace stub S3 paths** with real storage integration in all flows
+- [ ] **Add LUFS check** when audio library is introduced for audio validation
+- [ ] **Connect runtime API** to real Prefect deployment for production orchestration
+
+**New Commands Available:**
+- `profile-validate` - Profile validation CLI
+- `validate-text-jsonl` - Text validation CLI  
+- `validate-audio-dataset` - Audio validation CLI
+- `validate-scores` - Scores validation CLI
+- `dataset-build tts ...` - Dataset building CLI
+- `make run-api` - Runtime API server
+
 ## Risks and Controls
 
 - LangExtract drift: grounding required, HTML spot-checks, contract tests fail builds.

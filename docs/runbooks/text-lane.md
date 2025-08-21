@@ -16,3 +16,12 @@
 - Parallelize by chunk.  
 - Fail batch if grounding or validation fails.  
 - Store artifacts in object storage with batch ID.
+
+## Orchestration
+
+Launch via API:
+```bash
+curl -X POST http://localhost:8000/flows/text \
+-H "Content-Type: application/json" \
+-d @docs/examples/batch-manifest.json
+```

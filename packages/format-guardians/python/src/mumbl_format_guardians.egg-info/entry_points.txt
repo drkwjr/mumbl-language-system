@@ -1,0 +1,5 @@
+[console_scripts]
+profile-validate = mumbl_format_guardians.tools.profile_validate:main
+validate-audio-dataset = mumbl_format_guardians.tools.validate_audio_dataset:main
+validate-scores = mumbl_format_guardians.tools.validate_scores:main
+validate-text-jsonl = mumbl_format_guardians.tools.validate_text_jsonl:main

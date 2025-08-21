@@ -19,6 +19,9 @@ This repo is separate from the `mumbl` product backend. The backend will call in
 
 - **`packages/*`**: Shared libraries and contracts
   - `data-contracts/`: Python Pydantic + TypeScript models
+  - `format-guardians/`: Automated validation tools for data quality
+  - `dataset-builder/`: CLI tools for building training datasets
+  - `orchestration/`: Prefect-based workflow orchestration
   - `langextract-schemas/`: LangExtract schemas and few-shots
   - `scoring/`: Quality scoring algorithms
   - `storage/`: Database abstractions
@@ -74,7 +77,28 @@ cd apps/admin-ui
 npm run dev  # Starts on http://localhost:3500
 ```
 
-#### Profile Validation
+#### Format Validation & Dataset Building
+```bash
+# Validate language profiles
+profile-validate --path profile.json
+
+# Validate text dialogue corpus
+validate-text-jsonl --path text_corpus.jsonl
+
+# Validate audio dataset
+validate-audio-dataset --clips_dir ./clips --csv metadata.csv
+
+# Validate scores
+validate-scores --path scores.jsonl
+
+# Build TTS dataset
+dataset-build tts --input-manifest curated_manifest.jsonl --out-dir ./dataset
+
+# Run runtime API
+make run-api  # Starts on http://localhost:8000
+```
+
+#### Profile Validation (Legacy)
 ```bash
 # Validate a language profile
 python scripts/profile_validate.py profile.json
@@ -100,6 +124,10 @@ cd packages/data-contracts/typescript && npm run build
 ### ✅ Completed
 - **Monorepo Structure**: Clean, organized architecture with proper separation of concerns
 - **Data Contracts**: Python Pydantic v2 + TypeScript models with JSON Schema generation
+- **Format Guardians**: Automated validation tools for text, audio, scores, and profiles
+- **Dataset Builder**: CLI tools for building training datasets with built-in linting
+- **Orchestration**: Prefect-based workflow orchestration for text, audio, and curator lanes
+- **Runtime API**: FastAPI service for launching workflows and preflight checks
 - **Admin UI**: Modern React dashboard with Tailwind CSS v4 and PostCSS integration
 - **Profile Validation CLI**: Command-line tool for LanguageProfile JSON validation
 - **Legacy Migration**: All old modules moved to `legacy/` with detailed migration plan
