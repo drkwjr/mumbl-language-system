@@ -1,0 +1,21 @@
+{
+  "language": "ak",
+  "dialect": "ak-GH",
+  "script": "Latin",
+  "version": "1.0.0",
+  "phoneme_inventory": ["p","b","t","d","k","g","f","v","s","z","h","m","n","ɲ","ŋ","l","r","j","w","i","e","ɛ","a","ɔ","o","u"],
+  "g2p_rules": [
+    {"pattern":"ky","ipa":"c͡ɕ"},
+    {"pattern":"gy","ipa":"ɟ͡ʑ"},
+    {"pattern":"dw","ipa":"d͡ʑʷ"},
+    {"pattern":"nw","ipa":"ɲʷ"}
+  ],
+  "g2p_overrides": [{"word":"Gye Nyame","ipa":"ɟe ɲame"}],
+  "register_defaults": {"formal": 0.3, "informal": 0.7},
+  "style_tokens": ["calm","teaching","storytelling"],
+  "emotion_tokens": ["neutral","encouraging"],
+  "tts_defaults": {"speaking_rate":1.0,"pitch_bias":0,"pause_bias":0.12,"filler_bias":0.03},
+  "fallback_chain": [],
+  "curation_targets": {"min_minutes_90": 60, "phoneme_coverage": 0.9},
+  "tts_strategy": "standalone"
+}
