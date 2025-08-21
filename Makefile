@@ -1,4 +1,4 @@
-.PHONY: bootstrap check fmt test clean generate-schemas generate-types build-admin-ui
+.PHONY: bootstrap check fmt test clean generate-schemas generate-types build-admin-ui admin-ui stop-admin-ui
 
 bootstrap:
 	bash scripts/bootstrap_env.sh
@@ -31,3 +31,11 @@ build-admin-ui:
 
 build-contracts:
 	cd packages/data-contracts/typescript && npm run build
+
+# Start admin UI with full setup and browser opening
+admin-ui:
+	./scripts/start_admin_ui.sh
+
+# Stop admin UI processes
+stop-admin-ui:
+	./scripts/stop_admin_ui.sh

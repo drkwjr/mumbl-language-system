@@ -80,5 +80,6 @@ The following modules have been moved to `legacy/` for review and migration:
 ## Status
 
 - ✅ **Moved to legacy**: All old modules relocated
+- ✅ **Initial setup complete**: Monorepo structure, data contracts, admin UI, and tooling ready
 - 🔄 **Next**: Begin Phase 1 review and assessment
 - 📋 **Priority**: Start with `utils/` and `database/` modules

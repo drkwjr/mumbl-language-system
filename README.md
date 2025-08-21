@@ -58,8 +58,20 @@ make check
 
 #### Admin UI
 ```bash
+# Quick start with full setup and browser opening
+make admin-ui
+
+# Or run the script directly
+./scripts/start_admin_ui.sh
+
+# Stop admin UI processes
+make stop-admin-ui
+# Or run the script directly
+./scripts/stop_admin_ui.sh
+
+# Manual start (if already set up)
 cd apps/admin-ui
-npm run dev  # Starts on http://localhost:5173
+npm run dev  # Starts on http://localhost:3500
 ```
 
 #### Profile Validation
@@ -86,17 +98,19 @@ cd packages/data-contracts/typescript && npm run build
 ## 📋 Status
 
 ### ✅ Completed
-- **Monorepo Structure**: Clean, organized architecture
-- **Data Contracts**: Python Pydantic + TypeScript models with validation
-- **Admin UI**: Modern React dashboard with Tailwind CSS
-- **Profile Validation CLI**: Command-line validation tool
-- **Legacy Migration**: All old modules moved to `legacy/` with migration plan
+- **Monorepo Structure**: Clean, organized architecture with proper separation of concerns
+- **Data Contracts**: Python Pydantic v2 + TypeScript models with JSON Schema generation
+- **Admin UI**: Modern React dashboard with Tailwind CSS v4 and PostCSS integration
+- **Profile Validation CLI**: Command-line tool for LanguageProfile JSON validation
+- **Legacy Migration**: All old modules moved to `legacy/` with detailed migration plan
+- **Development Tooling**: Automated startup scripts, Makefile targets, and environment setup
+- **TypeScript Integration**: Generated types from Pydantic models with proper export handling
 
 ### 🔄 Next Steps
-- Migrate legacy modules to new structure
-- Implement core pipeline applications
-- Add comprehensive test coverage
-- Deploy infrastructure components
+- Migrate legacy modules to new structure (scraper, subagents, database, utils)
+- Implement core pipeline applications (intake-worker, text-lane, audio-lane)
+- Add comprehensive test coverage for data contracts and CLI tools
+- Deploy infrastructure components (database, Docker, Kubernetes)
 
 ## 📚 Documentation
 
