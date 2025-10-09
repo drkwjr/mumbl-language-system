@@ -3,9 +3,22 @@ __pycache__/
 .env
 .env.*
 .venv/
+.venv-310/
 node_modules/
 dist/
 build/
 coverage/
+.coverage
 .cache/
 .DS_Store
+
+# Large document files (user uploads)
+*.pdf
+*.epub
+
+# Extracted working files
+extracted_documents/
+
+# Test outputs
+test_documents/*.jsonl
+test_documents/text_dialogue_corpus.jsonl

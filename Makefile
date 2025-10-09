@@ -56,3 +56,20 @@ stop-admin-ui:
 
 run-api:
 	uvicorn apps.runtime.api:app --reload --host 0.0.0.0 --port 8000
+
+# Database management
+setup-db:
+	./infra/db/setup_db.sh
+
+db-connect:
+	PGPASSWORD=mumbl_dev_password psql -U mumbl_user -d mumbl_lang_system
+
+db-reset:
+	PGPASSWORD=mumbl_dev_password psql -U mumbl_user -d mumbl_lang_system -c "TRUNCATE text_segments, audio_segments, segment_scores, raw_artifacts CASCADE;"
+
+# Text Lane
+install-text-lane:
+	pip install -e apps/text-lane
+
+test-text-lane:
+	python -c "from text_lane.processor import TextLaneProcessor; print('✓ Text Lane installed')"

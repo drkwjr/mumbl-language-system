@@ -121,7 +121,16 @@ cd packages/data-contracts/typescript && npm run build
 
 ## 📋 Status
 
-### ✅ Completed
+### ✅ Phase 2 & 3 Complete (October 9, 2025)
+- **Database Schema**: PostgreSQL with 8 tables, migrations, rollback support ✅
+- **Storage Layer**: Connection management, repository pattern, data access ✅
+- **Text Lane MVP**: Chunking, labeling, deduplication, JSONL export ✅
+- **Mock LangExtract**: Dialogue/topic/register detection working ✅
+- **End-to-End Tested**: Document → DB → validated output ✅
+- **Deduplication**: SHA-256 hash prevents duplicates ✅
+- **Grounding**: Every label has source offsets ✅
+
+### ✅ Previously Completed
 - **Monorepo Structure**: Clean, organized architecture with proper separation of concerns
 - **Data Contracts**: Python Pydantic v2 + TypeScript models with JSON Schema generation
 - **Format Guardians**: Automated validation tools for text, audio, scores, and profiles
@@ -134,11 +143,13 @@ cd packages/data-contracts/typescript && npm run build
 - **Development Tooling**: Automated startup scripts, Makefile targets, and environment setup
 - **TypeScript Integration**: Generated types from Pydantic models with proper export handling
 
-### 🔄 Next Steps
-- Migrate legacy modules to new structure (scraper, subagents, database, utils)
-- Implement core pipeline applications (intake-worker, text-lane, audio-lane)
-- Add comprehensive test coverage for data contracts and CLI tools
-- Deploy infrastructure components (database, Docker, Kubernetes)
+### 🔄 Next Steps (Phase 4+)
+- Real LangExtract integration (replace mock)
+- HTML spot-check generation
+- Audio Lane: YouTube download, ASR, diarization
+- Curator: Scoring rubric, advanced deduplication
+- TTS training harness
+- Runtime speech synthesis pipeline
 
 ## 📚 Documentation
 
