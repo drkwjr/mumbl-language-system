@@ -1,7 +1,7 @@
 ---
 alwaysApply: true
 ---
-# DocketMath • Cursor Project Rules
+# Mumbl Language System • Cursor Project Rules
 
 ## 0) Purpose and Scope
 Ensure high engineering quality, minimal mistakes, small surgical changes, and fast recovery when things go wrong. These rules apply to all tasks: features, refactors, documentation updates, and hotfixes.
@@ -48,7 +48,6 @@ For every task, define:
 - **Reversibility**: Write migrations that can be safely rolled back
 - **Performance**: Backfill data in batches, never block the main thread
 - **Data integrity**: Add safe defaults and non-null constraints where valid
-- **Concurrency control**: Use `FOR UPDATE` or equivalent for token lots and balances
 - **Validation**: Include a data validation query in PR description
 
 ## 7) Security and Privacy
@@ -139,7 +138,6 @@ Before marking any task complete:
 - [ ] Code, tests, and documentation updated
 - [ ] Security considerations reviewed (threat model if applicable)
 - [ ] Telemetry implemented, dashboards updated if needed
-- [ ] Feature flag default value set appropriately
 - [ ] PR description includes test plan and rollback steps
 - [ ] All acceptance criteria met and verified
 

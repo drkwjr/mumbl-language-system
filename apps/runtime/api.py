@@ -5,6 +5,14 @@ from mumbl_orchestration.flows_text import text_lane_flow
 from mumbl_orchestration.flows_audio import audio_lane_flow
 from mumbl_orchestration.flows_curator import curator_flow
 
+# Import TTS training flow
+try:
+    from mumbl_orchestration.flows_tts import tts_training_flow
+except ImportError:
+    # Fallback if flow not available
+    def tts_training_flow(manifest: dict) -> dict:
+        return {"status": "not_implemented", "message": "TTS training flow not available"}
+
 app = FastAPI(title="Mumbl Runtime Admin API", version="0.1.0")
 
 class BatchInput(BaseModel):
@@ -54,6 +62,17 @@ def launch_curator(req: FlowRequest):
         "inputs": [i.dict() for i in req.inputs],
     }
     return curator_flow(man)
+
+@app.post("/flows/tts-training")
+def launch_tts_training(req: FlowRequest):
+    man = {
+        "batch_id": req.batch_id,
+        "lane": "tts-training",
+        "language": req.language,
+        "dialect": req.dialect,
+        "inputs": [i.dict() for i in req.inputs],
+    }
+    return tts_training_flow(man)
 
 class PreflightResponse(BaseModel):
     hours_estimated: float

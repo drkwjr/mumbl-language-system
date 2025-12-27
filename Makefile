@@ -1,4 +1,4 @@
-.PHONY: bootstrap check fmt test unit integration e2e clean generate-schemas generate-types build-admin-ui admin-ui stop-admin-ui run-api
+.PHONY: bootstrap setup-packages check-deps check fmt test unit integration e2e clean generate-schemas generate-types build-admin-ui admin-ui stop-admin-ui run-api
 
 bootstrap:
 	bash scripts/bootstrap_env.sh
@@ -7,6 +7,12 @@ bootstrap:
 	pip install -e packages/dataset-builder/python
 	pip install -e packages/orchestration/python
 	cd apps/admin-ui && npm i || true
+
+setup-packages:
+	bash scripts/setup_all_packages.sh
+
+check-deps:
+	python scripts/check_dependencies.py
 
 check:
 	rufflehog --version >/dev/null 2>&1 || true

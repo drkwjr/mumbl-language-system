@@ -4,6 +4,16 @@
 
 @layer base {
   html {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Space Grotesk', 'Sora', 'Segoe UI', sans-serif;
+  }
+
+  body {
+    min-height: 100vh;
+    background-color: #020617;
+    color: #e2e8f0;
+  }
+
+  #root {
+    min-height: 100vh;
   }
 }

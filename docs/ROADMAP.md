@@ -11,7 +11,7 @@ This roadmap is the execution guide for the scaffolded repo. Tasks are grouped b
 - [ ] **Profiles live**: LanguageProfile for 2 launch languages, one dialect each, with G2P rules and overrides.
 - [ ] **TTS training live**: multi-speaker VITS per language or per group, model registry with evals, at least one production voice per launch language.
 - [ ] **Runtime path live**: ASR → LLM → G2P → TTS with an API. Admin can trigger a short test conversation.
-- [ ] **Admin UI useful**: Language Completeness dashboard, Seek-More panels, preflight cost estimate, YouTube link ingestion.
+- [ ] **Admin UI useful**: Language Completeness dashboard, Seek-More panels, preflight cost estimate, YouTube link ingestion, discovery/ingest visibility.
 - [ ] **Ops in place**: Postgres schema, object storage, dataset and model registries, CI checks, basic dashboards, promotion gates.
 
 ---
@@ -20,10 +20,12 @@ This roadmap is the execution guide for the scaffolded repo. Tasks are grouped b
 
 **Goal:** Freeze data contracts and prevent drift.
 
+**Status:** ✅ Foundations in place; CI drift checks deferred.
+
 **Tasks**
-- [ ] Add JSON Schemas for all contracts under `docs/architecture/data-contracts.md` and export to `packages/data-contracts/`.
-- [ ] Implement `profile-validate` CLI (reads a LanguageProfile JSON, validates with pydantic, prints errors).
-- [ ] Add CI job to fail on schema or contract drift.
+- [x] Add JSON Schemas for all contracts and export to `packages/data-contracts/` (scripts exist).
+- [x] Implement `profile-validate` CLI (reads a LanguageProfile JSON, validates with pydantic, prints errors).
+- [ ] Add CI job to fail on schema or contract drift. (deferred)
 
 **Acceptance**
 - [ ] Running `profile-validate examples/ak-GH.language-profile.json` passes.
@@ -35,8 +37,10 @@ This roadmap is the execution guide for the scaffolded repo. Tasks are grouped b
 
 **Goal:** Storage + DB are ready for lanes.
 
+**Status:** ✅ Core tables + migrations exist; object storage + lifecycle rules pending.
+
 **Tasks**
-- [ ] Postgres tables: `raw_artifacts`, `text_segments`, `audio_segments`, `segment_scores`, `language_profiles`, `voices`, `datasets`, `model_registry`.
+- [x] Postgres tables: `raw_artifacts`, `text_segments`, `audio_segments`, `segment_scores`, `language_profiles`, `voices`, `datasets`, `model_registry`.
 - [ ] S3-compatible buckets and path layout for raw audio, normalized clips, JSONL, CSV, and dataset snapshots.
 - [ ] Lifecycle rules: keep clips, optionally delete raw audio after N days.
 
@@ -71,15 +75,36 @@ This roadmap is the execution guide for the scaffolded repo. Tasks are grouped b
 
 ---
 
+## Milestone C2 — Radio Discovery + Ingest Reliability
+
+**Goal:** Reliable station coverage, long-running capture, and visibility.
+
+**Tasks**
+- [x] Expand discovery sources (multi-country directories + wiki + other public lists).
+- [x] Discovery coverage metrics: per-country station counts, source coverage stats.
+- [x] Canonical station dedupe + provenance linking.
+- [x] Long-running ingest scheduler with retries + backoff + per-station health.
+- [x] Station auto-quarantine for repeated hard failures.
+- [ ] Audio quality signals: bitrate stability, dropouts, silence ratio, codec failures. (silence ratio + codec/bitrate partially tracked; dropouts pending)
+- [x] Admin visibility: per-station ingest health + global pipeline status.
+- [x] Label mapping workflow (raw LID → ISO-639-3) with admin controls + backfill script.
+
+**Acceptance**
+- [ ] 24h run completes with automatic retries and visible health in admin.
+- [x] Coverage report shows source totals + deltas for targeted countries.
+- [ ] Coverage report includes auto-quarantine counts and audio quality rollups.
+
 ## Milestone D — Audio Lane MVP
 
 **Goal:** Turn long audio into training-ready clips.
 
+**Status:** ✅ MVP implemented; heavy dependencies and model downloads still required.
+
 **Tasks**
-- [ ] Ingestion for YouTube link and file upload. Preflight duration and cost estimate.
-- [ ] ASR + diarization. Sentence-level alignment first; word-level when feasible.
-- [ ] Normalization: mono, 22.05 or 24 kHz, conservative trims. Clip length target 2–12 seconds.
-- [ ] Emit `paired_speech_corpus.csv` with confidences and granularity noted.
+- [x] Ingestion for YouTube link and file upload. Preflight duration and cost estimate.
+- [x] ASR + diarization. Sentence-level alignment first; word-level when feasible.
+- [x] Normalization: mono, 22.05 or 24 kHz, conservative trims. Clip length target 2–12 seconds.
+- [x] Emit `paired_speech_corpus.csv` with confidences and granularity noted.
 
 **Acceptance**
 - [ ] A long sample link produces clips, CSV, and artifacts within projected cost.
@@ -91,11 +116,13 @@ This roadmap is the execution guide for the scaffolded repo. Tasks are grouped b
 
 **Goal:** Score, dedupe, gate, and snapshot.
 
+**Status:** ✅ Core logic implemented; needs production tuning.
+
 **Tasks**
-- [ ] Scoring rubric with subscores: clarity, alignment, diarization, transcript accuracy, validity, shape.
-- [ ] Exact dupes: text hash and audio fingerprint. Near-dupes: embeddings cosine.
-- [ ] Policy gates for sensitive content.
-- [ ] Dataset snapshots with cards and audit trail.
+- [x] Scoring rubric with subscores: clarity, alignment, diarization, transcript accuracy, validity, shape.
+- [x] Exact dupes: text hash and audio fingerprint. Near-dupes: embeddings cosine.
+- [x] Policy gates for sensitive content.
+- [x] Dataset snapshots with cards and audit trail.
 
 **Acceptance**
 - [ ] Curated minutes ≥90 and ≥70 computed. Duplicates suppressed. Policy gates applied.
@@ -177,12 +204,31 @@ This roadmap is the execution guide for the scaffolded repo. Tasks are grouped b
 
 **Next Priority Tasks:**
 - [ ] **Wire real LangExtract** in text lane flows (replace stubs in `mumbl_orchestration.flows_text`)
-- [ ] **Integrate audio processing providers** in audio lane flows (replace stubs in `mumbl_orchestration.flows_audio`)
+- [x] **Integrate audio processing providers** in audio lane flows (replace stubs in `mumbl_orchestration.flows_audio`)
 - [ ] **Call validators from flows** - integrate format guardians into orchestration validation steps
-- [ ] **Implement curator scoring/dedupe** logic in curator flows (replace stubs in `mumbl_orchestration.flows_curator`)
+- [x] **Implement curator scoring/dedupe** logic in curator flows (replace stubs in `mumbl_orchestration.flows_curator`)
 - [ ] **Replace stub S3 paths** with real storage integration in all flows
 - [ ] **Add LUFS check** when audio library is introduced for audio validation
 - [ ] **Connect runtime API** to real Prefect deployment for production orchestration
+- [ ] **Define minimal production run profile** (station sampling, quotas, cost caps, success criteria)
+- [ ] **Add discovery/ingest cost profile** (compute/storage/LLM budget assumptions)
+
+## Infrastructure and Cost Notes
+
+**Goal:** Keep heavy dependencies optional and off local laptops when needed.
+
+**Options**
+- Run heavy audio deps (torch/speechbrain/pyannote) on a VM or Docker host.
+- Store model caches on a shared volume or object storage to avoid re-downloads.
+- Use a small always-on worker for ingest while admin/UI run locally.
+
+**Acceptance**
+- [ ] Document runtime cost assumptions and storage growth per hour of capture.
+
+## Recent Delivery Notes (Radio)
+
+- ✅ Added an idempotent migration runner (`scripts/apply_migrations.py`) for Supabase.
+- ✅ Continuous ingestion runner available (`scripts/run_radio_ingest_daemon.py`).
 
 **New Commands Available:**
 - `profile-validate` - Profile validation CLI
@@ -216,6 +262,10 @@ This roadmap is the execution guide for the scaffolded repo. Tasks are grouped b
 - [ ] Post-OCR spell checking and correction
 - [ ] OCR confidence scores per word/line
 - [ ] Human-in-the-loop OCR correction workflow
+
+
+### Radio Thing
+- [ ] Hook it up so that the audio isnt stored locally, but rather elsewhere
 
 ---
 

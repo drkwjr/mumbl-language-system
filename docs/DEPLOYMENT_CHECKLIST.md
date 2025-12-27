@@ -26,6 +26,11 @@
 - [ ] Migration notes reviewed
 - [ ] Runbooks updated
 
+### ✅ Radio ingestion readiness
+- [ ] Dependency check passes (`python scripts/check_ingest_deps.py`)
+- [ ] One-shot capture run completes (`python scripts/run_radio_ingest_once.py`)
+- [ ] Recent shards + segments validated (`python scripts/validate_radio_ingest.py`)
+
 ## Deployment Steps
 
 ### 1. Database Setup

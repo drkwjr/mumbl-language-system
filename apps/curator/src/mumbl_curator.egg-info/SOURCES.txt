@@ -1,0 +1,13 @@
+README.md
+setup.py
+src/curator/__init__.py
+src/curator/deduplicator.py
+src/curator/policy_gates.py
+src/curator/processor.py
+src/curator/scorer.py
+src/curator/snapshot.py
+src/mumbl_curator.egg-info/PKG-INFO
+src/mumbl_curator.egg-info/SOURCES.txt
+src/mumbl_curator.egg-info/dependency_links.txt
+src/mumbl_curator.egg-info/requires.txt
+src/mumbl_curator.egg-info/top_level.txt

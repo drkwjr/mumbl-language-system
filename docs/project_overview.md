@@ -148,4 +148,7 @@ The system requires:
 
 ## Getting Started
 
-See the README.md file for instructions on setting up and running the system. 
+See the README.md file for instructions on setting up and running the system.
+For the current pipeline map, see `docs/data_pipeline.md`.
+For the latest working status, see `docs/CURRENT_STATUS.md`.
+For documentation index and sources of truth, see `docs/README.md`.

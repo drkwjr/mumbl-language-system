@@ -2,11 +2,16 @@
 
 ## Overview
 
-The Mumbl Language Processing System uses a PostgreSQL database to store linguistic data in a structured and relational format. This document details the database schema, including tables, relationships, and indexing strategies.
+The Mumbl Language Processing System uses PostgreSQL to store linguistic data and radio ingestion data. This document summarizes the core tables and links to the canonical migrations in `infra/db/migrations/`.
+
+**Source of truth**: schema migrations in `infra/db/migrations/`.
 
 ## Database Schema
 
-The database schema is defined in `database/schema.sql` and consists of the following main components:
+The schema is defined via migrations in `infra/db/migrations/` and consists of two major domains:
+
+1) **Language data + training artifacts** (text/audio segments, scores, profiles, datasets)
+2) **Radio discovery + ingestion** (stations, shards, segments, provenance, pipeline events)
 
 ### Core Language Tables
 
@@ -198,6 +203,26 @@ Tracks information about data sources and their reliability.
 | license_info | TEXT | License information |
 | notes | TEXT | Additional notes |
 | created_at | TIMESTAMP WITH TIME ZONE | Record creation timestamp |
+
+## Radio Discovery + Ingestion Tables (current)
+
+These are the primary tables for radio ingestion and discovery workflows:
+
+- `radio_sources`: station registry + metadata
+- `radio_shards`: raw captured audio shards per station
+- `radio_segments`: speech segments + LID metadata
+- `station_provenance`: discovery evidence per station
+- `discovery_sources` / `discovery_runs`: discovery registry and run history
+- `pipeline_events`: event log for pipeline stages
+- `segment_language_verifications`: LLM language verification records
+- `capture_targets`: active capture filters (countries/languages)
+- `language_families` / `language_taxonomy` / `language_dialects`: language taxonomy tables
+- `radio_station_daypart` / `radio_station_hourly`: listening-time aggregates
+
+Related docs:
+- `docs/station-discovery.md`
+- `docs/runbooks/ingest.md`
+- `docs/radio-product-views.md`
 | updated_at | TIMESTAMP WITH TIME ZONE | Record update timestamp |
 
 **Indexes:**

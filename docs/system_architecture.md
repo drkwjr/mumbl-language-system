@@ -4,6 +4,8 @@
 
 The Mumbl Language System is a comprehensive platform for processing, validating, and orchestrating language data pipelines. The system is built with a modular architecture that ensures data quality, provides automated validation, and enables scalable workflow orchestration.
 
+See `docs/README.md` for the documentation index and sources of truth.
+
 ## Core Architecture Components
 
 ### 1. Format Guardians Layer

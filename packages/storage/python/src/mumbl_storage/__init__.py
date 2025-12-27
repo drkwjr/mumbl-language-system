@@ -5,6 +5,10 @@ from mumbl_storage.repositories import (
     TextSegmentRepository,
     AudioSegmentRepository,
     SegmentScoreRepository,
+    SegmentLanguageVerificationRepository,
+    PipelineEventRepository,
+    DatasetRepository,
+    ModelRegistryRepository,
     LanguageProfileRepository,
 )
 
@@ -14,6 +18,9 @@ __all__ = [
     "TextSegmentRepository",
     "AudioSegmentRepository",
     "SegmentScoreRepository",
+    "SegmentLanguageVerificationRepository",
+    "PipelineEventRepository",
+    "DatasetRepository",
+    "ModelRegistryRepository",
     "LanguageProfileRepository",
 ]
-

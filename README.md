@@ -53,8 +53,44 @@ cd mumbl-language-system
 # Bootstrap environment
 make bootstrap
 
+# Install all packages (core + apps)
+make setup-packages
+
+# Verify dependencies
+make check-deps
+
 # Run checks
 make check
+```
+
+### Installing Additional Dependencies
+
+Some components require additional dependencies:
+
+**Audio Lane** (YouTube downloads, ASR, diarization):
+```bash
+pip install yt-dlp librosa soundfile pyannote.audio torch
+```
+
+**Curator** (text embeddings for deduplication):
+```bash
+pip install sentence-transformers
+```
+
+**TTS Trainer** (YAML config support):
+```bash
+pip install pyyaml
+```
+
+All packages can be installed via their setup.py:
+```bash
+# Install individual packages
+cd apps/audio-lane && pip install -e .
+cd apps/curator && pip install -e .
+cd apps/tts-trainer && pip install -e .
+
+# Or use the setup script
+make setup-packages
 ```
 
 ### Development

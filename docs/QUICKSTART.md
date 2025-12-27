@@ -1,7 +1,7 @@
 # Mumbl Language System - Quick Start Guide
 
-**Updated**: October 9, 2025  
-**Status**: Phase 2 & 3 Complete - Text Lane Functional ✅
+**Updated**: December 26, 2025  
+**Status**: Text Lane Functional ✅ + Radio Discovery/Ingress Ready ✅
 
 ---
 
@@ -258,10 +258,13 @@ make test-text-lane
 
 ## 📚 Key Documentation
 
+- **`docs/README.md`** - Documentation index + sources of truth
 - **`docs/phase2-3-summary.md`** - What we just built
 - **`docs/ROADMAP.md`** - Full V1 roadmap
 - **`docs/architecture/overview.md`** - System architecture
 - **`docs/runbooks/text-lane.md`** - Text lane operations
+- **`docs/runbooks/ingest.md`** - Radio ingestion operations
+- **`docs/station-discovery.md`** - Discovery pipeline details
 - **`infra/db/schema.md`** - Database schema reference
 
 ---
@@ -307,4 +310,45 @@ make test-text-lane
 **Built by**: Mumbl Team  
 **Last Updated**: October 9, 2025  
 **Version**: 0.1.0 (Text Lane MVP)
+### ✅ Radio Discovery + Ingest (Ready)
 
+Discovery and ingestion are now wired for Ghana/Somalia, with admin visibility.
+
+```bash
+# 1) Run station discovery
+python scripts/discovery/seed_sources.py
+python scripts/discovery/run_discovery.py
+
+# 2) Start ingestion API (admin reads from this)
+./scripts/start_radio_ingestion_api.sh
+
+# 3) Run a one-shot capture cycle
+python scripts/run_radio_ingest_once.py
+
+# Optional: keep the scheduler running continuously
+python scripts/run_radio_ingest_daemon.py
+
+# 4) Validate recent outputs
+python scripts/validate_radio_ingest.py
+```
+
+### ✅ Admin UI (Discovery + Pipeline Visibility)
+
+```bash
+./scripts/start_admin_ui.sh
+```
+
+The Sources page includes discovery activity and recent runs.
+
+### "ffmpeg missing"
+```bash
+brew install ffmpeg
+```
+
+### "No recent shards/segments"
+```bash
+# Ensure discovery ran and streams are reachable
+python scripts/discovery/run_discovery.py
+python scripts/run_radio_ingest_once.py
+python scripts/validate_radio_ingest.py
+```
