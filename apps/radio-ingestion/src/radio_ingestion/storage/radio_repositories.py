@@ -379,11 +379,13 @@ class LanguageLabelMapRepository:
 
     def list_map(self) -> Dict[str, str]:
         with self.conn.cursor(row_factory=dict_row) as cur:
-            cur.execute("""
+            cur.execute(
+                """
                 SELECT observed_label, canonical_iso639_3
                 FROM language_label_map
                 WHERE canonical_iso639_3 IS NOT NULL
-                """)
+                """
+            )
             rows = cur.fetchall()
         return {row["observed_label"]: row["canonical_iso639_3"] for row in rows}
 
@@ -927,12 +929,14 @@ class CaptureTargetRepository:
 
     def get_active(self) -> Optional[Dict[str, Any]]:
         with self.conn.cursor(row_factory=dict_row) as cur:
-            cur.execute("""
+            cur.execute(
+                """
                 SELECT * FROM capture_targets
                 WHERE active = true
                 ORDER BY updated_at DESC
                 LIMIT 1
-                """)
+                """
+            )
             row = cur.fetchone()
             if not row:
                 return None

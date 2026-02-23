@@ -738,9 +738,11 @@ class LanguageProfileRepository:
     def list_all(self) -> List[Dict[str, Any]]:
         """List all profiles"""
         with self.conn.cursor(row_factory=dict_row) as cur:
-            cur.execute("""
+            cur.execute(
+                """
                 SELECT language, dialect, version, tts_strategy, phoneme_count, created_at
                 FROM language_profiles
                 ORDER BY language, dialect
-            """)
+            """
+            )
             return cur.fetchall()

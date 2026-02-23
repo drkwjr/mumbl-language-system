@@ -363,7 +363,8 @@ async def get_discovery_summary():
     try:
         with get_connection() as conn:
             with conn.cursor(row_factory=dict_row) as cur:
-                cur.execute("""
+                cur.execute(
+                    """
                     SELECT
                         ds.name AS source_name,
                         ds.source_type,
@@ -375,7 +376,8 @@ async def get_discovery_summary():
                     JOIN discovery_sources ds ON ds.id = dr.source_id
                     GROUP BY ds.name, ds.source_type
                     ORDER BY total_discovered DESC
-                    """)
+                    """
+                )
                 rows = cur.fetchall()
         results = []
         for row in rows:
@@ -403,12 +405,14 @@ async def get_discovery_coverage():
     try:
         with get_connection() as conn:
             with conn.cursor(row_factory=dict_row) as cur:
-                cur.execute("""
+                cur.execute(
+                    """
                     SELECT report
                     FROM discovery_coverage_reports
                     ORDER BY created_at DESC
                     LIMIT 1
-                    """)
+                    """
+                )
                 row = cur.fetchone()
         report = _parse_json_field(row["report"]) if row else None
         if not report:
@@ -469,11 +473,13 @@ async def get_language_taxonomy():
     try:
         with get_connection() as conn:
             with conn.cursor(row_factory=dict_row) as cur:
-                cur.execute("""
+                cur.execute(
+                    """
                     SELECT iso639_3, iso639_1, name
                     FROM language_taxonomy
                     ORDER BY name
-                    """)
+                    """
+                )
                 rows = cur.fetchall()
         return [
             LanguageTaxonomyRow(
@@ -790,7 +796,8 @@ async def list_station_summaries():
         with get_connection() as conn:
             source_repo = RadioSourceRepository(conn)
             with conn.cursor(row_factory=dict_row) as cur:
-                cur.execute("""
+                cur.execute(
+                    """
                     SELECT
                         src.*,
                         hourly.primary_lang AS primary_lang,
@@ -807,7 +814,8 @@ async def list_station_summaries():
                     ) AS hourly ON TRUE
                     WHERE src.status = 'active'
                     ORDER BY src.name
-                    """)
+                    """
+                )
                 rows = cur.fetchall()
                 results = []
                 for row in rows:
@@ -931,7 +939,8 @@ def _fetch_capture_health(conn, window_start: datetime):
         )
         shard_counts = cur.fetchone() or {}
 
-        cur.execute("""
+        cur.execute(
+            """
             SELECT
                 shard.id,
                 shard.source_id,
@@ -943,7 +952,8 @@ def _fetch_capture_health(conn, window_start: datetime):
             JOIN radio_sources src ON src.id = shard.source_id
             ORDER BY shard.start_ts DESC
             LIMIT 6
-            """)
+            """
+        )
         recent = [dict(row) for row in cur.fetchall()]
 
     return {

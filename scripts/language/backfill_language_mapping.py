@@ -25,13 +25,16 @@ def main() -> None:
     ensure_database_url()
     with get_connection() as conn:
         with conn.cursor() as cur:
-            cur.execute("""
+            cur.execute(
+                """
                 UPDATE radio_segments
                 SET primary_lang_raw = COALESCE(primary_lang_raw, primary_lang)
                 WHERE primary_lang_raw IS NULL
                   AND primary_lang IS NOT NULL
-                """)
-            cur.execute("""
+                """
+            )
+            cur.execute(
+                """
                 UPDATE radio_segments seg
                 SET primary_lang_iso639_3 = map.canonical_iso639_3,
                     primary_lang = map.canonical_iso639_3
@@ -40,7 +43,8 @@ def main() -> None:
                   AND map.canonical_iso639_3 IS NOT NULL
                   AND (seg.primary_lang_iso639_3 IS NULL
                        OR seg.primary_lang_iso639_3 <> map.canonical_iso639_3)
-                """)
+                """
+            )
             updated = cur.rowcount
         conn.commit()
     print(f"Updated {updated} segments")

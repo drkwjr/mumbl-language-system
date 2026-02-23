@@ -471,7 +471,8 @@ class GrammarAgent:
 
         try:
             # Find example sentences that haven't been analyzed
-            self.cursor.execute("""
+            self.cursor.execute(
+                """
                 SELECT es.sentence_id, es.sentence_text, es.complexity_score, es.tone,
                        l.language_code, l.language_id
                 FROM example_sentences es
@@ -479,7 +480,8 @@ class GrammarAgent:
                 WHERE es.complexity_score IS NULL
                    OR es.tone IS NULL
                 LIMIT 50
-            """)
+            """
+            )
 
             sentences = self.cursor.fetchall()
             logger.info(f"Found {len(sentences)} example sentences to process")
@@ -580,12 +582,14 @@ class GrammarAgent:
 
         try:
             # Find rules that need categorization
-            self.cursor.execute("""
+            self.cursor.execute(
+                """
                 SELECT rule_id, rule_name, rule_description
                 FROM grammar_rules
                 WHERE rule_type IS NULL
                 LIMIT 100
-            """)
+            """
+            )
 
             rules = self.cursor.fetchall()
             categorized_count = 0

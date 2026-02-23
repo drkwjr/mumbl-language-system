@@ -209,7 +209,8 @@ class PhoneticsAgent:
 
         try:
             # Find phonetics entries that haven't been processed
-            self.cursor.execute("""
+            self.cursor.execute(
+                """
                 SELECT p.phonetic_id, p.word_id, p.ipa_pronunciation, 
                        w.word_text, l.language_code, d.dialect_name
                 FROM phonetics p
@@ -219,7 +220,8 @@ class PhoneticsAgent:
                 WHERE p.pronunciation_variant IS NULL
                   OR p.notes IS NULL
                 LIMIT 100
-            """)
+            """
+            )
 
             entries = self.cursor.fetchall()
             logger.info(f"Found {len(entries)} pronunciation entries to process")
@@ -429,12 +431,14 @@ class PhoneticsAgent:
 
         try:
             # Get count of unprocessed entries
-            self.cursor.execute("""
+            self.cursor.execute(
+                """
                 SELECT COUNT(*) as count
                 FROM phonetics
                 WHERE pronunciation_variant IS NULL
                    OR notes IS NULL
-            """)
+            """
+            )
 
             result = self.cursor.fetchone()
             total_unprocessed = result["count"] if result else 0

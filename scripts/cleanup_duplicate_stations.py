@@ -21,7 +21,8 @@ def main() -> None:
 
     with get_connection() as conn:
         with conn.cursor() as cur:
-            cur.execute("""
+            cur.execute(
+                """
                 WITH duplicates AS (
                   SELECT id,
                          COALESCE(station_uuid, stream_url) AS dedupe_key,
@@ -30,7 +31,8 @@ def main() -> None:
                 )
                 DELETE FROM radio_sources
                 WHERE id IN (SELECT id FROM duplicates WHERE rn > 1)
-                """)
+                """
+            )
             deleted = cur.rowcount
 
     print(f"Removed {deleted} duplicate stations.")

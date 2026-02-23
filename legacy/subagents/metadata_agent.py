@@ -123,10 +123,12 @@ class MetadataAgent:
 
         try:
             # Check if the Metadata Agent exists
-            self.cursor.execute("""
+            self.cursor.execute(
+                """
                 SELECT subagent_id FROM subagents 
                 WHERE subagent_name = 'Metadata Agent'
-            """)
+            """
+            )
 
             result = self.cursor.fetchone()
 
@@ -134,14 +136,16 @@ class MetadataAgent:
                 self.agent_id = result["subagent_id"]
             else:
                 # Create a new subagent entry
-                self.cursor.execute("""
+                self.cursor.execute(
+                    """
                     INSERT INTO subagents (
                         subagent_name, subagent_type, description, is_active
                     ) VALUES (
                         'Metadata Agent', 'Automated', 
                         'Tracks metadata, source reliability, and change history', TRUE
                     ) RETURNING subagent_id
-                """)
+                """
+                )
 
                 self.agent_id = self.cursor.fetchone()["subagent_id"]
                 self.conn.commit()
@@ -753,12 +757,14 @@ class MetadataAgent:
         if self.connect_to_db():
             try:
                 # Get a sample of sources to verify
-                self.cursor.execute("""
+                self.cursor.execute(
+                    """
                     SELECT source_id FROM metadata_sources 
                     WHERE url IS NOT NULL
                     ORDER BY RANDOM()
                     LIMIT 5
-                """)
+                """
+                )
 
                 sources = self.cursor.fetchall()
                 sources_verified = 0

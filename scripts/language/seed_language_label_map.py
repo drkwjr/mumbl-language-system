@@ -25,11 +25,13 @@ def main() -> None:
     ensure_database_url()
     with get_connection() as conn:
         with conn.cursor() as cur:
-            cur.execute("""
+            cur.execute(
+                """
                 SELECT DISTINCT primary_lang_raw
                 FROM radio_segments
                 WHERE primary_lang_raw IS NOT NULL
-                """)
+                """
+            )
             raw_labels = [row[0] for row in cur.fetchall()]
 
             cur.execute("SELECT iso639_3, iso639_1 FROM language_taxonomy")
