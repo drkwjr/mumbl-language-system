@@ -1,5 +1,9 @@
-import argparse, sys, os
+import argparse
+import os
+import sys
+
 from mumbl_format_guardians.validate_audio import validate_audio_dataset
+
 
 def main():
     ap = argparse.ArgumentParser()

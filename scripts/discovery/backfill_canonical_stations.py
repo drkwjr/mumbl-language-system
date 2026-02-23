@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """Backfill canonical station mappings from existing provenance rows."""
 
-from pathlib import Path
-import sys
 import os
+import sys
+from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.append(str(REPO_ROOT))
 
-from scripts.discovery.run_discovery import link_canonical_station, upsert_canonical_station
 from mumbl_storage.db import get_connection
+
+from scripts.discovery.run_discovery import link_canonical_station, upsert_canonical_station
 
 
 def main() -> None:

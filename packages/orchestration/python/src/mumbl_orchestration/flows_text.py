@@ -1,5 +1,6 @@
-from prefect import flow, task
 from mumbl_orchestration.batch_types import BatchManifest
+from prefect import flow, task
+
 
 @task
 def chunk_and_label(man: BatchManifest) -> BatchManifest:
@@ -9,10 +10,12 @@ def chunk_and_label(man: BatchManifest) -> BatchManifest:
     man.metrics["segments"] = 100.0
     return man
 
+
 @task
 def validate_outputs(man: BatchManifest) -> BatchManifest:
     # TODO call validate-text-jsonl
     return man
+
 
 @flow(name="text-lane")
 def text_lane_flow(manifest: dict) -> dict:

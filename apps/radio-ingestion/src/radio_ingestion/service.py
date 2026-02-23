@@ -3,36 +3,39 @@
 import asyncio
 import json
 import os
+import re
 import signal
 import sys
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Optional, Dict, Any
-from datetime import datetime, timezone, timedelta
+from typing import Any, Dict, Optional
 from urllib.parse import urlparse
-import re
 from zoneinfo import ZoneInfo
-import structlog
-from psycopg.rows import dict_row
 
+import structlog
+from mumbl_storage.db import DatabaseConfig, get_connection
+from mumbl_storage.repositories import (
+    PipelineEventRepository,
+    SegmentLanguageVerificationRepository,
+)
+from psycopg.rows import dict_row
+from radio_ingestion.capture import CaptureScheduler, StreamRecorder
 from radio_ingestion.config import RadioIngestionConfig, get_config
-from radio_ingestion.orchestration.task_queue import TaskQueue, PipelineProcessor
-from radio_ingestion.orchestration.scheduler import TaskScheduler, BackpressureController
-from radio_ingestion.capture import StreamRecorder, CaptureScheduler
 from radio_ingestion.discovery.radio_browser import discover_stations
 from radio_ingestion.lid import create_aggregator, create_fusion, create_lid_model
 from radio_ingestion.lid.llm_language_classifier import LLMLanguageClassifier
+from radio_ingestion.orchestration.scheduler import BackpressureController, TaskScheduler
+from radio_ingestion.orchestration.task_queue import PipelineProcessor, TaskQueue
 from radio_ingestion.prefilter import WindowExtractor
 from radio_ingestion.storage.radio_repositories import (
-    RadioSourceRepository,
-    LanguageLabelMapRepository,
-    RadioShardRepository,
-    RadioSegmentRepository,
     CaptureTargetRepository,
+    LanguageLabelMapRepository,
+    RadioSegmentRepository,
+    RadioShardRepository,
+    RadioSourceRepository,
     RadioStationDaypartRepository,
     RadioStationHourlyRepository,
 )
-from mumbl_storage.repositories import PipelineEventRepository, SegmentLanguageVerificationRepository
-from mumbl_storage.db import get_connection, DatabaseConfig
 
 logger = structlog.get_logger(__name__)
 
@@ -228,13 +231,14 @@ def _fetch_taxonomy(conn, country_code: Optional[str]) -> Dict[str, Any]:
         dialects = [dict(row) for row in cur.fetchall()]
     return {"languages": languages, "dialects": dialects}
 
+
 class RadioIngestionService:
     """Main radio ingestion service"""
-    
+
     def __init__(self, config: Optional[RadioIngestionConfig] = None):
         """
         Initialize service.
-        
+
         Args:
             config: Configuration instance (uses get_config() if None)
         """
@@ -244,51 +248,51 @@ class RadioIngestionService:
         self.processor: Optional[PipelineProcessor] = None
         self.scheduler: Optional[TaskScheduler] = None
         self.backpressure: Optional[BackpressureController] = None
-        
+
         # Setup signal handlers
         signal.signal(signal.SIGINT, self._signal_handler)
         signal.signal(signal.SIGTERM, self._signal_handler)
-        
+
         logger.info("Radio ingestion service initialized")
-    
+
     def _signal_handler(self, signum, frame):
         """Handle shutdown signals"""
         logger.info("Received shutdown signal", signal=signum)
         self.running = False
-    
+
     async def refresh_stations(self):
         """Refresh stations from Radio Browser API"""
         logger.info("Starting station refresh")
-        
+
         try:
             with get_connection() as conn:
                 source_repo = RadioSourceRepository(conn)
-                
+
                 # Discover stations for configured countries/languages
                 # For now, use a default set (could be configurable)
                 discovered = discover_stations(
                     api_url=self.config.radio_browser_api,
                     country="SOM",  # Could be from config
-                    limit=20
+                    limit=20,
                 )
-                
+
                 if discovered:
                     source_ids = source_repo.insert_many(discovered)
                     logger.info(
                         "Station refresh complete",
                         discovered_count=len(discovered),
-                        stored_count=len([sid for sid in source_ids if sid is not None])
+                        stored_count=len([sid for sid in source_ids if sid is not None]),
                     )
                 else:
                     logger.warning("No stations discovered")
-                    
+
         except Exception as e:
             logger.error("Station refresh failed", error=str(e))
-    
+
     async def capture_stations(self):
         """Capture audio from active stations"""
         logger.info("Starting station capture cycle")
-        
+
         try:
             with get_connection() as conn:
                 source_repo = RadioSourceRepository(conn)
@@ -309,9 +313,7 @@ class RadioIngestionService:
                     capture_countries = capture_target["countries"]
                 if capture_target and capture_target.get("languages"):
                     capture_languages = [
-                        lang.strip().lower()
-                        for lang in capture_target.get("languages", [])
-                        if lang
+                        lang.strip().lower() for lang in capture_target.get("languages", []) if lang
                     ]
                 iso3_to_iso2 = {
                     "GHA": "GH",
@@ -372,9 +374,13 @@ class RadioIngestionService:
                     sources = sources[: self.config.capture_source_limit]
 
                 sources_by_id = {source["id"]: source for source in sources}
-                
+
                 # Get capture duration with backpressure
-                capture_duration = self.backpressure.get_capture_duration() if self.backpressure else self.config.capture_duration
+                capture_duration = (
+                    self.backpressure.get_capture_duration()
+                    if self.backpressure
+                    else self.config.capture_duration
+                )
 
                 Path(self.config.capture_dir).mkdir(parents=True, exist_ok=True)
                 recorder = StreamRecorder(
@@ -414,13 +420,11 @@ class RadioIngestionService:
                         llm_classifier = LLMLanguageClassifier()
                 except Exception as e:
                     logger.warning("LLM classifier unavailable", error=str(e))
-                
+
                 logger.info(
-                    "Capture cycle",
-                    source_count=len(sources),
-                    capture_duration=capture_duration
+                    "Capture cycle", source_count=len(sources), capture_duration=capture_duration
                 )
-                
+
                 for source in sources:
                     stream_url = source.get("stream_url")
                     if not stream_url:
@@ -518,21 +522,23 @@ class RadioIngestionService:
                     if actual_duration and duration:
                         duration_ratio = actual_duration / duration
 
-                    shard_id = shard_repo.insert({
-                        "source_id": task.source_id,
-                        "start_ts": start_ts,
-                        "end_ts": end_ts,
-                        "duration": duration,
-                        "path": task.output_path,
-                        "file_size_bytes": task.file_size,
-                        "bitrate": audio_info.get("bitrate"),
-                        "codec": audio_info.get("codec"),
-                        "sample_rate": audio_info.get("sample_rate", 22050),
-                        "channels": audio_info.get("channels", 1),
-                        "actual_duration": actual_duration,
-                        "duration_ratio": duration_ratio,
-                        "capture_status": "captured",
-                    })
+                    shard_id = shard_repo.insert(
+                        {
+                            "source_id": task.source_id,
+                            "start_ts": start_ts,
+                            "end_ts": end_ts,
+                            "duration": duration,
+                            "path": task.output_path,
+                            "file_size_bytes": task.file_size,
+                            "bitrate": audio_info.get("bitrate"),
+                            "codec": audio_info.get("codec"),
+                            "sample_rate": audio_info.get("sample_rate", 22050),
+                            "channels": audio_info.get("channels", 1),
+                            "actual_duration": actual_duration,
+                            "duration_ratio": duration_ratio,
+                            "capture_status": "captured",
+                        }
+                    )
 
                     if extractor is None:
                         shard_repo.update_status(
@@ -602,7 +608,9 @@ class RadioIngestionService:
                         for lang, prob in fused_probs.items():
                             canonical = label_map.get(lang)
                             if canonical:
-                                canonical_probs[canonical] = canonical_probs.get(canonical, 0.0) + prob
+                                canonical_probs[canonical] = (
+                                    canonical_probs.get(canonical, 0.0) + prob
+                                )
 
                         llm_language = None
                         llm_confidence = None
@@ -707,99 +715,95 @@ class RadioIngestionService:
                         hourly["primary_lang"] = None
                     hourly["source_id"] = task.source_id
                     hourly_repo.upsert(hourly)
-                
+
         except Exception as e:
             logger.error("Capture cycle failed", error=str(e))
-    
+
     async def start(self):
         """Start the service"""
         if self.running:
             logger.warning("Service already running")
             return
-        
+
         logger.info("Starting radio ingestion service")
-        
+
         try:
             # Initialize components
             self.task_queue = TaskQueue(max_size=1000)
-            
+
             self.processor = PipelineProcessor(
                 task_queue=self.task_queue,
                 # Callbacks will be set up based on needs
             )
-            
+
             self.scheduler = TaskScheduler()
-            
+
             self.backpressure = BackpressureController(
-                min_capture_duration=60,
-                max_capture_duration=self.config.capture_duration
+                min_capture_duration=60, max_capture_duration=self.config.capture_duration
             )
-            
+
             # Register scheduled tasks
             # Daily station refresh
             self.scheduler.register_daily_task(
-                name="station_refresh",
-                callback=self.refresh_stations,
-                hour=2,  # 2 AM UTC
-                minute=0
+                name="station_refresh", callback=self.refresh_stations, hour=2, minute=0  # 2 AM UTC
             )
-            
+
             # Hourly captures
             self.scheduler.register_task(
                 name="capture_cycle",
                 interval_seconds=self.config.capture_interval_minutes * 60,
-                callback=self.capture_stations
+                callback=self.capture_stations,
             )
-            
+
             # Start components
             await self.processor.start(num_workers=2)
             await self.scheduler.start()
-            
+
             self.running = True
-            
+
             logger.info("Radio ingestion service started")
-            
+
             # Main service loop
             while self.running:
                 await asyncio.sleep(10.0)  # Check status periodically
-                
+
         except Exception as e:
             logger.error("Service startup failed", error=str(e))
             raise
         finally:
             await self.stop()
-    
+
     async def stop(self):
         """Stop the service"""
         if not self.running:
             return
-        
+
         logger.info("Stopping radio ingestion service")
-        
+
         self.running = False
-        
+
         # Stop components
         if self.processor:
             await self.processor.stop()
-        
+
         if self.scheduler:
             await self.scheduler.stop()
-        
+
         logger.info("Radio ingestion service stopped")
-    
+
     async def health_check(self) -> Dict[str, Any]:
         """
         Perform health check.
-        
+
         Returns:
             Dictionary with health status
         """
         health = {
             "status": "healthy",
             "timestamp": datetime.now(timezone.utc).isoformat(),
-            "components": {}
+            "components": {},
         }
-        
+
         # Check database
         try:
             with get_connection() as conn:
@@ -809,45 +813,39 @@ class RadioIngestionService:
         except Exception as e:
             health["status"] = "degraded"
             health["components"]["database"] = f"unhealthy: {str(e)}"
-        
+
         # Check queue
         if self.task_queue:
             stats = self.task_queue.get_queue_stats()
-            health["components"]["task_queue"] = {
-                "status": "healthy",
-                "stats": stats
-            }
+            health["components"]["task_queue"] = {"status": "healthy", "stats": stats}
         else:
             health["status"] = "degraded"
             health["components"]["task_queue"] = "not_initialized"
-        
+
         # Check scheduler
         if self.scheduler:
             scheduler_stats = self.scheduler.get_stats()
-            health["components"]["scheduler"] = {
-                "status": "healthy",
-                "stats": scheduler_stats
-            }
+            health["components"]["scheduler"] = {"status": "healthy", "stats": scheduler_stats}
         else:
             health["status"] = "degraded"
             health["components"]["scheduler"] = "not_initialized"
-        
+
         # Check backpressure
         if self.backpressure:
             health["components"]["backpressure"] = {
                 "status": "healthy",
-                "status_details": self.backpressure.get_status()
+                "status_details": self.backpressure.get_status(),
             }
-        
+
         return health
 
 
 async def main():
     """Main entry point"""
     config = get_config()
-    
+
     service = RadioIngestionService(config)
-    
+
     try:
         await service.start()
     except KeyboardInterrupt:

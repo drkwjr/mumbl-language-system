@@ -38,14 +38,12 @@ def iter_migrations() -> Iterable[Path]:
 
 def ensure_schema_table(conn) -> None:
     with conn.cursor() as cur:
-        cur.execute(
-            """
+        cur.execute("""
             CREATE TABLE IF NOT EXISTS schema_migrations (
                 filename TEXT PRIMARY KEY,
                 applied_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
             );
-            """
-        )
+            """)
 
 
 def is_applied(conn, filename: str) -> bool:

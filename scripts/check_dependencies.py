@@ -5,32 +5,27 @@ Dependency check script.
 Verifies all required packages are installed and reports missing ones.
 """
 
-import sys
 import importlib
+import sys
 
 REQUIRED_PACKAGES = {
     # Core packages
     "mumbl_data_contracts": "pip install -e packages/data-contracts/python",
     "mumbl_storage": "pip install -e packages/storage/python",
-    
     # Audio Lane dependencies
     "yt_dlp": "pip install yt-dlp",
     "librosa": "pip install librosa",
     "soundfile": "pip install soundfile",
     "pyannote": "pip install pyannote.audio",
     "torch": "pip install torch",
-    
     # Curator dependencies
     "sentence_transformers": "pip install sentence-transformers",
-    
     # TTS Trainer dependencies
     "yaml": "pip install pyyaml",
-    
     # App packages
     "audio_lane": "pip install -e apps/audio-lane",
     "curator": "pip install -e apps/curator",
     "tts_trainer": "pip install -e apps/tts-trainer",
-    
     # Orchestration
     "mumbl_orchestration": "pip install -e packages/orchestration/python",
 }
@@ -46,7 +41,7 @@ def check_package(package_name, import_name=None):
     """Check if a package is installed."""
     if import_name is None:
         import_name = package_name
-    
+
     try:
         importlib.import_module(import_name)
         return True, None
@@ -59,10 +54,10 @@ def main():
     print("Checking Mumbl Language System dependencies...")
     print("=" * 70)
     print()
-    
+
     missing_required = []
     missing_optional = []
-    
+
     # Check required packages
     print("Required Packages:")
     print("-" * 70)
@@ -75,7 +70,7 @@ def main():
             print(f"   Install: {install_cmd}")
             missing_required.append((package, install_cmd))
     print()
-    
+
     # Check optional packages
     print("Optional Packages:")
     print("-" * 70)
@@ -87,7 +82,7 @@ def main():
             print(f"⚠️  {package:30s} not installed (optional)")
             missing_optional.append((package, install_cmd))
     print()
-    
+
     # Summary
     print("=" * 70)
     if missing_required:
@@ -108,4 +103,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

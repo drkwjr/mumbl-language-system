@@ -1,6 +1,10 @@
-import csv, json, os
-from typing import List, Dict, Optional
-from .lints import lint_tts_manifest, LintIssue, LintReport
+import csv
+import json
+import os
+from typing import Dict, List, Optional
+
+from .lints import LintIssue, LintReport, lint_tts_manifest
+
 
 def build_metadata_csv(out_dir: str, manifest_rows: List[Dict], use_phonemes: bool = False):
     os.makedirs(os.path.join(out_dir, "clips"), exist_ok=True)
@@ -14,6 +18,7 @@ def build_metadata_csv(out_dir: str, manifest_rows: List[Dict], use_phonemes: bo
             w.writerow([path, textfield, spk])
     return csv_path
 
+
 def write_manifest_jsonl(out_dir: str, manifest_rows: List[Dict]):
     path = os.path.join(out_dir, "manifest.jsonl")
     with open(path, "w", encoding="utf-8") as f:
@@ -21,13 +26,15 @@ def write_manifest_jsonl(out_dir: str, manifest_rows: List[Dict]):
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
     return path
 
+
 def write_dataset_card(out_dir: str, stats: Dict):
     path = os.path.join(out_dir, "dataset_card.json")
     with open(path, "w", encoding="utf-8") as f:
         json.dump(stats, f, ensure_ascii=False, indent=2)
     return path
 
-def build_tts_snapshot(out_dir: str, manifest_rows: List[Dict], use_phonemes: bool=False):
+
+def build_tts_snapshot(out_dir: str, manifest_rows: List[Dict], use_phonemes: bool = False):
     lint = lint_tts_manifest(manifest_rows)
     if not lint.ok:
         msgs = "\n".join(f"[{i.code}] {i.msg}" for i in lint.issues)
@@ -38,7 +45,7 @@ def build_tts_snapshot(out_dir: str, manifest_rows: List[Dict], use_phonemes: bo
     stats = {
         "clips": len(manifest_rows),
         "sample_rate": list({r["sample_rate"] for r in manifest_rows}),
-        "minutes": sum(float(r["duration_s"]) for r in manifest_rows)/60.0
+        "minutes": sum(float(r["duration_s"]) for r in manifest_rows) / 60.0,
     }
     dpath = write_dataset_card(out_dir, stats)
     return {"manifest": mpath, "metadata_csv": cpath, "dataset_card": dpath}

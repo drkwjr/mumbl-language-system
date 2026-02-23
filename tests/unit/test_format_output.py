@@ -6,7 +6,6 @@ import tempfile
 from unittest.mock import patch
 
 import pytest
-
 from scraper.format_output import format_json_file, format_word_data
 
 

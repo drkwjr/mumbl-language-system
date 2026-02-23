@@ -1,10 +1,13 @@
+from typing import Dict, List, Optional, Tuple
+
 from pydantic import BaseModel
-from typing import List, Optional, Tuple, Dict
+
 
 class SourceRef(BaseModel):
     doc_id: str
     start: int
     end: int
+
 
 class Labels(BaseModel):
     is_dialogue: bool
@@ -12,11 +15,13 @@ class Labels(BaseModel):
     register_type: Optional[str] = None
     code_switch_spans: List[Tuple[int, int]] = []
 
+
 class TextSegment(BaseModel):
     text: str
     lang: str
     labels: Labels
     source_ref: SourceRef
+
 
 class AudioSegment(BaseModel):
     audio_file: str

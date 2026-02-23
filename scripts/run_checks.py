@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 """Script to run all code quality checks and tests."""
+
 import os
 import subprocess
 import sys

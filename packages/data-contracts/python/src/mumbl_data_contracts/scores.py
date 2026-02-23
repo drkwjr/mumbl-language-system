@@ -1,5 +1,7 @@
-from pydantic import BaseModel, Field
 from typing import Optional
+
+from pydantic import BaseModel, Field
+
 
 class SegmentScore(BaseModel):
     clarity: float = Field(ge=0, le=100)
@@ -7,7 +9,7 @@ class SegmentScore(BaseModel):
     diarization: float = Field(ge=0, le=100)
     transcript_accuracy: float = Field(ge=0, le=100)
     validity: float = Field(ge=0, le=100)  # language, register
-    shape: float = Field(ge=0, le=100)     # length and structure
+    shape: float = Field(ge=0, le=100)  # length and structure
     total: float = Field(ge=0, le=100)
     eligible_learner: bool
     eligible_training: bool

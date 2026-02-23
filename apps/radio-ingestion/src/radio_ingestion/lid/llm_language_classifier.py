@@ -1,9 +1,9 @@
 """LLM-based language classification using taxonomy and LID signals."""
 
 import json
-from typing import Dict, Any, Optional, List
-import structlog
+from typing import Any, Dict, List, Optional
 
+import structlog
 from openai import OpenAI
 
 logger = structlog.get_logger(__name__)
@@ -159,7 +159,7 @@ def _build_prompt(
 ) -> str:
     return (
         "You are a language classification engine. You must follow the taxonomy exactly. "
-        "Return JSON only. If evidence is insufficient, set primary_language=\"unknown\" "
+        'Return JSON only. If evidence is insufficient, set primary_language="unknown" '
         "and include uncertainty_flags.\n\n"
         "You must output a JSON object with keys: primary_language, dialect, language_family, "
         "confidence, rationale, signals, uncertainty_flags.\n\n"
@@ -174,7 +174,7 @@ def _build_prompt(
         "1) Use ISO-639-3 codes for primary_language.\n"
         "2) Use dialect only if the taxonomy includes it.\n"
         "3) If audio and text disagree, keep confidence <= 0.6 and add an uncertainty flag.\n"
-        "4) If evidence is missing, return \"unknown\" with confidence <= 0.4.\n"
+        '4) If evidence is missing, return "unknown" with confidence <= 0.4.\n'
         "5) Do NOT invent languages not in the taxonomy list.\n"
     )
 

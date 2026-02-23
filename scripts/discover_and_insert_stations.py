@@ -12,9 +12,9 @@ STORAGE_SRC = REPO_ROOT / "packages" / "storage" / "python" / "src"
 sys.path.insert(0, str(RADIO_SRC))
 sys.path.insert(0, str(STORAGE_SRC))
 
+from mumbl_storage.db import get_connection  # noqa: E402
 from radio_ingestion.discovery.radio_browser import RadioBrowserClient  # noqa: E402
 from radio_ingestion.storage.radio_repositories import RadioSourceRepository  # noqa: E402
-from mumbl_storage.db import get_connection  # noqa: E402
 
 
 def parse_args() -> argparse.Namespace:

@@ -9,7 +9,6 @@ import os
 import tempfile
 
 import pytest
-
 from scraper.wiktionary_scraper import run_spider
 
 
@@ -86,21 +85,36 @@ class TestWiktionaryScraper:
         """Test the argument parser setup."""
         # Create an argument parser similar to the one in main()
         parser = argparse.ArgumentParser(description="Scrape Wiktionary for word definitions")
-        parser.add_argument("--language", default="en", help="Language code to scrape (default: en)")
-        
+        parser.add_argument(
+            "--language", default="en", help="Language code to scrape (default: en)"
+        )
+
         # Word source - mutually exclusive
         word_source = parser.add_mutually_exclusive_group(required=True)
         word_source.add_argument("--word-list", help="File containing list of words to scrape")
         word_source.add_argument("--single-word", help="Single word to scrape")
-        
+
         parser.add_argument("--limit", type=int, help="Maximum number of words to scrape")
         parser.add_argument("--output", default="scraped_data", help="Directory to save output")
-        parser.add_argument("--formatted", action="store_true", help="Save output in formatted markdown")
-        parser.add_argument("--print", action="store_true", help="Print formatted output to console")
+        parser.add_argument(
+            "--formatted", action="store_true", help="Save output in formatted markdown"
+        )
+        parser.add_argument(
+            "--print", action="store_true", help="Print formatted output to console"
+        )
 
         # Test with valid arguments
         args = parser.parse_args(
-            ["--language", "en", "--single-word", "test", "--output", "test_output", "--formatted", "--print"]
+            [
+                "--language",
+                "en",
+                "--single-word",
+                "test",
+                "--output",
+                "test_output",
+                "--formatted",
+                "--print",
+            ]
         )
 
         assert args.language == "en"

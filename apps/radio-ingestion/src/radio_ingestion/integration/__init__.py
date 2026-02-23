@@ -1,2 +1,1 @@
 """Integration with Mumbl pipeline"""
-

@@ -1,5 +1,8 @@
-import argparse, sys
+import argparse
+import sys
+
 from mumbl_format_guardians.validate_text import validate_text_jsonl
+
 
 def main():
     ap = argparse.ArgumentParser()

@@ -1,11 +1,13 @@
 from dataclasses import dataclass, field
 from typing import List, Optional
 
+
 @dataclass
 class ValidationIssue:
     code: str
     message: str
     path: Optional[str] = None
+
 
 @dataclass
 class ValidationReport:

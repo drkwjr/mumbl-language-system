@@ -1,31 +1,33 @@
 """FastAPI dashboard for radio ingestion monitoring"""
 
 import json
-from typing import List, Dict, Any, Optional
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timedelta, timezone
+from typing import Any, Dict, List, Optional
+
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel
+from mumbl_storage.db import get_connection
+from mumbl_storage.repositories import PipelineEventRepository
 from psycopg.rows import dict_row
-
-from radio_ingestion.service import RadioIngestionService
-from radio_ingestion.storage.radio_repositories import (
-    CaptureTargetRepository,
-    RadioSourceRepository,
-    RadioShardRepository,
-    RadioSegmentRepository,
-    RadioStationHourlyRepository,
-    RadioStationDaypartRepository,
-)
+from pydantic import BaseModel
 from radio_ingestion.discovery.coverage import (
     build_coverage_report,
-    fetch_sources as fetch_coverage_sources,
+)
+from radio_ingestion.discovery.coverage import fetch_sources as fetch_coverage_sources
+from radio_ingestion.discovery.coverage import (
     fetch_target_countries,
     store_coverage_report,
 )
-from mumbl_storage.db import get_connection
-from mumbl_storage.repositories import PipelineEventRepository
+from radio_ingestion.service import RadioIngestionService
+from radio_ingestion.storage.radio_repositories import (
+    CaptureTargetRepository,
+    RadioSegmentRepository,
+    RadioShardRepository,
+    RadioSourceRepository,
+    RadioStationDaypartRepository,
+    RadioStationHourlyRepository,
+)
 
 app = FastAPI(title="Radio Ingestion Dashboard", version="0.1.0")
 
@@ -56,6 +58,7 @@ def _parse_json_field(value: Optional[Any]) -> Optional[Any]:
 
 class HealthResponse(BaseModel):
     """Health check response"""
+
     status: str
     timestamp: str
     components: Dict[str, Any]
@@ -63,6 +66,7 @@ class HealthResponse(BaseModel):
 
 class StationSummary(BaseModel):
     """Station summary"""
+
     id: int
     name: str
     country: str
@@ -218,7 +222,7 @@ async def startup_event():
 async def health_check():
     """
     Health check endpoint.
-    
+
     Returns:
         Health status of database, queue, scheduler
     """
@@ -227,12 +231,9 @@ async def health_check():
         health = {
             "status": "degraded",
             "timestamp": datetime.now(timezone.utc).isoformat(),
-            "components": {
-                "database": "unknown",
-                "service": "not_initialized"
-            }
+            "components": {"database": "unknown", "service": "not_initialized"},
         }
-        
+
         # Check database
         try:
             with get_connection() as conn:
@@ -242,9 +243,9 @@ async def health_check():
         except Exception as e:
             health["status"] = "unhealthy"
             health["components"]["database"] = f"unhealthy: {str(e)}"
-        
+
         return health
-    
+
     # Full health check with service
     health = await service_instance.health_check()
     return health
@@ -252,31 +253,29 @@ async def health_check():
 
 @app.get("/stations", response_model=List[StationSummary])
 async def list_stations(
-    country: Optional[str] = None,
-    lang_hint: Optional[str] = None,
-    status: str = "active"
+    country: Optional[str] = None, lang_hint: Optional[str] = None, status: str = "active"
 ):
     """
     List radio stations.
-    
+
     Args:
         country: Filter by country code
         lang_hint: Filter by language hint
         status: Filter by status (default: active)
-    
+
     Returns:
         List of station summaries
     """
     try:
         with get_connection() as conn:
             source_repo = RadioSourceRepository(conn)
-            
+
             if status == "active":
                 sources = source_repo.list_active(country=country, lang_hint=lang_hint)
             else:
                 # Would need to add method for other statuses
                 sources = source_repo.list_active(country=country, lang_hint=lang_hint)
-            
+
             return [
                 StationSummary(
                     id=s["id"],
@@ -285,16 +284,24 @@ async def list_stations(
                     lang_hint=s.get("lang_hint"),
                     status=s["status"],
                     last_check=s["last_check"].isoformat() if s.get("last_check") else None,
-                    last_successful_capture=s["last_successful_capture"].isoformat() if s.get("last_successful_capture") else None,
+                    last_successful_capture=(
+                        s["last_successful_capture"].isoformat()
+                        if s.get("last_successful_capture")
+                        else None
+                    ),
                     health_status=s.get("health_status"),
                     health_last_error=s.get("health_last_error"),
-                    health_last_failure_at=s["health_last_failure_at"].isoformat()
-                    if s.get("health_last_failure_at")
-                    else None,
+                    health_last_failure_at=(
+                        s["health_last_failure_at"].isoformat()
+                        if s.get("health_last_failure_at")
+                        else None
+                    ),
                     health_consecutive_failures=s.get("health_consecutive_failures"),
-                    health_last_success_at=s["health_last_success_at"].isoformat()
-                    if s.get("health_last_success_at")
-                    else None,
+                    health_last_success_at=(
+                        s["health_last_success_at"].isoformat()
+                        if s.get("health_last_success_at")
+                        else None
+                    ),
                     frequency_mhz=s.get("frequency_mhz"),
                     frequency_label=s.get("frequency_label"),
                     frequency_source=s.get("frequency_source"),
@@ -356,8 +363,7 @@ async def get_discovery_summary():
     try:
         with get_connection() as conn:
             with conn.cursor(row_factory=dict_row) as cur:
-                cur.execute(
-                    """
+                cur.execute("""
                     SELECT
                         ds.name AS source_name,
                         ds.source_type,
@@ -369,8 +375,7 @@ async def get_discovery_summary():
                     JOIN discovery_sources ds ON ds.id = dr.source_id
                     GROUP BY ds.name, ds.source_type
                     ORDER BY total_discovered DESC
-                    """
-                )
+                    """)
                 rows = cur.fetchall()
         results = []
         for row in rows:
@@ -381,12 +386,16 @@ async def get_discovery_summary():
                     runs=int(row["runs"]),
                     total_discovered=int(row["total_discovered"]),
                     total_inserted=int(row["total_inserted"]),
-                    last_finished=row["last_finished"].isoformat() if row.get("last_finished") else None,
+                    last_finished=(
+                        row["last_finished"].isoformat() if row.get("last_finished") else None
+                    ),
                 )
             )
         return results
     except Exception as exc:
-        raise HTTPException(status_code=500, detail=f"Failed to fetch discovery summary: {str(exc)}")
+        raise HTTPException(
+            status_code=500, detail=f"Failed to fetch discovery summary: {str(exc)}"
+        )
 
 
 @app.get("/api/discovery/coverage", response_model=DiscoveryCoverageReport)
@@ -394,14 +403,12 @@ async def get_discovery_coverage():
     try:
         with get_connection() as conn:
             with conn.cursor(row_factory=dict_row) as cur:
-                cur.execute(
-                    """
+                cur.execute("""
                     SELECT report
                     FROM discovery_coverage_reports
                     ORDER BY created_at DESC
                     LIMIT 1
-                    """
-                )
+                    """)
                 row = cur.fetchone()
         report = _parse_json_field(row["report"]) if row else None
         if not report:
@@ -411,7 +418,9 @@ async def get_discovery_coverage():
             }
         return report
     except Exception as exc:
-        raise HTTPException(status_code=500, detail=f"Failed to fetch discovery coverage: {str(exc)}")
+        raise HTTPException(
+            status_code=500, detail=f"Failed to fetch discovery coverage: {str(exc)}"
+        )
 
 
 @app.post("/api/discovery/coverage/refresh", response_model=DiscoveryCoverageReport)
@@ -425,7 +434,9 @@ async def refresh_discovery_coverage():
             conn.commit()
         return report
     except Exception as exc:
-        raise HTTPException(status_code=500, detail=f"Failed to refresh discovery coverage: {str(exc)}")
+        raise HTTPException(
+            status_code=500, detail=f"Failed to refresh discovery coverage: {str(exc)}"
+        )
 
 
 @app.get("/api/languages/unmapped", response_model=List[UnmappedLanguageLabel])
@@ -447,8 +458,7 @@ async def get_unmapped_language_labels(limit: int = 20):
                 )
                 rows = cur.fetchall()
         return [
-            UnmappedLanguageLabel(label=row["label"], count=int(row["count"] or 0))
-            for row in rows
+            UnmappedLanguageLabel(label=row["label"], count=int(row["count"] or 0)) for row in rows
         ]
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f"Failed to fetch unmapped labels: {str(exc)}")
@@ -459,13 +469,11 @@ async def get_language_taxonomy():
     try:
         with get_connection() as conn:
             with conn.cursor(row_factory=dict_row) as cur:
-                cur.execute(
-                    """
+                cur.execute("""
                     SELECT iso639_3, iso639_1, name
                     FROM language_taxonomy
                     ORDER BY name
-                    """
-                )
+                    """)
                 rows = cur.fetchall()
         return [
             LanguageTaxonomyRow(
@@ -617,14 +625,17 @@ async def get_pipeline_errors(limit: int = 20, hours: int = 24):
                     error_detail=payload.get("error_detail"),
                     source_id=row.get("source_id"),
                     station_name=row.get("station_name"),
-                    created_at=row.get("created_at").isoformat()
-                    if row.get("created_at")
-                    else datetime.now(timezone.utc).isoformat(),
+                    created_at=(
+                        row.get("created_at").isoformat()
+                        if row.get("created_at")
+                        else datetime.now(timezone.utc).isoformat()
+                    ),
                 )
             )
         return results
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f"Failed to fetch errors: {str(exc)}")
+
 
 @app.get("/api/summary/today")
 async def get_summary_today(hours: int = 24):
@@ -779,8 +790,7 @@ async def list_station_summaries():
         with get_connection() as conn:
             source_repo = RadioSourceRepository(conn)
             with conn.cursor(row_factory=dict_row) as cur:
-                cur.execute(
-                    """
+                cur.execute("""
                     SELECT
                         src.*,
                         hourly.primary_lang AS primary_lang,
@@ -797,8 +807,7 @@ async def list_station_summaries():
                     ) AS hourly ON TRUE
                     WHERE src.status = 'active'
                     ORDER BY src.name
-                    """
-                )
+                    """)
                 rows = cur.fetchall()
                 results = []
                 for row in rows:
@@ -819,21 +828,27 @@ async def list_station_summaries():
                             "country": row.get("country"),
                             "lang_hint": row.get("lang_hint"),
                             "status": row.get("status"),
-                            "last_check": row.get("last_check").isoformat()
-                            if row.get("last_check")
-                            else None,
-                            "last_successful_capture": row.get("last_successful_capture").isoformat()
-                            if row.get("last_successful_capture")
-                            else None,
+                            "last_check": (
+                                row.get("last_check").isoformat() if row.get("last_check") else None
+                            ),
+                            "last_successful_capture": (
+                                row.get("last_successful_capture").isoformat()
+                                if row.get("last_successful_capture")
+                                else None
+                            ),
                             "health_status": row.get("health_status"),
                             "health_last_error": row.get("health_last_error"),
-                            "health_last_failure_at": row.get("health_last_failure_at").isoformat()
-                            if row.get("health_last_failure_at")
-                            else None,
+                            "health_last_failure_at": (
+                                row.get("health_last_failure_at").isoformat()
+                                if row.get("health_last_failure_at")
+                                else None
+                            ),
                             "health_consecutive_failures": row.get("health_consecutive_failures"),
-                            "health_last_success_at": row.get("health_last_success_at").isoformat()
-                            if row.get("health_last_success_at")
-                            else None,
+                            "health_last_success_at": (
+                                row.get("health_last_success_at").isoformat()
+                                if row.get("health_last_success_at")
+                                else None
+                            ),
                             "primary_lang": row.get("primary_lang"),
                             "speech_ratio": row.get("speech_ratio"),
                             "lang_mix": lang_mix if isinstance(lang_mix, dict) else None,
@@ -916,8 +931,7 @@ def _fetch_capture_health(conn, window_start: datetime):
         )
         shard_counts = cur.fetchone() or {}
 
-        cur.execute(
-            """
+        cur.execute("""
             SELECT
                 shard.id,
                 shard.source_id,
@@ -929,8 +943,7 @@ def _fetch_capture_health(conn, window_start: datetime):
             JOIN radio_sources src ON src.id = shard.source_id
             ORDER BY shard.start_ts DESC
             LIMIT 6
-            """
-        )
+            """)
         recent = [dict(row) for row in cur.fetchall()]
 
     return {
@@ -1097,14 +1110,34 @@ async def get_station_quality(station_id: int, hours: int = 24):
         return StationQualityResponse(
             window_hours=hours,
             shard_count=int(shard_row.get("shard_count") or 0),
-            avg_bitrate_kbps=float(shard_row["avg_bitrate"]) if shard_row.get("avg_bitrate") is not None else None,
-            bitrate_stddev_kbps=float(shard_row["bitrate_stddev"]) if shard_row.get("bitrate_stddev") is not None else None,
-            avg_silence_ratio=float(shard_row["avg_silence_ratio"]) if shard_row.get("avg_silence_ratio") is not None else None,
-            avg_duration_ratio=float(shard_row["avg_duration_ratio"]) if shard_row.get("avg_duration_ratio") is not None else None,
+            avg_bitrate_kbps=(
+                float(shard_row["avg_bitrate"])
+                if shard_row.get("avg_bitrate") is not None
+                else None
+            ),
+            bitrate_stddev_kbps=(
+                float(shard_row["bitrate_stddev"])
+                if shard_row.get("bitrate_stddev") is not None
+                else None
+            ),
+            avg_silence_ratio=(
+                float(shard_row["avg_silence_ratio"])
+                if shard_row.get("avg_silence_ratio") is not None
+                else None
+            ),
+            avg_duration_ratio=(
+                float(shard_row["avg_duration_ratio"])
+                if shard_row.get("avg_duration_ratio") is not None
+                else None
+            ),
             dropout_count=int(shard_row.get("dropout_count") or 0),
             capture_failures=int(error_row.get("capture_failures") or 0),
             ffmpeg_errors=int(error_row.get("ffmpeg_errors") or 0),
-            last_shard_at=shard_row.get("last_shard_at").isoformat() if shard_row.get("last_shard_at") else None,
+            last_shard_at=(
+                shard_row.get("last_shard_at").isoformat()
+                if shard_row.get("last_shard_at")
+                else None
+            ),
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to load station quality: {str(e)}")
@@ -1153,11 +1186,8 @@ async def get_station_shards(station_id: int, limit: int = 10):
         with get_connection() as conn:
             shard_repo = RadioShardRepository(conn)
             shards = shard_repo.get_by_source(station_id, limit=limit)
-            
-            return {
-                "station_id": station_id,
-                "shards": shards
-            }
+
+            return {"station_id": station_id, "shards": shards}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to get shards: {str(e)}")
 
@@ -1169,22 +1199,19 @@ async def get_station_segments(station_id: int, limit: int = 100):
         with get_connection() as conn:
             shard_repo = RadioShardRepository(conn)
             segment_repo = RadioSegmentRepository(conn)
-            
+
             # Get recent shards
             shards = shard_repo.get_by_source(station_id, limit=10)
-            
+
             all_segments = []
             for shard in shards[:5]:  # Limit to 5 most recent shards
                 segments = segment_repo.get_by_shard(shard["id"])
                 all_segments.extend(segments)
-            
+
             # Sort by created_at and limit
             all_segments.sort(key=lambda x: x.get("created_at", datetime.min), reverse=True)
-            
-            return {
-                "station_id": station_id,
-                "segments": all_segments[:limit]
-            }
+
+            return {"station_id": station_id, "segments": all_segments[:limit]}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to get segments: {str(e)}")
 
@@ -1195,13 +1222,13 @@ async def get_station_hourly(station_id: int, hours: int = 24):
     try:
         with get_connection() as conn:
             hourly_repo = RadioStationHourlyRepository(conn)
-            
+
             # Would need to add method to get hourly data
             # For now, return placeholder
             return {
                 "station_id": station_id,
                 "hours": hours,
-                "note": "Hourly aggregation endpoint - implementation pending"
+                "note": "Hourly aggregation endpoint - implementation pending",
             }
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to get hourly stats: {str(e)}")
@@ -1243,7 +1270,7 @@ async def search_segments(
     date_from: Optional[str] = None,
     date_to: Optional[str] = None,
     limit: int = 50,
-    offset: int = 0
+    offset: int = 0,
 ):
     """Search segments with filters"""
     try:
@@ -1287,9 +1314,9 @@ async def search_segments(
                         "is_speech": row.get("is_speech"),
                         "music_prob": row.get("music_prob"),
                         "lang_probs": row.get("lang_probs"),
-                        "created_at": row.get("created_at").isoformat()
-                        if row.get("created_at")
-                        else None,
+                        "created_at": (
+                            row.get("created_at").isoformat() if row.get("created_at") else None
+                        ),
                         "shard_path": row.get("shard_path"),
                         "shard_s3_url": row.get("shard_s3_url"),
                         "segment_path": row.get("path"),
@@ -1331,32 +1358,38 @@ async def get_segment_detail(segment_id: int):
                     "is_speech": segment.get("is_speech"),
                     "music_prob": segment.get("music_prob"),
                     "lang_probs": segment.get("lang_probs"),
-                    "created_at": segment.get("created_at").isoformat()
-                    if segment.get("created_at")
-                    else None,
+                    "created_at": (
+                        segment.get("created_at").isoformat() if segment.get("created_at") else None
+                    ),
                     "shard_path": segment.get("shard_path"),
                     "shard_s3_url": segment.get("shard_s3_url"),
                     "segment_path": segment.get("path"),
                 },
-                "source": {
-                    "id": source["id"],
-                    "name": source["name"],
-                    "country": source.get("country"),
-                    "lang_hint": source.get("lang_hint"),
-                    "status": source.get("status"),
-                    "last_check": source.get("last_check").isoformat()
-                    if source.get("last_check")
-                    else None,
-                    "last_successful_capture": source.get("last_successful_capture").isoformat()
-                    if source.get("last_successful_capture")
-                    else None,
-                    "primary_lang": None,
-                    "speech_ratio": None,
-                    "lang_mix": None,
-                    "switch_rate": None,
-                }
-                if source
-                else None,
+                "source": (
+                    {
+                        "id": source["id"],
+                        "name": source["name"],
+                        "country": source.get("country"),
+                        "lang_hint": source.get("lang_hint"),
+                        "status": source.get("status"),
+                        "last_check": (
+                            source.get("last_check").isoformat()
+                            if source.get("last_check")
+                            else None
+                        ),
+                        "last_successful_capture": (
+                            source.get("last_successful_capture").isoformat()
+                            if source.get("last_successful_capture")
+                            else None
+                        ),
+                        "primary_lang": None,
+                        "speech_ratio": None,
+                        "lang_mix": None,
+                        "switch_rate": None,
+                    }
+                    if source
+                    else None
+                ),
             }
     except HTTPException:
         raise
@@ -1369,34 +1402,34 @@ async def get_service_stats():
     """Get service statistics"""
     try:
         stats = {}
-        
+
         if service_instance:
             if service_instance.task_queue:
                 stats["task_queue"] = service_instance.task_queue.get_queue_stats()
-            
+
             if service_instance.scheduler:
                 stats["scheduler"] = service_instance.scheduler.get_stats()
-            
+
             if service_instance.backpressure:
                 stats["backpressure"] = service_instance.backpressure.get_status()
-        
+
         # Database stats
         with get_connection() as conn:
             source_repo = RadioSourceRepository(conn)
             shard_repo = RadioShardRepository(conn)
-            
+
             sources = source_repo.list_active()
-            
+
             total_shards = 0
             for source in sources[:10]:  # Sample first 10
                 shards = shard_repo.get_by_source(source["id"], limit=1000)
                 total_shards += len(shards)
-            
+
             stats["database"] = {
                 "active_sources": len(sources),
-                "total_shards_sample": total_shards
+                "total_shards_sample": total_shards,
             }
-        
+
         return stats
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to get stats: {str(e)}")

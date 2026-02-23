@@ -4,7 +4,6 @@
 import shutil
 import sys
 
-
 REQUIRED_COMMANDS = [
     "ffmpeg",
 ]

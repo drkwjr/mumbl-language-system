@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 setup(
     name="mumbl-text-lane",
@@ -12,4 +12,3 @@ setup(
     ],
     python_requires=">=3.9",
 )
-

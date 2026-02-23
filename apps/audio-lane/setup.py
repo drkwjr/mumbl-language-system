@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 setup(
     name="mumbl-audio-lane",
@@ -18,4 +18,3 @@ setup(
     ],
     python_requires=">=3.10",
 )
-

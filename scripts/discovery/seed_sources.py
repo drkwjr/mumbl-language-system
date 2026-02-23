@@ -3,7 +3,6 @@ import json
 
 from mumbl_storage.db import get_connection
 
-
 SOURCES = [
     {
         "name": "Radio Browser",

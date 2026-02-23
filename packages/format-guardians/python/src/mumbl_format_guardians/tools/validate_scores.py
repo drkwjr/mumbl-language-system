@@ -1,5 +1,8 @@
-import argparse, sys
+import argparse
+import sys
+
 from mumbl_format_guardians.validate_scores import validate_scores_json
+
 
 def main():
     ap = argparse.ArgumentParser()

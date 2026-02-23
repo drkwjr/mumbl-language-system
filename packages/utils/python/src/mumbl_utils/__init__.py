@@ -2,9 +2,9 @@
 
 from mumbl_utils.text_utils import (
     clean_ocr_artifacts,
-    normalize_unicode,
-    is_valid_ipa,
     extract_phonemes,
+    is_valid_ipa,
+    normalize_unicode,
 )
 
 __all__ = [
@@ -13,4 +13,3 @@ __all__ = [
     "is_valid_ipa",
     "extract_phonemes",
 ]
-

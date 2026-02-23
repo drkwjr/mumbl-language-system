@@ -5,7 +5,7 @@ import os
 import re
 import sys
 from pathlib import Path
-from typing import Optional, Dict, Any
+from typing import Any, Dict, Optional
 
 import requests
 
@@ -18,15 +18,16 @@ sys.path.insert(0, str(STORAGE_SRC))
 
 try:
     from dotenv import load_dotenv
+
     load_dotenv(REPO_ROOT / ".env")
 except ImportError:
     pass
 
-from radio_ingestion.storage.radio_repositories import (  # noqa: E402
-    RadioSourceRepository,
-    RadioFrequencyCandidateRepository,
-)
 from mumbl_storage.db import get_connection  # noqa: E402
+from radio_ingestion.storage.radio_repositories import (  # noqa: E402
+    RadioFrequencyCandidateRepository,
+    RadioSourceRepository,
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -63,14 +64,18 @@ def strip_html(html: str) -> str:
 
 def fetch_homepage_text(url: str, timeout: int) -> Optional[str]:
     try:
-        response = requests.get(url, timeout=timeout, headers={"User-Agent": "mumbl-frequency-bot/0.1"})
+        response = requests.get(
+            url, timeout=timeout, headers={"User-Agent": "mumbl-frequency-bot/0.1"}
+        )
         response.raise_for_status()
         return strip_html(response.text)[:2000]
     except Exception:
         return None
 
 
-def call_llm(client, model: str, station_name: str, country: str, homepage_text: str) -> Dict[str, Any]:
+def call_llm(
+    client, model: str, station_name: str, country: str, homepage_text: str
+) -> Dict[str, Any]:
     system = (
         "You extract radio station frequencies. Return JSON with keys: "
         "frequency_mhz (number or null), frequency_label (string or null), "

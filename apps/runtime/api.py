@@ -1,9 +1,10 @@
+from typing import Dict, List, Optional
+
 from fastapi import FastAPI
-from pydantic import BaseModel
-from typing import List, Dict, Optional
-from mumbl_orchestration.flows_text import text_lane_flow
 from mumbl_orchestration.flows_audio import audio_lane_flow
 from mumbl_orchestration.flows_curator import curator_flow
+from mumbl_orchestration.flows_text import text_lane_flow
+from pydantic import BaseModel
 
 # Import TTS training flow
 try:
@@ -13,11 +14,14 @@ except ImportError:
     def tts_training_flow(manifest: dict) -> dict:
         return {"status": "not_implemented", "message": "TTS training flow not available"}
 
+
 app = FastAPI(title="Mumbl Runtime Admin API", version="0.1.0")
+
 
 class BatchInput(BaseModel):
     uri: str
     doc_id: Optional[str] = None
+
 
 class FlowRequest(BaseModel):
     batch_id: str
@@ -26,9 +30,11 @@ class FlowRequest(BaseModel):
     dialect: str
     inputs: List[BatchInput]
 
+
 @app.get("/health")
 def health():
     return {"ok": True}
+
 
 @app.post("/flows/text")
 def launch_text(req: FlowRequest):
@@ -41,6 +47,7 @@ def launch_text(req: FlowRequest):
     }
     return text_lane_flow(man)
 
+
 @app.post("/flows/audio")
 def launch_audio(req: FlowRequest):
     man = {
@@ -51,6 +58,7 @@ def launch_audio(req: FlowRequest):
         "inputs": [i.dict() for i in req.inputs],
     }
     return audio_lane_flow(man)
+
 
 @app.post("/flows/curator")
 def launch_curator(req: FlowRequest):
@@ -63,6 +71,7 @@ def launch_curator(req: FlowRequest):
     }
     return curator_flow(man)
 
+
 @app.post("/flows/tts-training")
 def launch_tts_training(req: FlowRequest):
     man = {
@@ -74,9 +83,11 @@ def launch_tts_training(req: FlowRequest):
     }
     return tts_training_flow(man)
 
+
 class PreflightResponse(BaseModel):
     hours_estimated: float
     storage_gib_estimated: float
+
 
 @app.post("/preflight/youtube", response_model=PreflightResponse)
 def preflight_youtube(url: str):

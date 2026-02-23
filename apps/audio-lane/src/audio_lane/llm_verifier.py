@@ -1,9 +1,9 @@
 """Transcript language verification using an LLM."""
 
 import json
+import logging
 import os
 from typing import Dict, List, Optional, Tuple
-import logging
 
 logger = logging.getLogger(__name__)
 
@@ -85,7 +85,9 @@ class TranscriptLanguageVerifier:
             return None, 0.0, None, "transcript_too_short"
 
         if self.provider != "openai":
-            logger.warning("Unsupported LLM provider; skipping verification", extra={"provider": self.provider})
+            logger.warning(
+                "Unsupported LLM provider; skipping verification", extra={"provider": self.provider}
+            )
             return None, 0.0, None, "unsupported_provider"
 
         client = self._get_openai_client()

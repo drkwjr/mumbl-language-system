@@ -6,9 +6,8 @@ import sys
 from datetime import timedelta
 from typing import Optional
 
-from psycopg.rows import dict_row
-
 from mumbl_storage.db import get_connection
+from psycopg.rows import dict_row
 
 
 def get_int_env(name: str, default: int) -> int:

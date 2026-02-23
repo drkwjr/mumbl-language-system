@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, List, Optional, Tuple
 
 
@@ -22,14 +22,12 @@ def _parse_stats(value: Any) -> Dict[str, Any]:
 
 def fetch_sources(conn) -> List[Dict[str, Any]]:
     with conn.cursor() as cur:
-        cur.execute(
-            """
+        cur.execute("""
             SELECT id, name, source_type, base_url, countries
             FROM discovery_sources
             WHERE active = true
             ORDER BY id
-            """
-        )
+            """)
         rows = cur.fetchall()
     sources = []
     for row in rows:
@@ -166,8 +164,7 @@ def _fetch_language_mapping(conn, window_hours: int = 24) -> Dict[Optional[str],
 
 def build_coverage_report(conn, target_countries: Optional[List[str]] = None) -> Dict[str, Any]:
     with conn.cursor() as cur:
-        cur.execute(
-            """
+        cur.execute("""
             SELECT DISTINCT ON (dr.source_id, dr.country)
                 dr.source_id,
                 dr.country,
@@ -180,35 +177,28 @@ def build_coverage_report(conn, target_countries: Optional[List[str]] = None) ->
             JOIN discovery_sources ds ON ds.id = dr.source_id
             WHERE dr.finished_at IS NOT NULL
             ORDER BY dr.source_id, dr.country, dr.finished_at DESC
-            """
-        )
+            """)
         latest_runs = cur.fetchall()
 
-        cur.execute(
-            """
+        cur.execute("""
             SELECT source_id, country, COUNT(*) AS count
             FROM station_provenance
             GROUP BY source_id, country
-            """
-        )
+            """)
         provenance_rows = cur.fetchall()
 
-        cur.execute(
-            """
+        cur.execute("""
             SELECT source_id, country, COUNT(DISTINCT canonical_id) AS count
             FROM station_source_links
             GROUP BY source_id, country
-            """
-        )
+            """)
         canonical_rows = cur.fetchall()
 
-        cur.execute(
-            """
+        cur.execute("""
             SELECT country, COUNT(DISTINCT canonical_id) AS count
             FROM station_source_links
             GROUP BY country
-            """
-        )
+            """)
         canonical_country_rows = cur.fetchall()
 
     provenance_map: Dict[Tuple[int, Optional[str]], int] = {}

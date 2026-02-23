@@ -1,9 +1,11 @@
 import json
 from typing import Iterable
-from mumbl_format_guardians.common import ValidationReport
+
 from mumbl_data_contracts.segments import TextSegment
+from mumbl_format_guardians.common import ValidationReport
 
 REQUIRED_LABELS = ["is_dialogue"]
+
 
 def validate_text_jsonl(lines: Iterable[str]) -> ValidationReport:
     rep = ValidationReport(ok=True, checked=0)

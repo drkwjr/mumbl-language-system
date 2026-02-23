@@ -2,7 +2,8 @@
 
 import json
 import os
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Optional, Tuple
+
 import structlog
 
 logger = structlog.get_logger(__name__)
@@ -15,7 +16,7 @@ class LLMVerifier:
     Uses an LLM to adjudicate language/dialect when audio and text LID disagree.
     If LLM is disabled or unavailable, falls back to higher-confidence prediction.
     """
-    
+
     def __init__(
         self,
         enabled: bool = False,
@@ -29,7 +30,7 @@ class LLMVerifier:
     ):
         """
         Initialize LLM verifier.
-        
+
         Args:
             enabled: Whether to actually call LLM (default: False for now)
             provider: LLM provider name (default: "openai")
@@ -49,12 +50,7 @@ class LLMVerifier:
         self.temperature = temperature
         self.max_transcript_chars = max_transcript_chars
         self._client = None
-        logger.info(
-            "LLM verifier initialized",
-            enabled=enabled,
-            provider=provider,
-            model=model
-        )
+        logger.info("LLM verifier initialized", enabled=enabled, provider=provider, model=model)
 
     def _get_openai_client(self):
         if self._client is not None:
@@ -133,7 +129,7 @@ class LLMVerifier:
         dialect = dialect if isinstance(dialect, str) and dialect.strip() else None
 
         return language, confidence_value, dialect, rationale
-    
+
     def verify_disagreement(
         self,
         audio_lang: Optional[str],
@@ -142,11 +138,11 @@ class LLMVerifier:
         text_confidence: float,
         transcript: str,
         country: Optional[str] = None,
-        candidates: Optional[List[str]] = None
+        candidates: Optional[List[str]] = None,
     ) -> Tuple[Optional[str], float, str]:
         """
         Verify language when audio and text LID disagree.
-        
+
         Args:
             audio_lang: Audio LID language code
             audio_confidence: Audio LID confidence
@@ -155,14 +151,14 @@ class LLMVerifier:
             transcript: Text transcript
             country: Country code for context
             candidates: List of candidate language codes
-        
+
         Returns:
             Tuple of (verified_lang, confidence, reason)
         """
         # Check if there's a disagreement
         if audio_lang == text_lang:
             return audio_lang, (audio_confidence + text_confidence) / 2, "agreement"
-        
+
         # Log disagreement
         logger.warning(
             "Audio and text LID disagree",
@@ -171,9 +167,9 @@ class LLMVerifier:
             text_lang=text_lang,
             text_confidence=text_confidence,
             transcript_preview=transcript[:100] if transcript else None,
-            country=country
+            country=country,
         )
-        
+
         if not self.enabled:
             return self._fallback_choice(audio_lang, audio_confidence, text_lang, text_confidence)
 
@@ -257,25 +253,25 @@ class LLMVerifier:
         if audio_confidence > text_confidence:
             return audio_lang, audio_confidence, "audio_higher_confidence"
         return text_lang, text_confidence, "text_higher_confidence"
-    
+
     def should_verify(
         self,
         audio_lang: Optional[str],
         audio_confidence: float,
         text_lang: Optional[str],
         text_confidence: float,
-        threshold: float = 0.8
+        threshold: float = 0.8,
     ) -> bool:
         """
         Determine if verification should be triggered.
-        
+
         Args:
             audio_lang: Audio LID language
             audio_confidence: Audio LID confidence
             text_lang: Text LID language
             text_confidence: Text LID confidence
             threshold: Confidence threshold (default: 0.8)
-        
+
         Returns:
             True if verification should be triggered
         """
@@ -284,15 +280,15 @@ class LLMVerifier:
         # 2. Both confidences are below threshold
         if audio_lang == text_lang:
             return False
-        
+
         if audio_confidence >= threshold and text_confidence >= threshold:
             # Both confident, but disagree - worth verifying
             return True
-        
+
         if audio_confidence < threshold and text_confidence < threshold:
             # Both uncertain - worth verifying
             return True
-        
+
         return False
 
 

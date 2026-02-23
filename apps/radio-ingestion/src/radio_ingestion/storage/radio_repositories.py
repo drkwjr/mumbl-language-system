@@ -2,13 +2,13 @@
 
 import json
 import re
-from typing import List, Optional, Dict, Any
-from datetime import datetime, timezone, timedelta
-import psycopg
-from psycopg.rows import dict_row
-import structlog
+from datetime import datetime, timedelta, timezone
+from typing import Any, Dict, List, Optional
 
+import psycopg
+import structlog
 from mumbl_storage.repositories import PipelineEventRepository
+from psycopg.rows import dict_row
 
 logger = structlog.get_logger(__name__)
 
@@ -69,17 +69,17 @@ def _emit_event(
 
 class RadioSourceRepository:
     """Repository for radio_sources table"""
-    
+
     def __init__(self, conn: psycopg.Connection):
         self.conn = conn
-    
+
     def insert(self, source_data: Dict[str, Any]) -> Optional[int]:
         """
         Insert a radio source, returns ID or None if duplicate.
-        
+
         Args:
             source_data: Dictionary with source fields
-        
+
         Returns:
             Source ID if inserted, None if duplicate
         """
@@ -103,17 +103,17 @@ class RadioSourceRepository:
             RETURNING id
         """
         params = (
-            source_data['name'],
-            source_data['stream_url'],
-            source_data.get('country'),
-            source_data.get('timezone'),
-            source_data.get('lang_hint'),
-            source_data.get('bitrate'),
-            source_data.get('codec'),
-            source_data.get('station_uuid'),
-            source_data.get('homepage'),
-            json.dumps(source_data.get('tags', [])),
-            'active',
+            source_data["name"],
+            source_data["stream_url"],
+            source_data.get("country"),
+            source_data.get("timezone"),
+            source_data.get("lang_hint"),
+            source_data.get("bitrate"),
+            source_data.get("codec"),
+            source_data.get("station_uuid"),
+            source_data.get("homepage"),
+            json.dumps(source_data.get("tags", [])),
+            "active",
             datetime.now(timezone.utc),
         )
         update_query = """
@@ -159,21 +159,21 @@ class RadioSourceRepository:
                 return source_id
             except psycopg.errors.UniqueViolation:
                 self.conn.rollback()
-                station_uuid = source_data.get('station_uuid')
+                station_uuid = source_data.get("station_uuid")
                 if not station_uuid:
                     return None
                 cur.execute(
                     update_query,
                     (
-                        source_data['name'],
-                        source_data['stream_url'],
-                        source_data.get('country'),
-                        source_data.get('timezone'),
-                        source_data.get('lang_hint'),
-                        source_data.get('bitrate'),
-                        source_data.get('codec'),
-                        source_data.get('homepage'),
-                        json.dumps(source_data.get('tags', [])),
+                        source_data["name"],
+                        source_data["stream_url"],
+                        source_data.get("country"),
+                        source_data.get("timezone"),
+                        source_data.get("lang_hint"),
+                        source_data.get("bitrate"),
+                        source_data.get("codec"),
+                        source_data.get("homepage"),
+                        json.dumps(source_data.get("tags", [])),
                         datetime.now(timezone.utc),
                         station_uuid,
                     ),
@@ -248,7 +248,7 @@ class RadioSourceRepository:
                     source_id,
                 ),
             )
-    
+
     def insert_many(self, sources: List[Dict[str, Any]]) -> List[Optional[int]]:
         """Insert multiple sources, returns list of IDs"""
         ids = []
@@ -256,7 +256,7 @@ class RadioSourceRepository:
             source_id = self.insert(source)
             ids.append(source_id)
         return ids
-    
+
     def get_by_id(self, source_id: int) -> Optional[Dict[str, Any]]:
         """Get source by ID"""
         with self.conn.cursor(row_factory=dict_row) as cur:
@@ -264,40 +264,42 @@ class RadioSourceRepository:
             row = cur.fetchone()
             if row:
                 # Parse JSONB tags
-                if isinstance(row['tags'], str):
-                    row['tags'] = json.loads(row['tags'])
-                elif row['tags'] is None:
-                    row['tags'] = []
+                if isinstance(row["tags"], str):
+                    row["tags"] = json.loads(row["tags"])
+                elif row["tags"] is None:
+                    row["tags"] = []
             return dict(row) if row else None
-    
-    def list_active(self, country: Optional[str] = None, lang_hint: Optional[str] = None) -> List[Dict[str, Any]]:
+
+    def list_active(
+        self, country: Optional[str] = None, lang_hint: Optional[str] = None
+    ) -> List[Dict[str, Any]]:
         """List active sources with optional filters"""
         query = "SELECT * FROM radio_sources WHERE status = 'active'"
         params = []
-        
+
         if country:
             query += " AND country = %s"
             params.append(country)
-        
+
         if lang_hint:
             query += " AND lang_hint = %s"
             params.append(lang_hint)
-        
+
         query += " ORDER BY name"
-        
+
         with self.conn.cursor(row_factory=dict_row) as cur:
             cur.execute(query, params)
             rows = cur.fetchall()
-            
+
             # Parse JSONB tags
             for row in rows:
-                if isinstance(row['tags'], str):
-                    row['tags'] = json.loads(row['tags'])
-                elif row['tags'] is None:
-                    row['tags'] = []
-            
+                if isinstance(row["tags"], str):
+                    row["tags"] = json.loads(row["tags"])
+                elif row["tags"] is None:
+                    row["tags"] = []
+
             return [dict(row) for row in rows]
-    
+
     def update_health(
         self,
         source_id: int,
@@ -377,35 +379,34 @@ class LanguageLabelMapRepository:
 
     def list_map(self) -> Dict[str, str]:
         with self.conn.cursor(row_factory=dict_row) as cur:
-            cur.execute(
-                """
+            cur.execute("""
                 SELECT observed_label, canonical_iso639_3
                 FROM language_label_map
                 WHERE canonical_iso639_3 IS NOT NULL
-                """
-            )
+                """)
             rows = cur.fetchall()
         return {row["observed_label"]: row["canonical_iso639_3"] for row in rows}
 
 
 class RadioShardRepository:
     """Repository for radio_shards table"""
-    
+
     def __init__(self, conn: psycopg.Connection):
         self.conn = conn
-    
+
     def insert(self, shard_data: Dict[str, Any]) -> int:
         """
         Insert a radio shard, returns ID.
-        
+
         Args:
             shard_data: Dictionary with shard fields
-        
+
         Returns:
             Shard ID
         """
         with self.conn.cursor() as cur:
-            cur.execute("""
+            cur.execute(
+                """
                 INSERT INTO radio_shards (
                     source_id, start_ts, end_ts, duration,
                     path, s3_url, file_size_bytes,
@@ -414,25 +415,27 @@ class RadioShardRepository:
                     capture_status, speech_ratio, total_segments, speech_segments
                 ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 RETURNING id
-            """, (
-                shard_data['source_id'],
-                shard_data['start_ts'],
-                shard_data['end_ts'],
-                shard_data['duration'],
-                shard_data['path'],
-                shard_data.get('s3_url'),
-                shard_data.get('file_size_bytes'),
-                shard_data.get('bitrate'),
-                shard_data.get('codec'),
-                shard_data.get('sample_rate', 22050),
-                shard_data.get('channels', 1),
-                shard_data.get('actual_duration'),
-                shard_data.get('duration_ratio'),
-                shard_data.get('capture_status', 'captured'),
-                shard_data.get('speech_ratio'),
-                shard_data.get('total_segments'),
-                shard_data.get('speech_segments')
-            ))
+            """,
+                (
+                    shard_data["source_id"],
+                    shard_data["start_ts"],
+                    shard_data["end_ts"],
+                    shard_data["duration"],
+                    shard_data["path"],
+                    shard_data.get("s3_url"),
+                    shard_data.get("file_size_bytes"),
+                    shard_data.get("bitrate"),
+                    shard_data.get("codec"),
+                    shard_data.get("sample_rate", 22050),
+                    shard_data.get("channels", 1),
+                    shard_data.get("actual_duration"),
+                    shard_data.get("duration_ratio"),
+                    shard_data.get("capture_status", "captured"),
+                    shard_data.get("speech_ratio"),
+                    shard_data.get("total_segments"),
+                    shard_data.get("speech_segments"),
+                ),
+            )
             shard_id = cur.fetchone()[0]
             _emit_event(
                 self.conn,
@@ -445,7 +448,7 @@ class RadioShardRepository:
                 message="Shard captured",
             )
             return shard_id
-    
+
     def update_status(
         self,
         shard_id: int,
@@ -454,35 +457,35 @@ class RadioShardRepository:
         silence_ratio: Optional[float] = None,
         total_segments: Optional[int] = None,
         speech_segments: Optional[int] = None,
-        error_message: Optional[str] = None
+        error_message: Optional[str] = None,
     ):
         """Update shard processing status"""
-        updates = ['capture_status = %s', 'updated_at = CURRENT_TIMESTAMP']
+        updates = ["capture_status = %s", "updated_at = CURRENT_TIMESTAMP"]
         params = [status]
-        
+
         if speech_ratio is not None:
-            updates.append('speech_ratio = %s')
+            updates.append("speech_ratio = %s")
             params.append(speech_ratio)
 
         if silence_ratio is not None:
-            updates.append('silence_ratio = %s')
+            updates.append("silence_ratio = %s")
             params.append(silence_ratio)
-        
+
         if total_segments is not None:
-            updates.append('total_segments = %s')
+            updates.append("total_segments = %s")
             params.append(total_segments)
-        
+
         if speech_segments is not None:
-            updates.append('speech_segments = %s')
+            updates.append("speech_segments = %s")
             params.append(speech_segments)
-        
+
         if error_message is not None:
-            updates.append('error_message = %s')
+            updates.append("error_message = %s")
             params.append(error_message)
-        
+
         query = f"UPDATE radio_shards SET {', '.join(updates)} WHERE id = %s"
         params.append(shard_id)
-        
+
         with self.conn.cursor() as cur:
             cur.execute(query, params)
 
@@ -510,38 +513,45 @@ class RadioShardRepository:
                 "error_message": error_message,
             },
         )
-    
+
     def update_s3_url(self, shard_id: int, s3_url: str):
         """Update shard with S3 URL"""
         with self.conn.cursor() as cur:
-            cur.execute("""
+            cur.execute(
+                """
                 UPDATE radio_shards
                 SET s3_url = %s, updated_at = CURRENT_TIMESTAMP
                 WHERE id = %s
-            """, (s3_url, shard_id))
-    
+            """,
+                (s3_url, shard_id),
+            )
+
     def get_by_source(self, source_id: int, limit: int = 10) -> List[Dict[str, Any]]:
         """Get recent shards for a source"""
         with self.conn.cursor(row_factory=dict_row) as cur:
-            cur.execute("""
+            cur.execute(
+                """
                 SELECT * FROM radio_shards
                 WHERE source_id = %s
                 ORDER BY start_ts DESC
                 LIMIT %s
-            """, (source_id, limit))
+            """,
+                (source_id, limit),
+            )
             return [dict(row) for row in cur.fetchall()]
 
 
 class RadioSegmentRepository:
     """Repository for radio_segments table"""
-    
+
     def __init__(self, conn: psycopg.Connection):
         self.conn = conn
-    
+
     def insert(self, segment_data: Dict[str, Any]) -> int:
         """Insert a radio segment, returns ID"""
         with self.conn.cursor() as cur:
-            cur.execute("""
+            cur.execute(
+                """
                 INSERT INTO radio_segments (
                     shard_id, start_sec, end_sec,
                     is_speech, music_prob,
@@ -551,24 +561,30 @@ class RadioSegmentRepository:
                     mfcc_features, path
                 ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 RETURNING id
-            """, (
-                segment_data['shard_id'],
-                segment_data['start'],
-                segment_data['end'],
-                segment_data.get('is_speech', True),
-                segment_data.get('music_prob'),
-                json.dumps(segment_data['lang_probs']),
-                segment_data.get('primary_lang'),
-                segment_data.get('primary_lang_raw'),
-                segment_data.get('primary_lang_iso639_3'),
-                segment_data.get('confidence'),
-                segment_data.get('text_lang'),
-                segment_data.get('text_confidence'),
-                segment_data.get('llm_verified_lang'),
-                segment_data.get('llm_verification_confidence'),
-                json.dumps(segment_data.get('mfcc_features')) if segment_data.get('mfcc_features') else None,
-                segment_data.get('path')
-            ))
+            """,
+                (
+                    segment_data["shard_id"],
+                    segment_data["start"],
+                    segment_data["end"],
+                    segment_data.get("is_speech", True),
+                    segment_data.get("music_prob"),
+                    json.dumps(segment_data["lang_probs"]),
+                    segment_data.get("primary_lang"),
+                    segment_data.get("primary_lang_raw"),
+                    segment_data.get("primary_lang_iso639_3"),
+                    segment_data.get("confidence"),
+                    segment_data.get("text_lang"),
+                    segment_data.get("text_confidence"),
+                    segment_data.get("llm_verified_lang"),
+                    segment_data.get("llm_verification_confidence"),
+                    (
+                        json.dumps(segment_data.get("mfcc_features"))
+                        if segment_data.get("mfcc_features")
+                        else None
+                    ),
+                    segment_data.get("path"),
+                ),
+            )
             segment_id = cur.fetchone()[0]
             _emit_event(
                 self.conn,
@@ -588,7 +604,7 @@ class RadioSegmentRepository:
                 },
             )
             return segment_id
-    
+
     def insert_many(self, segments: List[Dict[str, Any]]) -> List[int]:
         """Insert multiple segments, returns list of IDs"""
         ids = []
@@ -596,26 +612,29 @@ class RadioSegmentRepository:
             segment_id = self.insert(segment)
             ids.append(segment_id)
         return ids
-    
+
     def get_by_shard(self, shard_id: int) -> List[Dict[str, Any]]:
         """Get all segments for a shard"""
         with self.conn.cursor(row_factory=dict_row) as cur:
-            cur.execute("""
+            cur.execute(
+                """
                 SELECT * FROM radio_segments
                 WHERE shard_id = %s
                 ORDER BY start_sec
-            """, (shard_id,))
+            """,
+                (shard_id,),
+            )
             rows = cur.fetchall()
-            
+
             # Parse JSONB fields
             for row in rows:
-                row['start'] = row.get('start_sec')
-                row['end'] = row.get('end_sec')
-                if isinstance(row.get('lang_probs'), str):
-                    row['lang_probs'] = json.loads(row['lang_probs'])
-                if isinstance(row.get('mfcc_features'), str):
-                    row['mfcc_features'] = json.loads(row['mfcc_features'])
-            
+                row["start"] = row.get("start_sec")
+                row["end"] = row.get("end_sec")
+                if isinstance(row.get("lang_probs"), str):
+                    row["lang_probs"] = json.loads(row["lang_probs"])
+                if isinstance(row.get("mfcc_features"), str):
+                    row["mfcc_features"] = json.loads(row["mfcc_features"])
+
             return [dict(row) for row in rows]
 
     def search(
@@ -626,7 +645,7 @@ class RadioSegmentRepository:
         date_from: Optional[datetime] = None,
         date_to: Optional[datetime] = None,
         limit: int = 50,
-        offset: int = 0
+        offset: int = 0,
     ) -> List[Dict[str, Any]]:
         """Search segments with optional filters"""
         query = """
@@ -673,10 +692,10 @@ class RadioSegmentRepository:
             rows = cur.fetchall()
 
             for row in rows:
-                if isinstance(row.get('lang_probs'), str):
-                    row['lang_probs'] = json.loads(row['lang_probs'])
-                if isinstance(row.get('mfcc_features'), str):
-                    row['mfcc_features'] = json.loads(row['mfcc_features'])
+                if isinstance(row.get("lang_probs"), str):
+                    row["lang_probs"] = json.loads(row["lang_probs"])
+                if isinstance(row.get("mfcc_features"), str):
+                    row["mfcc_features"] = json.loads(row["mfcc_features"])
 
             return [dict(row) for row in rows]
 
@@ -686,7 +705,7 @@ class RadioSegmentRepository:
         confidence_min: Optional[float] = None,
         station_id: Optional[int] = None,
         date_from: Optional[datetime] = None,
-        date_to: Optional[datetime] = None
+        date_to: Optional[datetime] = None,
     ) -> int:
         """Count segments matching filters"""
         query = """
@@ -720,7 +739,7 @@ class RadioSegmentRepository:
         with self.conn.cursor(row_factory=dict_row) as cur:
             cur.execute(query, params)
             row = cur.fetchone()
-            return int(row['total']) if row else 0
+            return int(row["total"]) if row else 0
 
     def get_by_id(self, segment_id: int) -> Optional[Dict[str, Any]]:
         """Get a segment by ID with station context"""
@@ -746,23 +765,24 @@ class RadioSegmentRepository:
             row = cur.fetchone()
             if not row:
                 return None
-            if isinstance(row.get('lang_probs'), str):
-                row['lang_probs'] = json.loads(row['lang_probs'])
-            if isinstance(row.get('mfcc_features'), str):
-                row['mfcc_features'] = json.loads(row['mfcc_features'])
+            if isinstance(row.get("lang_probs"), str):
+                row["lang_probs"] = json.loads(row["lang_probs"])
+            if isinstance(row.get("mfcc_features"), str):
+                row["mfcc_features"] = json.loads(row["mfcc_features"])
             return dict(row)
 
 
 class RadioStationHourlyRepository:
     """Repository for radio_station_hourly table"""
-    
+
     def __init__(self, conn: psycopg.Connection):
         self.conn = conn
-    
+
     def upsert(self, hourly_data: Dict[str, Any]) -> int:
         """Insert or update hourly aggregate"""
         with self.conn.cursor() as cur:
-            cur.execute("""
+            cur.execute(
+                """
                 INSERT INTO radio_station_hourly (
                     source_id, hour, primary_lang, lang_mix, switch_rate,
                     total_segments, speech_segments, speech_ratio,
@@ -783,37 +803,46 @@ class RadioStationHourlyRepository:
                     max_confidence = EXCLUDED.max_confidence,
                     updated_at = CURRENT_TIMESTAMP
                 RETURNING id
-            """, (
-                hourly_data['source_id'],
-                hourly_data['hour'],
-                hourly_data.get('primary_lang'),
-                json.dumps(hourly_data['lang_mix']),
-                hourly_data.get('switch_rate'),
-                hourly_data.get('total_segments', 0),
-                hourly_data.get('speech_segments', 0),
-                hourly_data.get('speech_ratio'),
-                hourly_data.get('dialect_notes'),
-                json.dumps(hourly_data.get('dialect_token_counts')) if hourly_data.get('dialect_token_counts') else None,
-                hourly_data.get('avg_confidence'),
-                hourly_data.get('min_confidence'),
-                hourly_data.get('max_confidence')
-            ))
+            """,
+                (
+                    hourly_data["source_id"],
+                    hourly_data["hour"],
+                    hourly_data.get("primary_lang"),
+                    json.dumps(hourly_data["lang_mix"]),
+                    hourly_data.get("switch_rate"),
+                    hourly_data.get("total_segments", 0),
+                    hourly_data.get("speech_segments", 0),
+                    hourly_data.get("speech_ratio"),
+                    hourly_data.get("dialect_notes"),
+                    (
+                        json.dumps(hourly_data.get("dialect_token_counts"))
+                        if hourly_data.get("dialect_token_counts")
+                        else None
+                    ),
+                    hourly_data.get("avg_confidence"),
+                    hourly_data.get("min_confidence"),
+                    hourly_data.get("max_confidence"),
+                ),
+            )
             return cur.fetchone()[0]
 
     def list_for_source(self, source_id: int, hours: int = 24) -> List[Dict[str, Any]]:
         """List hourly aggregates for a station"""
         window_start = datetime.now(timezone.utc) - timedelta(hours=hours)
         with self.conn.cursor(row_factory=dict_row) as cur:
-            cur.execute("""
+            cur.execute(
+                """
                 SELECT hour, primary_lang, lang_mix, switch_rate, speech_ratio
                 FROM radio_station_hourly
                 WHERE source_id = %s AND hour >= %s
                 ORDER BY hour ASC
-            """, (source_id, window_start))
+            """,
+                (source_id, window_start),
+            )
             rows = cur.fetchall()
             for row in rows:
-                if isinstance(row.get('lang_mix'), str):
-                    row['lang_mix'] = json.loads(row['lang_mix'])
+                if isinstance(row.get("lang_mix"), str):
+                    row["lang_mix"] = json.loads(row["lang_mix"])
             return [dict(row) for row in rows]
 
     def get_latest_for_sources(self, source_ids: List[int]) -> Dict[int, Dict[str, Any]]:
@@ -898,14 +927,12 @@ class CaptureTargetRepository:
 
     def get_active(self) -> Optional[Dict[str, Any]]:
         with self.conn.cursor(row_factory=dict_row) as cur:
-            cur.execute(
-                """
+            cur.execute("""
                 SELECT * FROM capture_targets
                 WHERE active = true
                 ORDER BY updated_at DESC
                 LIMIT 1
-                """
-            )
+                """)
             row = cur.fetchone()
             if not row:
                 return None
@@ -915,7 +942,9 @@ class CaptureTargetRepository:
                 row["languages"] = json.loads(row["languages"])
             return dict(row)
 
-    def upsert(self, countries: List[str], languages: List[str], notes: Optional[str] = None) -> int:
+    def upsert(
+        self, countries: List[str], languages: List[str], notes: Optional[str] = None
+    ) -> int:
         with self.conn.cursor() as cur:
             cur.execute(
                 """

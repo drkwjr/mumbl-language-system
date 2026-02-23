@@ -2,21 +2,22 @@
 import argparse
 import json
 import os
+import re
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from typing import List, Dict, Any, Optional, Tuple
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
 from urllib.parse import urlparse
-import re
 
 import requests
 import structlog
-
 from mumbl_storage.db import get_connection
 from radio_ingestion.discovery.coverage import (
     build_coverage_report,
-    fetch_sources as fetch_coverage_sources,
+)
+from radio_ingestion.discovery.coverage import fetch_sources as fetch_coverage_sources
+from radio_ingestion.discovery.coverage import (
     fetch_target_countries,
     store_coverage_report,
 )
@@ -58,7 +59,9 @@ def create_run(conn, source_id: int, country: Optional[str]) -> int:
         return cur.fetchone()[0]
 
 
-def finalize_run(conn, run_id: int, status: str, stats: Dict[str, Any], error: Optional[str] = None):
+def finalize_run(
+    conn, run_id: int, status: str, stats: Dict[str, Any], error: Optional[str] = None
+):
     with conn.cursor() as cur:
         cur.execute(
             """
@@ -227,7 +230,9 @@ def write_report_file(report: Dict[str, Any]):
 def run_radio_browser(conn, source, country: str, limit: int = 200):
     client = RadioBrowserClient()
     repo = RadioSourceRepository(conn)
-    stations = client.search_stations(country_code=country, limit=limit, order="votes", reverse=True)
+    stations = client.search_stations(
+        country_code=country, limit=limit, order="votes", reverse=True
+    )
     parsed = []
     for station in stations:
         parsed_station = client.parse_station(station)
@@ -320,6 +325,7 @@ def run_wiki(conn, source):
         discovered += 1
 
     return {"discovered": discovered, "inserted": 0}
+
 
 def _run_task(source: Dict[str, Any], country: Optional[str]) -> Tuple[int, str]:
     start_time = time.time()

@@ -17,15 +17,16 @@ sys.path.insert(0, str(STORAGE_SRC))
 
 try:
     from dotenv import load_dotenv
+
     load_dotenv(REPO_ROOT / ".env")
 except ImportError:
     pass
 
-from radio_ingestion.storage.radio_repositories import (  # noqa: E402
-    RadioSourceRepository,
-    RadioFrequencyCandidateRepository,
-)
 from mumbl_storage.db import get_connection  # noqa: E402
+from radio_ingestion.storage.radio_repositories import (  # noqa: E402
+    RadioFrequencyCandidateRepository,
+    RadioSourceRepository,
+)
 
 COUNTRY_QIDS = {
     "GHA": "Q117",

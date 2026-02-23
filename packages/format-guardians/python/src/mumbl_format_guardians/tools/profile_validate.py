@@ -1,5 +1,9 @@
-import argparse, sys, json
+import argparse
+import json
+import sys
+
 from mumbl_format_guardians.validate_profile import validate_profile_json_str
+
 
 def main():
     ap = argparse.ArgumentParser()
