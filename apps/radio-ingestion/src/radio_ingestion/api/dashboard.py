@@ -212,7 +212,6 @@ service_instance: Optional[RadioIngestionService] = None
 @app.on_event("startup")
 async def startup_event():
     """Initialize service on startup"""
-    global service_instance
     # Service will be passed in or initialized here
     # For now, we'll initialize it lazily if needed
     pass

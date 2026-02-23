@@ -1,5 +1,6 @@
 """Unit tests for storage module"""
 
+import os
 import tempfile
 from pathlib import Path
 from unittest.mock import MagicMock, Mock, patch
