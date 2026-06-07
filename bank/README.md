@@ -37,12 +37,15 @@ bank/
 
 ## Status — Phase 1 (Akan/Twi, text-only)
 
-From the kasahorow English-Akan wordlist (BSD-2): **3,231 entries · 2,904 concepts · 349 synonym sets · 3,209 with bilingual examples.** The concept layer here is **first-pass, gloss-derived** (two Akan words sharing an English gloss → shared concept), so concepts + synonym edges are tagged `auto-gloss` — candidates for the verify-not-trust pipeline, not ground truth.
+**Lexicon** — kasahorow English-Akan wordlist (BSD-2): **3,231 entries · 2,904 concepts · 349 synonym sets · 3,209 with bilingual examples.** The concept layer is **first-pass, gloss-derived** (two Akan words sharing an English gloss → shared concept), so concepts + synonym edges are tagged `auto-gloss` — candidates for the verify-not-trust pipeline, not ground truth.
+
+**Phrase bank** — Wikivoyage Twi phrasebook (CC-BY-SA): **308 phrases** tagged by topic/scenario (Eating, Basics, Numbers, Shopping, Directions, Money, ...) with register + pronunciation hints, `unverified` tier.
 
 ```
-python3 bank/ingest/kasahorow_to_lexicon.py     # idempotent; rebuilds data/aka/ from sources/
+python3 bank/ingest/kasahorow_to_lexicon.py     # lexicon + concepts + relations
+python3 bank/ingest/wikivoyage_to_phrases.py    # phrase bank
 ```
 
 ## Next
 
-More sources (curated phrasebooks, Financial Inclusion transcripts) → phrase bank; hand-curated grammar rules; then the build/sync into Postgres + pgvector and the construct-and-verify brain that queries it.
+Grammar rules (from a sourced reference — not hand-written from memory); more phrase/corpus sources; native verification of the `auto`/`unverified` tiers; then the build/sync into Postgres + pgvector and the construct-and-verify brain that queries it.

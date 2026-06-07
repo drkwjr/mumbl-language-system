@@ -1,0 +1,11 @@
+{
+  "source_id": "wikivoyage-twi",
+  "title": "Wikivoyage — Twi phrasebook",
+  "url": "https://en.wikivoyage.org/wiki/Twi_phrasebook",
+  "license": "CC-BY-SA-4.0",
+  "source_type": "phrasebook",
+  "source_language": "en",
+  "target_language": "aka",
+  "acquired_via": "MediaWiki action=raw",
+  "acquisition_date": "2026-06-07"
+}
