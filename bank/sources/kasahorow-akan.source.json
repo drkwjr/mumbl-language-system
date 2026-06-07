@@ -1,0 +1,12 @@
+{
+  "source_id": "kasahorow-akan",
+  "title": "kasahorow English-Akan wordlist (woaka)",
+  "url": "https://github.com/kasahorow/kwl/blob/master/data/english_akan_woaka.tsv",
+  "license": "BSD-2-Clause",
+  "source_type": "dictionary",
+  "source_language": "en",
+  "target_language": "aka",
+  "schema": "akan_headword\tenglish\tpos\t?\t?\takan_example\tenglish_example",
+  "acquired_via": "raw.githubusercontent.com",
+  "acquisition_date": "2026-06-07"
+}
