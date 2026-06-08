@@ -44,7 +44,9 @@ def to_modern(headword):
 # Entries are blank-line-separated blocks; the headword is the leading word before the first comma/
 # period (the model wraps it in **bold** only sometimes, so don't depend on that).
 POS_RE = re.compile(r"\b(n|v|a|adj|adv|interj|prep|conj|num|pron|pl|inf|F|Ak|As|s|cf|syn|pr|red)\.")
-TWI_CH = "a-zẹọŋñǫǭɛɔɪʊ'’"
+# headword chars: basic Latin + Latin-1/Extended accented vowels (tone marks are precomposed: ù û ó ì...)
+# + IPA ɛ ɔ ɪ ʊ + dotted-below ẹ ọ ụ (Latin Extended Additional) + ŋ ñ + apostrophes/hyphen
+TWI_CH = "a-zA-ZÀ-ÿĀ-ɏɛɔɪʊẠ-ỿŋñ'’"
 
 
 def parse_entries(text):
