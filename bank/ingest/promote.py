@@ -10,8 +10,10 @@ verify against and ground generation on, NOT `native-verified` (a human still si
   python3 bank/ingest/promote.py [--min-clips 3] [--dry-run]
 """
 import json
+import os
 import re
 import sys
+import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -22,6 +24,7 @@ import morphophon as mp  # noqa: E402
 DATA = Path(__file__).resolve().parents[1] / "data" / "aka"
 STAGED = DATA / "discovered.jsonl"
 PROMOTED = DATA / "discovered-promoted.jsonl"
+VOWELS = set("aeiouɛɔ")
 
 # English contraction bases (it's, i'm, don't) — but KEEP Twi elision (n'adwuma, m'ayɛ, w'akɔ): the base
 # of a Twi elision is a syllabic consonant (m/n/w/y), not an English pronoun/aux.
@@ -38,6 +41,8 @@ def is_noise(word, bank):
         return True
     if NON_TWI_LETTERS & set(w):               # c/j/q/v/x/z aren't Twi letters
         return True
+    if not (VOWELS & set(w)):                   # no vowel -> acronym/abbreviation (npp, fm, ndc, mm)
+        return True
     m = lid.membership(w, bank)
     if "eng" in m and "aka" not in m:          # plain English word
         return True
@@ -48,6 +53,30 @@ def is_noise(word, bank):
     if FILLER.match(w):                          # aaa, aah, ooo, mm, interjections
         return True
     return False
+
+
+def proper_nouns(words):
+    """Gemini NER — flag tokens that are proper nouns (person/place/org/brand/acronym), not vocabulary.
+    Catches what the orthographic screen can't: politician names (Addo), places (Kumasi), brands. Cheap;
+    skipped gracefully if no key. Default-keep on failure (the deterministic screen is the floor)."""
+    key = os.environ.get("GEMINI_API_KEY")
+    if not key or not words:
+        return set()
+    prompt = ("These tokens are from Asante Twi radio/video transcripts. For EACH, classify it as a "
+              "PROPER NOUN (person, place, organization, political party, brand, or acronym) or a COMMON "
+              "word/phrase.\n" + "\n".join(words))
+    schema = {"type": "array", "items": {"type": "object", "properties": {
+        "token": {"type": "string"}, "kind": {"type": "string", "enum": ["proper", "common"]}},
+        "required": ["token", "kind"]}}
+    body = json.dumps({"contents": [{"parts": [{"text": prompt}]}],
+                       "generationConfig": {"temperature": 0, "responseMimeType": "application/json", "responseSchema": schema}}).encode()
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={key}"
+    try:
+        r = json.loads(urllib.request.urlopen(urllib.request.Request(url, data=body, headers={"Content-Type": "application/json"}), timeout=60).read())
+        verdict = json.loads(r["candidates"][0]["content"]["parts"][0]["text"])
+        return {row["token"] for row in verdict if str(row.get("kind", "")).lower() == "proper"}
+    except Exception:
+        return set()
 
 
 def main():
@@ -81,10 +110,18 @@ def main():
             "provenance": f"corroborated in {freq} clips", "gloss_status": "proposed-unverified",
         })
 
+    # NER pass — drop proper nouns the deterministic screen can't catch (names, places, parties)
+    propers = proper_nouns([p["word"] for p in promote])
+    if propers:
+        rejected += [w for w in propers]
+        promote = [p for p in promote if p["word"] not in propers]
+
     print(f"staged {len(staged)} · promote {len(promote)} (>= {min_clips} clips, screened) · "
           f"rejected {len(rejected)} noise · skipped {skipped} (already known/promoted)")
     if rejected:
-        print("  screened out:", ", ".join(sorted(set(rejected))[:20]))
+        print("  screened out:", ", ".join(sorted(set(rejected))[:24]))
+    if propers:
+        print("  NER dropped (proper nouns):", ", ".join(sorted(propers)))
     print("  promoting:")
     for p in promote[:24]:
         print(f"    {p['word']:14} ({p['freq']:2} clips)  ~ {p['gloss_en'][:34]}")
