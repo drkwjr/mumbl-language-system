@@ -59,7 +59,9 @@ def transcribe(mp3):
                        "generationConfig": {"temperature": 0, "maxOutputTokens": 3000}}).encode()
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={key}"
     r = json.loads(urllib.request.urlopen(urllib.request.Request(url, data=body, headers={"Content-Type": "application/json"}), timeout=180).read())
-    t = r["candidates"][0]["content"]["parts"][0]["text"]
+    cands = r.get("candidates", [])
+    parts = cands[0].get("content", {}).get("parts") if cands else None
+    t = parts[0].get("text", "") if parts else ""  # safety-blocked / empty -> skip this clip, don't crash
     u = r.get("usageMetadata", {})
     USAGE["in"] += u.get("promptTokenCount", 0)
     USAGE["out"] += u.get("candidatesTokenCount", 0)
