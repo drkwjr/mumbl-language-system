@@ -61,13 +61,15 @@ Current state: the sound/grammar layers are **Akuapem** (Christaller); the vocab
 A self-growing construct-and-verify engine for Asante Twi, built end to end.
 
 **Vocabulary / meaning**
-- ~7,800 glossed entries: kasahorow 3.2k + Christaller dictionary 4.6k (vision OCR, Akuapem) + Kotey modern dictionary 2.1k (bilingual). **7,163 words carry a sourced gloss** — `serve.gloss()` glosses from the bank, not a model guess.
-- **~65,500 words** in the verifier (wordforms + dictionaries + FSI + restricted learner books).
+- Glossed dictionary entries: kasahorow 3.2k + Christaller dictionary 4.6k (vision OCR, Akuapem) + Kotey modern dictionary 2.1k (bilingual).
+- **Glossed PAIRS from the courses** (structured-output extraction, the meaning side not bare words): FSI 1,996 (public-domain, committed) + Denteh 1,096 + Yeboa 1,366 (restricted, verifier-only). Conversational register — `Wo ho te sɛn? = How are you?`.
+- **10,465 words carry a sourced gloss** — `serve.gloss()` glosses from the bank, not a model guess.
+- **~68,800 words** in the verifier (wordforms + dictionaries + FSI + restricted learner books).
 - 2,904 concepts — the shared, language-agnostic meaning backbone.
 
 **Sound / grammar** — Asante phonemes (twi-g2p, ATR harmony) + Akuapem (Christaller); grammar paradigms + the `morphophon` decomposer; 6 dialect-tagged varieties.
 
-**Pipeline** (catch → gloss → corroborate → grow): `serve.py` verifier · `morphophon.py` · `language_id.py` (evidence-based, multilingual membership) · `discover.py` (catch unknowns → gloss → stage) · `media_discover.py` (YouTube/radio → Gemini ASR → corroboration) · `discover_channels.py` + `verify_channels.py` (find + **multi-sample**-rank channels) · `iiif_page.py`/`vision_ocr.py`/`pdf_ocr.py` (vision re-OCR) · `coverage.py` · `selftest.py` (25/25).
+**Pipeline** (catch → gloss → corroborate → grow): `serve.py` verifier · `morphophon.py` · `language_id.py` (evidence-based, multilingual membership) · `discover.py` (catch unknowns → gloss → stage) · `media_discover.py` (YouTube/radio → Gemini ASR → corroboration) · `discover_channels.py` + `verify_channels.py` (find + **multi-sample**-rank channels) · `pdf_ocr.py`/`iiif_page.py`/`vision_ocr.py` (vision re-OCR) · `structured_extract.py` (Gemini responseSchema → glossed PAIRS) · `coverage.py` · `selftest.py` (25/25).
 
 **Sources:** Christaller grammar+dictionary, kasahorow, twi_words, Wikivoyage, twi-g2p, Kotey dictionary, FSI Twi Basic Course (public-domain), Denteh/Tie-Ma-Mense-Wo/1973-guide (restricted), Rattray folk-tales (cataloged).
 
@@ -110,7 +112,9 @@ python3 bank/ingest/iiif_page.py <archive_id> <leaf|range> [x,y,w,h]   # fetch p
 
 ## Next
 
-- **Finish the books:** mine the glossed English↔Twi PAIRS (not just bare words) from FSI + the learner books — the meaning side; OCR the last scanned book (Yeboa-Dankwa).
-- **Scale + clean the harvest:** more clips/channels; a NER filter (proper-noun leakage like NPP/SVTV still corroborates); the **promotion loop** (a corroborated word with a stable gloss graduates into the bank with a verification tier).
-- **New source veins:** song lyrics (rich but figurative register), more verified channels.
-- **Serving:** build/sync into Postgres + pgvector; native verification of the `auto`/`unverified` tiers.
+The books are done — all four (FSI, Kotey, Denteh, Yeboa) mined for glossed PAIRS. Open workstreams (Linear, Mumbl project):
+
+- **Scale + clean the harvest** (ANO-1696 / ANO-1697): more clips/channels; a NER filter (proper-noun leakage like NPP/SVTV still corroborates).
+- **Promotion loop** (ANO-1695): a corroborated word with a stable gloss graduates into the bank with a verification tier.
+- **New source veins** (ANO-1698): song lyrics (rich but figurative register), more verified channels.
+- **Serving + verification** (ANO-1699 / ANO-1700): build/sync into Postgres + pgvector; native verification of the `auto`/`unverified` tiers.
