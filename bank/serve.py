@@ -41,6 +41,9 @@ class Bank:
         # grapheme -> sound key (Christaller §1-4, vision-recovered): the orthography->phoneme map.
         self.phonemes = _load("phonemes.jsonl")
 
+        # sourced grammar paradigms (Christaller §54-56, §90-91): pronoun + TAM affix tables.
+        self.grammar = _load("grammar.jsonl")
+
         self.by_lemma = defaultdict(list)
         self.by_gloss = defaultdict(list)
         for e in self.entries:

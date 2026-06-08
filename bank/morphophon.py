@@ -7,15 +7,19 @@ Two mechanisms, both grounding the construct-and-verify check:
                     collapses spelling variants by sound (nsuo~nsu, medaase~medase). Optional: if
                     twi-g2p isn't importable the module still decomposes.
 
-The affix inventory is standard Twi closed-class and data-evidenced (the subject pronouns are the
-top-frequency tokens — me, wo, ɔ, yɛ...), but is tagged `auto` (verify-not-trust): confirm against a
-grammar source before treating as ground truth.
+The affix inventory is now SOURCED to Christaller §54 (subject prefixes) + the verb-tense formation
+section (TAM prefixes), recovered via IIIF vision re-OCR — see bank/data/aka/grammar.jsonl.
 """
 import re
 
-# Standard Twi subject pronouns + tense/aspect/mood markers. 'auto' tier — confirm vs a grammar source.
-SUBJECTS = ["yɛ", "wɔn", "me", "wo", "mo", "ɔ", "o", "ɛ", "ne", "na", "obi"]
-TAM = ["bɛ", "re", "ko", "kɔ", "be", "a"]
+# Subject prefixes + TAM markers, SOURCED from Christaller §54 (subject prefixes, leaf 72) and the
+# verb-tense formation section (TAM prefixes). See bank/data/aka/grammar.jsonl.
+# §54 prefixed nominative forms: me- wo- ɔ- ɛ- yɛ- mo- wɔ-, with i/u-stem variants mi- wu- mu- and the
+# ɔ/ɛ ASCII variants o-/e-. (Earlier hand-list wrongly included ne [possessive §55], wɔn [object/
+# independent], na, obi — and was MISSING wɔ, the real 3pl subject prefix.)
+SUBJECTS = ["me", "wo", "ɔ", "ɛ", "yɛ", "mo", "wɔ", "o", "e", "mi", "wu", "mu"]
+# TAM: progressive re-, future bɛ- (his 'be'), proximate-future rebɛ-, perfect a-, Fante neg-future kɔ-.
+TAM = ["bɛ", "re", "a", "kɔ", "be", "ko"]
 
 _g2p = None
 
