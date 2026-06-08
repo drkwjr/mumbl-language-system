@@ -28,3 +28,6 @@ bank/sources/page-images/
 
 # generated coverage report (regenerate via bank/coverage.py)
 bank/data/coverage.json
+
+# bulk conversational corpus (reproducible; Postgres-bound)
+bank/corpus/
