@@ -57,6 +57,19 @@ class Bank:
         self.restricted = [json.loads(l) for p in sorted(DATA.glob("_restricted/*.jsonl"))
                            for l in p.read_text(encoding="utf-8").splitlines() if l.strip()]
 
+        # sourced gloss index — gloss a word FROM the bank, not from a model guess. Modern restricted
+        # dictionaries (Kotey) first, then Christaller, then kasahorow.
+        self.glosses = {}
+        for r in self.restricted:
+            if r.get("word") and r.get("gloss_en"):
+                self.glosses.setdefault(r["word"].lower(), r["gloss_en"])
+        for e in self.dict_entries:
+            if e.get("lemma") and e.get("gloss_en"):
+                self.glosses.setdefault(e["lemma"].lower(), e["gloss_en"])
+        for e in self.entries:
+            for s in e["senses"]:
+                self.glosses.setdefault(e["lemma"].lower(), s["gloss_en"])
+
         self.by_lemma = defaultdict(list)
         self.by_gloss = defaultdict(list)
         for e in self.entries:
@@ -99,6 +112,10 @@ class Bank:
     def is_known(self, word):
         w = word.strip().lower()
         return {"known": w in self.known, "freq_rank": self.freq_rank.get(w)}
+
+    def gloss(self, word):
+        """Sourced English gloss from the bank's dictionaries (None if we genuinely don't have one)."""
+        return self.glosses.get(word.strip().lower())
 
 
 def demo(b: Bank) -> None:
