@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "mumbl-bank/lexicon-entry",
+  "title": "Lexical entry (OntoLex-Lemon-ish)",
+  "type": "object",
+  "required": ["id", "lang", "lemma", "forms", "senses", "provenance"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "description": "Stable id, e.g. aka:atoro:0" },
+    "lang": { "type": "string", "description": "ISO 639-3 (e.g. aka)" },
+    "lemma": { "type": "string", "description": "Canonical written form" },
+    "pos": { "type": ["string", "null"], "description": "Part of speech" },
+    "forms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["writtenRep"],
+        "properties": {
+          "writtenRep": { "type": "string" },
+          "morphFeatures": { "type": "object" },
+          "dialect": { "type": "string" }
+        }
+      }
+    },
+    "senses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "gloss_en"],
+        "properties": {
+          "id": { "type": "string" },
+          "gloss_en": { "type": "string" },
+          "concept": { "type": "string", "description": "concept:<slug> — the cross-language backbone" },
+          "examples": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": { "aka": { "type": "string" }, "en": { "type": "string" } }
+            }
+          }
+        }
+      }
+    },
+    "provenance": { "$ref": "provenance.schema.json" }
+  }
+}
