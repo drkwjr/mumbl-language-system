@@ -38,3 +38,6 @@ bank/sources/rattray-folktales.scandata.xml
 
 # copyright-restricted, verifier-only (extracted word facts; never publish)
 bank/data/aka/_restricted/
+
+# discovery staging output (per-corpus; may be derived from restricted text)
+bank/data/aka/discovered.jsonl
