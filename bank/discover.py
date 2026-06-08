@@ -25,15 +25,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parent / "ingest"))
 from serve import Bank  # noqa: E402
 import morphophon as mp  # noqa: E402
+import language_id as lid  # noqa: E402
 
 TWITOK = re.compile(r"[a-zɛɔŋ'’]+", re.I)
 OUT = Path(__file__).resolve().parent / "data" / "aka" / "discovered.jsonl"
-# bilingual corpora leak English; drop English homographs (keep ɛ/ɔ words always)
-ENGLISH = set()
-try:
-    ENGLISH = {w.strip().lower() for w in open("/usr/share/dict/words", encoding="utf-8", errors="replace")}
-except OSError:
-    pass
 
 
 def read_corpus(path):
@@ -47,13 +42,12 @@ def catch_unknowns(bank, text):
     unk = Counter()
     for tok in TWITOK.findall(text.lower()):
         tok = tok.strip("'’")
-        twiish = any(c in tok for c in "ɛɔŋ")
-        base = tok.split("'")[0]  # contractions/possessives: i'll, chief's
-        is_eng = not twiish and (tok in ENGLISH or base in ENGLISH or tok.rstrip("s") in ENGLISH)
-        if len(tok) < 2 or is_eng:  # drop English homographs/plurals in bilingual text
-            continue
-        if not mp.is_known_morph(bank, tok, bank.pkey_index)["known"]:
-            unk[tok] += 1
+        if len(tok) < 2 or mp.is_known_morph(bank, tok, bank.pkey_index)["known"]:
+            continue  # too short, or the bank already verifies it
+        m = lid.membership(tok, bank)
+        if "eng" in m and "aka" not in m:
+            continue  # clearly English (evidence for eng, none for aka) — not a Twi candidate
+        unk[tok] += 1
     return unk
 
 
