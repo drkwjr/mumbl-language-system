@@ -41,10 +41,18 @@ bank/
 
 **Phrase bank** — Wikivoyage Twi phrasebook (CC-BY-SA): **308 phrases** tagged by topic/scenario (Eating, Basics, Numbers, Shopping, Directions, Money, ...) with register + pronunciation hints, `unverified` tier.
 
+**Wordforms** — michsethowusu/twi_words: **59,563 frequency-ranked words** — the verifier's "is this a real Twi word" coverage set + curriculum sequencing (distinct from the glossed lexicon).
+
 ```
 python3 bank/ingest/kasahorow_to_lexicon.py     # lexicon + concepts + relations
 python3 bank/ingest/wikivoyage_to_phrases.py    # phrase bank
+python3 bank/ingest/twi_words_to_wordforms.py   # 59k verifier wordlist + frequency
+python3 bank/serve.py demo                       # query the bank: lookup / ways_to_say / synonyms / is_known / phrases
 ```
+
+`serve.py` is the file-based query layer — the construct-and-verify brain's interface to the bank
+(translate a meaning, surface synonyms, verify a word is real Twi, retrieve scenario phrases). The
+same queries move to Postgres + pgvector later; the API stays the same.
 
 ## Next
 
