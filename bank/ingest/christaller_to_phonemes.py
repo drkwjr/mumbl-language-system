@@ -129,6 +129,12 @@ def main():
                      "sound_desc": desc, "mapping_tier": "sourced",
                      "provenance": prov("Part I ch.2 §25.6", 47, ev)})
 
+    # Christaller's standard is Akuapem (Grammar §4), and we read it directly, so every record is
+    # Akuapem, attested. NOT Asante — the product target still needs an Asante sound source.
+    for r in recs:
+        r["dialect"] = "aka-akuapem"
+        r["dialect_status"] = "attested"
+
     with OUT.open("w", encoding="utf-8") as f:
         for r in recs:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")

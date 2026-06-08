@@ -25,3 +25,6 @@ test_documents/text_dialogue_corpus.jsonl
 
 # reproducible IIIF page-image cache (regenerate via bank/ingest/iiif_page.py)
 bank/sources/page-images/
+
+# generated coverage report (regenerate via bank/coverage.py)
+bank/data/coverage.json

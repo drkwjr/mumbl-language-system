@@ -44,6 +44,10 @@ class Bank:
         # sourced grammar paradigms (Christaller §54-56, §90-91): pronoun + TAM affix tables.
         self.grammar = _load("grammar.jsonl")
 
+        # variety registry (dialect codes) — one level up from the per-language dir.
+        vp = DATA.parent / "varieties.jsonl"
+        self.varieties = [json.loads(l) for l in vp.read_text(encoding="utf-8").splitlines() if l.strip()] if vp.exists() else []
+
         self.by_lemma = defaultdict(list)
         self.by_gloss = defaultdict(list)
         for e in self.entries:

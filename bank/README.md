@@ -39,6 +39,23 @@ bank/
 - **Relation** = a typed edge (synonym, antonym, hypernym, derivation, dialect-variant, collocation, ...).
 - **Provenance + verification tier** on every record: `unverified` (raw ingest) → `auto` (heuristic / cross-source) → `native-verified` (the gold). Generation only voices `auto`/`native-verified`.
 
+## Varieties (dialects) and coverage
+
+Two independent axes live on every surface record:
+
+- **content verification** — is it correct? `unverified → auto → sourced → native-verified`
+- **dialect attribution** — which variety, and how sure? `attested` (the source marks it) · `attributed` (inferred from the source's general dialect) · `unspecified` (unknown → treated as shared)
+
+**One Akan store, dialect-tagged.** The concept layer is meaning, so it carries no dialect — it's the shared backbone across Asante Twi, Akuapem Twi, and Fante. Surface layers (lexicon, phonemes, grammar, wordforms) carry a `dialect` tag (`bank/data/varieties.jsonl` is the registry). A **dialect view** = records tagged for that variety **plus** shared/unspecified ones; other varieties' dialect-specific records are excluded. That's why our Christaller-sourced (Akuapem) phonemes correctly read as MISSING for the Asante view.
+
+**Know what we don't have.** `bank/coverage.py` generates the variety × layer matrix from the data (presence is always honest); `bank/data/coverage-overlay.json` adds the known-gap notes and the graded **audio-readiness** scale (`none → synthetic → sourced-rough → sourced-good → native-verified → native-recorded`) — audio readiness is tracked separately from text readiness, since a variety can be solid in text and silent in audio. A variety becomes a first-class product choice when its coverage crosses the bar; below it, it shows as preview.
+
+```
+python3 bank/coverage.py --json    # print the matrix + known gaps, write coverage.json
+```
+
+Current state: the sound/grammar layers are **Akuapem** (Christaller); the vocabulary leans **Asante**. The open gap is an Asante-attested phoneme + grammar source.
+
 ## Status — Phase 1 (Akan/Twi, text-only)
 
 **Lexicon** — kasahorow English-Akan wordlist (BSD-2): **3,231 entries · 2,904 concepts · 349 synonym sets · 3,209 with bilingual examples.** The concept layer is **first-pass, gloss-derived** (two Akan words sharing an English gloss → shared concept), so concepts + synonym edges are tagged `auto-gloss` — candidates for the verify-not-trust pipeline, not ground truth.

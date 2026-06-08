@@ -1,0 +1,27 @@
+{
+  "_doc": "Manual overlay for the generated coverage map (bank/coverage.py). Data alone shows what we HAVE; this file records what we KNOW we are missing and why, plus the shared state vocabularies. Generated counts always win for presence; these notes annotate intent and gaps.",
+
+  "state_vocab": {
+    "content_verification": ["unverified", "auto", "sourced", "native-verified"],
+    "dialect_status": ["attested", "attributed", "unspecified", "shared"],
+    "text_coverage": ["missing", "partial", "sufficient"],
+    "audio_readiness": [
+      {"level": 0, "key": "none", "desc": "no audio at all"},
+      {"level": 1, "key": "synthetic", "desc": "G2P -> TTS only; intelligible but robotic"},
+      {"level": 2, "key": "sourced-rough", "desc": "found broadcast/media audio, unaligned or low quality"},
+      {"level": 3, "key": "sourced-good", "desc": "found audio, aligned + scored at training grade (>=70 in segment_scores)"},
+      {"level": 4, "key": "native-verified", "desc": "learner grade (>=90 in segment_scores)"},
+      {"level": 5, "key": "native-recorded", "desc": "purpose-recorded by native speakers (gold; not the default build path)"}
+    ]
+  },
+
+  "notes": [
+    {"variety": "aka-asante", "layer": "phonemes", "state": "missing", "note": "Our sourced phoneme key is Akuapem (Christaller). Asante needs its own source. The GhanaNLP twi-g2p we use leans Asante, so tool and inventory currently disagree — reconcile. Find a permissive Asante phonology description."},
+    {"variety": "aka-asante", "layer": "grammar", "state": "missing", "note": "Affix paradigms are Akuapem (Christaller §54). Asante forms differ in places; need an Asante grammar source or to extract Asante-marked variants."},
+    {"variety": "aka-asante", "layer": "lexicon", "state": "partial", "note": "Covered only by attributed (not attested) wordforms; no Asante-attested glossed lexicon yet."},
+    {"variety": "aka-asante", "layer": "audio", "state": "sourced-rough", "note": "Khaya/GhanaNLP TTS+ASR and radio available but NOT yet ingested/scored. Bridge: synthesize from the (Akuapem) phoneme key until an Asante source lands."},
+    {"variety": "aka-akuapem", "layer": "audio", "state": "none", "note": "Thin. Some church/radio audio exists; not sourced."},
+    {"variety": "aka-fante", "layer": "lexicon", "state": "missing", "note": "Only variant-deltas from Christaller so far (ts/dz, a few entries). No standalone Fante lexicon."},
+    {"variety": "som", "layer": "all", "state": "missing", "note": "No Somali records yet. Standardized Latin orthography means less reliance on scanned-grammar re-OCR; broadcast audio is abundant. First expansion target for the Abdi demo."}
+  ]
+}
