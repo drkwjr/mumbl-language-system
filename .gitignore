@@ -44,3 +44,6 @@ bank/data/aka/discovered.jsonl
 
 # media audio/transcript cache (bulk, reproducible)
 bank/corpus/aka-asante/_media/
+
+# scanned-book OCR cache (bulk; curated extracts go to data/)
+bank/corpus/aka-asante/_books/
