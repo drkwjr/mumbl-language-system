@@ -28,10 +28,15 @@ TWITOK = re.compile(r"[a-zɛɔŋ'’]+", re.I)
 USAGE = {"in": 0, "out": 0}
 
 
-def search_ids(query, n):
-    out = subprocess.run([YTDLP, f"ytsearch{n}:{query}", "--flat-playlist", "--print", "%(id)s"],
-                         capture_output=True, text=True, timeout=120).stdout.split()
-    return out[:n]
+def get_ids(arg, n):
+    """arg is an exact @handle / URL / UC… channel-id (pull its recent videos) or a search query."""
+    if arg.startswith("@") or arg.startswith("http") or (arg.startswith("UC") and len(arg) > 20):
+        url = arg if arg.startswith("http") else (f"https://www.youtube.com/{arg}" if arg.startswith("@")
+                                                  else f"https://www.youtube.com/channel/{arg}")
+        cmd = [YTDLP, f"{url.split('/videos')[0]}/videos", "--flat-playlist", "--playlist-end", str(n), "--print", "%(id)s"]
+    else:
+        cmd = [YTDLP, f"ytsearch{n}:{arg}", "--flat-playlist", "--print", "%(id)s"]
+    return subprocess.run(cmd, capture_output=True, text=True, timeout=120).stdout.split()[:n]
 
 
 def audio(vid, secs):
@@ -80,13 +85,21 @@ def gloss(words):
 
 def main():
     CACHE.mkdir(parents=True, exist_ok=True)
-    query = sys.argv[1]
     clips = int(sys.argv[sys.argv.index("--clips") + 1]) if "--clips" in sys.argv else 6
     secs = int(sys.argv[sys.argv.index("--secs") + 1]) if "--secs" in sys.argv else 120
+    sources, a, i = [], sys.argv[1:], 0
+    while i < len(a):
+        if a[i] in ("--clips", "--secs"):
+            i += 2
+            continue
+        sources.append(a[i]); i += 1
     bank = Bank()
 
-    ids = search_ids(query, clips)
-    print(f"clips: {len(ids)}  ({secs}s each)")
+    ids = []
+    for s in sources:
+        ids += get_ids(s, clips)
+    ids = list(dict.fromkeys(ids))  # dedup across sources
+    print(f"sources: {len(sources)}  clips: {len(ids)}  ({secs}s each)")
     df = defaultdict(set)   # unknown word -> set of clip ids (document frequency = corroboration)
     purity = Counter()
     for i, vid in enumerate(ids, 1):
