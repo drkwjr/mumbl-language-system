@@ -59,6 +59,10 @@ class Bank:
         # may feed generation. {twi, gloss_en, pos, ...} per row.
         self.glosses_fsi = _load("glosses-fsi.jsonl")
 
+        # promoted discoveries — media-corroborated words graduated by ingest/promote.py at tier `auto`
+        # (closes the flywheel). {word, gloss_en, freq, tier, ...}. Verifiable + groundable, not yet gold.
+        self.promoted = _load("discovered-promoted.jsonl")
+
         # copyright-restricted Asante book words — VERIFIER COVERAGE ONLY, local + gitignored (never
         # published or voiced). Absent for anyone cloning the repo; graceful when missing.
         self.restricted = [json.loads(l) for p in sorted(DATA.glob("_restricted/*.jsonl"))
@@ -75,6 +79,9 @@ class Bank:
         for r in self.glosses_fsi:
             if r.get("twi") and r.get("gloss_en"):
                 self.glosses.setdefault(r["twi"].lower(), r["gloss_en"])
+        for r in self.promoted:
+            if r.get("word") and r.get("gloss_en"):
+                self.glosses.setdefault(r["word"].lower(), r["gloss_en"])
         for e in self.dict_entries:
             if e.get("lemma") and e.get("gloss_en"):
                 self.glosses.setdefault(e["lemma"].lower(), e["gloss_en"])
@@ -100,6 +107,9 @@ class Bank:
         for e in self.entries:
             for s in e["senses"]:
                 self.pairs.append({"twi": e["lemma"], "en": s["gloss_en"], "source": "kasahorow"})
+        for r in self.promoted:
+            if r.get("word") and r.get("gloss_en"):
+                self.pairs.append({"twi": r["word"], "en": r["gloss_en"], "source": "media-auto", "tier": "auto"})
 
         self.by_lemma = defaultdict(list)
         self.by_gloss = defaultdict(list)
@@ -118,7 +128,8 @@ class Bank:
         self.known = ({e["lemma"].lower() for e in self.entries} | {w["word"].lower() for w in wf}
                       | {e["lemma"].lower() for e in self.dict_entries if e.get("lemma")}
                       | {(r.get("word") or r.get("twi")).lower() for r in self.restricted if (r.get("word") or r.get("twi"))}
-                      | {r["twi"].lower() for r in self.glosses_fsi if r.get("twi")})
+                      | {r["twi"].lower() for r in self.glosses_fsi if r.get("twi")}
+                      | {r["word"].lower() for r in self.promoted if r.get("word")})
         self.freq_rank = {w["word"].lower(): w["rank"] for w in wf}
 
     def lookup(self, word):
