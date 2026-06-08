@@ -66,7 +66,12 @@ def load_ckpt():
 def main():
     CORPUS.mkdir(parents=True, exist_ok=True)
     limit = int(sys.argv[sys.argv.index("--limit") + 1]) if "--limit" in sys.argv else None
-    leaves = twi_leaves()
+    if "--range" in sys.argv:  # explicit leaf range (the Twi-originals are a back section; djvu detection is unreliable)
+        i = sys.argv.index("--range")
+        a, b = int(sys.argv[i + 1]), int(sys.argv[i + 2])
+        leaves = [(lf, lf) for lf in range(a, b + 1)]  # page unknown; keep [TWI] by label at normalize time
+    else:
+        leaves = twi_leaves()
     if limit:
         leaves = leaves[:limit]
     done = load_ckpt()

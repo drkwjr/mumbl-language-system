@@ -20,8 +20,35 @@ CORPUS = Path(__file__).resolve().parents[1] / "corpus" / "aka-asante" / "rattra
 WORD = re.compile(r"[A-Za-zɛɔŋ'’-]+")
 
 
+ENG_STOP = set("the and he she they was were said that with from you have this our had not".split())
+
+
 def reduced(w):
     return w.lower().replace("ɛ", "e").replace("ɔ", "o").replace("-", "")
+
+
+def _is_english(line):
+    toks = re.findall(r"[a-z']+", line.lower())
+    return bool(toks) and sum(t in ENG_STOP for t in toks) / len(toks) > 0.2
+
+
+def extract_twi(text):
+    """Pull the Twi out of a vision-OCR page using its [TWI]/[ENG] section labels (reliable);
+    if a page has no labels, fall back to dropping English-looking lines."""
+    lines = text.splitlines()
+    labeled = any(l.strip() in ("[TWI]", "[ENG]") for l in lines)
+    mode, out = None, []
+    for ln in lines:
+        s = ln.strip()
+        if s in ("[TWI]", "[ENG]"):
+            mode = s
+            continue
+        if labeled:
+            if mode == "[TWI]":
+                out.append(ln)
+        elif s and not _is_english(ln):
+            out.append(ln)
+    return "\n".join(out).strip()
 
 
 def build_map():
@@ -75,8 +102,12 @@ def main():
                 if not line.strip():
                     continue
                 rec = json.loads(line)
-                norm, st = normalize(rec.get("twi", ""), m)
+                twi = extract_twi(rec.get("text", ""))  # re-extract cleanly from raw OCR by label
+                if not twi:
+                    continue  # English-only page (detection false positive) — skip
+                norm, st = normalize(twi, m)
                 total.update(st)
+                rec["twi"] = twi
                 rec["twi_modern"] = norm
                 rec["norm_stats"] = dict(st)
                 f.write(json.dumps(rec, ensure_ascii=False) + "\n")
