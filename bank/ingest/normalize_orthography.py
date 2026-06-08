@@ -52,9 +52,10 @@ def extract_twi(text):
 
 
 def build_map():
-    """reduced-form -> set of modern forms that carry ɛ/ɔ (built from the modern lexicon + phrases)."""
+    """reduced-form -> set of modern forms that carry ɛ/ɔ (built from the modern lexicon, the Christaller
+    dictionary, and phrases)."""
     m = defaultdict(set)
-    for fn in ("lexicon.jsonl", "phrases.jsonl"):
+    for fn in ("lexicon.jsonl", "lexicon-christaller.jsonl", "phrases.jsonl"):
         p = DATA / fn
         if not p.exists():
             continue

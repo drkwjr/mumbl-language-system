@@ -39,6 +39,7 @@ def ocr_image(path: str, prompt: str = TWI_PROMPT) -> str:
             {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{b64}", "detail": "high"}},
         ]}],
         "temperature": 0,
+        "max_tokens": 4096,  # cap runaway outputs (a real column is ~400 tok; some loop to 20k+ -> cost)
     }).encode()
     req = urllib.request.Request(
         "https://api.openai.com/v1/chat/completions",

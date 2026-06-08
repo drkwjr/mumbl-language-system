@@ -49,6 +49,9 @@ class Bank:
         vp = DATA.parent / "varieties.jsonl"
         self.varieties = [json.loads(l) for l in vp.read_text(encoding="utf-8").splitlines() if l.strip()] if vp.exists() else []
 
+        # Christaller 1881 dictionary — bulk glossed vocabulary, vision re-OCR'd in modern orthography.
+        self.dict_entries = _load("lexicon-christaller.jsonl")
+
         self.by_lemma = defaultdict(list)
         self.by_gloss = defaultdict(list)
         for e in self.entries:
@@ -63,7 +66,8 @@ class Bank:
             for s in e["senses"]:
                 self.concept_entries[s["concept"]].append(e)
 
-        self.known = {e["lemma"].lower() for e in self.entries} | {w["word"].lower() for w in wf}
+        self.known = ({e["lemma"].lower() for e in self.entries} | {w["word"].lower() for w in wf}
+                      | {e["lemma"].lower() for e in self.dict_entries if e.get("lemma")})
         self.freq_rank = {w["word"].lower(): w["rank"] for w in wf}
 
     def lookup(self, word):

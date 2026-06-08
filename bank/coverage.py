@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parent / "data"
 # layer -> (file, dialect source). "record" = read each record's own dialect tag; otherwise a fixed
 # dialect inherited from the layer's source (until those layers carry per-record tags).
 LAYERS = {
-    "lexicon": ("lexicon.jsonl", "shared"),
+    "lexicon": ("lexicon*.jsonl", "record"),  # glob: kasahorow (shared) + Christaller dict (aka-akuapem)
     "wordforms": ("wordforms.jsonl", "aka-asante"),
     "phrases": ("phrases.jsonl", "unspecified"),
     "phonemes": ("phonemes*.jsonl", "record"),  # glob: Akuapem + Asante phoneme files
@@ -57,7 +57,7 @@ def build():
     for layer, (f, src) in LAYERS.items():
         d = {}
         for r in load(f):
-            dia = r.get("dialect", "unspecified") if src == "record" else src
+            dia = r.get("dialect", "shared") if src == "record" else src  # lexicon entries w/o a tag = shared
             d[dia] = d.get(dia, 0) + 1
         counts[layer] = d
 
