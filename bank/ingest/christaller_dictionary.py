@@ -41,22 +41,44 @@ def to_modern(headword):
     return h
 
 
-ENTRY = re.compile(r"^\s*([a-zA-Zẹọŋñụ'’ɛɔ][a-zA-Zẹọŋñụ'’ɛɔ̀-ͯ.\- ]{1,28}?)[,.]\s+([a-z]{1,5}\.|pl\.|inf\.|F\.)", re.M)
+# Entries are blank-line-separated blocks; the headword is the leading word before the first comma/
+# period (the model wraps it in **bold** only sometimes, so don't depend on that).
+POS_RE = re.compile(r"\b(n|v|a|adj|adv|interj|prep|conj|num|pron|pl|inf|F|Ak|As|s|cf|syn|pr|red)\.")
+TWI_CH = "a-zẹọŋñǫǭɛɔɪʊ'’"
 
 
 def parse_entries(text):
-    """Light structured parse: headword + POS + gloss snippet."""
     out = []
-    for line in text.splitlines():
-        m = ENTRY.match(line)
+    for block in re.split(r"\n\s*\n", text):
+        block = " ".join(block.replace("**", "").split())  # drop bold, collapse wrapped lines
+        m = re.match(rf"\s*([{TWI_CH}][{TWI_CH}.̀-ͯ-]{{0,29}}?)\s*[,.]\s*(.+)", block, re.I)
         if not m:
             continue
-        head = m.group(1)
-        gloss = line[m.end():].strip()[:120]
-        out.append({"headword": head.strip(), "modern": to_modern(head), "pos": m.group(2),
-                    "gloss_en": gloss, "source": "christaller-dictionary", "dialect": "aka-akuapem",
+        head = m.group(1).strip(" .,")
+        rest = m.group(2).strip()
+        if not head or len(head.split()) > 1 or not re.search(rf"[{TWI_CH}]", head, re.I):
+            continue  # headword must be a single Twi-looking token
+        pm = POS_RE.search(rest)
+        out.append({"headword": head, "modern": to_modern(head), "pos": (pm.group(0) if pm else ""),
+                    "gloss_en": rest[:160], "source": "christaller-dictionary", "dialect": "aka-akuapem",
                     "dialect_status": "attested", "orthography": "christaller-dotted", "verification": "sourced"})
     return out
+
+
+# Pages are two dense columns; OCR each column separately (a whole page overloads one call -> timeout).
+# IIIF percentage regions are robust to per-page size differences. Overlap the gutter so no entry is cut.
+COLUMNS = [("L", "pct:0,0,53,100"), ("R", "pct:47,0,53,100")]
+
+
+def ocr_column(leaf, region, tries=3):
+    last = None
+    for t in range(tries):
+        try:
+            img = fetch_page(ITEM, leaf, region=region, out_dir=CORPUS / "_img", size="1500,")
+            return ocr_image(str(img), PROMPT)
+        except Exception as e:
+            last = e
+    raise last
 
 
 def main():
@@ -69,19 +91,29 @@ def main():
     total_entries = 0
     for n, leaf in enumerate(todo, 1):
         try:
-            img = fetch_page(ITEM, leaf, out_dir=CORPUS / "_img", size="2000,")  # downscale big scans for the vision API
-            text = ocr_image(str(img), PROMPT)
-            entries = parse_entries(text)
+            entries = []
+            for col, region in COLUMNS:
+                text = ocr_column(leaf, region)
+                with (OUT.with_name("christaller-dictionary.raw.jsonl")).open("a", encoding="utf-8") as rf:
+                    rf.write(json.dumps({"leaf": leaf, "col": col, "text": text}, ensure_ascii=False) + "\n")
+                entries += parse_entries(text)
+            # dedup boundary duplicates from the column overlap
+            seen, uniq = set(), []
+            for e in entries:
+                k = (e["modern"], e["pos"])
+                if k not in seen:
+                    seen.add(k)
+                    uniq.append(e)
             with OUT.open("a", encoding="utf-8") as f:
-                for e in entries:
+                for e in uniq:
                     e["leaf"] = leaf
                     f.write(json.dumps(e, ensure_ascii=False) + "\n")
             done.add(leaf)
             CKPT.write_text(json.dumps(sorted(done)))
-            total_entries += len(entries)
-            print(f"  [{n}/{len(todo)}] leaf {leaf}: {len(entries)} entries parsed")
+            total_entries += len(uniq)
+            print(f"  [{n}/{len(todo)}] leaf {leaf}: {len(uniq)} entries")
         except Exception as e:
-            print(f"  [{n}/{len(todo)}] leaf {leaf} FAILED: {e}")
+            print(f"  [{n}/{len(todo)}] leaf {leaf} FAILED after retries: {e}")
     print(f"done. {total_entries} entries -> {OUT}")
 
 
