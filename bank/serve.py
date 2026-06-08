@@ -52,17 +52,26 @@ class Bank:
         # Christaller 1881 dictionary — bulk glossed vocabulary, vision re-OCR'd in modern orthography.
         self.dict_entries = _load("lexicon-christaller.jsonl")
 
+        # FSI Twi Basic Course glossed pairs (public-domain, structured-output extraction) — committed,
+        # may feed generation. {twi, gloss_en, pos, ...} per row.
+        self.glosses_fsi = _load("glosses-fsi.jsonl")
+
         # copyright-restricted Asante book words — VERIFIER COVERAGE ONLY, local + gitignored (never
         # published or voiced). Absent for anyone cloning the repo; graceful when missing.
         self.restricted = [json.loads(l) for p in sorted(DATA.glob("_restricted/*.jsonl"))
                            for l in p.read_text(encoding="utf-8").splitlines() if l.strip()]
 
         # sourced gloss index — gloss a word FROM the bank, not from a model guess. Modern restricted
-        # dictionaries (Kotey) first, then Christaller, then kasahorow.
+        # dictionaries (Kotey) first, then FSI, then Christaller, then kasahorow. Surface form is keyed
+        # "word" (dictionaries) or "twi" (gloss-pair extractions); accept either.
         self.glosses = {}
         for r in self.restricted:
-            if r.get("word") and r.get("gloss_en"):
-                self.glosses.setdefault(r["word"].lower(), r["gloss_en"])
+            w = r.get("word") or r.get("twi")
+            if w and r.get("gloss_en"):
+                self.glosses.setdefault(w.lower(), r["gloss_en"])
+        for r in self.glosses_fsi:
+            if r.get("twi") and r.get("gloss_en"):
+                self.glosses.setdefault(r["twi"].lower(), r["gloss_en"])
         for e in self.dict_entries:
             if e.get("lemma") and e.get("gloss_en"):
                 self.glosses.setdefault(e["lemma"].lower(), e["gloss_en"])
@@ -86,7 +95,8 @@ class Bank:
 
         self.known = ({e["lemma"].lower() for e in self.entries} | {w["word"].lower() for w in wf}
                       | {e["lemma"].lower() for e in self.dict_entries if e.get("lemma")}
-                      | {r["word"].lower() for r in self.restricted if r.get("word")})
+                      | {(r.get("word") or r.get("twi")).lower() for r in self.restricted if (r.get("word") or r.get("twi"))}
+                      | {r["twi"].lower() for r in self.glosses_fsi if r.get("twi")})
         self.freq_rank = {w["word"].lower(): w["rank"] for w in wf}
 
     def lookup(self, word):
