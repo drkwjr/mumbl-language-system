@@ -41,3 +41,6 @@ bank/data/aka/_restricted/
 
 # discovery staging output (per-corpus; may be derived from restricted text)
 bank/data/aka/discovered.jsonl
+
+# media audio/transcript cache (bulk, reproducible)
+bank/corpus/aka-asante/_media/
