@@ -38,8 +38,9 @@ class Bank:
         # accept a known word's variant spelling (nsuo for nsu) without re-running G2P at query time.
         self.pkey_index = {v["pkey"]: v["spellings"] for v in _load("variants.jsonl")}
 
-        # grapheme -> sound key (Christaller §1-4, vision-recovered): the orthography->phoneme map.
-        self.phonemes = _load("phonemes.jsonl")
+        # grapheme -> sound key, per dialect: phonemes.jsonl = Akuapem (Christaller, Lepsius orthography);
+        # phonemes-asante.jsonl = Asante (twi-g2p, modern orthography, with ATR).
+        self.phonemes = _load("phonemes.jsonl") + _load("phonemes-asante.jsonl")
 
         # sourced grammar paradigms (Christaller §54-56, §90-91): pronoun + TAM affix tables.
         self.grammar = _load("grammar.jsonl")

@@ -26,7 +26,7 @@ LAYERS = {
     "lexicon": ("lexicon.jsonl", "shared"),
     "wordforms": ("wordforms.jsonl", "aka-asante"),
     "phrases": ("phrases.jsonl", "unspecified"),
-    "phonemes": ("phonemes.jsonl", "record"),
+    "phonemes": ("phonemes*.jsonl", "record"),  # glob: Akuapem + Asante phoneme files
     "grammar": ("grammar.jsonl", "record"),
 }
 THRESH = {"lexicon": 2000, "wordforms": 10000, "phrases": 200, "phonemes": 30, "grammar": 5}
@@ -39,8 +39,11 @@ GLYPH = {"missing": ".", "partial": "~", "sufficient": "#",
 
 
 def load(name):
-    p = DATA / name
-    return [json.loads(l) for l in p.read_text(encoding="utf-8").splitlines() if l.strip()] if p.exists() else []
+    # name may be a glob (e.g. phonemes*.jsonl) to merge per-dialect files
+    rows = []
+    for p in sorted(DATA.glob(name)) if any(c in name for c in "*?[") else ([DATA / name] if (DATA / name).exists() else []):
+        rows += [json.loads(l) for l in p.read_text(encoding="utf-8").splitlines() if l.strip()]
+    return rows
 
 
 def state(layer, n):

@@ -16,10 +16,11 @@
   },
 
   "notes": [
-    {"variety": "aka-asante", "layer": "phonemes", "state": "missing", "note": "Our sourced phoneme key is Akuapem (Christaller). Asante needs its own source. The GhanaNLP twi-g2p we use leans Asante, so tool and inventory currently disagree — reconcile. Find a permissive Asante phonology description."},
-    {"variety": "aka-asante", "layer": "grammar", "state": "missing", "note": "Affix paradigms are Akuapem (Christaller §54). Asante forms differ in places; need an Asante grammar source or to extract Asante-marked variants."},
-    {"variety": "aka-asante", "layer": "lexicon", "state": "partial", "note": "Covered only by attributed (not attested) wordforms; no Asante-attested glossed lexicon yet."},
-    {"variety": "aka-asante", "layer": "audio", "state": "sourced-rough", "note": "Khaya/GhanaNLP TTS+ASR and radio available but NOT yet ingested/scored. Bridge: synthesize from the (Akuapem) phoneme key until an Asante source lands."},
+    {"variety": "aka-asante", "layer": "phonemes", "state": "sufficient", "note": "CLOSED via twi-g2p (MIT, Cho et al. Asante phone set) -> phonemes-asante.jsonl: 10 vowels with ATR pairs, consonants, digraphs, tone. Resolves the prior tool-vs-inventory disagreement (the inventory now IS the tool's Asante phone set)."},
+    {"variety": "aka-asante", "layer": "grammar", "state": "sufficient", "note": "CLOSED: the pronoun/TAM paradigm is pan-Twi (shared), described by Christaller and corroborated against Asante wordforms. An Asante-SPECIFIC grammar source would still strengthen attestation from attributed to attested."},
+    {"variety": "aka-asante", "layer": "wordforms", "state": "partial", "note": "michsethowusu 59k is ASCII-romanized (ɔ->o, ɛ->e lost) and English-contaminated. Counts look full but orthography is degraded; re-source a special-char Asante wordlist for the verifier."},
+    {"variety": "aka-asante", "layer": "lexicon", "state": "partial", "note": "Covered only by shared (kasahorow) lexicon; no Asante-attested glossed lexicon yet."},
+    {"variety": "aka-asante", "layer": "audio", "state": "sourced-rough", "note": "FSI Twi course (public-domain, ~6h audio) + Khaya/GhanaNLP + radio available, NOT yet ingested/scored. Bridge: synthesize from the Asante phoneme key (twi-g2p) until scored audio lands."},
     {"variety": "aka-akuapem", "layer": "audio", "state": "none", "note": "Thin. Some church/radio audio exists; not sourced."},
     {"variety": "aka-fante", "layer": "lexicon", "state": "missing", "note": "Only variant-deltas from Christaller so far (ts/dz, a few entries). No standalone Fante lexicon."},
     {"variety": "som", "layer": "all", "state": "missing", "note": "No Somali records yet. Standardized Latin orthography means less reliance on scanned-grammar re-OCR; broadcast audio is abundant. First expansion target for the Abdi demo."}
