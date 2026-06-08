@@ -138,7 +138,9 @@ def main():
             total += len(uniq)
             if n % 10 == 0 or n == len(todo):
                 print(f"  {n}/{len(todo)} pages, {total} entries")
+    import vision_ocr
     print(f"done. {total} entries -> {OUT}")
+    print(f"COST: {vision_ocr.USAGE['calls']} calls · {vision_ocr.USAGE['prompt']:,} in + {vision_ocr.USAGE['completion']:,} out tokens · ~${vision_ocr.cost():.2f} ({MODEL})")
 
 
 if __name__ == "__main__":

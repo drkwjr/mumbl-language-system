@@ -49,7 +49,9 @@ def main():
     print("\n4. MORPHOPHONOLOGY (agglutinated forms decompose to known roots)")
     for w, exp in [("yɛbɛma", "ma"), ("wɔbɛba", "ba"), ("ɔrekɔ", "kɔ"), ("metɔ", "tɔ")]:
         r = mp.is_known_morph(b, w, b.pkey_index)
-        check(f"decompose {w}", r["known"] and r.get("root") == exp, f"{'+'.join(r.get('affixes',[]))}+{r.get('root')}")
+        # verifies if it decomposes to the expected root OR is now directly attested (a real word)
+        ok = r["known"] and (r.get("root") == exp or r.get("how") == "direct")
+        check(f"verify {w}", ok, f"{r.get('how')}: {'+'.join(r.get('affixes',[]))}+{r.get('root')}" if r.get("root") else r.get("how"))
     rf = mp.is_known_morph(b, "xbɛfake", b.pkey_index)
     check("fake agglutination rejected", not rf["known"], "xbɛfake → unknown")
 

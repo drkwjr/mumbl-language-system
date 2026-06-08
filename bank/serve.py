@@ -52,6 +52,11 @@ class Bank:
         # Christaller 1881 dictionary — bulk glossed vocabulary, vision re-OCR'd in modern orthography.
         self.dict_entries = _load("lexicon-christaller.jsonl")
 
+        # copyright-restricted Asante book words — VERIFIER COVERAGE ONLY, local + gitignored (never
+        # published or voiced). Absent for anyone cloning the repo; graceful when missing.
+        self.restricted = [json.loads(l) for p in sorted(DATA.glob("_restricted/*.jsonl"))
+                           for l in p.read_text(encoding="utf-8").splitlines() if l.strip()]
+
         self.by_lemma = defaultdict(list)
         self.by_gloss = defaultdict(list)
         for e in self.entries:
@@ -67,7 +72,8 @@ class Bank:
                 self.concept_entries[s["concept"]].append(e)
 
         self.known = ({e["lemma"].lower() for e in self.entries} | {w["word"].lower() for w in wf}
-                      | {e["lemma"].lower() for e in self.dict_entries if e.get("lemma")})
+                      | {e["lemma"].lower() for e in self.dict_entries if e.get("lemma")}
+                      | {r["word"].lower() for r in self.restricted if r.get("word")})
         self.freq_rank = {w["word"].lower(): w["rank"] for w in wf}
 
     def lookup(self, word):

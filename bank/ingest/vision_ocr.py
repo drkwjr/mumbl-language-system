@@ -13,10 +13,22 @@ import base64
 import json
 import os
 import sys
+import threading
 import urllib.request
 from pathlib import Path
 
 MODEL = os.environ.get("OCR_MODEL", "gpt-4o")  # full 4o for special-char fidelity, not mini
+
+# real cost visibility: accumulate token usage across calls (thread-safe for concurrent batches)
+PRICING = {"gpt-4o": (2.5, 10.0), "gpt-4o-mini": (0.15, 0.6)}  # $/1M (input, output)
+USAGE = {"prompt": 0, "completion": 0, "calls": 0}
+_LK = threading.Lock()
+
+
+def cost():
+    """Estimated $ spent so far this process, from actual token usage."""
+    pin, pout = PRICING.get(MODEL, PRICING["gpt-4o"])
+    return USAGE["prompt"] * pin / 1e6 + USAGE["completion"] * pout / 1e6
 
 TWI_PROMPT = (
     "You are transcribing a scanned page of a book that contains AKAN / TWI (a Ghanaian language). "
@@ -47,6 +59,11 @@ def ocr_image(path: str, prompt: str = TWI_PROMPT) -> str:
         headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
     )
     res = json.loads(urllib.request.urlopen(req, timeout=180).read())
+    u = res.get("usage", {})
+    with _LK:
+        USAGE["prompt"] += u.get("prompt_tokens", 0)
+        USAGE["completion"] += u.get("completion_tokens", 0)
+        USAGE["calls"] += 1
     return res["choices"][0]["message"]["content"]
 
 
