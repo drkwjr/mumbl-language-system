@@ -28,6 +28,10 @@ CONFIG = {
     "fsi-twi-course": ("public-domain", DATA / "glosses-fsi.jsonl"),
     "denteh-spoken-twi": ("copyright-restricted", DATA / "_restricted" / "glosses-denteh.jsonl"),
     "yeboa-basic-twi": ("copyright-restricted", DATA / "_restricted" / "glosses-yeboa.jsonl"),
+    # LearnAkan paid course (copyright-restricted -> _restricted; feeds verifier + gloss + generation)
+    "learnakan-idioms": ("copyright-restricted", DATA / "_restricted" / "glosses-learnakan-idioms.jsonl"),
+    "learnakan-conversational": ("copyright-restricted", DATA / "_restricted" / "glosses-learnakan-conversational.jsonl"),
+    "learnakan-vocab-companion": ("copyright-restricted", DATA / "_restricted" / "glosses-learnakan-vocab.jsonl"),
 }
 SCHEMA = {"type": "array", "items": {"type": "object", "properties": {
     "twi": {"type": "string"}, "english": {"type": "string"}, "pos": {"type": "string"}}, "required": ["twi", "english"]}}
