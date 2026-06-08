@@ -1,0 +1,109 @@
+{"id": "variant:0001", "pkey": "ane", "spellings": ["aane", "anee"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0002", "pkey": "abodo", "spellings": ["abodoo", "abɔdo"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0003", "pkey": "ako", "spellings": ["ako", "akoo"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0004", "pkey": "akoko", "spellings": ["akoko", "akokɔ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0005", "pkey": "amande", "spellings": ["amande", "amandeɛ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0006", "pkey": "amba", "spellings": ["Amba", "amba"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0007", "pkey": "ana", "spellings": ["ana", "anaa"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0008", "pkey": "atwere", "spellings": ["atwere", "atwɛre"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0009", "pkey": "awura", "spellings": ["awura", "awuraa"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0010", "pkey": "ba", "spellings": ["ba", "baa"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0011", "pkey": "basa", "spellings": ["baasa", "basaa"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0012", "pkey": "basia", "spellings": ["baasia", "basia"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0013", "pkey": "ber", "spellings": ["ber", "bɛr"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0014", "pkey": "bere", "spellings": ["bere", "beree"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0015", "pkey": "bo", "spellings": ["bo", "bɔ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0016", "pkey": "bon", "spellings": ["bon", "bɔn"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0017", "pkey": "bota", "spellings": ["bota", "bɔta"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0018", "pkey": "bow", "spellings": ["bow", "bɔw"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0019", "pkey": "da", "spellings": ["da", "daa"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0020", "pkey": "dase", "spellings": ["da ... ase", "dase"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0021", "pkey": "de", "spellings": ["de", "dɛ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0022", "pkey": "den", "spellings": ["den", "dɛn"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0023", "pkey": "din", "spellings": ["din", "dinn"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0024", "pkey": "do", "spellings": ["do", "dɔ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0025", "pkey": "duaba", "spellings": ["duaba", "duabaa"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0026", "pkey": "dwe", "spellings": ["dwe", "dwee", "dwɛɛ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0027", "pkey": "dwete", "spellings": ["dwetɛ", "dwɛɛtɛɛ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0028", "pkey": "e", "spellings": ["E", "e", "ɛ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0029", "pkey": "eno", "spellings": ["eno", "ɛno"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0030", "pkey": "fe", "spellings": ["fe", "fɛ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0031", "pkey": "fere", "spellings": ["fere", "fɛre"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0032", "pkey": "few", "spellings": ["few", "fɛw"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0033", "pkey": "fo", "spellings": ["fo", "foo"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0034", "pkey": "fow", "spellings": ["fow", "fɔw"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0035", "pkey": "gunsu", "spellings": ["gu nsu", "gunsu"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0036", "pkey": "gʲedi", "spellings": ["gye ... di", "gyedi"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0037", "pkey": "hemba", "spellings": ["hembaa", "hɛmba"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0038", "pkey": "hen", "spellings": ["hen", "hɛn"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0039", "pkey": "ho", "spellings": ["ho", "hɔ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0040", "pkey": "hʷe", "spellings": ["hwe", "hwee", "hwɛ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0041", "pkey": "hʲe", "spellings": ["hyee", "hyɛ", "hyɛe"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0042", "pkey": "hʲehʲe", "spellings": ["hyehye", "hyehyɛ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0043", "pkey": "hʲease", "spellings": ["hyɛ ... ase", "hyɛ ase"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0044", "pkey": "kantam", "spellings": ["ka ... ntam", "ka ntam"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0045", "pkey": "kan", "spellings": ["kan", "kann"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0046", "pkey": "kane", "spellings": ["kane", "kanee"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0047", "pkey": "kata", "spellings": ["Kataa", "kata"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0048", "pkey": "kete", "spellings": ["kete", "ketee", "kɛtɛ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0049", "pkey": "ko", "spellings": ["ko", "kɔ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0050", "pkey": "koko", "spellings": ["koko", "kokoo", "kooko", "kɔkɔ", "kɔkɔɔ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0051", "pkey": "kom", "spellings": ["komm", "kɔm"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0052", "pkey": "kora", "spellings": ["kora", "koraa"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0053", "pkey": "kʷadu", "spellings": ["kwaadu", "kwadu"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0054", "pkey": "kʲe", "spellings": ["kye", "kyɛ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0055", "pkey": "kʲere", "spellings": ["kyere", "kyerɛ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0056", "pkey": "kʲew", "spellings": ["kyew", "kyɛw"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0057", "pkey": "kʲemu", "spellings": ["kyɛ ... mu", "kyɛmu"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0058", "pkey": "mbere", "spellings": ["mbere", "mberɛ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0059", "pkey": "me", "spellings": ["me", "mee"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0060", "pkey": "mo", "spellings": ["mo", "moo"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0061", "pkey": "mpa", "spellings": ["mpa", "mpaa"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0062", "pkey": "mumu", "spellings": ["Mumu", "mumu"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0063", "pkey": "na", "spellings": ["na", "nna"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0064", "pkey": "nde", "spellings": ["nde", "ndɛ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0065", "pkey": "ŋkran", "spellings": ["Nkran", "nkran"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0066", "pkey": "nuho", "spellings": ["nnuho", "nu ... ho"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0067", "pkey": "nʲi", "spellings": ["nnyi", "nyi"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0068", "pkey": "nsujiri", "spellings": ["nsuyiri", "nsuyirii"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0069", "pkey": "nuhu", "spellings": ["nu ... hu", "nuhu"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0070", "pkey": "nʷewe", "spellings": ["nwewe", "nwewee"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0071", "pkey": "nʲe", "spellings": ["nye", "nyee", "nyɛe"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0072", "pkey": "nʲina", "spellings": ["nyina", "nyinaa"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0073", "pkey": "o", "spellings": ["O", "o", "ɔ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0074", "pkey": "ope", "spellings": ["Ɔpɛ", "ɔpɛ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0075", "pkey": "pa", "spellings": ["pa", "paa"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0076", "pkey": "pam", "spellings": ["paam", "pam"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0077", "pkey": "pen", "spellings": ["pen", "pɛn"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0078", "pkey": "pete", "spellings": ["pete", "pɛtɛ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0079", "pkey": "pe", "spellings": ["pɛ", "pɛe"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0080", "pkey": "pon", "spellings": ["pon", "pɔn", "pɔɔn"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0081", "pkey": "pow", "spellings": ["pow", "pɔw"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0082", "pkey": "sa", "spellings": ["sa", "saa"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0083", "pkey": "se", "spellings": ["se", "sɛ", "sɛe", "sɛɛ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0084", "pkey": "sen", "spellings": ["sen", "sɛn"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0085", "pkey": "serew", "spellings": ["serew", "serɛw"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0086", "pkey": "so", "spellings": ["so", "sɔ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0087", "pkey": "soe", "spellings": ["soɛ", "soɛe"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0088", "pkey": "son", "spellings": ["son", "sɔn"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0089", "pkey": "sow", "spellings": ["sow", "sɔw"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0090", "pkey": "sum", "spellings": ["sum", "summ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0091", "pkey": "ta", "spellings": ["ta", "taa"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0092", "pkey": "tae", "spellings": ["taae", "tae"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0093", "pkey": "te", "spellings": ["te", "tee", "tɛ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0094", "pkey": "tease", "spellings": ["te ... ase", "tease"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0095", "pkey": "tea", "spellings": ["tea", "teaa"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0096", "pkey": "tete", "spellings": ["teetee", "tete"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0097", "pkey": "tew", "spellings": ["tew", "tɛw"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0098", "pkey": "ti", "spellings": ["ti", "tii"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0099", "pkey": "to", "spellings": ["to", "tɔ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0100", "pkey": "toto", "spellings": ["toto", "totɔ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0101", "pkey": "tow", "spellings": ["tow", "tɔw"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0102", "pkey": "twe", "spellings": ["twe", "twee", "twɛ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0103", "pkey": "twere", "spellings": ["twere", "twɛre"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0104", "pkey": "wa", "spellings": ["wa", "waa"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0105", "pkey": "we", "spellings": ["we", "weɛ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0106", "pkey": "were", "spellings": ["were", "werɛ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0107", "pkey": "wo", "spellings": ["wo", "woo", "wɔ"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0108", "pkey": "ja", "spellings": ["Yaa", "ya"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}
+{"id": "variant:0109", "pkey": "jaw", "spellings": ["Yaw", "yaw"], "provenance": {"source": "twi-g2p", "method": "phoneme-key", "verification": "auto", "as_of": "2026-06-07"}}

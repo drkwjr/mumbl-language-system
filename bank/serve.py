@@ -34,6 +34,10 @@ class Bank:
         self.phrases_all = _load("phrases.jsonl")
         wf = _load("wordforms.jsonl")
 
+        # phoneme-key -> spelling variants (built by ingest/build_variants.py); lets the verifier
+        # accept a known word's variant spelling (nsuo for nsu) without re-running G2P at query time.
+        self.pkey_index = {v["pkey"]: v["spellings"] for v in _load("variants.jsonl")}
+
         self.by_lemma = defaultdict(list)
         self.by_gloss = defaultdict(list)
         for e in self.entries:

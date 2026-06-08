@@ -51,11 +51,15 @@ def chat(system: str, user: str) -> dict:
 
 
 def verify(bank: Bank, twi: str) -> dict:
+    import morphophon as mp  # morphophonology-aware: decomposes agglutinated forms before rejecting
+
     toks = [t for t in WORD_RE.findall(twi.lower()) if t]
-    known = [t for t in toks if bank.is_known(t)["known"]]
-    unknown = [t for t in toks if not bank.is_known(t)["known"]]
+    res = [(t, mp.is_known_morph(bank, t, bank.pkey_index)) for t in toks]
+    known = [t for t, r in res if r["known"]]
+    unknown = [t for t, r in res if not r["known"]]
+    via_morph = [t for t, r in res if r.get("how") == "morph"]
     rate = round(100 * len(known) / len(toks)) if toks else 0
-    return {"tokens": len(toks), "verified": len(known), "unknown": unknown, "rate_pct": rate}
+    return {"tokens": len(toks), "verified": len(known), "unknown": unknown, "via_morph": via_morph, "rate_pct": rate}
 
 
 def grounded_reply(bank: Bank, persona: str, topics, learner: str) -> dict:
