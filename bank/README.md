@@ -62,17 +62,17 @@ Current state: the sound/grammar layers are **Akuapem** (Christaller); the vocab
 A self-growing construct-and-verify engine for Asante Twi, built end to end.
 
 **Vocabulary / meaning**
-- Glossed dictionary entries: kasahorow 3.2k + Christaller dictionary 4.6k (vision OCR, Akuapem) + Kotey modern dictionary 2.1k (bilingual).
-- **Glossed PAIRS from the courses** (structured-output extraction, the meaning side not bare words): FSI 1,996 (public-domain, committed) + Denteh 1,096 + Yeboa 1,366 (restricted, verifier-only). Conversational register — `Wo ho te sɛn? = How are you?`.
-- **10,465 words carry a sourced gloss** — `serve.gloss()` glosses from the bank, not a model guess.
-- **~68,800 words** in the verifier (wordforms + dictionaries + FSI + restricted learner books).
+- Glossed dictionaries: kasahorow 3.2k + Christaller 4.6k (vision OCR, Akuapem) + Kotey 2.1k + **LearnAkan English-Twi dictionary 15.6k** (modern Asante, digital text, column-cropped — the biggest single lever).
+- **Glossed PAIRS from courses** (structured-output extraction, the meaning side not bare words): FSI 2.0k (public-domain) + Denteh 1.1k + Yeboa 1.4k + **LearnAkan conversational 1.3k + idioms 0.9k + vocab-companion 1.4k** (restricted). Conversational + figurative register — `Wo ho te sɛn? = How are you?`, `te … akoma = to rip apart the heart of`.
+- **20,558 words carry a sourced gloss** — `serve.gloss()` glosses from the bank, not a model guess.
+- **~77,900 words** in the verifier; **29,331-pair** generation grounding pool.
 - 2,904 concepts — the shared, language-agnostic meaning backbone.
 
 **Sound / grammar** — Asante phonemes (twi-g2p, ATR harmony) + Akuapem (Christaller); grammar paradigms + the `morphophon` decomposer; 6 dialect-tagged varieties.
 
 **Pipeline** (catch → gloss → corroborate → grow): `serve.py` verifier · `morphophon.py` · `language_id.py` (evidence-based, multilingual membership) · `discover.py` (catch unknowns → gloss → stage) · `media_discover.py` (YouTube/radio → Gemini ASR → corroboration) · `discover_channels.py` + `verify_channels.py` (find + **multi-sample**-rank channels) · `pdf_ocr.py`/`iiif_page.py`/`vision_ocr.py` (vision re-OCR) · `structured_extract.py` (Gemini responseSchema → glossed PAIRS) · `coverage.py` · `selftest.py` (25/25).
 
-**Sources:** Christaller grammar+dictionary, kasahorow, twi_words, Wikivoyage, twi-g2p, Kotey dictionary, FSI Twi Basic Course (public-domain), Denteh/Tie-Ma-Mense-Wo/1973-guide (restricted), Rattray folk-tales (cataloged).
+**Sources:** Christaller grammar+dictionary, kasahorow, twi_words, Wikivoyage, twi-g2p, Kotey dictionary, FSI Twi Basic Course (public-domain), Denteh/Tie-Ma-Mense-Wo/1973-guide (restricted), Rattray folk-tales (cataloged), **LearnAkan bundle** (dictionary + idioms + conversational + vocab-companion + 124 audio tracks — paid, `ingest/download_learnakan.js` pulls it via Payhip; restricted, external-drive only).
 
 **Verified-clean Asante channels** (multi-sampled): KMTV 84%, Mogyabi 94%, Akomapa 82%, SVTV 80%.
 
