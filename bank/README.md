@@ -56,6 +56,27 @@ python3 bank/coverage.py --json    # print the matrix + known gaps, write covera
 
 Current state: the sound/grammar layers are **Akuapem** (Christaller); the vocabulary leans **Asante**. The open gap is an Asante-attested phoneme + grammar source.
 
+## Current state (2026-06-08) — the engine, end to end
+
+A self-growing construct-and-verify engine for Asante Twi, built end to end.
+
+**Vocabulary / meaning**
+- ~7,800 glossed entries: kasahorow 3.2k + Christaller dictionary 4.6k (vision OCR, Akuapem) + Kotey modern dictionary 2.1k (bilingual). **7,163 words carry a sourced gloss** — `serve.gloss()` glosses from the bank, not a model guess.
+- **~65,500 words** in the verifier (wordforms + dictionaries + FSI + restricted learner books).
+- 2,904 concepts — the shared, language-agnostic meaning backbone.
+
+**Sound / grammar** — Asante phonemes (twi-g2p, ATR harmony) + Akuapem (Christaller); grammar paradigms + the `morphophon` decomposer; 6 dialect-tagged varieties.
+
+**Pipeline** (catch → gloss → corroborate → grow): `serve.py` verifier · `morphophon.py` · `language_id.py` (evidence-based, multilingual membership) · `discover.py` (catch unknowns → gloss → stage) · `media_discover.py` (YouTube/radio → Gemini ASR → corroboration) · `discover_channels.py` + `verify_channels.py` (find + **multi-sample**-rank channels) · `iiif_page.py`/`vision_ocr.py`/`pdf_ocr.py` (vision re-OCR) · `coverage.py` · `selftest.py` (25/25).
+
+**Sources:** Christaller grammar+dictionary, kasahorow, twi_words, Wikivoyage, twi-g2p, Kotey dictionary, FSI Twi Basic Course (public-domain), Denteh/Tie-Ma-Mense-Wo/1973-guide (restricted), Rattray folk-tales (cataloged).
+
+**Verified-clean Asante channels** (multi-sampled): KMTV 84%, Mogyabi 94%, Akomapa 82%, SVTV 80%.
+
+**Model / cost doctrine:** Gemini 2.5 Flash for OCR + ASR — ~30× cheaper than gpt-4o, faithful on special characters; ~$0.0003/page, ~$0.0013/min of audio; always `max_tokens`-capped + retry + graceful-skip on blocked responses.
+
+**Licensing:** public-domain (FSI, Christaller, Rattray) may feed generation; copyrighted (Kotey, learner books) are verifier/gloss-reference only, local + gitignored.
+
 ## Status — Phase 1 (Akan/Twi, text-only)
 
 **Lexicon** — kasahorow English-Akan wordlist (BSD-2): **3,231 entries · 2,904 concepts · 349 synonym sets · 3,209 with bilingual examples.** The concept layer is **first-pass, gloss-derived** (two Akan words sharing an English gloss → shared concept), so concepts + synonym edges are tagged `auto-gloss` — candidates for the verify-not-trust pipeline, not ground truth.
@@ -89,4 +110,7 @@ python3 bank/ingest/iiif_page.py <archive_id> <leaf|range> [x,y,w,h]   # fetch p
 
 ## Next
 
-Continue the sourced grammar/phoneme build via vision re-OCR: consonants §8-14, the pronoun §53-54 + verb-TAM §172-173 paradigms (to source/tighten the `morphophon` affix tables from recovered forms, not djvu), and tone. Native verification of the `auto`/`unverified` tiers; then the build/sync into Postgres + pgvector and the construct-and-verify brain that queries it.
+- **Finish the books:** mine the glossed English↔Twi PAIRS (not just bare words) from FSI + the learner books — the meaning side; OCR the last scanned book (Yeboa-Dankwa).
+- **Scale + clean the harvest:** more clips/channels; a NER filter (proper-noun leakage like NPP/SVTV still corroborates); the **promotion loop** (a corroborated word with a stable gloss graduates into the bank with a verification tier).
+- **New source veins:** song lyrics (rich but figurative register), more verified channels.
+- **Serving:** build/sync into Postgres + pgvector; native verification of the `auto`/`unverified` tiers.
