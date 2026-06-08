@@ -32,10 +32,12 @@ def _get(url: str) -> bytes:
     return urllib.request.urlopen(req, timeout=60).read()
 
 
-def fetch_page(item_id: str, leaf: int, region: str | None = None, out_dir: Path = CACHE) -> Path:
-    """Fetch one page (or a region crop) at full resolution. `region` = 'x,y,w,h' to zoom a line/table."""
+def fetch_page(item_id: str, leaf: int, region: str | None = None, out_dir: Path = CACHE, size: str = "full") -> Path:
+    """Fetch one page (or a region crop). `region` = 'x,y,w,h' to zoom a line/table. `size` is the IIIF
+    size slot — 'full' for max res, or e.g. '2000,' to cap width (large scans must be downscaled before
+    a vision API will accept them)."""
     reg = region or "full"
-    url = f"{IIIF}/{item_id}${leaf}/{reg}/full/0/default.jpg"
+    url = f"{IIIF}/{item_id}${leaf}/{reg}/{size}/0/default.jpg"
     data = _get(url)
     if len(data) < 1000:  # archive.org returns a short text error body for a bad leaf/region
         raise RuntimeError(f"leaf {leaf} region={reg}: server returned {len(data)} bytes (likely not found)")

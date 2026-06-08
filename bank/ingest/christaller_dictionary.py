@@ -1,0 +1,89 @@
+#!/usr/bin/env python3
+"""Ingest Christaller's 1881 Dictionary of the Asante and Fante Language via vision re-OCR.
+
+The bulk vocabulary lever. The print carries Christaller's dotted orthography (ẹ=ɛ, ọ=ɔ, ŋ) + tone
+marks, which the djvu flattened/mangled but vision recovers cleanly. Each entry -> headword (mapped to
+modern ɛ/ɔ), POS, English gloss. Checkpointed/resumable. 709 leaves total -> a real paid batch; run a
+small --range first.
+
+  set -a; source ../mumbl-server/.env; set +a
+  /tmp/ytenv/bin/python bank/ingest/christaller_dictionary.py --range 120 122    # sample
+  /tmp/ytenv/bin/python bank/ingest/christaller_dictionary.py --range 30 709     # full (ask first; ~$15-20)
+"""
+import json
+import re
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from iiif_page import fetch_page  # noqa: E402
+from vision_ocr import ocr_image  # noqa: E402
+
+ITEM = "adictionaryasan00chrigoog"
+ROOT = Path(__file__).resolve().parents[1]
+CORPUS = ROOT / "corpus" / "aka-akuapem"  # Christaller's standard is Akuapem-based
+OUT = CORPUS / "christaller-dictionary.jsonl"
+CKPT = CORPUS / ".christaller-dictionary.ckpt.json"
+
+PROMPT = (
+    "Transcribe this page from Christaller's 1881 Dictionary of the Asante and Fante (Twi) language. "
+    "Preserve EVERY special character exactly: ẹ ọ ŋ ñ and the acute/grave tone marks — do NOT normalize "
+    "them to e/o. Each dictionary entry begins with a bold headword, then part of speech, then the English "
+    "definition (Twi example sentences may follow). Put ONE entry per line. Output only the entries."
+)
+
+
+def to_modern(headword):
+    """Christaller dotted orthography -> modern Akan (ẹ->ɛ, ọ->ɔ); strip tone/diacritics + entry markup."""
+    h = headword.replace("ẹ", "ɛ").replace("ọ", "ɔ").replace("ñ", "ŋ").replace("ụ", "u")
+    h = re.sub(r"[̀-ͯ]", "", h)  # combining tone marks
+    h = h.strip(" .,;[](){}*").replace("-", "").lower()
+    return h
+
+
+ENTRY = re.compile(r"^\s*([a-zA-Zẹọŋñụ'’ɛɔ][a-zA-Zẹọŋñụ'’ɛɔ̀-ͯ.\- ]{1,28}?)[,.]\s+([a-z]{1,5}\.|pl\.|inf\.|F\.)", re.M)
+
+
+def parse_entries(text):
+    """Light structured parse: headword + POS + gloss snippet."""
+    out = []
+    for line in text.splitlines():
+        m = ENTRY.match(line)
+        if not m:
+            continue
+        head = m.group(1)
+        gloss = line[m.end():].strip()[:120]
+        out.append({"headword": head.strip(), "modern": to_modern(head), "pos": m.group(2),
+                    "gloss_en": gloss, "source": "christaller-dictionary", "dialect": "aka-akuapem",
+                    "dialect_status": "attested", "orthography": "christaller-dotted", "verification": "sourced"})
+    return out
+
+
+def main():
+    CORPUS.mkdir(parents=True, exist_ok=True)
+    i = sys.argv.index("--range")
+    a, b = int(sys.argv[i + 1]), int(sys.argv[i + 2])
+    done = set(json.loads(CKPT.read_text())) if CKPT.exists() else set()
+    todo = [lf for lf in range(a, b + 1) if lf not in done]
+    print(f"Christaller dictionary: leaves {a}..{b}, {len(done)} done, {len(todo)} to OCR")
+    total_entries = 0
+    for n, leaf in enumerate(todo, 1):
+        try:
+            img = fetch_page(ITEM, leaf, out_dir=CORPUS / "_img", size="2000,")  # downscale big scans for the vision API
+            text = ocr_image(str(img), PROMPT)
+            entries = parse_entries(text)
+            with OUT.open("a", encoding="utf-8") as f:
+                for e in entries:
+                    e["leaf"] = leaf
+                    f.write(json.dumps(e, ensure_ascii=False) + "\n")
+            done.add(leaf)
+            CKPT.write_text(json.dumps(sorted(done)))
+            total_entries += len(entries)
+            print(f"  [{n}/{len(todo)}] leaf {leaf}: {len(entries)} entries parsed")
+        except Exception as e:
+            print(f"  [{n}/{len(todo)}] leaf {leaf} FAILED: {e}")
+    print(f"done. {total_entries} entries -> {OUT}")
+
+
+if __name__ == "__main__":
+    main()

@@ -45,7 +45,7 @@ def ocr_image(path: str, prompt: str = TWI_PROMPT) -> str:
         data=body,
         headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
     )
-    res = json.loads(urllib.request.urlopen(req, timeout=120).read())
+    res = json.loads(urllib.request.urlopen(req, timeout=180).read())
     return res["choices"][0]["message"]["content"]
 
 
