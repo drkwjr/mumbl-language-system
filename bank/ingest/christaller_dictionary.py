@@ -70,7 +70,11 @@ def parse_entries(text):
 COLUMNS = [("L", "pct:0,0,53,100"), ("R", "pct:47,0,53,100")]
 
 
-def ocr_column(leaf, region, tries=3):
+WORKERS = 8  # concurrent OCR calls — bulk OCR is I/O-bound on the API; sequential is far too slow
+
+
+def ocr_column(leaf, region, tries=4):
+    import time
     last = None
     for t in range(tries):
         try:
@@ -78,43 +82,61 @@ def ocr_column(leaf, region, tries=3):
             return ocr_image(str(img), PROMPT)
         except Exception as e:
             last = e
+            time.sleep(2 * (t + 1))  # backoff — polite under API rate limits on a large run
     raise last
 
 
+def process_leaf(leaf):
+    """OCR both columns of a leaf and parse. Returns (leaf, raw_rows, unique_entries). Runs in a worker."""
+    raws, entries = [], []
+    for col, region in COLUMNS:
+        text = ocr_column(leaf, region)
+        raws.append({"leaf": leaf, "col": col, "text": text})
+        entries += parse_entries(text)
+    seen, uniq = set(), []
+    for e in entries:
+        k = (e["modern"], e["pos"])
+        if k not in seen:
+            seen.add(k)
+            uniq.append(dict(e, leaf=leaf))
+    return leaf, raws, uniq
+
+
 def main():
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+
     CORPUS.mkdir(parents=True, exist_ok=True)
     i = sys.argv.index("--range")
     a, b = int(sys.argv[i + 1]), int(sys.argv[i + 2])
+    workers = int(sys.argv[sys.argv.index("--workers") + 1]) if "--workers" in sys.argv else WORKERS
     done = set(json.loads(CKPT.read_text())) if CKPT.exists() else set()
     todo = [lf for lf in range(a, b + 1) if lf not in done]
-    print(f"Christaller dictionary: leaves {a}..{b}, {len(done)} done, {len(todo)} to OCR")
-    total_entries = 0
-    for n, leaf in enumerate(todo, 1):
-        try:
-            entries = []
-            for col, region in COLUMNS:
-                text = ocr_column(leaf, region)
-                with (OUT.with_name("christaller-dictionary.raw.jsonl")).open("a", encoding="utf-8") as rf:
-                    rf.write(json.dumps({"leaf": leaf, "col": col, "text": text}, ensure_ascii=False) + "\n")
-                entries += parse_entries(text)
-            # dedup boundary duplicates from the column overlap
-            seen, uniq = set(), []
-            for e in entries:
-                k = (e["modern"], e["pos"])
-                if k not in seen:
-                    seen.add(k)
-                    uniq.append(e)
+    print(f"Christaller dictionary: leaves {a}..{b}, {len(done)} done, {len(todo)} to OCR, {workers} workers")
+    RAW = OUT.with_name("christaller-dictionary.raw.jsonl")
+    total, n = 0, 0
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        futs = {ex.submit(process_leaf, lf): lf for lf in todo}
+        for fut in as_completed(futs):
+            leaf = futs[fut]
+            n += 1
+            try:
+                _, raws, uniq = fut.result()
+            except Exception as e:
+                print(f"  [{n}/{len(todo)}] leaf {leaf} FAILED after retries: {e}")
+                continue
+            # writes + checkpoint happen here in the main thread (serialized -> no locking needed)
+            with RAW.open("a", encoding="utf-8") as rf:
+                for r in raws:
+                    rf.write(json.dumps(r, ensure_ascii=False) + "\n")
             with OUT.open("a", encoding="utf-8") as f:
                 for e in uniq:
-                    e["leaf"] = leaf
                     f.write(json.dumps(e, ensure_ascii=False) + "\n")
             done.add(leaf)
             CKPT.write_text(json.dumps(sorted(done)))
-            total_entries += len(uniq)
-            print(f"  [{n}/{len(todo)}] leaf {leaf}: {len(uniq)} entries")
-        except Exception as e:
-            print(f"  [{n}/{len(todo)}] leaf {leaf} FAILED after retries: {e}")
-    print(f"done. {total_entries} entries -> {OUT}")
+            total += len(uniq)
+            if n % 10 == 0 or n == len(todo):
+                print(f"  {n}/{len(todo)} pages, {total} entries")
+    print(f"done. {total} entries -> {OUT}")
 
 
 if __name__ == "__main__":
