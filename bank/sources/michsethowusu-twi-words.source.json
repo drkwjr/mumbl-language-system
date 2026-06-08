@@ -1,0 +1,12 @@
+{
+  "source_id": "michsethowusu-twi-words",
+  "title": "michsethowusu/twi_words (frequency-ranked Twi wordlist)",
+  "url": "https://huggingface.co/datasets/michsethowusu/twi_words",
+  "license": "unstated",
+  "source_type": "wordlist",
+  "source_language": "aka",
+  "target_language": "aka",
+  "size": "59563 words + frequency",
+  "acquired_via": "HF parquet -> TSV",
+  "acquisition_date": "2026-06-07"
+}
