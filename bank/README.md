@@ -7,7 +7,8 @@ bank + grammar rules. The left half (acquisition / curation / training: `text_se
 `apps/`. The two connect at the corpus: scored, learner-eligible segments feed this bank.
 
 Design docs (vault): `Reference/SideProjects/Mumbl/language-build-pipeline.md` (acquisition) and
-`language-bank-architecture.md` (storage / verification / serving + the relation taxonomy).
+`language-bank-architecture.md` (storage / verification / serving + the relation taxonomy). For how
+this engine scales to other languages (what transfers vs. what you swap), see [`SCALING.md`](SCALING.md).
 
 ## Why data-as-code
 
