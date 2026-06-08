@@ -22,3 +22,6 @@ extracted_documents/
 # Test outputs
 test_documents/*.jsonl
 test_documents/text_dialogue_corpus.jsonl
+
+# reproducible IIIF page-image cache (regenerate via bank/ingest/iiif_page.py)
+bank/sources/page-images/

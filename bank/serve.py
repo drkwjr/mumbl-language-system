@@ -38,6 +38,9 @@ class Bank:
         # accept a known word's variant spelling (nsuo for nsu) without re-running G2P at query time.
         self.pkey_index = {v["pkey"]: v["spellings"] for v in _load("variants.jsonl")}
 
+        # grapheme -> sound key (Christaller §1-4, vision-recovered): the orthography->phoneme map.
+        self.phonemes = _load("phonemes.jsonl")
+
         self.by_lemma = defaultdict(list)
         self.by_gloss = defaultdict(list)
         for e in self.entries:

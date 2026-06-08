@@ -24,7 +24,11 @@ bank/
 ├── data/<lang>/       the curated bank, one dir per language (ISO 639-3, e.g. aka = Akan/Twi)
 │   ├── lexicon.jsonl     lexical entries (lemma / pos / forms / senses / bilingual examples)
 │   ├── concepts.jsonl    the concept layer (language-agnostic meanings)
-│   └── relations.jsonl   typed edges (synonym, ... )
+│   ├── relations.jsonl   typed edges (synonym, ... )
+│   ├── phrases.jsonl     verified scenario phrases
+│   ├── wordforms.jsonl   frequency-ranked verifier coverage set
+│   ├── variants.jsonl    spelling-variant groups clustered by phoneme key
+│   └── phonemes.jsonl    grapheme -> sound key (orthography -> phoneme map)
 └── schema/           JSON-Schema contracts for the records
 ```
 
@@ -54,6 +58,18 @@ python3 bank/serve.py demo                       # query the bank: lookup / ways
 (translate a meaning, surface synonyms, verify a word is real Twi, retrieve scenario phrases). The
 same queries move to Postgres + pgvector later; the API stays the same.
 
+**Phonemes / sound key** — Christaller's *Grammar of the Asante and Fante Language* (1875, public domain): the 10-vowel inventory + nasal/length diacritics + ŋ, with sound descriptions and a reconciled IPA / modern-orthography mapping (`phonemes.jsonl`, `sourced`). This is the orthography→phoneme foundation — **the characters are the sound**, so getting them right is prerequisite to any G2P/pronunciation/TTS.
+
+### Scanned sources: vision re-OCR, not djvu.txt (cross-language doctrine)
+
+archive.org's `<id>_djvu.txt` is OCR'd by an engine with no model for phonetic orthography, so for any low-resource-language source it **silently flattens the special characters that carry the sound** (`ɛ→e`, `ɔ→o`, drops `ŋ`, removes nasal/length/tone diacritics). Verified on Christaller: the alphabet line `a (ạ) b d e̱ e (ẹ) f g h i k (l) m n ṅ o̱ o (ọ) p r s t u w w̃ y` came through djvu as bare ASCII. **Never trust djvu.txt for orthography or sound** — use it for English prose and section structure only.
+
+The fix (reusable for every scanned source, every language): pull the page image via IIIF and re-read it with a vision model that is told the orthography. `bank/ingest/iiif_page.py` is the image side; transcription is done by a vision pass (Claude in-session for high-value pages, or a vision-OCR call at scale). Leaf↔page mapping via `<id>_scandata.xml`.
+
+```
+python3 bank/ingest/iiif_page.py <archive_id> <leaf|range> [x,y,w,h]   # fetch page / zoom a line
+```
+
 ## Next
 
-Grammar rules (from a sourced reference — not hand-written from memory); more phrase/corpus sources; native verification of the `auto`/`unverified` tiers; then the build/sync into Postgres + pgvector and the construct-and-verify brain that queries it.
+Continue the sourced grammar/phoneme build via vision re-OCR: consonants §8-14, the pronoun §53-54 + verb-TAM §172-173 paradigms (to source/tighten the `morphophon` affix tables from recovered forms, not djvu), and tone. Native verification of the `auto`/`unverified` tiers; then the build/sync into Postgres + pgvector and the construct-and-verify brain that queries it.

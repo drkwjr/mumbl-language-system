@@ -1,0 +1,38 @@
+{
+  "source_id": "christaller-grammar",
+  "title": "A Grammar of the Asante and Fante Language called Tshi (Chwee, Twi)",
+  "author": "J. G. Christaller",
+  "year": 1875,
+  "publisher": "Basel Evangelical Missionary Society",
+  "license": "public-domain",
+  "archive_item": "grammarofasantef00chriuoft",
+  "url": "https://archive.org/details/grammarofasantef00chriuoft",
+  "imagecount": 244,
+  "downloaded": "2026-06-07",
+  "kind": "grammar-reference",
+  "orthography": "Lepsius Standard Alphabet (1863) — uses ṅ (=modern ŋ), w̃, and under-dot/under-bar vowels (ạ ẹ ọ e̱ o̱) for ATR/tense-lax grades that modern Twi orthography collapses to ɛ ɔ etc.",
+  "access": {
+    "djvu_text": {
+      "url": "https://archive.org/download/grammarofasantef00chriuoft/grammarofasantef00chriuoft_djvu.txt",
+      "file": "christaller-grammar.djvu.txt",
+      "fidelity": "LOSSY ON SPECIAL CHARACTERS — the archive.org OCR engine has no model for the phonetic orthography and silently flattens ɛ->e, ɔ->o, drops ŋ, and removes all nasal/length/tone diacritics. Usable for English prose and section structure ONLY; never trust it for Twi orthography or sound."
+    },
+    "page_images": {
+      "method": "IIIF + vision re-OCR (bank/ingest/iiif_page.py)",
+      "url_template": "https://iiif.archive.org/iiif/grammarofasantef00chriuoft$<leaf>/full/full/0/default.jpg",
+      "region_template": "https://iiif.archive.org/iiif/grammarofasantef00chriuoft$<leaf>/<x>,<y>,<w>,<h>/full/0/default.jpg",
+      "leaf_mapping": "grammarofasantef00chriuoft_scandata.xml (leafNum -> pageNumber); body page numbering restarts at leaf 33 = printed page 1",
+      "fidelity": "FAITHFUL — recovers all special characters and diacritics. This is the source of truth for orthography/sound.",
+      "recovered_leaves": [33, 34, 35]
+    }
+  },
+  "ingested": {
+    "phonemes.jsonl": "Part I ch.1 §1-4 (leaf 33-34): 10-vowel inventory + nasal/length diacritics + ṅ, with sound descriptions and reconciled IPA/modern-orthography mapping. verification: sourced.",
+    "pending": [
+      "consonants §8-14 (compound/special: tw dw fw, hy, w̃, palatal n) -> extend phonemes.jsonl",
+      "pronoun paradigm §53-54 + verb TAM §172-173 (leaves ~50, ~80) -> grammar.jsonl, to source/tighten morphophon affix tables from recovered (not djvu) forms",
+      "tone system -> phonemes.jsonl tone records"
+    ]
+  },
+  "note": "SOURCED grammar reference for the grammar-rules + phoneme layers (never from model memory). Sam's bar: orthography carries the phonemes; recover special characters from page images, do not accept djvu flattening. Cross-language doctrine — applies to every scanned source."
+}
