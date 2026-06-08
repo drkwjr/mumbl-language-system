@@ -63,14 +63,16 @@ def verify(bank: Bank, twi: str) -> dict:
 
 
 def grounded_reply(bank: Bank, persona: str, topics, learner: str) -> dict:
-    phrases = [p for t in topics for p in bank.phrases(t)]
-    menu = "\n".join(f"- {p['text_aka']}  ({p['text_en']})" for p in phrases[:40])
+    # ground on the WHOLE bank (phrases + course gloss-pairs + dictionaries), retrieved by relevance to
+    # this turn — not just topic-filtered phrases. More sourced material = more the model can say safely.
+    pool = bank.grounding(learner + " " + " ".join(topics), k=40)
+    menu = "\n".join(f"- {p['twi']}  ({p['en']})" for p in pool)
     system = (
         f"You are {persona}, speaking Twi (Akan) with a beginner learner. Reply IN TWI, ONE short "
-        "sentence. Use ONLY real, attested Twi — prefer the verified phrases below; do not invent words. "
-        'Output JSON: {"twi": "...", "gloss_en": "..."}.'
+        "sentence. Use ONLY real, attested Twi — prefer the sourced words/phrases below; do not invent "
+        'words. Output JSON: {"twi": "...", "gloss_en": "..."}.'
     )
-    user = f"Verified Twi phrases you may use:\n{menu}\n\nThe learner said: {learner}\nReply now."
+    user = f"Sourced Twi material you may use:\n{menu}\n\nThe learner said: {learner}\nReply now."
     return chat(system, user)
 
 

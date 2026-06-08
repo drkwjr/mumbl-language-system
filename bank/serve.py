@@ -15,9 +15,12 @@ questions generation/verification actually need:
     python3 bank/serve.py lookup me       # ad-hoc
 """
 import json
+import re
 import sys
 from collections import defaultdict
 from pathlib import Path
+
+_EN_WORD = re.compile(r"[a-z]+")
 
 DATA = Path(__file__).resolve().parent / "data" / "aka"
 
@@ -79,6 +82,25 @@ class Bank:
             for s in e["senses"]:
                 self.glosses.setdefault(e["lemma"].lower(), s["gloss_en"])
 
+        # unified bilingual grounding pool — EVERY Twi<->English pair we have feeds generation, restricted
+        # sources included. Construct-and-verify isolates the problem to the voice: the grounding vocabulary
+        # is sourced, but the reply is synthesized + verified, not copied. (Settle licensing before a public
+        # launch; in-build, bank SIZE is the product, so use all of it.)
+        self.pairs = []
+        for p in self.phrases_all:
+            if p.get("text_aka") and p.get("text_en"):
+                self.pairs.append({"twi": p["text_aka"], "en": p["text_en"], "source": "wikivoyage", "topic": p.get("topic")})
+        for r in self.glosses_fsi:
+            if r.get("twi") and r.get("gloss_en"):
+                self.pairs.append({"twi": r["twi"], "en": r["gloss_en"], "source": "fsi"})
+        for r in self.restricted:
+            w = r.get("word") or r.get("twi")
+            if w and r.get("gloss_en"):
+                self.pairs.append({"twi": w, "en": r["gloss_en"], "source": r.get("source", "restricted")})
+        for e in self.entries:
+            for s in e["senses"]:
+                self.pairs.append({"twi": e["lemma"], "en": s["gloss_en"], "source": "kasahorow"})
+
         self.by_lemma = defaultdict(list)
         self.by_gloss = defaultdict(list)
         for e in self.entries:
@@ -126,6 +148,15 @@ class Bank:
     def gloss(self, word):
         """Sourced English gloss from the bank's dictionaries (None if we genuinely don't have one)."""
         return self.glosses.get(word.strip().lower())
+
+    def grounding(self, query, k=40):
+        """Top-k bilingual pairs relevant to an English query, drawn from the WHOLE bank (phrases +
+        FSI + restricted books + dictionaries). The grounding menu the construct-and-verify brain
+        composes from — ranked by English-keyword overlap, so the learner's turn pulls usable material."""
+        q = set(_EN_WORD.findall(query.lower()))
+        scored = [(len(q & set(_EN_WORD.findall(p["en"].lower()))), p) for p in self.pairs]
+        hits = [p for s, p in sorted(scored, key=lambda x: -x[0]) if s > 0][:k]
+        return hits or self.pairs[:k]
 
 
 def demo(b: Bank) -> None:

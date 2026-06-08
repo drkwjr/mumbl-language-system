@@ -78,7 +78,7 @@ A self-growing construct-and-verify engine for Asante Twi, built end to end.
 
 **Model / cost doctrine:** Gemini 2.5 Flash for OCR + ASR — ~30× cheaper than gpt-4o, faithful on special characters; ~$0.0003/page, ~$0.0013/min of audio; always `max_tokens`-capped + retry + graceful-skip on blocked responses.
 
-**Licensing:** public-domain (FSI, Christaller, Rattray) may feed generation; copyrighted (Kotey, learner books) are verifier/gloss-reference only, local + gitignored.
+**Licensing:** in-build, **all** banked sources feed generation — bank SIZE is the product, and construct-and-verify isolates the problem to the *voice* (the reply is synthesized + verified, not copied from a source). Copyrighted sources (Kotey, learner books) still stay local + gitignored (not redistributed in the repo); settle licensing before any public launch.
 
 ## Status — Phase 1 (Akan/Twi, text-only)
 
