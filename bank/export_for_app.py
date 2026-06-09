@@ -36,10 +36,16 @@ def main():
     (OUT / "grounding.json").write_text(json.dumps(pairs, ensure_ascii=False), encoding="utf-8")
 
     # construction layer: how Twi chains words (for syntax grounding + structural verification)
-    cpath = Path(__file__).resolve().parent / "data" / "aka" / "constructions.jsonl"
+    aka = Path(__file__).resolve().parent / "data" / "aka"
+    cpath = aka / "constructions.jsonl"
     cons = [json.loads(line) for line in cpath.read_text(encoding="utf-8").splitlines() if line.strip()] if cpath.exists() else []
     cons = [{"chunk": c["chunk"], "freq": c["freq"], "n": c["n"]} for c in cons]
     (OUT / "constructions.json").write_text(json.dumps(cons, ensure_ascii=False), encoding="utf-8")
+
+    # class-bigram backoff: the dense grammatical-class transitions for the smoothed structural metric
+    clpath = aka / "class_bigrams.jsonl"
+    cls = [json.loads(line)["pair"] for line in clpath.read_text(encoding="utf-8").splitlines() if line.strip()] if clpath.exists() else []
+    (OUT / "class_bigrams.json").write_text(json.dumps(cls, ensure_ascii=False), encoding="utf-8")
 
     meta = {"glosses": len(b.glosses), "known": len(b.known), "grounding": len(pairs),
             "constructions": len(cons), "lang": "aka", "langName": "Twi"}

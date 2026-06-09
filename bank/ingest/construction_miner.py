@@ -55,9 +55,18 @@ def main():
     print(f"corpus: {len(lines):,} unique Twi lines\n", flush=True)
 
     grams = {2: Counter(), 3: Counter()}
+    cls_grams = Counter()  # class-bigrams (f:<func> / C / U) — the dense backoff for the smoothed metric
     opens, closes = Counter(), Counter()
     func = Counter()
     cls_cache = {}
+
+    def wclass(t):
+        """Grammatical class of a kept token: each function word is its OWN class (its placement IS the
+        syntax), known content -> C, name/unknown -> U. Class bigrams are dense, so they credit a
+        grammatical-but-unseen pair while still rejecting misplaced glue."""
+        if t in FUNCTION:
+            return "f:" + t
+        return "C" if classify(t) == "twi" else "U"
 
     def classify(t):
         """twi (real Twi, INCLUDING words that also exist in English: wo/me/ho/de) · eng (English-ONLY:
@@ -85,6 +94,9 @@ def main():
         for w in toks:
             if w in FUNCTION:
                 func[w] += 1
+        wc = [wclass(w) for w in toks]
+        for i in range(len(toks) - 1):
+            cls_grams[f"{wc[i]} {wc[i + 1]}"] += 1
         for n in (2, 3):
             for i in range(len(toks) - n + 1):
                 gram = toks[i:i + n]
@@ -93,6 +105,11 @@ def main():
                 grams[n][" ".join(gram)] += 1
         opens[" ".join(toks[:2])] += 1
         closes[" ".join(toks[-2:])] += 1
+
+    # the dense class-bigram backoff: which grammatical-class transitions actually occur in Twi
+    cls_rows = [{"pair": p, "freq": c} for p, c in cls_grams.most_common() if c >= 3]
+    (DATA / "class_bigrams.jsonl").write_text(
+        "\n".join(json.dumps(r, ensure_ascii=False) for r in cls_rows) + "\n", encoding="utf-8")
 
     # Export ALL attested bigrams (freq>=2) for the structural-naturalness check, plus the top trigrams.
     # The full bigram set makes "is this assembled like Twi" meaningful; the top entries (file is freq-
