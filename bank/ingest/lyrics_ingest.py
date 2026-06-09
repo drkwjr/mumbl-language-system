@@ -28,9 +28,22 @@ TOK = re.compile(r"[a-zɛɔŋ'’]+", re.I)
 LABEL = re.compile(r"^(verse|chorus|bridge|hook|intro|outro|refrain|pre-?chorus)\b", re.I)
 
 
-def fetch_lyrics(url):
+def _fetch(url):
+    """Chrome-impersonation first (beats 403 bot-walls — the AthleteFit doctrine), urllib fallback."""
+    try:
+        from curl_cffi import requests as creq
+
+        r = creq.get(url, impersonate="chrome", timeout=30)
+        if r.status_code == 200 and r.text:
+            return r.text
+    except Exception:
+        pass
     req = urllib.request.Request(url, headers={"User-Agent": UA})
-    raw = urllib.request.urlopen(req, timeout=30).read().decode("utf-8", "ignore")
+    return urllib.request.urlopen(req, timeout=30).read().decode("utf-8", "ignore")
+
+
+def fetch_lyrics(url):
+    raw = _fetch(url)
     # blog lyric body lives in <p> tags; keep the ones that are actual lyric lines
     ps = [H.unescape(re.sub(r"<[^>]+>", "", p)).strip() for p in re.findall(r"<p[^>]*>(.*?)</p>", raw, re.S)]
     return [p for p in ps if len(p) > 8 and not LABEL.match(p) and "Notjustok" not in p and "LISTEN" not in p]
