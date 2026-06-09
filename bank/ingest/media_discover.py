@@ -28,6 +28,13 @@ TWITOK = re.compile(r"[a-zɛɔŋ'’]+", re.I)
 USAGE = {"in": 0, "out": 0}
 
 
+def _proxy_args():
+    """Route yt-dlp through HARVEST_PROXY (e.g. IPRoyal rotating residential) when set — a fresh exit IP
+    per download is what beats YouTube's per-IP throttle at scale. Falls back to a direct connection."""
+    p = os.environ.get("HARVEST_PROXY", "").strip()
+    return ["--proxy", p] if p else []
+
+
 def get_ids(arg, n):
     """arg is an exact @handle / URL / UC… channel-id (pull its recent videos) or a search query."""
     if arg.startswith("@") or arg.startswith("http") or (arg.startswith("UC") and len(arg) > 20):
@@ -36,7 +43,7 @@ def get_ids(arg, n):
         cmd = [YTDLP, f"{url.split('/videos')[0]}/videos", "--flat-playlist", "--playlist-end", str(n), "--print", "%(id)s"]
     else:
         cmd = [YTDLP, f"ytsearch{n}:{arg}", "--flat-playlist", "--print", "%(id)s"]
-    return subprocess.run(cmd, capture_output=True, text=True, timeout=120).stdout.split()[:n]
+    return subprocess.run(cmd + _proxy_args(), capture_output=True, text=True, timeout=120).stdout.split()[:n]
 
 
 def audio(vid, secs):
@@ -44,7 +51,8 @@ def audio(vid, secs):
     if not f.exists():
         subprocess.run([YTDLP, "-x", "--audio-format", "mp3", "--audio-quality", "5",
                         "--download-sections", f"*0-{secs}", "-o", str(CACHE / f"{vid}.%(ext)s"),
-                        f"https://www.youtube.com/watch?v={vid}"], capture_output=True, timeout=300)
+                        f"https://www.youtube.com/watch?v={vid}"] + _proxy_args(),
+                       capture_output=True, timeout=300)
     return f if f.exists() else None
 
 

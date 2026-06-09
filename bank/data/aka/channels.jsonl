@@ -1,27 +1,996 @@
-{"channel_id": "UCwo54Kja2e-uGzm-50RhC7Q", "name": "Ama Nortey Boakye TV", "twi_pct": 100, "tokens": 2, "manual_subs": false, "sample_vid": "7RCrKk3EUYg", "views": "175"}
-{"channel_id": "UC-PbWiwIaL3qGES2io9otBw", "name": "TRENDING TWI MOVIES", "twi_pct": 100, "tokens": 1, "manual_subs": false, "sample_vid": "UhjNR6dFN5w", "views": "127377"}
-{"channel_id": "UCLAG7GZ7i6BP_uiXg11wLmg", "name": "Mr. Kamaful", "twi_pct": 97, "tokens": 99, "manual_subs": false, "sample_vid": "U0wwcl1bKDM", "views": "228"}
-{"channel_id": "UC_EwWElC-VNMStEwigFXhVQ", "name": "Akomapa TV Online", "twi_pct": 97, "tokens": 70, "manual_subs": false, "sample_vid": "rUaAESXCy3c", "views": "98352"}
-{"channel_id": "UClTMBsFayJeZDUkwm2w8nWw", "name": "Anansi Masters", "twi_pct": 97, "tokens": 64, "manual_subs": false, "sample_vid": "QPXuNp-DdbI", "views": "44316"}
-{"channel_id": "UC_PnsBvo7XrCvVfspRETVDw", "name": "TWI NATION TV", "twi_pct": 97, "tokens": 31, "manual_subs": false, "sample_vid": "K6mOKcK-SNY", "views": "143729"}
-{"channel_id": "UChMkdhr1uPfiI6WOcLPWopA", "name": "Esther Bonkar", "twi_pct": 96, "tokens": 72, "manual_subs": false, "sample_vid": "jowkY6Oa02o", "views": "130"}
-{"channel_id": "UC0shVT_EwYY_BMVWXNBLEGw", "name": "CIN Inspirations ", "twi_pct": 96, "tokens": 73, "manual_subs": false, "sample_vid": "xL4ZKOaOwA0", "views": "18560"}
-{"channel_id": "UC9bQzFrvGG19wXGC29EO8cw", "name": "FremeKwame", "twi_pct": 94, "tokens": 85, "manual_subs": false, "sample_vid": "WpvnpzhNQSk", "views": "743"}
-{"channel_id": "UC2Ap1HJ_pKdEWPdOi0pY0ig", "name": "Area Comedy Tv🇬🇭", "twi_pct": 94, "tokens": 87, "manual_subs": false, "sample_vid": "GajAGpm61Bw", "views": "230"}
-{"channel_id": "UCn-wWaql_dcEw5hvWKgKInQ", "name": "Aberewatia Fie", "twi_pct": 93, "tokens": 68, "manual_subs": false, "sample_vid": "F549sBP4-gE", "views": "4372"}
-{"channel_id": "UC5w1zi0uWmxZM4DPX4edjXA", "name": "ennarte", "twi_pct": 93, "tokens": 14, "manual_subs": false, "sample_vid": "jaUzz7lrVa0", "views": "67748"}
-{"channel_id": "UCBgWgQyEb5eTzvh4lLcuipQ", "name": "Wikitongues", "twi_pct": 92, "tokens": 75, "manual_subs": true, "sample_vid": "zUDEten_j9o", "views": "38363"}
-{"channel_id": "UCn7UNEtZgIlgUxOn3VxrMLQ", "name": "MTA Ghana Studios", "twi_pct": 91, "tokens": 66, "manual_subs": false, "sample_vid": "zBkHGqDhBdA", "views": "555"}
-{"channel_id": "UCSVLTfOBL1nov8J5XqUnsGQ", "name": "From The People", "twi_pct": 90, "tokens": 93, "manual_subs": false, "sample_vid": "XU5SY-Q7yGo", "views": "625"}
-{"channel_id": "UCPEWsAq9TDSimmoLokJ5Qbw", "name": "Adwoa Yeboah Agyei", "twi_pct": 89, "tokens": 70, "manual_subs": false, "sample_vid": "WCWLM3YhLlw", "views": "65526"}
+{"channel_id": "UCwo54Kja2e-uGzm-50RhC7Q", "name": "Ama Nortey Boakye TV", "twi_pct": 100, "tokens": 2, "manual_subs": false, "sample_vid": "7RCrKk3EUYg", "views": "175", "dialect_hints": ["asante"]}
+{"channel_id": "UC-PbWiwIaL3qGES2io9otBw", "name": "TRENDING TWI MOVIES", "twi_pct": 100, "tokens": 1, "manual_subs": false, "sample_vid": "UhjNR6dFN5w", "views": "127377", "dialect_hints": ["asante", "fante", "bono", "kwawu", "akan"]}
+{"channel_id": "UCLAG7GZ7i6BP_uiXg11wLmg", "name": "Mr. Kamaful", "twi_pct": 97, "tokens": 99, "manual_subs": false, "sample_vid": "U0wwcl1bKDM", "views": "228", "dialect_hints": ["akan"]}
+{"channel_id": "UC_EwWElC-VNMStEwigFXhVQ", "name": "Akomapa TV Online", "twi_pct": 97, "tokens": 70, "manual_subs": false, "sample_vid": "rUaAESXCy3c", "views": "98352", "dialect_hints": ["asante", "fante", "bono", "akan"]}
+{"channel_id": "UClTMBsFayJeZDUkwm2w8nWw", "name": "Anansi Masters", "twi_pct": 97, "tokens": 64, "manual_subs": false, "sample_vid": "QPXuNp-DdbI", "views": "44316", "dialect_hints": ["asante", "fante", "bono", "akan"]}
+{"channel_id": "UC_PnsBvo7XrCvVfspRETVDw", "name": "TWI NATION TV", "twi_pct": 97, "tokens": 31, "manual_subs": false, "sample_vid": "K6mOKcK-SNY", "views": "143729", "dialect_hints": ["akuapem", "bono", "akan"]}
+{"channel_id": "UChMkdhr1uPfiI6WOcLPWopA", "name": "Esther Bonkar", "twi_pct": 96, "tokens": 72, "manual_subs": false, "sample_vid": "jowkY6Oa02o", "views": "130", "dialect_hints": ["asante", "akan"]}
+{"channel_id": "UC0shVT_EwYY_BMVWXNBLEGw", "name": "CIN Inspirations ", "twi_pct": 96, "tokens": 73, "manual_subs": false, "sample_vid": "xL4ZKOaOwA0", "views": "18560", "dialect_hints": ["asante", "bono", "akan"]}
+{"channel_id": "UC9bQzFrvGG19wXGC29EO8cw", "name": "FremeKwame", "twi_pct": 94, "tokens": 85, "manual_subs": false, "sample_vid": "WpvnpzhNQSk", "views": "743", "dialect_hints": ["asante", "akan"]}
+{"channel_id": "UC2Ap1HJ_pKdEWPdOi0pY0ig", "name": "Area Comedy Tv🇬🇭", "twi_pct": 94, "tokens": 87, "manual_subs": false, "sample_vid": "GajAGpm61Bw", "views": "230", "dialect_hints": ["akan"]}
+{"channel_id": "UCn-wWaql_dcEw5hvWKgKInQ", "name": "Aberewatia Fie", "twi_pct": 93, "tokens": 68, "manual_subs": false, "sample_vid": "F549sBP4-gE", "views": "4372", "dialect_hints": ["asante", "akuapem", "akan"]}
+{"channel_id": "UC5w1zi0uWmxZM4DPX4edjXA", "name": "ennarte", "twi_pct": 93, "tokens": 14, "manual_subs": false, "sample_vid": "jaUzz7lrVa0", "views": "67748", "dialect_hints": ["akan"]}
+{"channel_id": "UCBgWgQyEb5eTzvh4lLcuipQ", "name": "Wikitongues", "twi_pct": 92, "tokens": 75, "manual_subs": true, "sample_vid": "zUDEten_j9o", "views": "38363", "dialect_hints": ["fante"]}
+{"channel_id": "UCn7UNEtZgIlgUxOn3VxrMLQ", "name": "MTA Ghana Studios", "twi_pct": 91, "tokens": 66, "manual_subs": false, "sample_vid": "zBkHGqDhBdA", "views": "555", "dialect_hints": ["asante", "akuapem", "akan"]}
+{"channel_id": "UCSVLTfOBL1nov8J5XqUnsGQ", "name": "From The People", "twi_pct": 90, "tokens": 93, "manual_subs": false, "sample_vid": "XU5SY-Q7yGo", "views": "625", "dialect_hints": ["asante", "akan"]}
+{"channel_id": "UCPEWsAq9TDSimmoLokJ5Qbw", "name": "Adwoa Yeboah Agyei", "twi_pct": 89, "tokens": 70, "manual_subs": false, "sample_vid": "WCWLM3YhLlw", "views": "65526", "dialect_hints": ["asante", "akuapem", "fante", "bono", "akan"]}
 {"channel_id": "UCNq55-VXRFhBqykCkZELbUQ", "name": "Viceman Tv", "twi_pct": 89, "tokens": 18, "manual_subs": false, "sample_vid": "oNusIoJQK_w", "views": "5979"}
-{"channel_id": "UCsdr6z6eFie71JGDhqtvoMA", "name": "Davas Media", "twi_pct": 82, "tokens": 39, "manual_subs": false, "sample_vid": "kf6ccFAKwM4", "views": "2203"}
-{"channel_id": "UCDmjBdK09iNhMkKUrDMdjgg", "name": "Qwesi Dizzy Studio", "twi_pct": 80, "tokens": 74, "manual_subs": false, "sample_vid": "nEKlWaEw8cI", "views": "34"}
-{"channel_id": "UCj9EI_oTKGYJgoUV8Z2wGDg", "name": "mary_ap", "twi_pct": 77, "tokens": 79, "manual_subs": false, "sample_vid": "Q5Y1BaP0wqI", "views": "26"}
-{"channel_id": "NA", "name": "Kwadwo Sheldon Studios and 2 more", "twi_pct": 59, "tokens": 101, "manual_subs": false, "sample_vid": "FyuS2kh-AsA", "views": "39721"}
-{"channel_id": "UCquLAX72sq-jo-rTweOydPQ", "name": "ToonTum Network", "twi_pct": 50, "tokens": 8, "manual_subs": false, "sample_vid": "OLuYZhYGgA0", "views": "1196"}
-{"channel_id": "UC8po44NEKJoRxdTEfKTMapw", "name": "twihardXfanpire", "twi_pct": 33, "tokens": 12, "manual_subs": false, "sample_vid": "g0bM4kRfd10", "views": "31"}
-{"channel_id": "UC93TOyP0TZWN_A8FpccVRVA", "name": "A Little Twi With Adwoa Lee", "twi_pct": 33, "tokens": 12, "manual_subs": false, "sample_vid": "rm5m-1bJ28I", "views": "194234"}
+{"channel_id": "UCsdr6z6eFie71JGDhqtvoMA", "name": "Davas Media", "twi_pct": 82, "tokens": 39, "manual_subs": false, "sample_vid": "kf6ccFAKwM4", "views": "2203", "dialect_hints": ["asante"]}
+{"channel_id": "UCDmjBdK09iNhMkKUrDMdjgg", "name": "Qwesi Dizzy Studio", "twi_pct": 80, "tokens": 74, "manual_subs": false, "sample_vid": "nEKlWaEw8cI", "views": "34", "dialect_hints": ["akan"]}
+{"channel_id": "UCj9EI_oTKGYJgoUV8Z2wGDg", "name": "mary_ap", "twi_pct": 77, "tokens": 79, "manual_subs": false, "sample_vid": "Q5Y1BaP0wqI", "views": "26", "dialect_hints": ["asante"]}
+{"channel_id": "NA", "name": "Kwadwo Sheldon Studios and 2 more", "twi_pct": 59, "tokens": 101, "manual_subs": false, "sample_vid": "FyuS2kh-AsA", "views": "39721", "dialect_hints": ["bono", "akan"]}
+{"channel_id": "UCquLAX72sq-jo-rTweOydPQ", "name": "ToonTum Network", "twi_pct": 50, "tokens": 8, "manual_subs": false, "sample_vid": "OLuYZhYGgA0", "views": "1196", "dialect_hints": ["asante"]}
+{"channel_id": "UC8po44NEKJoRxdTEfKTMapw", "name": "twihardXfanpire", "twi_pct": 33, "tokens": 12, "manual_subs": false, "sample_vid": "g0bM4kRfd10", "views": "31", "dialect_hints": ["asante"]}
+{"channel_id": "UC93TOyP0TZWN_A8FpccVRVA", "name": "A Little Twi With Adwoa Lee", "twi_pct": 33, "tokens": 12, "manual_subs": false, "sample_vid": "rm5m-1bJ28I", "views": "194234", "dialect_hints": ["akan"]}
 {"channel_id": "UCo7FGbUcOgKuOsxL1Y2Zp-g", "name": "OPK GIST", "twi_pct": 29, "tokens": 76, "manual_subs": false, "sample_vid": "9ZlKkLsM2n8", "views": "210582"}
-{"channel_id": "UC-vyAPawT20CKpp9H-xjFlg", "name": "LEARNAKAN", "twi_pct": 26, "tokens": 81, "manual_subs": true, "sample_vid": "nNKTHj1waCY", "views": "5225"}
-{"channel_id": "UCFspNQ5I72pabqWK24XgwvA", "name": "The Sound of Accra Podcast", "twi_pct": 21, "tokens": 89, "manual_subs": false, "sample_vid": "6kuFxHScmLk", "views": "777"}
+{"channel_id": "UC-vyAPawT20CKpp9H-xjFlg", "name": "LEARNAKAN", "twi_pct": 26, "tokens": 81, "manual_subs": true, "sample_vid": "nNKTHj1waCY", "views": "5225", "dialect_hints": ["asante", "akuapem", "bono", "akan"]}
+{"channel_id": "UCFspNQ5I72pabqWK24XgwvA", "name": "The Sound of Accra Podcast", "twi_pct": 21, "tokens": 89, "manual_subs": false, "sample_vid": "6kuFxHScmLk", "views": "777", "dialect_hints": ["akan"]}
+{"channel_id": "UCks-oN-NoNRH3k4Zi6TMyNg", "name": "Presh Okosi", "sample_vid": "uU8AaRKC0yw", "views": "1469", "dialect_hints": ["asante"], "src": "Asante Twi vlog"}
+{"channel_id": "UC6n_HeL8xgWIQsKsWs4KO4w", "name": "TRACKS - Travel Documentaries", "sample_vid": "ebk6XeolCmk", "views": "90535", "dialect_hints": ["asante", "bono"], "src": "Asante Twi vlog"}
+{"channel_id": "UCIabgO29FUZrvAWh_f2OuoQ", "name": "BlackStarNain BSN", "sample_vid": "yLJXG4DtOhA", "views": "2112", "dialect_hints": ["asante", "bono"], "src": "Asante Twi vlog"}
+{"channel_id": "UCfCj8VEyWLxpVNM1vIVpYiQ", "name": "Richael", "sample_vid": "yy5vYgHA9N4", "views": "312", "dialect_hints": ["asante"], "src": "Asante Twi vlog"}
+{"channel_id": "UCQSBqsyvKETC9E3HJrGNi1A", "name": "Amnesty International Ghana", "sample_vid": "CveoWZ7knLg", "views": "366", "dialect_hints": ["asante"], "src": "Asante Twi podcast full episode"}
+{"channel_id": "UC5AAxJfvJgi9WQ6LfIhTHdg", "name": "Ntakrapa Tv", "sample_vid": "ACyXadqifSA", "views": "77", "dialect_hints": ["asante"], "src": "Asante Twi podcast full episode"}
+{"channel_id": "UCAnqMtHj6lZMnmWo3P3NHrA", "name": "Girlfriends Guide to Homeschooling with Angela Jordan Perry", "sample_vid": "9EzLdBtAjpY", "views": "146", "dialect_hints": ["asante"], "src": "Asante Twi podcast full episode"}
+{"channel_id": "UCT3pMVdXC2GtdgulNgqQ42Q", "name": "Africa's LSP Podcast", "sample_vid": "Vlv-Srw3lW8", "views": "161", "dialect_hints": ["asante", "bono"], "src": "Asante Twi podcast full episode"}
+{"channel_id": "UCW4SK_qDIo0VprCkX-0maOw", "name": "Bolingo Consult ", "sample_vid": "5OgKO6ShRtQ", "views": "37", "dialect_hints": ["asante", "bono"], "src": "Asante Twi podcast full episode"}
+{"channel_id": "UCF_WWhqIsJq4oZML0rvNEJA", "name": "TwiAddicts", "sample_vid": "NLRV_mTaPoc", "views": "102", "dialect_hints": ["asante", "akan"], "src": "Asante Twi podcast full episode"}
+{"channel_id": "UCjbKUmEcOpEXIEObkWixxmg", "name": "Learn Twi With Opoku", "sample_vid": "tLu6BPgIm7s", "views": "1495", "dialect_hints": ["asante"], "src": "Asante Twi podcast full episode"}
+{"channel_id": "UC4wmPr3yUMZR8ycjbR4FcxA", "name": "Hendrick TV", "sample_vid": "QfZkqNm4DxM", "views": "62", "dialect_hints": ["asante"], "src": "Asante Twi interview"}
+{"channel_id": "UCf6qQcDFc2mFM5QtaeTSCtg", "name": "𝑨𝑳𝑨𝑵𝑪𝑨𝑺𝑯 𝑻𝑽 ", "sample_vid": "H0B3gEebBZ8", "views": "352", "dialect_hints": ["asante"], "src": "Asante Twi interview"}
+{"channel_id": "UCk33z0Li9H4u3By8Ra-olTg", "name": "I Rep Ghana", "sample_vid": "5_5hAFO02Go", "views": "112103", "dialect_hints": ["asante", "akan"], "src": "Asante Twi interview"}
+{"channel_id": "UCj9KcKBILrS7iGQgK5T1Fnw", "name": "Pulse Ghana", "sample_vid": "1V8qvOi-XBQ", "views": "25373", "dialect_hints": ["asante", "akuapem", "fante", "bono", "akan"], "src": "Asante Twi interview"}
+{"channel_id": "UC7_keT2OWmUIHyZNKeARICQ", "name": "Hoàng Mạnh Police", "sample_vid": "sEXwAdk51EU", "views": "18421", "dialect_hints": ["asante"], "src": "Asante Twi kasa nkɔmmɔ conversation"}
+{"channel_id": "UCHD0-6opjI0paLJj6P-f2sA", "name": "bookboxinc", "sample_vid": "er-R3YmErNw", "views": "78232", "dialect_hints": ["asante", "akuapem", "fante", "bono", "akan"], "src": "Asante Twi storytelling Anansesem"}
+{"channel_id": "UCeZHlD3jvojB84hWd_uQkVg", "name": "EnT Foundation", "sample_vid": "vp2jTvASt7Y", "views": "18094", "dialect_hints": ["asante", "fante", "akan"], "src": "Asante Twi storytelling Anansesem"}
+{"channel_id": "UC9UU0brJC02gZ1mPeXEdXZQ", "name": "SUA TWI KASA (Learn Twi Language) made easy.", "sample_vid": "b16So4g1qcc", "views": "875", "dialect_hints": ["asante", "akuapem"], "src": "Asante Twi storytelling Anansesem"}
+{"channel_id": "UCepsrz6q5fYZajBRQ6mN2RA", "name": "Vanessa Danso", "sample_vid": "LuCTJjkABVY", "views": "22734", "dialect_hints": ["asante", "akan"], "src": "Asante Twi storytelling Anansesem"}
+{"channel_id": "UCefb904WCb7AlAvpA2QDhmA", "name": "JET Media", "sample_vid": "CeS1sdPnEpI", "views": "3790", "dialect_hints": ["asante", "akan"], "src": "Asante Twi comedy skit"}
+{"channel_id": "UC3Jx__KMnu_vW0xxGhIHVcw", "name": "K.Y.P Entertainment", "sample_vid": "b0Qg13cXSbI", "views": "318", "dialect_hints": ["asante"], "src": "Asante Twi comedy skit"}
+{"channel_id": "UCXI-E1uBKwl65hF-BsXuYNA", "name": "GhanaTourism1 WalesTourism1", "sample_vid": "Ep-8dMvusiA", "views": "44447", "dialect_hints": ["asante"], "src": "Asante Twi comedy skit"}
+{"channel_id": "UCftD_NoTjNuLIRlpGdiOA1w", "name": "D&E Films London", "sample_vid": "B0cN7OuxYrI", "views": "15064", "dialect_hints": ["asante"], "src": "Asante Twi comedy skit"}
+{"channel_id": "UC9Tbprncpcz6LGWSvbyFwpA", "name": "iglow set", "sample_vid": "4sg8_k2_khM", "views": "1782", "dialect_hints": ["asante"], "src": "Asante Twi comedy skit"}
+{"channel_id": "UCttIRTyiDkgMGcXN81TQ9wg", "name": "Akan Tree TV", "sample_vid": "zF9cJGNfjos", "views": "94511", "dialect_hints": ["asante"], "src": "Asante Twi comedy skit"}
+{"channel_id": "UCZ-a1PpzIZWbrlaLJXAgpUw", "name": "Joel Akrong", "sample_vid": "wdChuC_06ps", "views": "139492", "dialect_hints": ["asante", "akan"], "src": "Asante Twi comedy skit"}
+{"channel_id": "UC25DPaqDEjyGxBqDEMqfoFw", "name": "Twi Films", "sample_vid": "ywkCaN-vOyY", "views": "8945", "dialect_hints": ["asante", "fante", "bono", "kwawu", "akan"], "src": "Asante Twi Kumawood movie"}
+{"channel_id": "UCHMg2I1CHVp4ROpBKrRzWtg", "name": "eLifeStyle TV", "sample_vid": "Oi3G2m_WMAI", "views": "221491", "dialect_hints": ["asante"], "src": "Asante Twi Kumawood movie"}
+{"channel_id": "UCX00n1X_uezJ6-oeH3bgcuQ", "name": "Malatus1980", "sample_vid": "CehnRsp_PXs", "views": "3743", "dialect_hints": ["asante", "akuapem"], "src": "Asante Twi drama series"}
+{"channel_id": "UCoHnCGaoxkvBDi9cACDga-w", "name": "bentum 5 gh tv ", "sample_vid": "bXD0NyoXicw", "views": "408", "dialect_hints": ["asante"], "src": "Asante Twi drama series"}
+{"channel_id": "UC03PxYk3BtlcfG95ktw-yWQ", "name": "Nakwadus Tv", "sample_vid": "1xpLkXXC5Qg", "views": "93", "dialect_hints": ["asante"], "src": "Asante Twi drama series"}
+{"channel_id": "UCsK45HKy7Qf9XPozjv-YhiA", "name": "MrGodlyson", "sample_vid": "B5x9g8nUayA", "views": "486", "dialect_hints": ["asante"], "src": "Asante Twi drama series"}
+{"channel_id": "UCQamXEEslIWA4d1xQKD4C2g", "name": "Hope Channel Ghana", "sample_vid": "Om9Sgqep2Ps", "views": "22459", "dialect_hints": ["asante", "akuapem", "fante", "akan"], "src": "Asante Twi sermon preaching"}
+{"channel_id": "UCMjBeu-rq91emuxAO1o-b2w", "name": "BT RECORDING", "sample_vid": "yrqcLuCpPbA", "views": "216117", "dialect_hints": ["asante", "akuapem", "akan"], "src": "Asante Twi sermon preaching"}
+{"channel_id": "UCYvSN84KO8Aa7Nd7kBr_ksA", "name": "SethEkow Tv", "sample_vid": "NFej8VJD3-Y", "views": "78796", "dialect_hints": ["asante", "akuapem", "kwawu"], "src": "Asante Twi sermon preaching"}
+{"channel_id": "UC65mpCAgN4TOXlKI84LbKfg", "name": "ERIC AFFRAN", "sample_vid": "VE5nonpbUdA", "views": "13", "dialect_hints": ["asante"], "src": "Asante Twi sermon preaching"}
+{"channel_id": "UCVudspke_EbRHXYZZL4VQ_A", "name": "Takyi Quaye", "sample_vid": "vMSTd-e0f4c", "views": "24617", "dialect_hints": ["asante", "akuapem"], "src": "Asante Twi sermon preaching"}
+{"channel_id": "UCEoKjxmtDaeYMmz_hxjMIVA", "name": "Assemblies of God Ghana", "sample_vid": "Ewy67atN-NU", "views": "406", "dialect_hints": ["asante", "bono", "akan"], "src": "Asante Twi sermon preaching"}
+{"channel_id": "UCqlAI39YEzaCrJ5SZrdpdGg", "name": "AKWASI AWUAH TV GHANA", "sample_vid": "hmZ3b7byvx8", "views": "1222", "dialect_hints": ["asante"], "src": "Asante Twi gospel testimony"}
+{"channel_id": "UCGjZyV9Ut4H1aH98T5wuLLQ", "name": "eyong52", "sample_vid": "gcVMKNH7aAs", "views": "73274", "dialect_hints": ["asante", "akuapem", "fante"], "src": "Asante Twi gospel testimony"}
+{"channel_id": "UCXUtc8Yz8vHcWEZZO45gs3Q", "name": "CELESTIAL TV", "sample_vid": "c3GXB272F84", "views": "2530565", "dialect_hints": ["asante", "bono", "akan"], "src": "Asante Twi gospel testimony"}
+{"channel_id": "UC8vPvmhdQNejfpT9mONQ69w", "name": "robert dogli", "sample_vid": "2c2qOvEOIdQ", "views": "64", "dialect_hints": ["asante"], "src": "Asante Twi gospel testimony"}
+{"channel_id": "UCF9OH3Dpv57bP-ZNMMRXQHg", "name": "ResurrectionLife100", "sample_vid": "XxiWNVK35xk", "views": "185314", "dialect_hints": ["asante", "akuapem"], "src": "Asante Twi gospel testimony"}
+{"channel_id": "UCWNwhjnhoF6EeETMcWy9DYw", "name": "pentecosteontwaak", "sample_vid": "uNJxcp1l0lM", "views": "2341", "dialect_hints": ["asante"], "src": "Asante Twi gospel testimony"}
+{"channel_id": "UCnM_rn4ZcY9rp0by3j6spnQ", "name": "BOBOGYA", "sample_vid": "p67_gAhVDu0", "views": "434", "dialect_hints": ["asante", "akuapem"], "src": "Asante Twi radio call-in show"}
+{"channel_id": "UCFr7nSQhMVvQN8DILw4o0hg", "name": "Gordon Koffie", "sample_vid": "tVRUKgDgSjs", "views": "2494", "dialect_hints": ["asante", "akan"], "src": "Asante Twi radio call-in show"}
+{"channel_id": "UC-IAWQF91ELkRgoNXXKqIEw", "name": "Seer mensah", "sample_vid": "IB7asjzACoc", "views": "2164", "dialect_hints": ["asante"], "src": "Asante Twi radio call-in show"}
+{"channel_id": "UCUxjvmf3EFkvl8HzAXaertA", "name": "Apostle  Kwame Adu Ministries", "sample_vid": "AnsQw9VGo8I", "views": "25555", "dialect_hints": ["asante", "akuapem", "kwawu", "akan"], "src": "Asante Twi radio call-in show"}
+{"channel_id": "UCY5SBNOtuOhxiA_N8nTw4SA", "name": "MAM TV Online", "sample_vid": "l6zyiCsjOxA", "views": "159", "dialect_hints": ["asante"], "src": "Asante Twi radio call-in show"}
+{"channel_id": "UCmR3Ad-HsaKzHlRrv6xPBqA", "name": "ASANTE TV", "sample_vid": "BPHIFQi-kdk", "views": "727", "dialect_hints": ["asante"], "src": "Asante Twi radio call-in show"}
+{"channel_id": "UChd1DEecCRlxaa0-hvPACCw", "name": "JoyNews", "sample_vid": "B_mTFPPT8RI", "views": "53281", "dialect_hints": ["asante", "akuapem", "fante", "bono", "kwawu", "akan"], "src": "Asante Twi market street interview"}
+{"channel_id": "UCkx-yj21HbamVBO0KN1Vj_g", "name": "GhanaCelebrities Tv", "sample_vid": "xebrNIIKJRQ", "views": "71399", "dialect_hints": ["asante", "akan"], "src": "Asante Twi market street interview"}
+{"channel_id": "UCfNSrwADleolF2U6qi0Cyuw", "name": "Imago Live Media", "sample_vid": "29BDWk9_tvk", "views": "63", "dialect_hints": ["asante", "akan"], "src": "Asante Twi market street interview"}
+{"channel_id": "UCRJ2_AM0BGRR3X7QbkjRBWA", "name": "DEK360Ghana", "sample_vid": "PdYb_G5_EMU", "views": "309009", "dialect_hints": ["asante", "akan"], "src": "Asante Twi market street interview"}
+{"channel_id": "UCNY1-kHC1aezs1T0idclBmQ", "name": "DagreatKwame", "sample_vid": "aaKxS917rfM", "views": "6356", "dialect_hints": ["asante", "akan"], "src": "Asante Twi market street interview"}
+{"channel_id": "UCLGUGvR1SKvMWwKWQFUEEAQ", "name": "Ugin Tuffour", "sample_vid": "bSU2c4frU_w", "views": "3727", "dialect_hints": ["asante"], "src": "Asante Twi market street interview"}
+{"channel_id": "UCsz4-H4ox92Fh85Ok5TBGRQ", "name": "Document Journal", "sample_vid": "b9YBq_051S8", "views": "1550", "dialect_hints": ["asante", "fante"], "src": "Asante Twi market street interview"}
+{"channel_id": "UCCaZGzQhdwwc2qDHdvdXEtw", "name": "Nyna KB", "sample_vid": "7vwBvj3BDmw", "views": "86", "dialect_hints": ["asante"], "src": "Asante Twi cooking recipe"}
+{"channel_id": "UCBthJ1LbWdw-wowVJvRsKHg", "name": "Amammere Sankofa TV", "sample_vid": "ZA_JL1td5ec", "views": "1248", "dialect_hints": ["asante"], "src": "Asante Twi cooking recipe"}
+{"channel_id": "UCNjJI8jV2QLkdZGsdjm4Jlw", "name": " Shienwi Tapisi ", "sample_vid": "jTrexZM7aP8", "views": "1884", "dialect_hints": ["asante", "kwawu"], "src": "Asante Twi cooking recipe"}
+{"channel_id": "UCS3L7RoeUOunuMZK_IAjTsg", "name": "MILLICENT ADU-BOAHENG", "sample_vid": "JHaTeKouLBg", "views": "139", "dialect_hints": ["asante"], "src": "Asante Twi cooking recipe"}
+{"channel_id": "UC4l2app5V1pmHCs6HB7dY9g", "name": "Nkyea", "sample_vid": "DtxXK1v2mP0", "views": "3530", "dialect_hints": ["asante"], "src": "Asante Twi cooking recipe"}
+{"channel_id": "UC0awdWuVTvr3-7ALzjpmIgQ", "name": "Hairat’s Kitchen", "sample_vid": "6-hdgMlR6dM", "views": "894", "dialect_hints": ["asante", "fante"], "src": "Asante Twi cooking recipe"}
+{"channel_id": "UCEMZ2UACaXXwH56cBEM0FXA", "name": "JOYCESTYLEOFCOOKING & MORE", "sample_vid": "CqlwvVAsC3E", "views": "2553", "dialect_hints": ["asante"], "src": "Asante Twi cooking recipe"}
+{"channel_id": "UCXCsnotxjZBaeH0SRMa4TDg", "name": "NR Investigates", "sample_vid": "kbGYRFJZQuA", "views": "352", "dialect_hints": ["asante", "akan"], "src": "Asante Twi football commentary"}
+{"channel_id": "UCu7Hwm2TYKUBCxE7fjVroBQ", "name": "AFA SPORTS_GH", "sample_vid": "r68YiiZKwRk", "views": "201", "dialect_hints": ["asante", "akuapem", "akan"], "src": "Asante Twi football commentary"}
+{"channel_id": "UCkX1I2zW7SMEgqaWpan13kQ", "name": "Dadzie TV", "sample_vid": "YKrkXd7Hj6k", "views": "193", "dialect_hints": ["asante"], "src": "Asante Twi football commentary"}
+{"channel_id": "UCOHuh9_hqR9iy8rhy2uiTGA", "name": "Bright Kankam Boadu", "sample_vid": "y5tW-6QkNkY", "views": "5507", "dialect_hints": ["asante"], "src": "Asante Twi football commentary"}
+{"channel_id": "UCOjS6Op5YGc764wlzNoNHPQ", "name": "Mc Agha tv", "sample_vid": "vnEm2oUc0Jo", "views": "53", "dialect_hints": ["asante"], "src": "Asante Twi football commentary"}
+{"channel_id": "UCY8mOLsODZaIuMfUkccmTQA", "name": "TETELESTA SPORTS TV", "sample_vid": "-UH3hmjcRF0", "views": "829", "dialect_hints": ["asante"], "src": "Asante Twi football commentary"}
+{"channel_id": "UC-bxhPvzUordm02agkIua0A", "name": "Fraget TV", "sample_vid": "oUw3f193bjw", "views": "5096", "dialect_hints": ["asante", "fante"], "src": "Asante Twi football commentary"}
+{"channel_id": "UCXlmy-2el-V3nyBIfVFB1CQ", "name": "Alandu Media", "sample_vid": "Cv1cmY_Tsvg", "views": "7741", "dialect_hints": ["asante", "fante", "akan"], "src": "Asante Twi history proverbs"}
+{"channel_id": "UCEgOrI6EA9oiUcB1nodXE1Q", "name": "yenkassa", "sample_vid": "wTf-nNTr1aA", "views": "439525", "dialect_hints": ["asante", "fante", "akan"], "src": "Asante Twi history proverbs"}
+{"channel_id": "UCQvw7dgTAiMpia_qS3H9ycQ", "name": "Amansie TV", "sample_vid": "zCJV2bMDoN4", "views": "20", "dialect_hints": ["asante"], "src": "Asante Twi history proverbs"}
+{"channel_id": "UCRuMsCT-TQ_d3O6Q0Zdr2GQ", "name": "NYANSAPO TV", "sample_vid": "qkGRBAjAXbg", "views": "2207", "dialect_hints": ["asante", "akuapem", "fante", "bono", "kwawu", "akan"], "src": "Asante Twi history proverbs"}
+{"channel_id": "UCmQgHzWLKvKBdHallR2EF4w", "name": "Akosua Ago", "sample_vid": "DsPLrOF21D8", "views": "1058", "dialect_hints": ["asante", "bono", "kwawu", "akan"], "src": "Asante Twi motivation advice"}
+{"channel_id": "UCTLsguyfWLlmSVogWO2uTCw", "name": "Bhanks Aesthetics 🌸🫧", "sample_vid": "PV94grudMCc", "views": "64", "dialect_hints": ["asante", "akan"], "src": "Asante Twi motivation advice"}
+{"channel_id": "UCKCsRIkhbrrOSdydeDWJ33g", "name": "Botwoo Tv", "sample_vid": "sV9XSAD75KM", "views": "3543", "dialect_hints": ["asante"], "src": "Asante Twi motivation advice"}
+{"channel_id": "UCZBBG8XpiugPwewFWDTTGSw", "name": "Call To Guidance /Imam Ib", "sample_vid": "fM95aTz43cE", "views": "1332", "dialect_hints": ["asante"], "src": "Asante Twi motivation advice"}
+{"channel_id": "UCsYRPMYH14W38EJAYqpKZig", "name": "K Peprah", "sample_vid": "MnLMiNmoiJc", "views": "253", "dialect_hints": ["asante"], "src": "Asante Twi motivation advice"}
+{"channel_id": "UCsL03z5sLvA0t8sjwDWf_3A", "name": "GhanaWeb TV", "sample_vid": "G0co9o-HOkk", "views": "4845", "dialect_hints": ["asante", "akuapem", "fante", "bono", "akan"], "src": "Asante Twi news Asemsebe"}
+{"channel_id": "UC7NthVdZaw9LCjy0YB94-OA", "name": "SERGIO ALEO (Pastor Sergio)", "sample_vid": "CSQc5Xm-5fI", "views": "3863", "dialect_hints": ["asante", "akuapem"], "src": "Asante Twi documentary"}
+{"channel_id": "UCo8b-uS6uD5l9YitDJpA2RA", "name": "World Language Movies", "sample_vid": "za7nWik164s", "views": "3326", "dialect_hints": ["asante", "fante", "bono"], "src": "Asante Twi documentary"}
+{"channel_id": "UCRx964uqXDIKi1M1ohcQVOw", "name": "AfricanManVideos", "sample_vid": "45jPX_pWYDg", "views": "80572", "dialect_hints": ["asante", "akan"], "src": "Asante Twi documentary"}
+{"channel_id": "UCet-38pCGBI9P6dMnb59VeQ", "name": "Siliconson", "sample_vid": "aVQ3SL9vZIk", "views": "121777", "dialect_hints": ["asante", "akuapem", "fante", "bono", "kwawu", "akan"], "src": "Asante Twi documentary"}
+{"channel_id": "UCn61Uf0feohEYguHcSw666A", "name": "Abena Ghana TV", "sample_vid": "1i_SClPI0H4", "views": "520", "dialect_hints": ["asante"], "src": "Asante Twi vox pop"}
+{"channel_id": "UC-z7HaXRMxqtxn188tHjJQA", "name": "PAXWORD MEDIA", "sample_vid": "1CFtmcPIiuU", "views": "306", "dialect_hints": ["asante", "akuapem"], "src": "Asante Twi vox pop"}
+{"channel_id": "UCfGHJC2-63mkb3NOd-vrF5w", "name": "Deywuro TV", "sample_vid": "jnTxt7EByGg", "views": "637", "dialect_hints": ["asante"], "src": "Asante Twi vox pop"}
+{"channel_id": "UCG8WLUGDqMDAttYwqgyfxzA", "name": "BEKED2 TV", "sample_vid": "73FwpRWvhWo", "views": "258", "dialect_hints": ["asante"], "src": "Asante Twi vox pop"}
+{"channel_id": "UCWeL-iNGMEWjuoDLegkWxIw", "name": "AnimaxFYB Studios", "sample_vid": "QtrcIbge-Dc", "views": "53036", "dialect_hints": ["asante"], "src": "Asante Twi vox pop"}
+{"channel_id": "UCA1nikUqfhjB3CncV77k8gQ", "name": "Ohene Ba", "sample_vid": "Fmzflym_F_c", "views": "231", "dialect_hints": ["asante", "kwawu"], "src": "Asante Twi vox pop"}
+{"channel_id": "UCX7pNGFrzs6hFURex-a1csw", "name": "LarteyVlogs", "sample_vid": "0NMoFu2se7E", "views": "20833", "dialect_hints": ["asante"], "src": "Kumasi Twi vlog"}
+{"channel_id": "UC7Yo5Ucibp2ijWzFvSfZwFA", "name": "OnlyOneManassa", "sample_vid": "H5WE9xiF7vw", "views": "8353", "dialect_hints": ["asante"], "src": "Kumasi Twi vlog"}
+{"channel_id": "UCtSdP9vrq5NFObCDZnTpSxg", "name": "Nicole Appiah", "sample_vid": "WSCGnLJNxnI", "views": "1252", "dialect_hints": ["asante"], "src": "Kumasi Twi vlog"}
+{"channel_id": "UCkcDm3T486NGRa6Vr1f7ZZA", "name": "DeCypher Africa", "sample_vid": "jysX_isrlCc", "views": "2897", "dialect_hints": ["asante"], "src": "Kumasi Twi vlog"}
+{"channel_id": "UCmStUZgvTCIeEZT5UISMtaQ", "name": "Maya Diana", "sample_vid": "Z6ANgUGyeXQ", "views": "1228", "dialect_hints": ["asante"], "src": "Kumasi Twi vlog"}
+{"channel_id": "UCtIQhlhjzos08MUJqu930Nw", "name": "Shantel De Bonsu", "sample_vid": "KRJhqX_fvj8", "views": "1672", "dialect_hints": ["asante"], "src": "Kumasi Twi vlog"}
+{"channel_id": "UChPLb15E-mX9Ti3MN39-iUg", "name": "The C Twins", "sample_vid": "6TkkBPDaGc8", "views": "2170", "dialect_hints": ["asante"], "src": "Kumasi Twi vlog"}
+{"channel_id": "UC2lA5y4dwSyiWMbSj69IlNQ", "name": "African Storyteller", "sample_vid": "k32Lwffj-eM", "views": "3068", "dialect_hints": ["asante"], "src": "Kumasi Twi vlog"}
+{"channel_id": "UCF_j0Z-CDT_Fu5v6d1gNTaQ", "name": "Silvercast ", "sample_vid": "JhKQgLewyCY", "views": "17790", "dialect_hints": ["asante"], "src": "Kumasi Twi podcast full episode"}
+{"channel_id": "UCyBHY_WdTwFVNtJXvrHDzwA", "name": "NDUNYU NJERU CREATIVES", "sample_vid": "bRqX7Z02tY8", "views": "9163", "dialect_hints": ["asante"], "src": "Kumasi Twi podcast full episode"}
+{"channel_id": "UCeygeE5xpyZScue9au7gGDA", "name": "Team Eternity Ghana", "sample_vid": "qNc40eGKRDs", "views": "14531", "dialect_hints": ["asante", "fante", "bono", "akan"], "src": "Kumasi Twi podcast full episode"}
+{"channel_id": "UCsvRFzTlxQ8QrrY-m2qbSNA", "name": "Konnected Minds Podcast", "sample_vid": "Jzpw1h_yUF4", "views": "195414", "dialect_hints": ["asante", "bono", "akan"], "src": "Kumasi Twi podcast full episode"}
+{"channel_id": "UC2E84puYr-xCVv3-yTMAW1w", "name": "PRIMO EXTRA", "sample_vid": "6voNrsWFKGA", "views": "165", "dialect_hints": ["asante"], "src": "Kumasi Twi podcast full episode"}
+{"channel_id": "UCBZSnT3Hanf7Jdg2IxlXGsg", "name": "Oheneba Media", "sample_vid": "a90r-Ur6vN8", "views": "160877", "dialect_hints": ["asante", "bono"], "src": "Kumasi Twi interview"}
+{"channel_id": "UC5tDLzkXRDGSc98L2gTg1gQ", "name": "Despite Media", "sample_vid": "GdM1-chw1Z0", "views": "349", "dialect_hints": ["asante", "akuapem", "fante"], "src": "Kumasi Twi interview"}
+{"channel_id": "UCC1uFcacdgFd4uzNgDuaTjA", "name": "KatahTv", "sample_vid": "k9GFao7n2Ag", "views": "101973", "dialect_hints": ["asante"], "src": "Kumasi Twi interview"}
+{"channel_id": "UCyPpGF_yJWrfrxmgV7g7row", "name": "Official Sonnie Badu TV", "sample_vid": "7SebcItPjog", "views": "362823", "dialect_hints": ["asante"], "src": "Kumasi Twi interview"}
+{"channel_id": "UCJcDfN0S8KfOYW55F6xSY5w", "name": "TALES FROM THE JUNGLE", "sample_vid": "IJglQI-_Z4E", "views": "2668", "dialect_hints": ["asante", "bono"], "src": "Kumasi Twi storytelling Anansesem"}
+{"channel_id": "UCNalEW4ETje2lgZ3Tor12Uw", "name": "FREEMAN THE STORYTELLER ", "sample_vid": "lyoBXl7IRY8", "views": "561", "dialect_hints": ["asante", "fante"], "src": "Kumasi Twi storytelling Anansesem"}
+{"channel_id": "UCLkQ10Dsv0vZZ3ROzY2PuCQ", "name": "Nicholas k boat tv", "sample_vid": "EZ_HaB8YnOU", "views": "175", "dialect_hints": ["asante"], "src": "Kumasi Twi comedy skit"}
+{"channel_id": "UCVWirkLnipphtmS0ZTB1RIg", "name": "TWI C TV", "sample_vid": "iEg2kIkVjQ4", "views": "25167", "dialect_hints": ["asante"], "src": "Kumasi Twi comedy skit"}
+{"channel_id": "UCDQ32C5UAyr9RFneFOT_kcg", "name": "dawsty007", "sample_vid": "NAiPTmVw_ko", "views": "87353", "dialect_hints": ["asante"], "src": "Kumasi Twi comedy skit"}
+{"channel_id": "UCJNeENq-XgOlDByTCANHlVQ", "name": "KINGSTUBA", "sample_vid": "qStnjR1Skis", "views": "85", "dialect_hints": ["asante"], "src": "Kumasi Twi comedy skit"}
+{"channel_id": "UCqhxG8-6LxHEyeXxq9cJ8LA", "name": "Jill's Foundation", "sample_vid": "qhXGI2SnnHM", "views": "106482", "dialect_hints": ["asante"], "src": "Kumasi Twi comedy skit"}
+{"channel_id": "UCDYa0wGAg7mvb0von5JJQUw", "name": "KOFAS MEDIA", "sample_vid": "KZj_0Vu5oGA", "views": "124156", "dialect_hints": ["asante"], "src": "Kumasi Twi comedy skit"}
+{"channel_id": "UC9IGs7t5emnxGRIK8ajmA1w", "name": "NKB STUDIOS", "sample_vid": "ot51xWX4DDg", "views": "10238", "dialect_hints": ["asante"], "src": "Kumasi Twi comedy skit"}
+{"channel_id": "UCBjcbMyDb_40LNSrU6WyGMA", "name": "ADOM BI NTI", "sample_vid": "q4o0gdBCeBs", "views": "242143", "dialect_hints": ["asante", "fante", "bono"], "src": "Kumasi Twi Kumawood movie"}
+{"channel_id": "UCEvxywKwzAXo6P9iqij8YWQ", "name": "Donkor Ophelia Tv Ghana", "sample_vid": "4iqIsxYovsU", "views": "173007", "dialect_hints": ["asante"], "src": "Kumasi Twi Kumawood movie"}
+{"channel_id": "UC3MVPbx-lRAFekkhoqn1lIw", "name": "KWAPS STUDIO", "sample_vid": "cefSbdCRkno", "views": "164786", "dialect_hints": ["asante", "bono"], "src": "Kumasi Twi drama series"}
+{"channel_id": "UCa79ezgA4dlxMff539PLhQg", "name": "Ashtown Tv", "sample_vid": "5p1KAXJgW-s", "views": "7291", "dialect_hints": ["asante", "bono"], "src": "Kumasi Twi drama series"}
+{"channel_id": "UCmaUZjZv2ULDQrSM0YdURDA", "name": "Victory Baptist Church-Ayigya Kumasi ", "sample_vid": "ElWLLJ1_dyI", "views": "39", "dialect_hints": ["asante"], "src": "Kumasi Twi sermon preaching"}
+{"channel_id": "UCswgbFgEgSiovcrTWfpGPWw", "name": "Gospel Light Assemblies of God, Tanoso-Kumasi ", "sample_vid": "lcFkEIVzoA8", "views": "49", "dialect_hints": ["asante"], "src": "Kumasi Twi sermon preaching"}
+{"channel_id": "UCwp0E_Xq8fGyfYVheciYIyA", "name": "Holy Fire", "sample_vid": "JrdK4DiP-9c", "views": "129", "dialect_hints": ["asante"], "src": "Kumasi Twi sermon preaching"}
+{"channel_id": "UC0CJc4ZqH2ySnli8s-8WLoA", "name": "St Joseph Catholic Church, Tanoso-Kumasi ", "sample_vid": "7lu_yAnd8VA", "views": "4", "dialect_hints": ["asante"], "src": "Kumasi Twi sermon preaching"}
+{"channel_id": "UCv5Ibuumu-y2bwtnLqqVMsA", "name": "Bishop Obinim Ministries", "sample_vid": "ET56Jv1uYLA", "views": "3856", "dialect_hints": ["asante", "fante"], "src": "Kumasi Twi gospel testimony"}
+{"channel_id": "UC28g1jR-XdhNcfm3b2g3oXw", "name": "RITWORLD TV", "sample_vid": "eQUDHCwffzk", "views": "2134820", "dialect_hints": ["asante", "akan"], "src": "Kumasi Twi gospel testimony"}
+{"channel_id": "UC9VSDs4ZXo3sjOoPkmW2iRQ", "name": "TV3 Ghana", "sample_vid": "bpZW6Fj7gfE", "views": "557506", "dialect_hints": ["asante"], "src": "Kumasi Twi gospel testimony"}
+{"channel_id": "UCvMQqVOgl2v4Zg-D0AWQqHg", "name": "Praise and Worship Worlwide", "sample_vid": "3BIohSFhu7k", "views": "391876", "dialect_hints": ["asante", "akuapem", "bono"], "src": "Kumasi Twi gospel testimony"}
+{"channel_id": "UC2bAynSpCcwatR8FfW-qkUQ", "name": "StressFree", "sample_vid": "vX22qz-toIo", "views": "5421", "dialect_hints": ["asante"], "src": "Kumasi Twi gospel testimony"}
+{"channel_id": "UC7HM1dGmRQC9Nu7rQOEZbow", "name": "Diana Hamilton Official", "sample_vid": "5wB0LBKBblY", "views": "1770818", "dialect_hints": ["asante", "bono", "akan"], "src": "Kumasi Twi gospel testimony"}
+{"channel_id": "UCjbNLWINfi-c4h7d8v91lAw", "name": "GhanaNsem TV GH", "sample_vid": "wMCAJyyAxVA", "views": "2841", "dialect_hints": ["asante", "fante"], "src": "Kumasi Twi radio call-in show"}
+{"channel_id": "UCfBUo3BqaFJHlcanZWLciCA", "name": "SOMPA FM LIVE ", "sample_vid": "l1nfd931Ve4", "views": "401180", "dialect_hints": ["asante", "bono"], "src": "Kumasi Twi radio call-in show"}
+{"channel_id": "UCG9im3cusuyLHt4lvcGBCjA", "name": "Rtv Ghana", "sample_vid": "k5Dfdb66Dfk", "views": "652", "dialect_hints": ["asante", "akuapem", "kwawu"], "src": "Kumasi Twi radio call-in show"}
+{"channel_id": "UCdeeFNGuZhPKut4rh9zCbwg", "name": "KIDS NEWS AFRICA", "sample_vid": "rvWssxYyFr8", "views": "271", "dialect_hints": ["asante"], "src": "Kumasi Twi radio call-in show"}
+{"channel_id": "UCJC-H7YsPuI3uLhGnhYWWkQ", "name": "COVTVGHANA", "sample_vid": "CTyU0po8BT0", "views": "5788", "dialect_hints": ["asante", "bono"], "src": "Kumasi Twi market street interview"}
+{"channel_id": "UCWtdI8apvbi0rCLjz9Bybcg", "name": "Bbox TV", "sample_vid": "7QddqGFknLU", "views": "46", "dialect_hints": ["asante"], "src": "Kumasi Twi market street interview"}
+{"channel_id": "UClO3VS7C-pHAoRh6fYddbLQ", "name": "300 Entertainment", "sample_vid": "a-LyFpslTd8", "views": "3096", "dialect_hints": ["asante"], "src": "Kumasi Twi market street interview"}
+{"channel_id": "UCHXIT-J-mtD0cBhPmBvWFPg", "name": "SVTV Africa", "sample_vid": "Aq-FrXGRHkc", "views": "6303", "dialect_hints": ["asante", "bono", "akan"], "src": "Kumasi Twi market street interview"}
+{"channel_id": "UCpa8ZfStLpn8Qn0U6eCNPDA", "name": "Sweet Adjeley", "sample_vid": "q6zEu9afUY0", "views": "2006978", "dialect_hints": ["asante", "akuapem", "fante", "bono", "akan"], "src": "Kumasi Twi cooking recipe"}
+{"channel_id": "UC174Y6a2EO1MyJQJVQAsBVg", "name": "OBAAPA’S RECIPES", "sample_vid": "_tdoovk6KgE", "views": "302305", "dialect_hints": ["asante", "bono", "akan"], "src": "Kumasi Twi cooking recipe"}
+{"channel_id": "UCYYvTtduswhwhAoykt3WIPw", "name": "Sarfo Baffoe", "sample_vid": "wa6pXcCn4OQ", "views": "59095", "dialect_hints": ["asante", "fante"], "src": "Kumasi Twi cooking recipe"}
+{"channel_id": "UC0oFrDchhPRr7gRaOl6AiXA", "name": "Lovystouch Food Channel", "sample_vid": "_2znTIEOIc0", "views": "78257", "dialect_hints": ["asante"], "src": "Kumasi Twi cooking recipe"}
+{"channel_id": "UCPtrkkgi7Z2UFJr7bz8FRqw", "name": "Kareen & Jessica", "sample_vid": "mFYwTd-3Gkk", "views": "1308", "dialect_hints": ["asante"], "src": "Kumasi Twi cooking recipe"}
+{"channel_id": "UCke2XwzFElma18yC0vlxc_Q", "name": "Priscy’s Flavour Haven", "sample_vid": "Phw0YLbo_54", "views": "1587", "dialect_hints": ["asante"], "src": "Kumasi Twi cooking recipe"}
+{"channel_id": "UCLknnfvzl0_UTsjBM8JVcVQ", "name": "GH Naija Ballers", "sample_vid": "FeKxMiuD-sY", "views": "4401", "dialect_hints": ["asante", "fante"], "src": "Kumasi Twi football commentary"}
+{"channel_id": "UCY45aopeyu3AHtOMoBbs17A", "name": "Jay Lichtman", "sample_vid": "AG-kFWyTuL8", "views": "470", "dialect_hints": ["asante"], "src": "Kumasi Twi football commentary"}
+{"channel_id": "UC7ZgpC6SyKlTs1w56BpNgWw", "name": "KUMASIFM TV ", "sample_vid": "e_dkXOL6JaY", "views": "184", "dialect_hints": ["asante"], "src": "Kumasi Twi football commentary"}
+{"channel_id": "UCW25gvpJ_fVEwI_G1BhXV2g", "name": "Citi Sports Ghana", "sample_vid": "9AVYFu0ERwM", "views": "5159", "dialect_hints": ["asante", "fante"], "src": "Kumasi Twi football commentary"}
+{"channel_id": "UCKlgbbF9wphTKATOWiG5jPQ", "name": "Adom TV", "sample_vid": "oP7SFCTQyTo", "views": "4876", "dialect_hints": ["asante", "akuapem", "bono", "kwawu"], "src": "Kumasi Twi football commentary"}
+{"channel_id": "UCi5C1PgBCl4BmryNtJz1AkQ", "name": "Bright Yeboah Taylor TV", "sample_vid": "jPVQJj1h2gk", "views": "11655", "dialect_hints": ["asante"], "src": "Kumasi Twi football commentary"}
+{"channel_id": "UCIJgIgREZOLxy_MSRkmUMbA", "name": "Nana Kollynx ", "sample_vid": "NUOeW477r4I", "views": "676", "dialect_hints": ["asante", "akan"], "src": "Kumasi Twi history proverbs"}
+{"channel_id": "UCMqaB377W3nOETXhUFs192Q", "name": "Asante kasa", "sample_vid": "gy-Rdqzy8nA", "views": "488", "dialect_hints": ["asante"], "src": "Kumasi Twi history proverbs"}
+{"channel_id": "UCXZq9yO-gTB5w0HT594sMHg", "name": "Judith Serwaa", "sample_vid": "uNs3s-B_XCc", "views": "3122", "dialect_hints": ["asante"], "src": "Kumasi Twi history proverbs"}
+{"channel_id": "UC6LCpFuWCO6dglrxp717gng", "name": "GUIDA CON TEACHER", "sample_vid": "_5NvnKQGFF0", "views": "2602", "dialect_hints": ["asante"], "src": "Kumasi Twi history proverbs"}
+{"channel_id": "UC06l7hXi6btKcVhgh2jlwfg", "name": "OKANI BA TV", "sample_vid": "0xaZPKzZIis", "views": "2110", "dialect_hints": ["asante", "bono"], "src": "Kumasi Twi history proverbs"}
+{"channel_id": "UCiidGhDHTRolmVGycX-GU_Q", "name": "Maame Grace", "sample_vid": "5OgFV5NYiHs", "views": "191324", "dialect_hints": ["asante", "akuapem", "bono", "kwawu", "akan"], "src": "Kumasi Twi motivation advice"}
+{"channel_id": "UCM_roTHwGGngi__YmAo_ofw", "name": "Becky Bonney Official", "sample_vid": "l7MbQwHPRaM", "views": "2758749", "dialect_hints": ["asante"], "src": "Kumasi Twi motivation advice"}
+{"channel_id": "UCCA7pyQ_oNr8eGA6fnC_9Uw", "name": "SERIOUS MORALE ", "sample_vid": "JehcVZrMav8", "views": "623217", "dialect_hints": ["asante", "bono"], "src": "Kumasi Twi motivation advice"}
+{"channel_id": "UCtFF3hFCMlO7KDiKwEXIY7w", "name": "THE CHURCH", "sample_vid": "MN0KB6u0-Ow", "views": "221604", "dialect_hints": ["asante"], "src": "Kumasi Twi motivation advice"}
+{"channel_id": "UCTZX9RiYVN-jDQ5xvIYpm5Q", "name": "AGYEKUMWAAH TV", "sample_vid": "K6qfk-mNd9k", "views": "172", "dialect_hints": ["asante"], "src": "Kumasi Twi news Asemsebe"}
+{"channel_id": "UCiDP8nX9xx4sY2tzcI4YgBw", "name": "KWAKU STUDIOS", "sample_vid": "KdRV1LlXNj0", "views": "216257", "dialect_hints": ["asante"], "src": "Kumasi Twi documentary"}
+{"channel_id": "UCUTeE-as508hixQrNVHO7vQ", "name": "ChannelOne TV", "sample_vid": "9sGIgbxa0gA", "views": "670", "dialect_hints": ["asante", "akuapem", "fante", "bono", "kwawu", "akan"], "src": "Kumasi Twi vox pop"}
+{"channel_id": "UCVF3CWEIvIsS5IAxFdO1AqQ", "name": "SlamFind", "sample_vid": "BMlPzF0OcA4", "views": "335930", "dialect_hints": ["asante", "akuapem", "kwawu"], "src": "Kumasi Twi vox pop"}
+{"channel_id": "UCJ4Gft-yenzs7hV77dNQwEg", "name": "SimplyFrimpss", "sample_vid": "lZjmEoAw-Nk", "views": "492", "dialect_hints": ["asante"], "src": "Ashanti Twi vlog"}
+{"channel_id": "UCutnvzkimnuNJLhazWgZ1vw", "name": "AshantiQueen", "sample_vid": "jCTKAHGpJKg", "views": "1610", "dialect_hints": ["asante"], "src": "Ashanti Twi vlog"}
+{"channel_id": "UCwIDXO5uRZs9GH0GWr8azFQ", "name": "ChuTa Tv gh", "sample_vid": "dh2uiWbpC8I", "views": "939", "dialect_hints": ["asante"], "src": "Ashanti Twi podcast full episode"}
+{"channel_id": "UC3i_zSnh3mTnxvg815Zrntg", "name": "BIG STONE TELEVISION", "sample_vid": "MNeqMb-5DU8", "views": "903", "dialect_hints": ["asante"], "src": "Ashanti Twi interview"}
+{"channel_id": "UCIKMRozB3XJLbPAgEs7CEdQ", "name": "DiVinciMediaGroup", "sample_vid": "wXVRjTFQsm4", "views": "2837", "dialect_hints": ["asante"], "src": "Ashanti Twi interview"}
+{"channel_id": "UCo874cZqsSty4rHKsCpr6Jw", "name": "Sama Time", "sample_vid": "K1wFrPOss1k", "views": "1441", "dialect_hints": ["asante"], "src": "Ashanti Twi interview"}
+{"channel_id": "UCqIIonOa4cZK8XMctJRTQGA", "name": "Gyansah Moses", "sample_vid": "BhNWCjf0mEk", "views": "4759", "dialect_hints": ["asante"], "src": "Ashanti Twi storytelling Anansesem"}
+{"channel_id": "UCvsyq7TNHR6SFm0B2qilvTw", "name": "PreeTales", "sample_vid": "nbTqvADCRDM", "views": "8461", "dialect_hints": ["asante"], "src": "Ashanti Twi storytelling Anansesem"}
+{"channel_id": "UCShCo-VVOAvP7lg_eMVB55A", "name": "Shattazoom", "sample_vid": "crZ3z4lxSGQ", "views": "30185", "dialect_hints": ["asante"], "src": "Ashanti Twi comedy skit"}
+{"channel_id": "UCMS20ci75td81OmBH2-j21Q", "name": "2Raw Production", "sample_vid": "Dp3jzUojsFo", "views": "69", "dialect_hints": ["asante"], "src": "Ashanti Twi comedy skit"}
+{"channel_id": "UCbLps98ELnPJThCwCNckHZg", "name": "RakGhana", "sample_vid": "FnKJBoL-JwY", "views": "70171", "dialect_hints": ["asante", "akan"], "src": "Ashanti Twi comedy skit"}
+{"channel_id": "UCKfyH_Z5_rkiC8JW9q50Tjw", "name": "J Ghana TV", "sample_vid": "9GGImUqgaE4", "views": "6484", "dialect_hints": ["asante", "akan"], "src": "Ashanti Twi drama series"}
+{"channel_id": "UC5OH45_9xTI3C_fHyi-HexA", "name": "GraceForJesusChrist", "sample_vid": "MSXyUuiCt30", "views": "1141", "dialect_hints": ["asante", "akan"], "src": "Ashanti Twi sermon preaching"}
+{"channel_id": "UCk-kXWy5zGGWYVn--ewjP8Q", "name": "Adjei's Family Ministry", "sample_vid": "NinTRNM5BOc", "views": "1023", "dialect_hints": ["asante"], "src": "Ashanti Twi sermon preaching"}
+{"channel_id": "UCmBUIsKf5NM_A16qEpE_CqQ", "name": "HOFM Worldwide hq", "sample_vid": "BvV9OUODteQ", "views": "1000", "dialect_hints": ["asante"], "src": "Ashanti Twi sermon preaching"}
+{"channel_id": "UCdIipsStSX1q37CLZs3OLLA", "name": "Prince Kissi", "sample_vid": "oLYpvXTXz6U", "views": "1674416", "dialect_hints": ["asante", "akuapem", "bono", "kwawu"], "src": "Ashanti Twi gospel testimony"}
+{"channel_id": "UCQzRmqt90njq2Or8kq-ALdA", "name": "TWI BIBLE HOME", "sample_vid": "eRb4jTNxa_I", "views": "791", "dialect_hints": ["asante"], "src": "Ashanti Twi gospel testimony"}
+{"channel_id": "UChVp9miazevmOBHoqfH-0fQ", "name": "Michael", "sample_vid": "6ciGAIbnaQo", "views": "2757789", "dialect_hints": ["asante"], "src": "Ashanti Twi radio call-in show"}
+{"channel_id": "UCl7BxiMYohuFymSpNOh4AjA", "name": "Desmond Ntiamoah", "sample_vid": "5-t1wlPAFh0", "views": "203", "dialect_hints": ["asante", "akan"], "src": "Ashanti Twi market street interview"}
+{"channel_id": "UCl08cht7OzuoLyZkp_6hPoQ", "name": "Perpetual Asiamah", "sample_vid": "l-16IwbXKpg", "views": "144643", "dialect_hints": ["asante", "kwawu"], "src": "Ashanti Twi cooking recipe"}
+{"channel_id": "UCR-IXXy_B1z7XAjKP6gE_bA", "name": "Chefabbys ", "sample_vid": "Z9vw4fRErrE", "views": "61947", "dialect_hints": ["asante", "fante"], "src": "Ashanti Twi cooking recipe"}
+{"channel_id": "UCwyPRrwGUT16hdpOqMKZdBQ", "name": "Owusuaa's Kitchen", "sample_vid": "B8-1wGFtm70", "views": "897", "dialect_hints": ["asante"], "src": "Ashanti Twi cooking recipe"}
+{"channel_id": "UCdLoFYcIB1dhIG36Th6pwtA", "name": "STREAM Africa", "sample_vid": "0DIRMcpOtnc", "views": "48437", "dialect_hints": ["asante"], "src": "Ashanti Twi documentary"}
+{"channel_id": "UC7o2qa1-AmYuRpb3TpZLOWw", "name": "Sampson Yeboah", "sample_vid": "72CQK9Hl0j8", "views": "1384", "dialect_hints": ["asante"], "src": "Ashanti Twi documentary"}
+{"channel_id": "UCAoQqenly56b3Lk-5gK7Vow", "name": "DOCUMENTED AFRICA TV", "sample_vid": "QP6cJ5hKZpg", "views": "6193", "dialect_hints": ["asante"], "src": "Ashanti Twi vox pop"}
+{"channel_id": "UC-sCpMEoHVTZeLZ3aUac7IA", "name": "GH NEWS CONNECT", "sample_vid": "shqberNjwcM", "views": "135032", "dialect_hints": ["asante", "akuapem"], "src": "Ashanti Twi vox pop"}
+{"channel_id": "UCVeuUQk2Lf07m3YB5dTRF2Q", "name": "efobanks Tv", "sample_vid": "SAYPd6JTkxg", "views": "2779", "dialect_hints": ["asante"], "src": "Ashanti Twi vox pop"}
+{"channel_id": "UC0IMJ2YGoL7yw6XO28ik-4Q", "name": "Hero Waik", "sample_vid": "pkbFlDSjV5g", "views": "664", "dialect_hints": ["akuapem"], "src": "Akuapem Twi vlog"}
+{"channel_id": "UCJ6w7P6MCA1TLujtTIfVYzQ", "name": "AfrawTalkz", "sample_vid": "eD0qvjtto-o", "views": "3697", "dialect_hints": ["akuapem", "kwawu"], "src": "Akuapem Twi vlog"}
+{"channel_id": "UCCoVLhTHXNzGRoEPmZZRpPw", "name": "Gloria Adwoa Amoanimaa Konadu's Vlogs ", "sample_vid": "TAPRoizmQgU", "views": "50", "dialect_hints": ["akuapem"], "src": "Akuapem Twi vlog"}
+{"channel_id": "UC0wkGCOqSAAEoqCuuYMCInw", "name": "Thriving with Ashley ☮︎🍃", "sample_vid": "Gd9FoV23sEg", "views": "1202", "dialect_hints": ["akuapem"], "src": "Akuapem Twi vlog"}
+{"channel_id": "UCdLWEI6igXWehKxW1TliJqQ", "name": "projectBaby VLOGS", "sample_vid": "3Au0POtDE2U", "views": "464", "dialect_hints": ["akuapem"], "src": "Akuapem Twi vlog"}
+{"channel_id": "UC1dNflNpX6oGjXM-EMJd5ig", "name": "Vdngroup", "sample_vid": "E9KIEPCMCVw", "views": "66", "dialect_hints": ["akuapem"], "src": "Akuapem Twi vlog"}
+{"channel_id": "UC28eAoRgD8Ee3NwI33HtCMA", "name": "Mponponsuo Tv", "sample_vid": "qxqAf_rtSwM", "views": "18517", "dialect_hints": ["akuapem"], "src": "Akuapem Twi vlog"}
+{"channel_id": "UCyyEVSCGm8gUzascb51EzRg", "name": "MissGoldTwi", "sample_vid": "-lRf08K_FGM", "views": "72332", "dialect_hints": ["akuapem"], "src": "Akuapem Twi vlog"}
+{"channel_id": "UC3il1JckJROe_i8C9gjn8zA", "name": "The Raw Element Podcast", "sample_vid": "kpNbpm4ON_M", "views": "187", "dialect_hints": ["akuapem"], "src": "Akuapem Twi podcast full episode"}
+{"channel_id": "UC1u1T02LQBrtqPMdYFJT4bQ", "name": "DEKAY TV GH", "sample_vid": "0Z73FQDIDr8", "views": "51124", "dialect_hints": ["akuapem"], "src": "Akuapem Twi podcast full episode"}
+{"channel_id": "UC7HZhXLs5fWFX78-tJ8dcvA", "name": "Nkonkonsa", "sample_vid": "lAW5Mo9XKE0", "views": "124", "dialect_hints": ["akuapem"], "src": "Akuapem Twi podcast full episode"}
+{"channel_id": "UClmp4d1YTykRb6fYkmQcipA", "name": "Ameyaw TV Podcasts", "sample_vid": "cRELaZhcaWk", "views": "1011", "dialect_hints": ["akuapem"], "src": "Akuapem Twi podcast full episode"}
+{"channel_id": "UCRMLIUAcgLTAEw9hzHY-__g", "name": "Seth Ekow", "sample_vid": "D_F8DLa_xOk", "views": "1846", "dialect_hints": ["akuapem", "bono"], "src": "Akuapem Twi podcast full episode"}
+{"channel_id": "UCoNwYU1HEdMdY2AtbI5TAmQ", "name": "UNPREDICTABLE MEDIA", "sample_vid": "phZ65N4w9Dg", "views": "16138", "dialect_hints": ["akuapem"], "src": "Akuapem Twi podcast full episode"}
+{"channel_id": "UCDzmblV5r3uxz9gdj-TZf5A", "name": "Sika TV", "sample_vid": "lVRtroaxBD4", "views": "44", "dialect_hints": ["akuapem"], "src": "Akuapem Twi interview"}
+{"channel_id": "UCqzXf00RAG4i4y7VbrMaU-A", "name": "Dzamesi Richard", "sample_vid": "l_2RasrsI54", "views": "412", "dialect_hints": ["akuapem"], "src": "Akuapem Twi interview"}
+{"channel_id": "UCXDcp6C0-wUPtZBbIHSuGJA", "name": "Languages at Bedford School", "sample_vid": "-wkCJpj9CxM", "views": "598", "dialect_hints": ["akuapem"], "src": "Akuapem Twi interview"}
+{"channel_id": "UCw9P8kE5vZZrbnLTUwhV_Yg", "name": "Omanhene KwameFori", "sample_vid": "PlrpxLfexfY", "views": "29", "dialect_hints": ["akuapem"], "src": "Akuapem Twi interview"}
+{"channel_id": "UCyPVBb7P4ZyTpofn5VBwpQg", "name": "Evelyn A", "sample_vid": "cbEgsrK8Lq0", "views": "7235", "dialect_hints": ["akuapem"], "src": "Akuapem Twi interview"}
+{"channel_id": "UCcrKT7fpYzgHPlkv_gsyPxw", "name": "Di Woho Nkɔmmɔ", "sample_vid": "ltMlpW2VXTs", "views": "256", "dialect_hints": ["akuapem"], "src": "Akuapem Twi kasa nkɔmmɔ conversation"}
+{"channel_id": "UCR89t-mCxfFaM3pWb6VunPA", "name": "Falcon Vibes", "sample_vid": "41aajBds9V4", "views": "2322", "dialect_hints": ["akuapem"], "src": "Akuapem Twi storytelling Anansesem"}
+{"channel_id": "UC-T-umOc-nWcW8DE8SA5bsA", "name": "SHOKOLA MORI", "sample_vid": "5iNIB4VoNUg", "views": "1286", "dialect_hints": ["akuapem", "kwawu"], "src": "Akuapem Twi storytelling Anansesem"}
+{"channel_id": "UCHY4weNyFdl-BuDJK-Np2jA", "name": "Dark Mann", "sample_vid": "3JJqOT4vgkw", "views": "79", "dialect_hints": ["akuapem"], "src": "Akuapem Twi comedy skit"}
+{"channel_id": "UC4LTa4wI6P0vFI77WUn1cEg", "name": "Video&Shorts", "sample_vid": "qCbDZ925C5E", "views": "247", "dialect_hints": ["akuapem"], "src": "Akuapem Twi comedy skit"}
+{"channel_id": "UCg0245CsADBkzcHlz8VsSWQ", "name": "TWIFLIX AVENUE", "sample_vid": "Lu1yILnzx6Q", "views": "600", "dialect_hints": ["akuapem", "bono"], "src": "Akuapem Twi Kumawood movie"}
+{"channel_id": "UC4Jx_IJtR5Ud9Ab4DuK8BSg", "name": "Akan Kids Songs", "sample_vid": "lk49Nq6AF8U", "views": "590223", "dialect_hints": ["akuapem", "fante"], "src": "Akuapem Twi drama series"}
+{"channel_id": "UCcctIPJut0cwG29lDhUyHVw", "name": "Top Class Gh Tv", "sample_vid": "q2TJrdfnR3A", "views": "161", "dialect_hints": ["akuapem"], "src": "Akuapem Twi drama series"}
+{"channel_id": "UCJv_YIczGnZTuvwyvKsvx6A", "name": "FCBH Gospel Films", "sample_vid": "vtmAl3E2WOw", "views": "9", "dialect_hints": ["akuapem"], "src": "Akuapem Twi sermon preaching"}
+{"channel_id": "UCV_UyUXis6uqyIEvzDfD3sQ", "name": "Deeper Life Bible Church, Ghana", "sample_vid": "aR8GK-J2gC4", "views": "1717", "dialect_hints": ["akuapem"], "src": "Akuapem Twi sermon preaching"}
+{"channel_id": "UCi4ymNYLE3WuCh0_p3OMWZg", "name": "Andrew A. Odoi", "sample_vid": "vZOxxky0UdY", "views": "2921593", "dialect_hints": ["akuapem", "kwawu"], "src": "Akuapem Twi gospel testimony"}
+{"channel_id": "UCgYhUHyKQ4cAD-75TfWk4gA", "name": "Gospel Diary", "sample_vid": "BzAFkzpCm38", "views": "334482", "dialect_hints": ["akuapem", "bono", "kwawu"], "src": "Akuapem Twi gospel testimony"}
+{"channel_id": "UCWcfH3i0grv1ZyKUvcHVGEQ", "name": "Onn Gospel", "sample_vid": "SBS50b1iFxQ", "views": "1656542", "dialect_hints": ["akuapem", "akan"], "src": "Akuapem Twi gospel testimony"}
+{"channel_id": "UCDaAOpe__yWYzJv_YEiqn9A", "name": "Edgar Kannuba", "sample_vid": "PDkdmbgfSJ4", "views": "487", "dialect_hints": ["akuapem"], "src": "Akuapem Twi radio call-in show"}
+{"channel_id": "UCEpRaFfDjCJRGF77jMIAPag", "name": "SammyKay Media", "sample_vid": "bhCCHsa1aik", "views": "6462", "dialect_hints": ["akuapem"], "src": "Akuapem Twi radio call-in show"}
+{"channel_id": "UCkGtRXVMEgY7IM41rI2wuWA", "name": "xtvghana", "sample_vid": "QTuDGpaWrZ0", "views": "102", "dialect_hints": ["akuapem"], "src": "Akuapem Twi market street interview"}
+{"channel_id": "UCNFJ_h-oMRWQJgWkJdbd_Iw", "name": "Chorkor Youth Tv", "sample_vid": "t6FOte_-CjE", "views": "416", "dialect_hints": ["akuapem"], "src": "Akuapem Twi market street interview"}
+{"channel_id": "UC6BnbioPeo1LLJCZFtUIaIQ", "name": "Kwanuwaa Duncan ", "sample_vid": "h5W3sPh73Ss", "views": "275", "dialect_hints": ["akuapem"], "src": "Akuapem Twi market street interview"}
+{"channel_id": "UCBifr-VC3Vy8QaTxZNOsnKQ", "name": "TALKATIVES AVENUE", "sample_vid": "ht0JsRSRUKA", "views": "1516", "dialect_hints": ["akuapem"], "src": "Akuapem Twi market street interview"}
+{"channel_id": "UC6mik-Q-CJIjoh0lGxJ387g", "name": "SMART GHANA TV", "sample_vid": "Qn2b6gZl45M", "views": "57196", "dialect_hints": ["akuapem", "kwawu"], "src": "Akuapem Twi market street interview"}
+{"channel_id": "UCwvht0qhujlBB5AvsYmlhhg", "name": "fixngobbleTv", "sample_vid": "fqyMtEOggZo", "views": "92", "dialect_hints": ["akuapem"], "src": "Akuapem Twi cooking recipe"}
+{"channel_id": "UCs4z9nyImTW4nQDCpSJyhag", "name": "TEACHERS JOINT", "sample_vid": "_90NDkcS4XM", "views": "4787", "dialect_hints": ["akuapem", "fante"], "src": "Akuapem Twi cooking recipe"}
+{"channel_id": "UCkR8k6BcwlznO-1b3AL4DzA", "name": "Cooking with Efya", "sample_vid": "utr8xxFBTM4", "views": "81542", "dialect_hints": ["akuapem"], "src": "Akuapem Twi cooking recipe"}
+{"channel_id": "UCxWa6IvufDIdqLboabHzC1Q", "name": "Akuapem Poloo Tv", "sample_vid": "CYE5sN6GKuU", "views": "43", "dialect_hints": ["akuapem"], "src": "Akuapem Twi cooking recipe"}
+{"channel_id": "UCFJYUALZSZU9q3hD9EuZJDw", "name": "Homecheff’s Kitchen", "sample_vid": "BtPJrGpxKG4", "views": "10590", "dialect_hints": ["akuapem"], "src": "Akuapem Twi cooking recipe"}
+{"channel_id": "UCioHEIWvqDzodhGn1cSj1WQ", "name": "First2watch TV", "sample_vid": "1bqIHXMqhZw", "views": "3432", "dialect_hints": ["akuapem", "bono"], "src": "Akuapem Twi cooking recipe"}
+{"channel_id": "UCc_wY3sMF20S72x-oMeXJ5w", "name": "General Marcus", "sample_vid": "w3SF5xuuiwY", "views": "101", "dialect_hints": ["akuapem"], "src": "Akuapem Twi cooking recipe"}
+{"channel_id": "UCy1yEyKxeh18ZkAYZ_sFk_w", "name": "SPORTS IN TWI ", "sample_vid": "1ZMUEil7k6E", "views": "3119", "dialect_hints": ["akuapem", "bono"], "src": "Akuapem Twi football commentary"}
+{"channel_id": "UCj7vXfSCBghzYQKD4dARKuA", "name": "Iamdesmonds TV", "sample_vid": "8muWAOgsFWE", "views": "54349", "dialect_hints": ["akuapem", "akan"], "src": "Akuapem Twi football commentary"}
+{"channel_id": "UChYlOPlUg1ZPx0CQY-LW2-Q", "name": "Nhyira TV", "sample_vid": "pfEMOIi68tI", "views": "917", "dialect_hints": ["akuapem", "fante"], "src": "Akuapem Twi football commentary"}
+{"channel_id": "UClSnYjUGih-QO5nPH8Og9og", "name": "Jeff Destroyers (Bad Boys II)", "sample_vid": "5X_M_pK5thA", "views": "319641", "dialect_hints": ["akuapem"], "src": "Akuapem Twi football commentary"}
+{"channel_id": "UCPp3pKkF-A9-JfSMjFQSCAA", "name": "Okoman Radio 97.1", "sample_vid": "CsK_Fquz8aU", "views": "252", "dialect_hints": ["akuapem"], "src": "Akuapem Twi football commentary"}
+{"channel_id": "UCHI59lm9RFkpsFWB9Hp_zvA", "name": "Richard Amarh", "sample_vid": "1T2WulfSI5o", "views": "2107", "dialect_hints": ["akuapem"], "src": "Akuapem Twi history proverbs"}
+{"channel_id": "UCEBVi5IjVASyjD6i41w5n4A", "name": "Uncle Dan Kids", "sample_vid": "ImjJcg1lJ6I", "views": "33571", "dialect_hints": ["akuapem"], "src": "Akuapem Twi motivation advice"}
+{"channel_id": "UCoRyShBNcYa8so9kd6GndJA", "name": "MH page", "sample_vid": "d3frPDFQcxY", "views": "20", "dialect_hints": ["akuapem"], "src": "Akuapem Twi motivation advice"}
+{"channel_id": "UCUF8n6LB920zPCL67-v5G9w", "name": "Emmanuel Prempeh", "sample_vid": "NeRNOT_J7bY", "views": "122", "dialect_hints": ["akuapem"], "src": "Akuapem Twi motivation advice"}
+{"channel_id": "UCsHul7Y55t7Oxo_RL3ZqShA", "name": "Mobobi", "sample_vid": "bk8DRFaz2SU", "views": "104000", "dialect_hints": ["akuapem", "fante"], "src": "Akuapem Twi motivation advice"}
+{"channel_id": "UCnUrE2E-r4TigG5suCTzmGA", "name": "3News", "sample_vid": "fQCThSVyX5o", "views": "637", "dialect_hints": ["akuapem"], "src": "Akuapem Twi news Asemsebe"}
+{"channel_id": "UCFwlj7kovg-TVpdL2DVWSzQ", "name": "GOSSIPS TODAY TV", "sample_vid": "rJAl66jZgoE", "views": "610", "dialect_hints": ["akuapem"], "src": "Akuapem Twi news Asemsebe"}
+{"channel_id": "UC5xWHZSqJeIAlVKbIrHoopw", "name": "WorldVentures", "sample_vid": "CyBqYYoA4n4", "views": "6460", "dialect_hints": ["akuapem"], "src": "Akuapem Twi documentary"}
+{"channel_id": "UCspMQpuLeSJAim7tN4atzXQ", "name": "Action Movies", "sample_vid": "5-2fU2wmaQc", "views": "6690", "dialect_hints": ["akuapem"], "src": "Akuapem Twi documentary"}
+{"channel_id": "UCAb1byrBnLLpf4OaexXvBbg", "name": "Papertwin - Topic", "sample_vid": "VQm9wvItavo", "views": "6192", "dialect_hints": ["akuapem"], "src": "Akuapem Twi vox pop"}
+{"channel_id": "UCPSFh19ZvK_yxWHLvlXQIPw", "name": "Nana's African TV", "sample_vid": "xbg5HXAthVs", "views": "37797", "dialect_hints": ["akuapem"], "src": "Akuapem Twi vox pop"}
+{"channel_id": "UCU6MUWt2hPR6Fvgrt84tcEQ", "name": "Citi Star Tv", "sample_vid": "NT3VMgImaXU", "views": "273", "dialect_hints": ["akuapem"], "src": "Akuapem Twi vox pop"}
+{"channel_id": "UCKOk6xz0_EMllcwVydyVyqA", "name": "Geoffrey Buah", "sample_vid": "t6_PPQ3UJ0o", "views": "28", "dialect_hints": ["akuapem"], "src": "Akuapem Twi vox pop"}
+{"channel_id": "UC2jZ6apgKLjAH6pz1wNAopw", "name": "ONE GHANA TV", "sample_vid": "Tw5mzk-vD0I", "views": "66335", "dialect_hints": ["akuapem", "bono"], "src": "Akwapim Twi vlog"}
+{"channel_id": "UCIfj4gDjOsK7FN4eAgQ8sSg", "name": "BCMNG+Kreative", "sample_vid": "i-75bm_QzW4", "views": "445", "dialect_hints": ["akuapem"], "src": "Akwapim Twi vlog"}
+{"channel_id": "UCWdzScuwQA4nZONYCtF1z2A", "name": "Melanin D", "sample_vid": "6IwwLa2T8co", "views": "86", "dialect_hints": ["akuapem", "fante"], "src": "Akwapim Twi vlog"}
+{"channel_id": "UCoGGuVCQdiepREaCU5qQGrw", "name": "Prem & Proper", "sample_vid": "vymOI5WZN7k", "views": "908", "dialect_hints": ["akuapem"], "src": "Akwapim Twi vlog"}
+{"channel_id": "UCkyVy4Wqfwec6jPwyPhrQHw", "name": "KhoPhi.", "sample_vid": "96e-UAON3j0", "views": "2257", "dialect_hints": ["akuapem"], "src": "Akwapim Twi vlog"}
+{"channel_id": "UCkkhmBWfS7pILYIk0izkc3A", "name": "This Week in Startups", "sample_vid": "XjJWzWWZHEk", "views": "219", "dialect_hints": ["akuapem"], "src": "Akwapim Twi podcast full episode"}
+{"channel_id": "UCq1TJImotfh8_JVP_cH4E8A", "name": "DeadBitchesBrunch", "sample_vid": "cRPQJo8MWAg", "views": "67", "dialect_hints": ["akuapem"], "src": "Akwapim Twi podcast full episode"}
+{"channel_id": "UCQadQKJ0OgSgWlCKJLTGk_g", "name": "Hello BeYouTooFul", "sample_vid": "CxR7QkwTWhA", "views": "184", "dialect_hints": ["akuapem"], "src": "Akwapim Twi podcast full episode"}
+{"channel_id": "UCqogtMq5LUvmTVAwyIzLVFw", "name": "LAGOS ACCRA", "sample_vid": "XjxMXxpFXK4", "views": "269", "dialect_hints": ["akuapem"], "src": "Akwapim Twi podcast full episode"}
+{"channel_id": "UChdrRtYPXEIDLJgo-b_2YIg", "name": "GHOne TV", "sample_vid": "sXjKIv0-T8g", "views": "7541", "dialect_hints": ["akuapem"], "src": "Akwapim Twi interview"}
+{"channel_id": "UC_iVG4Ops1qflE0pwDkRHtA", "name": "Cindy's Haven", "sample_vid": "bovw1Ekiv4Q", "views": "80", "dialect_hints": ["akuapem"], "src": "Akwapim Twi interview"}
+{"channel_id": "UC8AxMij3MauvvHE0ve_rtpA", "name": "Director MICKY ", "sample_vid": "pPWTRhgxGTc", "views": "2228", "dialect_hints": ["akuapem", "akan"], "src": "Akwapim Twi storytelling Anansesem"}
+{"channel_id": "UCxDzbQMz1b97vOUBmG6ATcQ", "name": "ANANSE TALES", "sample_vid": "cmsBLhKUK_Q", "views": "16162", "dialect_hints": ["akuapem", "fante", "akan"], "src": "Akwapim Twi storytelling Anansesem"}
+{"channel_id": "UCHl3WrEGiLDV2MfW8TJu-lw", "name": "Shema Multimedia", "sample_vid": "IJ_nOBm-u0I", "views": "914", "dialect_hints": ["akuapem"], "src": "Akwapim Twi comedy skit"}
+{"channel_id": "UCAsyL_dwDjHeeqIfcritMyg", "name": "Twi Comics", "sample_vid": "XDDyR14-FOo", "views": "12280", "dialect_hints": ["akuapem", "akan"], "src": "Akwapim Twi comedy skit"}
+{"channel_id": "UC3EBoLsr5mmhXqpVfrEPamA", "name": "OKODIE GH", "sample_vid": "QKXO74ajW3A", "views": "12418", "dialect_hints": ["akuapem", "bono", "kwawu"], "src": "Akwapim Twi drama series"}
+{"channel_id": "UCe38Y_3w9CXz30hUbrauHbQ", "name": "Mama Esther Official", "sample_vid": "0gTnnC4in5E", "views": "267359", "dialect_hints": ["akuapem", "bono"], "src": "Akwapim Twi gospel testimony"}
+{"channel_id": "UCICG-I6dLhSmn0yi2fRjJpw", "name": "Hannah Asante", "sample_vid": "s_HhkMMg5Fk", "views": "29161", "dialect_hints": ["akuapem"], "src": "Akwapim Twi gospel testimony"}
+{"channel_id": "UCuTpUIi5oeSPjEkMUH9o5Og", "name": "GHPage TV", "sample_vid": "Tlzm-wdN0z0", "views": "95930", "dialect_hints": ["akuapem", "fante"], "src": "Akwapim Twi radio call-in show"}
+{"channel_id": "UCtOs709nzJT2z2n-Vze2g_Q", "name": "GK TV", "sample_vid": "QsQ4_QHiFWs", "views": "194", "dialect_hints": ["akuapem"], "src": "Akwapim Twi radio call-in show"}
+{"channel_id": "UCEk0hACiI4zPboQPtwwCp8g", "name": "Ghgalaxy", "sample_vid": "693Mrc81uOc", "views": "2237", "dialect_hints": ["akuapem"], "src": "Akwapim Twi market street interview"}
+{"channel_id": "UCzxj0xq99VrGgFetmZ9cZeA", "name": "Zionfelix Studio", "sample_vid": "y5TsTUPiXHw", "views": "14977", "dialect_hints": ["akuapem", "kwawu"], "src": "Akwapim Twi market street interview"}
+{"channel_id": "UCrtPXCqjm9c7nqgJL-vBSZg", "name": "CareerVidz", "sample_vid": "uQEuo7woEEk", "views": "921166", "dialect_hints": ["akuapem", "bono"], "src": "Akwapim Twi market street interview"}
+{"channel_id": "UCEgQyQPkQIhoXf12FFKSYgQ", "name": "Don Georgevich", "sample_vid": "wIjK-6Do6lg", "views": "7115181", "dialect_hints": ["akuapem", "bono"], "src": "Akwapim Twi market street interview"}
+{"channel_id": "UCafkV40656nWz9Jc129ZCFA", "name": "Graham R Gibbs", "sample_vid": "9t-_hYjAKww", "views": "545911", "dialect_hints": ["akuapem"], "src": "Akwapim Twi market street interview"}
+{"channel_id": "UCAGFQKnwEz4rrOiCqxO6Egg", "name": "Life Work Balance", "sample_vid": "8LwveoDO_M8", "views": "3272543", "dialect_hints": ["akuapem"], "src": "Akwapim Twi market street interview"}
+{"channel_id": "UCcvxIw5LsfDen0GEXTyYgbg", "name": "Maame P Kitchen", "sample_vid": "O0tJI4djmWM", "views": "2364", "dialect_hints": ["akuapem"], "src": "Akwapim Twi cooking recipe"}
+{"channel_id": "UC-4JAM9GiiypxHXwSFoQKlg", "name": "Ebenezer Kyere Nkansah", "sample_vid": "phbI2pcJ-k8", "views": "101", "dialect_hints": ["akuapem"], "src": "Akwapim Twi cooking recipe"}
+{"channel_id": "UC8C8WuWSsFjWFaTHcUQeQxA", "name": "VICE Sports", "sample_vid": "9cxPqgyljKc", "views": "1578796", "dialect_hints": ["akuapem", "kwawu"], "src": "Akwapim Twi football commentary"}
+{"channel_id": "UC6UL29enLNe4mqwTfAyeNuw", "name": "Bundesliga", "sample_vid": "4SVlO7KfwGg", "views": "719508", "dialect_hints": ["akuapem"], "src": "Akwapim Twi football commentary"}
+{"channel_id": "UCpcTrCXblq78GZrTUTLWeBw", "name": "FIFA", "sample_vid": "MGPHhAT02SA", "views": "578548", "dialect_hints": ["akuapem"], "src": "Akwapim Twi football commentary"}
+{"channel_id": "UC-NIU7eKAbXx0Qw1OsZbxuw", "name": "Gh FATS TV", "sample_vid": "9F57OucuMDw", "views": "25", "dialect_hints": ["akuapem"], "src": "Akwapim Twi football commentary"}
+{"channel_id": "UC1sOxisZ5FhuWg8TwVuaI8Q", "name": "BRA EMMA STUDIOS ", "sample_vid": "TDJBmrJ2k0k", "views": "1005", "dialect_hints": ["akuapem", "akan"], "src": "Akwapim Twi history proverbs"}
+{"channel_id": "UC-DTUeU0WE-apcrnn0QT7QA", "name": "Kesse Media", "sample_vid": "l2IjoghjlIw", "views": "976", "dialect_hints": ["akuapem"], "src": "Akwapim Twi history proverbs"}
+{"channel_id": "UCsT0YIqwnpJCM-mx7-gSA4Q", "name": "TEDx Talks", "sample_vid": "kvtYjdriSpM", "views": "4117828", "dialect_hints": ["akuapem", "bono"], "src": "Akwapim Twi motivation advice"}
+{"channel_id": "UCcKJ0G86q0j1Q3V2Gzt1MCQ", "name": "COMPASSION COMPASSION MINISTRY [COMPASSION MEDIA]", "sample_vid": "ntBsTxM_mqM", "views": "254", "dialect_hints": ["akuapem"], "src": "Akwapim Twi motivation advice"}
+{"channel_id": "UCC7Zg7mHkWgmwGQJuk30QKQ", "name": "Zionfelix TV", "sample_vid": "thWEDeu-WvU", "views": "17181", "dialect_hints": ["akuapem"], "src": "Akwapim Twi motivation advice"}
+{"channel_id": "UCGt60tDGfH2I6SOt5clb16A", "name": "Legend Tv Africa", "sample_vid": "Xi_aE23zH1E", "views": "16939", "dialect_hints": ["akuapem"], "src": "Akwapim Twi documentary"}
+{"channel_id": "UCr-gTfI7au9UaEjNCbnp_Nw", "name": "Vidya Vox", "sample_vid": "eiGdsH1g20k", "views": "475372702", "dialect_hints": ["akuapem"], "src": "Akwapim Twi vox pop"}
+{"channel_id": "UCa6vGFO9ty8v5KZJXQxdhaw", "name": "Jimmy Kimmel Live", "sample_vid": "kRh1zXFKC_o", "views": "33215457", "dialect_hints": ["akuapem", "kwawu"], "src": "Akwapim Twi vox pop"}
+{"channel_id": "UCLiyNVBIP8GuQC18mT3ZdBA", "name": "myLastTears", "sample_vid": "UBjUiJFuXYQ", "views": "219949", "dialect_hints": ["akuapem"], "src": "Akwapim Twi vox pop"}
+{"channel_id": "UCLXo7UDZvByw2ixzpQCufnA", "name": "Vox", "sample_vid": "Bxz6jShW-3E", "views": "5238540", "dialect_hints": ["akuapem", "fante", "bono", "kwawu"], "src": "Akwapim Twi vox pop"}
+{"channel_id": "UC6pZ-TAmin4rHdLHtpOtSsA", "name": "Vox Pops International", "sample_vid": "Qkxj2Rslljc", "views": "302603", "dialect_hints": ["akuapem", "bono", "kwawu"], "src": "Akwapim Twi vox pop"}
+{"channel_id": "UCKu9PSTFdOAakGB9jnDBfbA", "name": "Tatiana Haina", "sample_vid": "u5QSqzMIRWg", "views": "66242", "dialect_hints": ["fante", "bono"], "src": "Fante vlog"}
+{"channel_id": "UCo2jVouQQJnqBme9aSSG0Vw", "name": "PAKORICH STUDIOS", "sample_vid": "RBCDIsaIW5k", "views": "49", "dialect_hints": ["fante"], "src": "Fante vlog"}
+{"channel_id": "UCDynM_awW6RcakuNtLXWdrg", "name": "Belinda Dei", "sample_vid": "oJHvxGl4RsY", "views": "1582", "dialect_hints": ["fante"], "src": "Fante vlog"}
+{"channel_id": "UCX6JOtB-Uer98LtgJthEgsw", "name": "Alhaji Theozzy", "sample_vid": "mkxeargqIPY", "views": "9598", "dialect_hints": ["fante"], "src": "Fante vlog"}
+{"channel_id": "UCZyEmzctpS1qus11issOyXA", "name": "Fante", "sample_vid": "Hv7y3ln3BC0", "views": "6", "dialect_hints": ["fante"], "src": "Fante vlog"}
+{"channel_id": "UCRFKg0wfX2Av-2Pcf3-bkLA", "name": "Genevive Derby", "sample_vid": "FfXzWUgCQTw", "views": "1260", "dialect_hints": ["fante"], "src": "Fante vlog"}
+{"channel_id": "UCaH5AoykyGE4as2PMtnDEwg", "name": "Adwoa Samuella", "sample_vid": "JwH9PjEuczY", "views": "330", "dialect_hints": ["fante"], "src": "Fante vlog"}
+{"channel_id": "UCjQ0qxVMbYCGe8zMHqWVzRQ", "name": "Fante Pod", "sample_vid": "fGYKv3VWPHs", "views": "1798", "dialect_hints": ["fante"], "src": "Fante podcast full episode"}
+{"channel_id": "UC6z6SDW-zrDGIXWxadU_iUA", "name": "LA Review of Books", "sample_vid": "etjFAaCAAU4", "views": "4113", "dialect_hints": ["fante"], "src": "Fante podcast full episode"}
+{"channel_id": "UCX0v34iiYxs6M_CnoyGJGJA", "name": "The Rhythm of Business Podcast", "sample_vid": "6T_1w6eeGD0", "views": "6", "dialect_hints": ["fante"], "src": "Fante podcast full episode"}
+{"channel_id": "UClKQR3rhlPS48_gru64akFA", "name": "ANOTHER LOOK book club at Stanford", "sample_vid": "ZD8gCZm7GWw", "views": "795", "dialect_hints": ["fante"], "src": "Fante podcast full episode"}
+{"channel_id": "UCbIEyDgOlLNVdKUEhNePnBg", "name": "The Serendipitous Channel", "sample_vid": "f16ezgqyj1c", "views": "49", "dialect_hints": ["fante"], "src": "Fante podcast full episode"}
+{"channel_id": "UCFDx8emY2lmYirSir6nCfOQ", "name": "CH TOURISM TV", "sample_vid": "MprOPRjHFl8", "views": "259", "dialect_hints": ["fante"], "src": "Fante interview"}
+{"channel_id": "UC0kd_cq9m1FjiSOnDjuLF1Q", "name": "Fante Tapes", "sample_vid": "iUVW4LXXB_M", "views": "622", "dialect_hints": ["fante"], "src": "Fante interview"}
+{"channel_id": "UCGibBy7NtAreNwWpEAFgvLg", "name": "The Selador", "sample_vid": "H-Bgk033nq4", "views": "44204", "dialect_hints": ["fante"], "src": "Fante interview"}
+{"channel_id": "UCr14_h2WJNXeFfO38C9Rv3Q", "name": "Zócalo Public Square", "sample_vid": "U6jafDpxYF4", "views": "5091", "dialect_hints": ["fante"], "src": "Fante interview"}
+{"channel_id": "UCQQDNOWHRhADJLAna28PhVA", "name": "leftways", "sample_vid": "jsO0VSYAqXo", "views": "90756", "dialect_hints": ["fante"], "src": "Fante interview"}
+{"channel_id": "UCegnzZNliabysacMZ3CCG9Q", "name": "Cooking with Sindaco", "sample_vid": "qfVUb94WUkc", "views": "4934", "dialect_hints": ["fante", "bono", "kwawu", "akan"], "src": "Fante interview"}
+{"channel_id": "UCz_UdrVv4hwfVu7dUK1OV1g", "name": "THE PLUGS GH", "sample_vid": "PKzcChP1hs4", "views": "1238", "dialect_hints": ["fante"], "src": "Fante interview"}
+{"channel_id": "UCKKGbFzn2JWgEh14fx666FA", "name": "Tiểu Hương life", "sample_vid": "kfzzoj0eHrA", "views": "1671", "dialect_hints": ["fante"], "src": "Fante kasa nkɔmmɔ conversation"}
+{"channel_id": "UCGsQwnE_nlqfgbbv8Do-vxw", "name": "Lý Nhượng 26", "sample_vid": "G6avu-rpBKE", "views": "22375", "dialect_hints": ["fante"], "src": "Fante kasa nkɔmmɔ conversation"}
+{"channel_id": "UCm0vfXKf_mQ9Rwb85Tuz36w", "name": "Lý Tử Diễm", "sample_vid": "ZIeXOBq46TA", "views": "20162", "dialect_hints": ["fante"], "src": "Fante kasa nkɔmmɔ conversation"}
+{"channel_id": "UCSI6aAV3O4OMywvpPwMrcbw", "name": " LÝ KHÁNH", "sample_vid": "29fKa7kEbRU", "views": "31169", "dialect_hints": ["fante"], "src": "Fante kasa nkɔmmɔ conversation"}
+{"channel_id": "UC8VtDD6qDBByE984iu2zoLA", "name": "Adom 106.3 FM", "sample_vid": "uYWHzAMffXs", "views": "4432", "dialect_hints": ["fante", "kwawu"], "src": "Fante kasa nkɔmmɔ conversation"}
+{"channel_id": "UCrPBsLEB1PxRxtzREW6LtRw", "name": "SPORTYBET WINNERS", "sample_vid": "2N0vkgsoolU", "views": "8041", "dialect_hints": ["fante"], "src": "Fante storytelling Anansesem"}
+{"channel_id": "UCctOCKNcYuhNS3XOFoM-Z1A", "name": "Paul Ankomah", "sample_vid": "H3nlBytZy00", "views": "1130245", "dialect_hints": ["fante", "bono", "akan"], "src": "Fante storytelling Anansesem"}
+{"channel_id": "UCC2cHYMNhxYGpoNX5oztuoA", "name": "jfp films (old account)", "sample_vid": "21MLLwgzL_g", "views": "72737", "dialect_hints": ["fante", "akan"], "src": "Fante storytelling Anansesem"}
+{"channel_id": "UC7UIBxsEfi29lWhdLJVbDsA", "name": "Daily Updates TV", "sample_vid": "BBkvT4q22Hc", "views": "265", "dialect_hints": ["fante"], "src": "Fante comedy skit"}
+{"channel_id": "UC4jQpdIxPc193kRKhfn_GMA", "name": "Bell media Gh", "sample_vid": "ZWFqusGisB8", "views": "8", "dialect_hints": ["fante"], "src": "Fante comedy skit"}
+{"channel_id": "UC1v-MZ5CfO2oudser6TetQA", "name": "Voice of Osagyefo1", "sample_vid": "apenkwT09Yo", "views": "663", "dialect_hints": ["fante"], "src": "Fante comedy skit"}
+{"channel_id": "UCRW57gUsVoPK5q0pd_FDlVg", "name": "Ghanaian Citizen TV", "sample_vid": "_Ug4CclZ5E4", "views": "12992", "dialect_hints": ["fante"], "src": "Fante comedy skit"}
+{"channel_id": "UCc1tmsfp22zQouOevG0SE6A", "name": "Anderson Gaucho ", "sample_vid": "aLQ4KKC69-0", "views": "15", "dialect_hints": ["fante"], "src": "Fante comedy skit"}
+{"channel_id": "UCPUDmwoz2YxHpg2tdx8PEZw", "name": "Matrixphocus Studio", "sample_vid": "4EOwPhF0sek", "views": "182", "dialect_hints": ["fante"], "src": "Fante comedy skit"}
+{"channel_id": "UCcM-Tm5O8yanA_xZ6_FVBDQ", "name": "Junka Town Series", "sample_vid": "7_7aK9opiNU", "views": "5837", "dialect_hints": ["fante"], "src": "Fante Kumawood movie"}
+{"channel_id": "UCcIGLycjG1OxG-OVzt3Cijg", "name": "Movie Africa TV", "sample_vid": "wBsV3OgtHeI", "views": "1267138", "dialect_hints": ["fante"], "src": "Fante Kumawood movie"}
+{"channel_id": "UCeDOvvKRlvQOmcGG85XwWEQ", "name": "GHALLYWOOD HITS TV", "sample_vid": "ucE60lo8e9Y", "views": "308", "dialect_hints": ["fante"], "src": "Fante Kumawood movie"}
+{"channel_id": "UCdyOp6n4BU5MLPJs7xHenug", "name": "Teresty Comedy", "sample_vid": "Q6cyQQ8Yb90", "views": "27697", "dialect_hints": ["fante"], "src": "Fante Kumawood movie"}
+{"channel_id": "UCzL925ccw1gxKZRms5TcsJA", "name": "COPIA MEDIA ", "sample_vid": "qbuGaeVL834", "views": "1614", "dialect_hints": ["fante"], "src": "Fante drama series"}
+{"channel_id": "UCCtcQHR6-mQHQh6G06IPlDA", "name": "Jesus Film", "sample_vid": "2HiWuZ8zWyo", "views": "65687", "dialect_hints": ["fante", "akan"], "src": "Fante drama series"}
+{"channel_id": "UCIkCaCgbiXE9zyotw1Csy4w", "name": "Daily Devotional - Lifeword Media", "sample_vid": "nLUaoDYA4l4", "views": "3188", "dialect_hints": ["fante"], "src": "Fante sermon preaching"}
+{"channel_id": "UCFyKgqW-CZ6EUuD7YpwQrXA", "name": "TNIghana OnlineChurch", "sample_vid": "Guh9jt5T9HE", "views": "86", "dialect_hints": ["fante"], "src": "Fante sermon preaching"}
+{"channel_id": "UC7wNeZ10kUEIPMVJ9p9ZwFw", "name": "Aggrey Memorial ZYM", "sample_vid": "8ll7IF8I7jQ", "views": "12", "dialect_hints": ["fante"], "src": "Fante sermon preaching"}
+{"channel_id": "UC3HLrkzl2QLAE4sLEoEd1XA", "name": "Rev. Thomas Acquaye", "sample_vid": "K7wpMw6-Ly8", "views": "1", "dialect_hints": ["fante"], "src": "Fante sermon preaching"}
+{"channel_id": "UCJoU8hmgAq6v8hWTwhEW_Ng", "name": "Jerisdan Jehu-Appiah", "sample_vid": "TWZ5sNRjGB0", "views": "0", "dialect_hints": ["fante"], "src": "Fante sermon preaching"}
+{"channel_id": "UCT7alisNUXDGzcmVg6DoQiw", "name": "The Abundant Fruitful Vine", "sample_vid": "gEc52RQ-Jvo", "views": "23", "dialect_hints": ["fante"], "src": "Fante sermon preaching"}
+{"channel_id": "UC3QheWjhnoEe56mnWL9o0Iw", "name": "Lady Mercy Official", "sample_vid": "JhJuKJ8ll08", "views": "1623659", "dialect_hints": ["fante"], "src": "Fante gospel testimony"}
+{"channel_id": "UCrVzxqPtFGfGO6RJHQOohQg", "name": "Nacee Music", "sample_vid": "IlBDc8pC8VU", "views": "16740428", "dialect_hints": ["fante", "bono"], "src": "Fante gospel testimony"}
+{"channel_id": "UCjDCQoQeJMtxYmOx-Mif6OQ", "name": "MOGmusic", "sample_vid": "5CSJRiY26Lc", "views": "1382188", "dialect_hints": ["fante", "kwawu"], "src": "Fante gospel testimony"}
+{"channel_id": "UC3h-XKeg2Z90HAxAftslDeA", "name": "Official Nana Adwoa ", "sample_vid": "EYJcNKlAxW4", "views": "260911", "dialect_hints": ["fante", "kwawu"], "src": "Fante gospel testimony"}
+{"channel_id": "UCbgW7Cztc6LDdf3bQPHtM2w", "name": "Delafé Testimonies", "sample_vid": "6DKKf25eyko", "views": "518188", "dialect_hints": ["fante"], "src": "Fante gospel testimony"}
+{"channel_id": "UCMczRFYrAZw2rIqa57m06kw", "name": "DLFM 106.9", "sample_vid": "VRGZ3-jmYlE", "views": "485", "dialect_hints": ["fante", "kwawu"], "src": "Fante radio call-in show"}
+{"channel_id": "UCOCWJyNF9PYGys9GB17me8g", "name": "Kweku Ababio Jnr", "sample_vid": "6TYGMBUWW3M", "views": "434", "dialect_hints": ["fante"], "src": "Fante radio call-in show"}
+{"channel_id": "UCCN1YRTEZx0g44kuRSYQDxg", "name": "KMRL 90.3 FM MARLIN RADIO STATIONS", "sample_vid": "W4fGS0gbaGI", "views": "38", "dialect_hints": ["fante"], "src": "Fante radio call-in show"}
+{"channel_id": "UCa5Qx_gTCJtssUUHCKiwacw", "name": "Adwenkyere tv", "sample_vid": "EREXqQN5SYs", "views": "1157", "dialect_hints": ["fante"], "src": "Fante radio call-in show"}
+{"channel_id": "UCILPwZRhKIrcbr-v313H0Gg", "name": "Anita Loshmanova", "sample_vid": "NQdalcVX8rA", "views": "1689", "dialect_hints": ["fante"], "src": "Fante radio call-in show"}
+{"channel_id": "UCNMd50KIuJtQ10dfq6UqerA", "name": "EMPIRE'S - TV", "sample_vid": "GLja7bregGE", "views": "2155", "dialect_hints": ["fante"], "src": "Fante market street interview"}
+{"channel_id": "UCaJ7mvc_pODf1sejOq6mm_w", "name": "The Philosophical Research Society", "sample_vid": "neV8uIWewuY", "views": "6830", "dialect_hints": ["fante"], "src": "Fante market street interview"}
+{"channel_id": "UCXAJXVqHJgHAh4S1_XrYdUw", "name": "Ghana Music & Videos", "sample_vid": "O60XDejqTuM", "views": "896", "dialect_hints": ["fante"], "src": "Fante market street interview"}
+{"channel_id": "UCzV4Xglu3_2TpzUnYOY7qFw", "name": "Fred Dahe | Africa Untold", "sample_vid": "6H4fFRmI7yc", "views": "18542", "dialect_hints": ["fante"], "src": "Fante market street interview"}
+{"channel_id": "UCTG4QUOiy0R6YMmSlKjV3jw", "name": "Abena Tinaa", "sample_vid": "aercf1CrIDk", "views": "5802", "dialect_hints": ["fante"], "src": "Fante cooking recipe"}
+{"channel_id": "UCQHYgTuj2M-U3QMqqkPUcgg", "name": "Masof's Kitchen", "sample_vid": "CVlcWDttrVw", "views": "27698", "dialect_hints": ["fante"], "src": "Fante cooking recipe"}
+{"channel_id": "UCrUzuyd4tm1Vthte7h0qvFg", "name": "Life with Maame", "sample_vid": "RYRsUmfggyE", "views": "6716", "dialect_hints": ["fante"], "src": "Fante cooking recipe"}
+{"channel_id": "UCHHFS10IiFc-5IEhT3NeUiw", "name": "Foodheartedly 🇬🇭", "sample_vid": "DQN2q5amaPc", "views": "4301", "dialect_hints": ["fante"], "src": "Fante cooking recipe"}
+{"channel_id": "UCTgG5GbQlVK1B-QcLDDzMuw", "name": "YouHub", "sample_vid": "VReVj1NxtZQ", "views": "236809", "dialect_hints": ["fante"], "src": "Fante football commentary"}
+{"channel_id": "UCG01iGLFb1I2pNZ7YLc7NSA", "name": "Buharry Gassama (Raaki Media)", "sample_vid": "tyLzzTcXDYI", "views": "6179", "dialect_hints": ["fante"], "src": "Fante football commentary"}
+{"channel_id": "UCbUIPgslZTlsh98KknrNB8Q", "name": "ABN GHANA ( Angel Broadcasting Network )", "sample_vid": "nMim8s1Q7K8", "views": "101736", "dialect_hints": ["fante", "bono"], "src": "Fante football commentary"}
+{"channel_id": "UChSTg4m1GYoH5NmpsZgpMew", "name": "neXzzo", "sample_vid": "aScLFNrrP6E", "views": "65584", "dialect_hints": ["fante"], "src": "Fante football commentary"}
+{"channel_id": "UChKU0GG6bjy9CYOcggeLsgg", "name": "Fante Empire", "sample_vid": "jKUA4VOCwHw", "views": "57", "dialect_hints": ["fante"], "src": "Fante football commentary"}
+{"channel_id": "UCq2rKqoKn59rGxsK2BFL3TA", "name": "Fantse 4Fun", "sample_vid": "4vDB9EFytoU", "views": "621", "dialect_hints": ["fante"], "src": "Fante history proverbs"}
+{"channel_id": "UCqN-WI2-478fvUj-Cpf0sZw", "name": "Voice Network", "sample_vid": "cZC27W0QMoU", "views": "14746", "dialect_hints": ["fante"], "src": "Fante history proverbs"}
+{"channel_id": "UCtllTTw4IaKA9in7qG05RDw", "name": "Shamis", "sample_vid": "KItGjcJx0Xc", "views": "3636", "dialect_hints": ["fante"], "src": "Fante history proverbs"}
+{"channel_id": "UCXdFwwSemlVP61hkqMFt8qw", "name": "Twi classroom", "sample_vid": "v5Z2oD0Jth0", "views": "740", "dialect_hints": ["fante"], "src": "Fante history proverbs"}
+{"channel_id": "UCDfXNt8icVFx5_9jyC-L-5w", "name": "Eagle Plug ", "sample_vid": "FDxGBCQF_iY", "views": "2562078", "dialect_hints": ["fante"], "src": "Fante motivation advice"}
+{"channel_id": "UCtu8MkufmVgxS8_Ocl7mMig", "name": "Food and Agriculture Organization of the United Nations", "sample_vid": "yWQ4QaKvy6Q", "views": "36", "dialect_hints": ["fante"], "src": "Fante motivation advice"}
+{"channel_id": "UCJCdiZtw9zStiR3xgnp7qlg", "name": "First Coast News", "sample_vid": "2QcCsnTXd4I", "views": "377", "dialect_hints": ["fante"], "src": "Fante news Asemsebe"}
+{"channel_id": "UCJ9tHJbCa8ZoMbapfJLy0ZQ", "name": "imineo Documentaires", "sample_vid": "2mVzcGiNlWk", "views": "14995", "dialect_hints": ["fante"], "src": "Fante documentary"}
+{"channel_id": "UCd-L5VNw5m454F9GL-9BxOw", "name": "Ben", "sample_vid": "DE3bCsrbxFI", "views": "87", "dialect_hints": ["fante"], "src": "Fante vox pop"}
+{"channel_id": "UCFkQzUWIMDwK2SN0uKt7cEg", "name": "Broadway TV", "sample_vid": "wsbYYh6CTpU", "views": "1025", "dialect_hints": ["fante"], "src": "Fante vox pop"}
+{"channel_id": "UCD5NbxadZ3K2OZsRnSYCoFQ", "name": "PabbyNewsLive TV", "sample_vid": "UZX1UA-rb28", "views": "837", "dialect_hints": ["fante"], "src": "Fante vox pop"}
+{"channel_id": "UCm3bDxJoc4OSKgb8n50-g2Q", "name": "Obrempon TV", "sample_vid": "9qvR6-Y8qK8", "views": "1749", "dialect_hints": ["fante"], "src": "Fante vox pop"}
+{"channel_id": "UCYyF1I2euonzof7qxOVCz8g", "name": "EKOW SIMPSON", "sample_vid": "FDQ1Khw_o7k", "views": "1139", "dialect_hints": ["fante"], "src": "Mfantse vlog"}
+{"channel_id": "UCfK4rW4k7hliITQ3GM7hOMA", "name": "Ekua Haizel", "sample_vid": "6k64wWxnZeU", "views": "2962", "dialect_hints": ["fante"], "src": "Mfantse vlog"}
+{"channel_id": "UCmgkTQ32MX2pFB_MRh5hhew", "name": "HettyAmens", "sample_vid": "UEVawfBjOGQ", "views": "619", "dialect_hints": ["fante"], "src": "Mfantse vlog"}
+{"channel_id": "UCBGquBa34beMpuDwdD59S4A", "name": "oaksjoint", "sample_vid": "wocL1140Ct8", "views": "245", "dialect_hints": ["fante"], "src": "Mfantse vlog"}
+{"channel_id": "UCBdZSstXtb61SLMD3v_OJog", "name": "Mich-Mighty", "sample_vid": "eD0MRArrw4c", "views": "111", "dialect_hints": ["fante"], "src": "Mfantse vlog"}
+{"channel_id": "UC2cPOWqG_wIbvU0NxMUWIrg", "name": "Dominion TV & Studios", "sample_vid": "XLW64nkEUEo", "views": "357", "dialect_hints": ["fante"], "src": "Mfantse vlog"}
+{"channel_id": "UCpa0B6fAmmITIof0eM8Gxvg", "name": "Naa Momo", "sample_vid": "X9__hDYGh8c", "views": "434", "dialect_hints": ["fante"], "src": "Mfantse vlog"}
+{"channel_id": "UCg-A2wcGrR0IGmEN-Pm6HYA", "name": "Mfantse kasasua", "sample_vid": "Xo04JiMc8nM", "views": "3962", "dialect_hints": ["fante"], "src": "Mfantse podcast full episode"}
+{"channel_id": "UCZvqbbaL-8_llKNJFr7oZOg", "name": "MR FORSON TV", "sample_vid": "PTmJnRSwh9A", "views": "322", "dialect_hints": ["fante"], "src": "Mfantse podcast full episode"}
+{"channel_id": "UCb4J596xAat3SUKe5PZFUfA", "name": "KING CHRIS CHANNEL", "sample_vid": "fMGxAldQ1Ho", "views": "33", "dialect_hints": ["fante"], "src": "Mfantse podcast full episode"}
+{"channel_id": "UCiVLSQDBbgWu2UBOVv9Edww", "name": "SIKAFIE TV", "sample_vid": "4V3e71WeOXs", "views": "219226", "dialect_hints": ["fante"], "src": "Mfantse podcast full episode"}
+{"channel_id": "UCOahDhnXOxCCIG4GS97k06A", "name": " BKB Talk, TableTalkShow", "sample_vid": "_LKZro_AVjI", "views": "1773", "dialect_hints": ["fante", "bono"], "src": "Mfantse podcast full episode"}
+{"channel_id": "UCB2ydyNET75ZUXn7plwbUGA", "name": "AMISTY TV ", "sample_vid": "UMk8S20EfLw", "views": "313", "dialect_hints": ["fante", "kwawu"], "src": "Mfantse interview"}
+{"channel_id": "UCT3KEXA_xjMlyIINaP3X9ZQ", "name": "BLACK KNIGHT", "sample_vid": "dfYVpGX6JnU", "views": "7566", "dialect_hints": ["fante"], "src": "Mfantse interview"}
+{"channel_id": "UCMNAeaO2RKMmKAMhGJ1PBnQ", "name": "BEN Television", "sample_vid": "3CP7b53l798", "views": "106", "dialect_hints": ["fante"], "src": "Mfantse interview"}
+{"channel_id": "UCXdrqTW13WSAqr00edSHbyQ", "name": "Devatainment", "sample_vid": "HrEeKOK8CyQ", "views": "528", "dialect_hints": ["fante"], "src": "Mfantse interview"}
+{"channel_id": "UC-FdQjtIKBSYG0YmgedN8zQ", "name": "Nyanis TV", "sample_vid": "yxs0V5TTYK4", "views": "1069", "dialect_hints": ["fante"], "src": "Mfantse interview"}
+{"channel_id": "UC9aKEVhhLAO4mfY591T5IcA", "name": "GermanDialogue", "sample_vid": "DHmv2B2qgzQ", "views": "111568", "dialect_hints": ["fante"], "src": "Mfantse kasa nkɔmmɔ conversation"}
+{"channel_id": "UCkUq7AhKyO_4hqZVZGzYmUA", "name": "Esther Smith", "sample_vid": "znVlIerw19E", "views": "4155828", "dialect_hints": ["fante"], "src": "Mfantse kasa nkɔmmɔ conversation"}
+{"channel_id": "UCVwQ2AS5770DD5s8jfCoKsQ", "name": "Hoàng Vọng - Single Mom", "sample_vid": "tR7G_b01cJ0", "views": "40123", "dialect_hints": ["fante"], "src": "Mfantse kasa nkɔmmɔ conversation"}
+{"channel_id": "UCejrBqwqI1U5A-hQ3nF_Xyw", "name": "Thomas Tawiah", "sample_vid": "GwPOQEIFJkc", "views": "72", "dialect_hints": ["fante"], "src": "Mfantse storytelling Anansesem"}
+{"channel_id": "UCiJzNdjN_htS4souPEYLGxA", "name": "Think Twice 1957 TV 🇬🇭( History in Akan - Twi )", "sample_vid": "IBdJxi-EV8U", "views": "12732", "dialect_hints": ["fante", "bono", "kwawu"], "src": "Mfantse storytelling Anansesem"}
+{"channel_id": "UCIZzxJP4OdYHDoGXPyYPyLg", "name": "Pinpinis TV", "sample_vid": "rNojxB8_1Oo", "views": "362", "dialect_hints": ["fante"], "src": "Mfantse storytelling Anansesem"}
+{"channel_id": "UCaqowklauD_0OQp6yNGakyw", "name": "Moose Hypez", "sample_vid": "wdhwG1V7OQI", "views": "829", "dialect_hints": ["fante"], "src": "Mfantse comedy skit"}
+{"channel_id": "UClXkr-RzKRbLh_WXsjCWRGg", "name": "Funny Village tv", "sample_vid": "e_7sHf8yMqs", "views": "86", "dialect_hints": ["fante"], "src": "Mfantse comedy skit"}
+{"channel_id": "UCTlA1S0vAixOmLhTYD09pqw", "name": "BoatengAmeyaw1TV", "sample_vid": "M4Dx6ji7FVQ", "views": "461", "dialect_hints": ["fante"], "src": "Mfantse comedy skit"}
+{"channel_id": "UC026G_JFTGnYfT4Ph9XNXtw", "name": "AKAN CLAN TWI MOVIES -Latest GhanaTwi Movies", "sample_vid": "WBedJqufMTQ", "views": "2213", "dialect_hints": ["fante"], "src": "Mfantse Kumawood movie"}
+{"channel_id": "UCng_E_omS8keoCqVzuvCY5w", "name": "Boboshanti_tv", "sample_vid": "abDBC_bk4w8", "views": "84", "dialect_hints": ["fante"], "src": "Mfantse Kumawood movie"}
+{"channel_id": "UCmGgrFOPH1TjYtI5tXWy6LA", "name": "A1 Movie Production", "sample_vid": "9F5I7bG5qbM", "views": "274", "dialect_hints": ["fante"], "src": "Mfantse Kumawood movie"}
+{"channel_id": "UCBABz3KmeKYu67foPqhoTqA", "name": "Re-Shade Entertainment", "sample_vid": "-OacTgt9m_g", "views": "591", "dialect_hints": ["fante"], "src": "Mfantse Kumawood movie"}
+{"channel_id": "UCZhYvgmCkRhvv4o-HFqKsLA", "name": "Oguaa In Perspective", "sample_vid": "aTGgQ4yFWDo", "views": "235", "dialect_hints": ["fante"], "src": "Mfantse Kumawood movie"}
+{"channel_id": "UCIKPYT4UhVZiLGF5LO8tIPg", "name": "Cash Obolo1", "sample_vid": "2CAA-yf8kLg", "views": "277", "dialect_hints": ["fante"], "src": "Mfantse Kumawood movie"}
+{"channel_id": "UCy5Y9Zf1sKbKirbADQcCczA", "name": "GMA Singers", "sample_vid": "cKwiYu3bOuI", "views": "695519", "dialect_hints": ["fante"], "src": "Mfantse drama series"}
+{"channel_id": "UCdxk_T-82-s_J4ChPpw2sdg", "name": "Zee World Africa", "sample_vid": "FiPpFwiM2Ps", "views": "869350", "dialect_hints": ["fante"], "src": "Mfantse drama series"}
+{"channel_id": "UC5loKdGpYpJ895iaThY6VCg", "name": "GHANA DISTRICTS TV", "sample_vid": "yqn1OKBDTWU", "views": "11654", "dialect_hints": ["fante"], "src": "Mfantse drama series"}
+{"channel_id": "UCS9OaIPJydLFhilAtuXEAOg", "name": "Isaac Mills-Owoo Snr. (Temple of Grace Baptist)", "sample_vid": "AWx0306bgFk", "views": "75", "dialect_hints": ["fante"], "src": "Mfantse sermon preaching"}
+{"channel_id": "UCldj4abo25SbpdZ_YrCzE_g", "name": "AWOFOFORMBA Radio&TV", "sample_vid": "hfklybAIEBY", "views": "8", "dialect_hints": ["fante"], "src": "Mfantse sermon preaching"}
+{"channel_id": "UCdwQ7Lovw1Can4A1S1gVhvA", "name": "Pages", "sample_vid": "1hyApTas7yM", "views": "3", "dialect_hints": ["fante"], "src": "Mfantse sermon preaching"}
+{"channel_id": "UCWBJk4Rl4XiBblAhXHdCEWQ", "name": "Mary Queen of Peace", "sample_vid": "HuTa0lovwcc", "views": "15", "dialect_hints": ["fante"], "src": "Mfantse sermon preaching"}
+{"channel_id": "UCrlPdxZ_q2jwdSBj3bdlZXQ", "name": "Minister Amakye", "sample_vid": "DOKQG5TwXmE", "views": "94955", "dialect_hints": ["fante"], "src": "Mfantse gospel testimony"}
+{"channel_id": "UC8-u34EOlRgNwTUYGiFBOiA", "name": "SK FRIMPONG", "sample_vid": "ULkco2t7bTI", "views": "361732", "dialect_hints": ["fante"], "src": "Mfantse gospel testimony"}
+{"channel_id": "UCOx6PUu_NdxGP_COI96nE4g", "name": "Metro East", "sample_vid": "vDQQM7XoStI", "views": "247", "dialect_hints": ["fante"], "src": "Mfantse gospel testimony"}
+{"channel_id": "UCvPMPuphiKzUmHwAFPScSlA", "name": "KWAKU MANU TV", "sample_vid": "CEqu70XAOkY", "views": "4222", "dialect_hints": ["fante"], "src": "Mfantse gospel testimony"}
+{"channel_id": "UCgU94tGXncz92Qq197md6Zg", "name": "EXPRESS GH TV", "sample_vid": "yxBrFiNG4OU", "views": "1724", "dialect_hints": ["fante"], "src": "Mfantse gospel testimony"}
+{"channel_id": "UCqNQeU1t0ZiVLPmIiO8zs7Q", "name": "Abeku Ansaeku - Topic", "sample_vid": "vmQieW3m7ss", "views": "257", "dialect_hints": ["fante"], "src": "Mfantse radio call-in show"}
+{"channel_id": "UC0p4ckyTBkGRCOCjiemjgng", "name": "Co-LINKZ", "sample_vid": "cxHng-MZIWI", "views": "29594", "dialect_hints": ["fante"], "src": "Mfantse radio call-in show"}
+{"channel_id": "UCoPWWHrj2ND7LnJblMDKBRg", "name": "CAPTAIN SMART OFFICIAL", "sample_vid": "lYrtJjE7i4A", "views": "4020", "dialect_hints": ["fante"], "src": "Mfantse radio call-in show"}
+{"channel_id": "UCHdvSi6mEkQTGjhPfI-yziw", "name": "RekindlePhoto", "sample_vid": "2vpGPwH_uFU", "views": "759", "dialect_hints": ["fante"], "src": "Mfantse market street interview"}
+{"channel_id": "UC1uVTPm6cOEirAAOGw3QbCg", "name": "Suro Wiase Tv", "sample_vid": "Ui14nd5KTh0", "views": "13176", "dialect_hints": ["fante"], "src": "Mfantse market street interview"}
+{"channel_id": "UCZ7LTj6UHo50i9WXUx2XXFg", "name": "crossborder", "sample_vid": "lKjo1SjYkH0", "views": "368", "dialect_hints": ["fante"], "src": "Mfantse market street interview"}
+{"channel_id": "UCfajF9vITrlvGu4fU4x5XMg", "name": "milkywayproductions takoradi", "sample_vid": "McMviA15hqg", "views": "266", "dialect_hints": ["fante"], "src": "Mfantse market street interview"}
+{"channel_id": "UCT0IOdQhKqOR9N2teH-fucQ", "name": "Father Degraft", "sample_vid": "-32NbVuDlyU", "views": "65", "dialect_hints": ["fante"], "src": "Mfantse football commentary"}
+{"channel_id": "UCbLvm5_ViRzpKdnSCvTSnZQ", "name": "Pinax GH", "sample_vid": "NHX0YULxY70", "views": "3980", "dialect_hints": ["fante"], "src": "Mfantse football commentary"}
+{"channel_id": "UCkgaFwtOWxyxwtBr6i9uHMw", "name": "ETC ET CETERA", "sample_vid": "6Bt82jVxisc", "views": "341", "dialect_hints": ["fante"], "src": "Mfantse history proverbs"}
+{"channel_id": "UCwcwBCpcz5ffPwdIb4PMQ6Q", "name": "Ama Manson", "sample_vid": "500957WAQxc", "views": "1534", "dialect_hints": ["fante"], "src": "Mfantse history proverbs"}
+{"channel_id": "UCjE-N--FDyx2fbINIR-r4Xg", "name": "SirprofMagic", "sample_vid": "lHoeX0cQ3qA", "views": "825", "dialect_hints": ["fante"], "src": "Mfantse history proverbs"}
+{"channel_id": "UCEg1uu6y_pe40Fhkgno15vA", "name": "ROYAL IMAGE GROUP", "sample_vid": "U-mwtU-g-cc", "views": "1457", "dialect_hints": ["fante"], "src": "Mfantse history proverbs"}
+{"channel_id": "UCkKqvONv3wkLDt6aokHGn-A", "name": "Afrostorian", "sample_vid": "6Oc-a5NgNRE", "views": "2699", "dialect_hints": ["fante"], "src": "Mfantse history proverbs"}
+{"channel_id": "UC_fe32ZPahWDEO2NuTcWw_A", "name": "Ghana NLP", "sample_vid": "JN4xminaGc0", "views": "1259", "dialect_hints": ["fante"], "src": "Mfantse motivation advice"}
+{"channel_id": "UC-dVxZomWMABTnYEeqGJqqQ", "name": "NANA KWAME AMPADU", "sample_vid": "pZ-m0HYRnbA", "views": "2649", "dialect_hints": ["fante"], "src": "Mfantse news Asemsebe"}
+{"channel_id": "UCEXGDNclvmg6RW0vipJYsTQ", "name": "Channels Television", "sample_vid": "-grXRRa4-Bk", "views": "24260", "dialect_hints": ["fante", "bono"], "src": "Mfantse news Asemsebe"}
+{"channel_id": "UCNQisahGDW5EK9dW8r4dAKA", "name": "Ghana is Beautiful", "sample_vid": "7g_7AaxrMfU", "views": "179", "dialect_hints": ["fante"], "src": "Mfantse documentary"}
+{"channel_id": "UCB99EvMZ-VBZDTgeAJ7OG-w", "name": "JMPBK", "sample_vid": "EgvJiOL-NYo", "views": "10", "dialect_hints": ["fante"], "src": "Mfantse documentary"}
+{"channel_id": "UCnVdKRSiYRxT2R1pejtMX7A", "name": "LION HERITAGE TV", "sample_vid": "2eLl6H9k6X4", "views": "8291", "dialect_hints": ["fante", "kwawu"], "src": "Mfantse documentary"}
+{"channel_id": "UCERDiT7HzidY_N16eXNMNBQ", "name": "CONVO TV", "sample_vid": "gp9kjNamKgM", "views": "695", "dialect_hints": ["fante"], "src": "Mfantse documentary"}
+{"channel_id": "UCUlS9vT4Kk-BkqNSGpqPtEw", "name": "ATENTENBEN HENE TAKORADI", "sample_vid": "fz0UBFQgoyQ", "views": "46", "dialect_hints": ["fante"], "src": "Mfantse vox pop"}
+{"channel_id": "UCvDfeKzxm4PnJvS4KhVjkcQ", "name": "Zlatko Smetisko", "sample_vid": "Ae5mtqTUjuQ", "views": "31225", "dialect_hints": ["fante"], "src": "Mfantse vox pop"}
+{"channel_id": "UC1vdHAq0KJWzC3sPDBwq47w", "name": "Xigxy - Topic", "sample_vid": "XKEskg74XWU", "views": "70", "dialect_hints": ["fante"], "src": "Mfantse vox pop"}
+{"channel_id": "UCZaVzW7czpW8-CnbZGcVRRg", "name": "AarengaTV", "sample_vid": "M4Rl-H5QjOM", "views": "738", "dialect_hints": ["fante"], "src": "Cape Coast Fante vlog"}
+{"channel_id": "UC5IozxNUn9zUJ1XYVFptpUg", "name": "Picabolo Tv Gh", "sample_vid": "OuRaYKVAA1M", "views": "1931", "dialect_hints": ["fante"], "src": "Cape Coast Fante vlog"}
+{"channel_id": "UCRkdqp2pNnUtEq3iW2XU6Cw", "name": "PEA ELIZABETH", "sample_vid": "Nfc0U9-Lh4M", "views": "1723", "dialect_hints": ["fante"], "src": "Cape Coast Fante vlog"}
+{"channel_id": "UCjektZgNnw5OAb0DUM9FpYA", "name": "HersheyKisk TV", "sample_vid": "SY6Hknxmu4s", "views": "490", "dialect_hints": ["fante"], "src": "Cape Coast Fante vlog"}
+{"channel_id": "UC642xGkhslIxh0YC6dfLs2g", "name": "Kamma Dyn", "sample_vid": "WM7U9XhOkKU", "views": "2700", "dialect_hints": ["fante", "kwawu"], "src": "Cape Coast Fante vlog"}
+{"channel_id": "UCGXWgUgWGqGT9Xvwq7wKrHQ", "name": "Vlog Ventures TV", "sample_vid": "8fCw2Kn3tVo", "views": "103", "dialect_hints": ["fante"], "src": "Cape Coast Fante vlog"}
+{"channel_id": "UC6tmMgBfZCLMETGEqGkl2MA", "name": "Michael Kunke", "sample_vid": "TiLVFgMxcTQ", "views": "288", "dialect_hints": ["fante"], "src": "Cape Coast Fante vlog"}
+{"channel_id": "UCEgDNPPTXF8WZUx_qCqWKAA", "name": "History of Africa Podcast", "sample_vid": "dqAEZ-Orosc", "views": "346", "dialect_hints": ["fante"], "src": "Cape Coast Fante podcast full episode"}
+{"channel_id": "UCqSyyTlZjSXfRC5iO44tcPQ", "name": "Sankofa Pan African Series", "sample_vid": "KgsYSAK3T9o", "views": "2814", "dialect_hints": ["fante"], "src": "Cape Coast Fante podcast full episode"}
+{"channel_id": "UC1rxJ0H4oo8uWvz4FYKU0Rg", "name": "Marella Sands", "sample_vid": "MEEm5m6BPqg", "views": "190", "dialect_hints": ["fante"], "src": "Cape Coast Fante podcast full episode"}
+{"channel_id": "UC9hyY_wWSJnkUKPfrfOP4dQ", "name": "Joy Prime TV", "sample_vid": "u_burj_JFG8", "views": "6156", "dialect_hints": ["fante"], "src": "Cape Coast Fante podcast full episode"}
+{"channel_id": "UCAeCCTewm8jJCN3-Ba6Qdgw", "name": "Golden Key Audio", "sample_vid": "XbHElwvRbjM", "views": "73", "dialect_hints": ["fante"], "src": "Cape Coast Fante podcast full episode"}
+{"channel_id": "UCDsbSa1Cdya3JuNiUEAor2Q", "name": "Gold Coast Comedy Tv", "sample_vid": "fWacvRgLi6I", "views": "252053", "dialect_hints": ["fante"], "src": "Cape Coast Fante podcast full episode"}
+{"channel_id": "UCbxVnYvFj2oqXCGC_gd50Ug", "name": "coastal television", "sample_vid": "qWMC647PTUQ", "views": "111", "dialect_hints": ["fante"], "src": "Cape Coast Fante interview"}
+{"channel_id": "UCcH4-aw6O4CjpkRhKeOyy8A", "name": "DISCOVER WHO YOU ARE PODCAST", "sample_vid": "YbHbNihDdtc", "views": "61", "dialect_hints": ["fante"], "src": "Cape Coast Fante interview"}
+{"channel_id": "UC5VjfZw2iRPFIYp14MFmuDg", "name": "Kow Essuman", "sample_vid": "QCpqdvwjEIQ", "views": "326", "dialect_hints": ["fante"], "src": "Cape Coast Fante interview"}
+{"channel_id": "UCOps5_6IGFNcC4nY6t_2AoQ", "name": "Storytime Haven", "sample_vid": "cYmbQVHkfQ0", "views": "6102", "dialect_hints": ["fante", "bono"], "src": "Cape Coast Fante kasa nkɔmmɔ conversation"}
+{"channel_id": "UCy8wHnVmTvpRPxppR2Rdy3A", "name": "awimbono7", "sample_vid": "TYfYSVmjdsA", "views": "838", "dialect_hints": ["fante"], "src": "Cape Coast Fante storytelling Anansesem"}
+{"channel_id": "UCugbVMUCR8uJYpyKoEq6New", "name": "Biglee Gh", "sample_vid": "U4xmsltHBF4", "views": "126", "dialect_hints": ["fante"], "src": "Cape Coast Fante comedy skit"}
+{"channel_id": "UCwd-mmbFpPlpGEXx8U-gZbw", "name": "FRAO RAPHAEL", "sample_vid": "FhXD-7iD7p0", "views": "82", "dialect_hints": ["fante"], "src": "Cape Coast Fante comedy skit"}
+{"channel_id": "UCXiK8C-WsRgvHGS6VnOtVAw", "name": "Natty Dadzie", "sample_vid": "OeEuvmAJ0Ug", "views": "13339", "dialect_hints": ["fante"], "src": "Cape Coast Fante comedy skit"}
+{"channel_id": "UCr-tBEkWQ1wNLzV12R8pYnA", "name": "Comedian Khemikal", "sample_vid": "23S7E4QShy4", "views": "2135", "dialect_hints": ["fante"], "src": "Cape Coast Fante comedy skit"}
+{"channel_id": "UCKzL1WMfMKCr6jRyPSEu1Cg", "name": "Enkasa Fante Comedy", "sample_vid": "VhEPSzsjs3Y", "views": "83", "dialect_hints": ["fante"], "src": "Cape Coast Fante comedy skit"}
+{"channel_id": "UCkHnbrpuDYIIPYzClEhdnEQ", "name": "Etycomics ", "sample_vid": "qoFCLxkPxkk", "views": "181", "dialect_hints": ["fante"], "src": "Cape Coast Fante comedy skit"}
+{"channel_id": "UCUnIvmrhdjTQDy-lDUz6QxQ", "name": "Kantanka S.E", "sample_vid": "85MVMqsjiRI", "views": "822", "dialect_hints": ["fante"], "src": "Cape Coast Fante Kumawood movie"}
+{"channel_id": "UC53lVOR_C1Cp4ZRed06Huyg", "name": "MY BRYT TV (mybryttv)", "sample_vid": "oiob5F1rLl8", "views": "2389", "dialect_hints": ["fante", "bono"], "src": "Cape Coast Fante Kumawood movie"}
+{"channel_id": "UCwsTURFKmrUVbGWbscg-ing", "name": "Mom Life with Dede", "sample_vid": "3h6RGpWuhSA", "views": "241470", "dialect_hints": ["fante"], "src": "Cape Coast Fante Kumawood movie"}
+{"channel_id": "UCyMFne7LnNk_B3-esQuOvkQ", "name": "TidPix - Authentically African", "sample_vid": "DPPb1QTvk5c", "views": "139069", "dialect_hints": ["fante"], "src": "Cape Coast Fante Kumawood movie"}
+{"channel_id": "UCpNk0iMUJRYUv4atV_XNHug", "name": "Elijah Koomson", "sample_vid": "U032q-8L5VI", "views": "305", "dialect_hints": ["fante"], "src": "Cape Coast Fante Kumawood movie"}
+{"channel_id": "UCfAd7Us77gD2-ge2bkrXivw", "name": "Blackstar Channel", "sample_vid": "pANqWLcQBXs", "views": "5409", "dialect_hints": ["fante", "akan"], "src": "Cape Coast Fante Kumawood movie"}
+{"channel_id": "UCaOV7MCpntm8aonSaz7WLgQ", "name": "TRY GOD TV", "sample_vid": "g9o4EWe0zO4", "views": "421148", "dialect_hints": ["fante", "bono"], "src": "Cape Coast Fante Kumawood movie"}
+{"channel_id": "UCn-9cE2WjRxPvlwq7LihdyA", "name": "Goshers ", "sample_vid": "SaNrZgr8Gb4", "views": "3228", "dialect_hints": ["fante"], "src": "Cape Coast Fante drama series"}
+{"channel_id": "UCiw5sUUUXKLbLwsSDqXWAqQ", "name": "Grace Reformed Baptist Church Cape Coast", "sample_vid": "Y2GkmpO56Hc", "views": "13", "dialect_hints": ["fante"], "src": "Cape Coast Fante sermon preaching"}
+{"channel_id": "UCwtHneGUUWe1u4QZQsUw3uQ", "name": "Fire Tv", "sample_vid": "mx_NX6Jfj94", "views": "22", "dialect_hints": ["fante"], "src": "Cape Coast Fante sermon preaching"}
+{"channel_id": "UC3J8ZI6nj01xBEa5okUGUSA", "name": "EagleFM Cape Coast", "sample_vid": "DmT40el2pCs", "views": "13", "dialect_hints": ["fante"], "src": "Cape Coast Fante sermon preaching"}
+{"channel_id": "UC25HBOBYfc-scqCQcyYKVNw", "name": "Lifey", "sample_vid": "1h48MGs7tJw", "views": "1532", "dialect_hints": ["fante"], "src": "Cape Coast Fante gospel testimony"}
+{"channel_id": "UCZqrR9LomtdaebEW736-8xQ", "name": "Christopher Asare Ministry", "sample_vid": "-HcEfYA9Fx4", "views": "108", "dialect_hints": ["fante"], "src": "Cape Coast Fante gospel testimony"}
+{"channel_id": "UCChkeQSi93_IKURNl06FBiA", "name": "JOHN AWOTWI", "sample_vid": "cFCWIt58kHo", "views": "823", "dialect_hints": ["fante"], "src": "Cape Coast Fante gospel testimony"}
+{"channel_id": "UCTc_yPcWmQr55xZyVm8eHug", "name": "Ella Obeng Amoako", "sample_vid": "Ie5ybadYvdw", "views": "43734", "dialect_hints": ["fante"], "src": "Cape Coast Fante gospel testimony"}
+{"channel_id": "UCpu81Zs0DhrSAz7mO6hTk1Q", "name": "Kay Ob", "sample_vid": "TPXeXnAiLz4", "views": "66323", "dialect_hints": ["fante"], "src": "Cape Coast Fante gospel testimony"}
+{"channel_id": "UC8Yf5Oy3iKVfaTNOdmYL0HQ", "name": "OLONKA GH TV", "sample_vid": "K2uSvgPy6Lc", "views": "85", "dialect_hints": ["fante"], "src": "Cape Coast Fante radio call-in show"}
+{"channel_id": "UCD-K0cNlkeNf4GFtTbLUU2g", "name": "Don Proph", "sample_vid": "ZfmDmRpi0zg", "views": "1556", "dialect_hints": ["fante"], "src": "Cape Coast Fante radio call-in show"}
+{"channel_id": "UCRQgMTDzdxnqMGyeBCJg1vg", "name": "GA EKOME FEEMO TV", "sample_vid": "_9ZjwdX9hG8", "views": "267", "dialect_hints": ["fante"], "src": "Cape Coast Fante radio call-in show"}
+{"channel_id": "UCisxoIj5JjXMXwosXm-iQdg", "name": "Kwame Denero", "sample_vid": "7MQxinom7Jk", "views": "39", "dialect_hints": ["fante"], "src": "Cape Coast Fante radio call-in show"}
+{"channel_id": "UCI15YPqfF8D6WSbiGgHfyLQ", "name": "Family TV", "sample_vid": "LFeqfPdn06M", "views": "212", "dialect_hints": ["fante"], "src": "Cape Coast Fante radio call-in show"}
+{"channel_id": "UCdIdry7oU0fKOowir1ndX_A", "name": "Cipher Studios Global", "sample_vid": "-Sj8uzHqnvw", "views": "105", "dialect_hints": ["fante"], "src": "Cape Coast Fante market street interview"}
+{"channel_id": "UC58fU48fKYPxP8PwS8XbZnA", "name": "zayloc23", "sample_vid": "IqWkASROLb8", "views": "10334", "dialect_hints": ["fante"], "src": "Cape Coast Fante market street interview"}
+{"channel_id": "UCm82XVNgRku2rK5IY1XVSyg", "name": "COOK  WITH NAKIE", "sample_vid": "5UxKvMiCAxk", "views": "250", "dialect_hints": ["fante"], "src": "Cape Coast Fante cooking recipe"}
+{"channel_id": "UC-nphH44EVaGK_8hwbYyk2g", "name": "Cheflifestyle", "sample_vid": "fkFBkyd37Lo", "views": "295", "dialect_hints": ["fante"], "src": "Cape Coast Fante cooking recipe"}
+{"channel_id": "UCMq5o8LcScmK4Cu_CQNMQYg", "name": "Katheryn Kangas", "sample_vid": "qXofI7txSN8", "views": "2493", "dialect_hints": ["fante"], "src": "Cape Coast Fante cooking recipe"}
+{"channel_id": "UCdykrYbmD81QaAYcvbp1hjg", "name": "Anj delicious kitchen", "sample_vid": "7P3v4YQBYTM", "views": "233", "dialect_hints": ["fante"], "src": "Cape Coast Fante cooking recipe"}
+{"channel_id": "UCzKUd4eY2Fc3y0FwrWLiGKQ", "name": "Release - Topic", "sample_vid": "47Foy95ilfk", "views": "2711", "dialect_hints": ["fante"], "src": "Cape Coast Fante football commentary"}
+{"channel_id": "UCjXTkWv_qkFpAHa39ayzh3A", "name": "KADRIYAH TV", "sample_vid": "8wirjAMPCs4", "views": "3544", "dialect_hints": ["fante"], "src": "Cape Coast Fante football commentary"}
+{"channel_id": "UCSRjBkTASZezmOwSEchKxVA", "name": "Owura JK", "sample_vid": "m6DB-ZdDE0M", "views": "6411", "dialect_hints": ["fante"], "src": "Cape Coast Fante football commentary"}
+{"channel_id": "UCZe-ct8FwZDNfhkOjNwAkAg", "name": "High Schools Africa", "sample_vid": "y_sv-BPa5XQ", "views": "161706", "dialect_hints": ["fante"], "src": "Cape Coast Fante football commentary"}
+{"channel_id": "UCPLKy4Ypb4mfblbjJI8Aljw", "name": "News Central TV", "sample_vid": "1xZEriIv1fg", "views": "299333", "dialect_hints": ["fante"], "src": "Cape Coast Fante football commentary"}
+{"channel_id": "UCDVVey7mCn2G5EYUGRQ2Egg", "name": "Dunwell Methodist Church Choir-Effiakuma Society", "sample_vid": "YQl40O9jEsY", "views": "19474", "dialect_hints": ["fante"], "src": "Cape Coast Fante football commentary"}
+{"channel_id": "UC8fTD36oEldBwKbCpfzqOMQ", "name": "AFRICA MOGUL", "sample_vid": "IodyD7Ibqtw", "views": "2172", "dialect_hints": ["fante"], "src": "Cape Coast Fante football commentary"}
+{"channel_id": "UCY7BL6jsKZnjsCWcD2Vejew", "name": "DW Afrique", "sample_vid": "lD9MrqJ1m5s", "views": "395", "dialect_hints": ["fante"], "src": "Cape Coast Fante history proverbs"}
+{"channel_id": "UCNtUXiCqH6nUTFeTW4qLpqw", "name": "DW The 77 Percent", "sample_vid": "Q64eSUX3wKw", "views": "2410", "dialect_hints": ["fante"], "src": "Cape Coast Fante history proverbs"}
+{"channel_id": "UCvU2c5qfTpHRMeX8KShsFwg", "name": "SNR. ALEX", "sample_vid": "9nbAB5Oj6UY", "views": "4860", "dialect_hints": ["fante"], "src": "Cape Coast Fante motivation advice"}
+{"channel_id": "UCVddD-ES0DvagtabUSvZGaA", "name": "Minah Clusq", "sample_vid": "wIGqMl1hoNU", "views": "646", "dialect_hints": ["fante"], "src": "Cape Coast Fante motivation advice"}
+{"channel_id": "UCG7uFJVZsxQRwDssom9Pavw", "name": "2nacheki", "sample_vid": "knrFJMhjB_0", "views": "159732", "dialect_hints": ["fante"], "src": "Cape Coast Fante motivation advice"}
+{"channel_id": "UCFy0GtPwdjAH6Z0LGJiaGLg", "name": "Cyril Mawuli Adjabeng", "sample_vid": "xaR2LKj2UBs", "views": "453", "dialect_hints": ["fante"], "src": "Cape Coast Fante documentary"}
+{"channel_id": "UC98dF0nGZgiRB2WkfdythNw", "name": "Umaru Sanda Amadu", "sample_vid": "gl-hjCFLqwQ", "views": "1045", "dialect_hints": ["fante"], "src": "Cape Coast Fante documentary"}
+{"channel_id": "UC1_E8NeF5QHY2dtdLRBCCLA", "name": "africanews", "sample_vid": "BQIHzdCyKik", "views": "10332", "dialect_hints": ["fante"], "src": "Cape Coast Fante vox pop"}
+{"channel_id": "UCHTK-2W11Vh1V4uwofOfR4w", "name": "AP Archive", "sample_vid": "NouFzV7Hedw", "views": "6065", "dialect_hints": ["fante"], "src": "Cape Coast Fante vox pop"}
+{"channel_id": "UCXXXFJs4TvyMi3QJFOA6HfA", "name": "Sense No Dey Ground Podcast", "sample_vid": "9J7dUBLw1xw", "views": "99", "dialect_hints": ["fante"], "src": "Cape Coast Fante vox pop"}
+{"channel_id": "UCicktKh64HVXjeqzThQYOqw", "name": "EfyaKimora", "sample_vid": "_TVDHN4Smpg", "views": "4537", "dialect_hints": ["bono"], "src": "Bono Twi vlog"}
+{"channel_id": "UCUqnAeDvpWj6JGq-q7HonbA", "name": "Helloghtv", "sample_vid": "Ui9mldqSmxc", "views": "224", "dialect_hints": ["bono"], "src": "Bono Twi vlog"}
+{"channel_id": "UCSULbEJ0cUaWJSdccJxin3A", "name": "Bono fie", "sample_vid": "6vUmcFMj4-I", "views": "307", "dialect_hints": ["bono"], "src": "Bono Twi vlog"}
+{"channel_id": "UCr6FzxUwACtIh_Lz4RliV-A", "name": "Susan Media", "sample_vid": "3pWDlPnroh4", "views": "607", "dialect_hints": ["bono"], "src": "Bono Twi vlog"}
+{"channel_id": "UCqJZt5chWdbNhux0EtwPXgQ", "name": " EUNICE TALATA", "sample_vid": "9p3H16pLHjI", "views": "585", "dialect_hints": ["bono"], "src": "Bono Twi vlog"}
+{"channel_id": "UC-W8Qu2Zb407kjVhW-5U-SA", "name": "SmartLess", "sample_vid": "9tj5L1gJBvE", "views": "29950", "dialect_hints": ["bono"], "src": "Bono Twi podcast full episode"}
+{"channel_id": "UCzQUP1qoWDoEbmsQxvdjxgQ", "name": "PowerfulJRE", "sample_vid": "qe64ayAbDjM", "views": "1065895", "dialect_hints": ["bono"], "src": "Bono Twi podcast full episode"}
+{"channel_id": "UCg2dvAbwiLnMjHR0usTaHqQ", "name": "Bonofie Podcast", "sample_vid": "HCzVMoAIFqs", "views": "32", "dialect_hints": ["bono"], "src": "Bono Twi podcast full episode"}
+{"channel_id": "UCJdKr0Bgd_5saZYqLCa9mng", "name": "The Rubin Report", "sample_vid": "YCwn2xaKE5w", "views": "1764770", "dialect_hints": ["bono"], "src": "Bono Twi podcast full episode"}
+{"channel_id": "UCpLJuLkRh52XjIf16xwAPTg", "name": "Nhyira TV Plus", "sample_vid": "EMQB83bM4jQ", "views": "12778", "dialect_hints": ["bono"], "src": "Bono Twi podcast full episode"}
+{"channel_id": "UCVZqqVbRyXr0zYqkTWBs-OA", "name": "Oldboga Tv", "sample_vid": "CBiSgg7ROUQ", "views": "2989", "dialect_hints": ["bono"], "src": "Bono Twi interview"}
+{"channel_id": "UCFzQeLCMfK8YN0j-UT6OGHA", "name": "The Reality Corner", "sample_vid": "DvhBA3934WQ", "views": "358", "dialect_hints": ["bono"], "src": "Bono Twi interview"}
+{"channel_id": "UCPwcoqpAr9kFv4NEll3QexA", "name": "CIYOUTH Project ", "sample_vid": "_Ras_gi3IBc", "views": "186", "dialect_hints": ["bono"], "src": "Bono Twi interview"}
+{"channel_id": "UC2J7aD31YXGyV1bYpoWMg7g", "name": "Adinkrah Fie", "sample_vid": "X1p_1Qy93-Y", "views": "381", "dialect_hints": ["bono"], "src": "Bono Twi interview"}
+{"channel_id": "UC5ltfyEEdRwI_pwMeSKTatA", "name": "Bigscout Media", "sample_vid": "-rxi_6uQWGs", "views": "5136", "dialect_hints": ["bono", "kwawu"], "src": "Bono Twi interview"}
+{"channel_id": "UC8mKzVQJlwEL7XInK38tEYA", "name": "Sìn Mận", "sample_vid": "pFsF2arwrOc", "views": "97226", "dialect_hints": ["bono", "akan"], "src": "Bono Twi kasa nkɔmmɔ conversation"}
+{"channel_id": "UCkzuWMYYoKL55sEPxoM988w", "name": "Awurama - Topic", "sample_vid": "FlXFdsk5SmI", "views": "129", "dialect_hints": ["bono"], "src": "Bono Twi storytelling Anansesem"}
+{"channel_id": "UCGcxqQOCHDqayis8GgM6rBQ", "name": "Past and Curious", "sample_vid": "4YMXtyp5x3g", "views": "2809", "dialect_hints": ["bono"], "src": "Bono Twi storytelling Anansesem"}
+{"channel_id": "UCvKdt-6MQZK6W_6QLkjBHUQ", "name": "the voice of GH", "sample_vid": "hwZoA1ZiZZ0", "views": "1893", "dialect_hints": ["bono"], "src": "Bono Twi comedy skit"}
+{"channel_id": "UCZZR6ZFd-1Pl6zml7QPhIcQ", "name": "Kasoa TV", "sample_vid": "VVFdzE5CK1k", "views": "625", "dialect_hints": ["bono"], "src": "Bono Twi comedy skit"}
+{"channel_id": "UC6JpVOZddiIjS15TwtZzUOw", "name": "India Man TV", "sample_vid": "sbM77fPRorw", "views": "101", "dialect_hints": ["bono"], "src": "Bono Twi comedy skit"}
+{"channel_id": "UC_6vHmtaZhJZH914OIGg06Q", "name": "BOBRAPA 1 TV 📺", "sample_vid": "Y4-RgWKjGTE", "views": "89", "dialect_hints": ["bono"], "src": "Bono Twi comedy skit"}
+{"channel_id": "UC1mEFP-e8o6jGS_4D4MzNqA", "name": "Storyline Media", "sample_vid": "jwd-oMHBdoY", "views": "2845", "dialect_hints": ["bono"], "src": "Bono Twi comedy skit"}
+{"channel_id": "UCdEVqmfNKUq00HFWucPZoPQ", "name": "KUMAWOOD TV", "sample_vid": "GEMNXp-Ek3w", "views": "1403", "dialect_hints": ["bono"], "src": "Bono Twi Kumawood movie"}
+{"channel_id": "UC_2uNgdwhybQNuYpZV5rOhg", "name": "ADINKRAKROM TV", "sample_vid": "nOUDB8ReXjY", "views": "1340", "dialect_hints": ["bono"], "src": "Bono Twi Kumawood movie"}
+{"channel_id": "UCM0-2SWwLa_gXSmPr-yhTGA", "name": "GIFT-TECH MEDIA", "sample_vid": "59J6bFqNbYE", "views": "6", "dialect_hints": ["bono"], "src": "Bono Twi drama series"}
+{"channel_id": "UCwplaNspDVNWvpqkwmZmFgQ", "name": "KM TV", "sample_vid": "8FgwS9z4070", "views": "280", "dialect_hints": ["bono"], "src": "Bono Twi drama series"}
+{"channel_id": "UCKfPc6q8L4SVPzvtkYizUuQ", "name": "Biblical Research & Innovation Network for Africa", "sample_vid": "mF7H2lmxh4Y", "views": "126", "dialect_hints": ["bono"], "src": "Bono Twi sermon preaching"}
+{"channel_id": "UCM2oY7w016LSz1MhNnDoX5A", "name": "Bible House", "sample_vid": "wd8t3xZfMm4", "views": "6", "dialect_hints": ["bono"], "src": "Bono Twi sermon preaching"}
+{"channel_id": "UCLip4Tnmd_eaWDtxWGLzMQg", "name": "Charles Yeboah Sir Lord", "sample_vid": "ux8P-fKjyx4", "views": "56", "dialect_hints": ["bono"], "src": "Bono Twi sermon preaching"}
+{"channel_id": "UC4G9mVuzPnZLtu4IAwyY-4A", "name": "Tumbo graphicz", "sample_vid": "1bekgAYjHVE", "views": "153", "dialect_hints": ["bono"], "src": "Bono Twi sermon preaching"}
+{"channel_id": "UC3NtX54L0-LCxSXZkozzjMg", "name": "Dioun tv Gh", "sample_vid": "A5RyAx2nmj4", "views": "5", "dialect_hints": ["bono"], "src": "Bono Twi sermon preaching"}
+{"channel_id": "UCVVQKg74AGULR_Plm3C3S1A", "name": "Adinkrahene", "sample_vid": "vSjEqgypYbU", "views": "18", "dialect_hints": ["bono"], "src": "Bono Twi sermon preaching"}
+{"channel_id": "UCgGH1n5j46v6eX79i1kVa7g", "name": "LIFE-LIGHT ORIGINAL", "sample_vid": "anNMu796GHI", "views": "3", "dialect_hints": ["bono"], "src": "Bono Twi sermon preaching"}
+{"channel_id": "UCOT2mB7DXLh65eT3L96iJvQ", "name": "Perez Musik", "sample_vid": "j3QjId7e79E", "views": "1932451", "dialect_hints": ["bono"], "src": "Bono Twi gospel testimony"}
+{"channel_id": "UCPeXic0tWmlPi-mLos-LtrQ", "name": "Dr. Brad Hounkpati", "sample_vid": "1k5Xw8JJDnM", "views": "5271334", "dialect_hints": ["bono"], "src": "Bono Twi gospel testimony"}
+{"channel_id": "UCEwvM8_QdsFIioyVIiGq01Q", "name": "Joe Mettle", "sample_vid": "JiFM6t0k8JU", "views": "13946919", "dialect_hints": ["bono"], "src": "Bono Twi gospel testimony"}
+{"channel_id": "UCO-JIAE6FSiKgE0MSvCYNdw", "name": "Paolo Cran", "sample_vid": "Qlw4NohB678", "views": "8609985", "dialect_hints": ["bono"], "src": "Bono Twi radio call-in show"}
+{"channel_id": "UCqNZFP4HEVtWTdPZyf_C3YQ", "name": "Michael Degen", "sample_vid": "mZ46rXKXxrk", "views": "39581", "dialect_hints": ["bono"], "src": "Bono Twi radio call-in show"}
+{"channel_id": "UCkSE2IQgxe3aJC_5uPiW_jw", "name": "dj bretuoba", "sample_vid": "bFp1AHwRFho", "views": "6338", "dialect_hints": ["bono"], "src": "Bono Twi radio call-in show"}
+{"channel_id": "UCzBw_g4FTHqJTh4PpQHD4Zg", "name": "Took2Much", "sample_vid": "HBRAY3N3FXw", "views": "20158046", "dialect_hints": ["bono"], "src": "Bono Twi radio call-in show"}
+{"channel_id": "UCtSj9e-2cCxcHhGZCz7G67A", "name": "Bono Piesie GH", "sample_vid": "N22nLXV4MsA", "views": "37", "dialect_hints": ["bono"], "src": "Bono Twi radio call-in show"}
+{"channel_id": "UCWPuv428cfz9ZfIuRXdN0Dg", "name": "IamPraize", "sample_vid": "SplUj0-Fjuk", "views": "113", "dialect_hints": ["bono"], "src": "Bono Twi market street interview"}
+{"channel_id": "UCxY7g3Hc7-zo3KqNY69BIlQ", "name": "Pavel Sfera", "sample_vid": "jzBiow7aOhY", "views": "4473045", "dialect_hints": ["bono"], "src": "Bono Twi market street interview"}
+{"channel_id": "UCUMZ7gohGI9HcU9VNsr2FJQ", "name": "Bloomberg Originals", "sample_vid": "e5HC6GeaZVQ", "views": "944", "dialect_hints": ["bono"], "src": "Bono Twi market street interview"}
+{"channel_id": "UCidE44IAbdYa0wKtsejZHEA", "name": "Blessed Everywhere ", "sample_vid": "5kzJITB0qZk", "views": "11664", "dialect_hints": ["bono"], "src": "Bono Twi cooking recipe"}
+{"channel_id": "UC-G24bE0aiPvj4DrxarrbvQ", "name": "Kwankyewaa's Kitchen", "sample_vid": "3jQ-7Fo-4Jc", "views": "1164003", "dialect_hints": ["bono"], "src": "Bono Twi cooking recipe"}
+{"channel_id": "UCBvYXyMUEasiGGYTPHQm0RA", "name": "Adom 106.3 FM", "sample_vid": "XzTvgJydkBo", "views": "307", "dialect_hints": ["bono"], "src": "Bono Twi football commentary"}
+{"channel_id": "UCTHR7PQdogwvExbFDuKH3kg", "name": "Onua TV", "sample_vid": "kQeg8pr2n3U", "views": "17842", "dialect_hints": ["bono"], "src": "Bono Twi football commentary"}
+{"channel_id": "UCfHR1EM3CPOcaYA2Bng5BvQ", "name": "3FM 92.7", "sample_vid": "Nycja4DmL8I", "views": "91018", "dialect_hints": ["bono"], "src": "Bono Twi football commentary"}
+{"channel_id": "UCCi2vJNwkNMH41A645PFCzA", "name": "RMI", "sample_vid": "1X_T4ehii9o", "views": "114", "dialect_hints": ["bono"], "src": "Bono Twi football commentary"}
+{"channel_id": "UC0YatYmg5JRYzXJPxIdRd8g", "name": "beIN SPORTS USA", "sample_vid": "tU6HYvlyXSE", "views": "649592", "dialect_hints": ["bono"], "src": "Bono Twi football commentary"}
+{"channel_id": "UC740ilqsaYlnp0CFdYQoowA", "name": "Teo CRi", "sample_vid": "buvIEPekwoc", "views": "2876783", "dialect_hints": ["bono"], "src": "Bono Twi football commentary"}
+{"channel_id": "UCipIN_UG7nIhTDOIych53vQ", "name": "Kwabena Antwi-Boasiako ", "sample_vid": "MkZXzhfvZYc", "views": "10667", "dialect_hints": ["bono"], "src": "Bono Twi history proverbs"}
+{"channel_id": "UCH7Dcz0PFxwK1tbE_sLEb9Q", "name": "UB Cliftons", "sample_vid": "kixMfMF6DLs", "views": "66753", "dialect_hints": ["bono"], "src": "Bono Twi history proverbs"}
+{"channel_id": "UCxLnZvHCpXTi_3GQNPL8MNQ", "name": "Kafui Dey", "sample_vid": "yb_7nyKdTnE", "views": "41036", "dialect_hints": ["bono"], "src": "Bono Twi history proverbs"}
+{"channel_id": "UCJbqtW-6W8DDGVbhZ7sm8hw", "name": "Yaa Owusua", "sample_vid": "1GWapkSo_QI", "views": "64694", "dialect_hints": ["bono", "kwawu"], "src": "Bono Twi motivation advice"}
+{"channel_id": "UC8PICQUP0a_HsrA9S4IIgWw", "name": "Motivation2Study", "sample_vid": "E_-33cJ1VH0", "views": "900344", "dialect_hints": ["bono"], "src": "Bono Twi motivation advice"}
+{"channel_id": "UCT95GHojn4SUmBp6yFbnLfQ", "name": "Eric Arkson", "sample_vid": "vGfUjhIE40A", "views": "33", "dialect_hints": ["bono"], "src": "Bono Twi motivation advice"}
+{"channel_id": "UCEYnIg3szuvrYMLfMhzmUWw", "name": "Nsem Pii TV", "sample_vid": "u8lVm_8IkBo", "views": "30933", "dialect_hints": ["bono"], "src": "Bono Twi news Asemsebe"}
+{"channel_id": "UCMNh6Pa2MIQEZucPHE20Lcg", "name": "SHEF AZIZ", "sample_vid": "P2fpzX2eCyc", "views": "34", "dialect_hints": ["bono"], "src": "Bono Twi documentary"}
+{"channel_id": "UC4gPNusMDwx2Xm-YI35AkCA", "name": "U2", "sample_vid": "ftjEcrrf7r0", "views": "194041613", "dialect_hints": ["bono"], "src": "Bono Twi vox pop"}
+{"channel_id": "UCZtDUmC3W7j25XHZWFT_XgQ", "name": "BBC Music", "sample_vid": "6DeDzsCGbsQ", "views": "431622275", "dialect_hints": ["bono"], "src": "Bono Twi vox pop"}
+{"channel_id": "UCbbAGpCb5zkde0ZxnWAudgw", "name": "UJ TV", "sample_vid": "NPSJjFAzOVo", "views": "643", "dialect_hints": ["bono"], "src": "Bono Twi vox pop"}
+{"channel_id": "UCd5jOYV8E7Rje_vgYEKKlLg", "name": "Another Sblue Comedy", "sample_vid": "DtO4Oj9-xeM", "views": "25144", "dialect_hints": ["bono"], "src": "Bono Twi vox pop"}
+{"channel_id": "UCO0XQBkcMpM1BmBRJgXd-AA", "name": "tommy.", "sample_vid": "q0Xj7-xw7m0", "views": "3713436", "dialect_hints": ["bono"], "src": "Bono Twi vox pop"}
+{"channel_id": "UCDdJLLNrW43BqtkJJd-HdsA", "name": "Networkhouseofcrazee laugh", "sample_vid": "Rwosb5jUos4", "views": "119", "dialect_hints": ["bono"], "src": "Bono Twi vox pop"}
+{"channel_id": "UC5fw6b-cxJUJJVU8RAjXx4A", "name": "DMC HOUSE", "sample_vid": "jgIreT228Lk", "views": "17820", "dialect_hints": ["bono"], "src": "Bono Twi vox pop"}
+{"channel_id": "UCJAZmPY5oaHx0WJha8KNe1g", "name": "BringTraditionalAmericanback", "sample_vid": "mfBARyM3WvQ", "views": "16", "dialect_hints": ["bono"], "src": "Brong Twi vlog"}
+{"channel_id": "UCaghnfCBQmDjkfE6QDUF2aA", "name": "Two Mad Explorers", "sample_vid": "vJjPK69GlAY", "views": "102827", "dialect_hints": ["bono"], "src": "Brong Twi vlog"}
+{"channel_id": "UCgxRwHOWYe3QmlcbjQ93Stg", "name": "SS Family", "sample_vid": "bM0um6NJfKA", "views": "3604", "dialect_hints": ["bono"], "src": "Brong Twi vlog"}
+{"channel_id": "UCXJcOZagH274aE4uRv1_UeQ", "name": "Young", "sample_vid": "9GVGd8CrKfY", "views": "2729", "dialect_hints": ["bono"], "src": "Brong Twi vlog"}
+{"channel_id": "UCbk7poTBSh1x6aNg_IjLu9Q", "name": "Brogan Tate", "sample_vid": "4sgeZCfltLU", "views": "17919", "dialect_hints": ["bono"], "src": "Brong Twi vlog"}
+{"channel_id": "UCAKlL3jJ7zN65BnMKTUMhuQ", "name": "celeste's nook", "sample_vid": "ii-_f6wy9VE", "views": "5758", "dialect_hints": ["bono"], "src": "Brong Twi vlog"}
+{"channel_id": "UCyO9Rwe2odEjmMAEbwaQdYA", "name": "Baba Jimmy & family - Wajumbe Records", "sample_vid": "TBOV3JGW59o", "views": "27410", "dialect_hints": ["bono"], "src": "Brong Twi vlog"}
+{"channel_id": "UCGo0VEAAJW0o0FZdQ-wmTmQ", "name": "Ninjas Are Butterflies ", "sample_vid": "0pyppPRYHp8", "views": "64603", "dialect_hints": ["bono"], "src": "Brong Twi podcast full episode"}
+{"channel_id": "UCu6uS2MA3Fs1r3KVCuEaRKA", "name": "Exactly Right Media", "sample_vid": "khPtdD_0wKg", "views": "910", "dialect_hints": ["bono"], "src": "Brong Twi podcast full episode"}
+{"channel_id": "UCIRPDoWlTPtMapZN-e3ZZsw", "name": "Dispatches From Myrtle Beach", "sample_vid": "coarsYS91Ng", "views": "1154", "dialect_hints": ["bono"], "src": "Brong Twi podcast full episode"}
+{"channel_id": "UCVsuewdIkfpdvqoXVTwbJ0g", "name": "Twenty Good Summers", "sample_vid": "19bWyjX9gi0", "views": "316", "dialect_hints": ["bono"], "src": "Brong Twi podcast full episode"}
+{"channel_id": "UCmMsCFzAufSYef6tA8h1hzQ", "name": "You Should Know Podcast", "sample_vid": "VMPaHBmwP_E", "views": "1118406", "dialect_hints": ["bono"], "src": "Brong Twi podcast full episode"}
+{"channel_id": "UClUw_9fSeVWiqnBuU8dZA4A", "name": "Twin Of Twins CurlyLoxx", "sample_vid": "HTe0QHbvYwo", "views": "237062", "dialect_hints": ["bono"], "src": "Brong Twi podcast full episode"}
+{"channel_id": "UCTrQ7HXWRRxr7OsOtodr2_w", "name": "Channel 4 News", "sample_vid": "aMcjxSThD54", "views": "51778948", "dialect_hints": ["bono"], "src": "Brong Twi interview"}
+{"channel_id": "UCEs-zSwH2NYGskxF-ptoT1w", "name": "Steve TV Show", "sample_vid": "F8IxttK_0Wo", "views": "2682463", "dialect_hints": ["bono"], "src": "Brong Twi interview"}
+{"channel_id": "UC7UFcUbAd8oyCBWCogVpJ6g", "name": "Bloomberg Live", "sample_vid": "A_jIpryR5js", "views": "53568", "dialect_hints": ["bono"], "src": "Brong Twi interview"}
+{"channel_id": "UCqa2MPu8bLY1PwVFUpSyVhQ", "name": "HiHo Kids", "sample_vid": "BY_RBFOvl14", "views": "23071134", "dialect_hints": ["bono"], "src": "Brong Twi interview"}
+{"channel_id": "UCXM_e6csB_0LWNLhRqrhAxg", "name": "Official Pop Drop", "sample_vid": "rn_pF3X7GcY", "views": "246679", "dialect_hints": ["bono"], "src": "Brong Twi interview"}
+{"channel_id": "UC7CtrU_7X7mErXSiTJk-OVw", "name": "VICNICE TV", "sample_vid": "Qi4GuXaGqZw", "views": "17264", "dialect_hints": ["bono"], "src": "Brong Twi interview"}
+{"channel_id": "UC1YmrrJQYk07oSkQNU4ivow", "name": "Triệu July VN", "sample_vid": "M8sHzO12v_Q", "views": "15448", "dialect_hints": ["bono"], "src": "Brong Twi kasa nkɔmmɔ conversation"}
+{"channel_id": "UCEI8qKlEL6YW2eI7O8IPVyA", "name": "Peren14", "sample_vid": "06gf2Yf3fP0", "views": "6690", "dialect_hints": ["bono"], "src": "Brong Twi kasa nkɔmmɔ conversation"}
+{"channel_id": "UC-HbFTSb57kTARjC0av6Gyw", "name": "Triệu Tiểu Mai", "sample_vid": "DfebXRZGJLk", "views": "1284", "dialect_hints": ["bono"], "src": "Brong Twi kasa nkɔmmɔ conversation"}
+{"channel_id": "UCV6cObw-6Yz7xj1r8IwZScA", "name": "Lý Tử Ly", "sample_vid": "u0nDs_a9Jkc", "views": "31340", "dialect_hints": ["bono"], "src": "Brong Twi kasa nkɔmmɔ conversation"}
+{"channel_id": "UC3ZGo4ydRzt0v4NSNvdgUAg", "name": "Hoàng Nam Police", "sample_vid": "o487cKJXoSY", "views": "24583", "dialect_hints": ["bono"], "src": "Brong Twi kasa nkɔmmɔ conversation"}
+{"channel_id": "UCButGmXFqWNU-UxK7umP6yQ", "name": "Religious Story TV", "sample_vid": "5nSCqoPphfQ", "views": "39360", "dialect_hints": ["bono"], "src": "Brong Twi kasa nkɔmmɔ conversation"}
+{"channel_id": "UCBki3uTNSeGInTTYJDiqCMQ", "name": "Lý Hồng", "sample_vid": "Z0tWDQDJ3HA", "views": "20013", "dialect_hints": ["bono"], "src": "Brong Twi kasa nkɔmmɔ conversation"}
+{"channel_id": "UC_gmYHDV9lmHW6tR6korL6g", "name": "Zulfa Ramin", "sample_vid": "bMvzLuSS2as", "views": "6439", "dialect_hints": ["bono"], "src": "Brong Twi kasa nkɔmmɔ conversation"}
+{"channel_id": "UC0J8xH89Ppxp8Igo3FobkMw", "name": "Three Two Media", "sample_vid": "lMWx2pzDl4Q", "views": "2613", "dialect_hints": ["bono"], "src": "Brong Twi storytelling Anansesem"}
+{"channel_id": "UCgKPIi3fKpq6dfItug1Tctw", "name": "@Evangelist Nana Kofi Sarfo", "sample_vid": "D_nDwN-IGzk", "views": "25971", "dialect_hints": ["bono"], "src": "Brong Twi storytelling Anansesem"}
+{"channel_id": "UCSmTSn07wNE8wYjPZyytIqA", "name": "August House/Story Cove", "sample_vid": "eob6eU7hceI", "views": "752895", "dialect_hints": ["bono"], "src": "Brong Twi storytelling Anansesem"}
+{"channel_id": "UChFS2zf4qFWbLKyEqS5-1Eg", "name": "Ec Comedian ", "sample_vid": "7LLIyLNywH4", "views": "34939", "dialect_hints": ["bono"], "src": "Brong Twi comedy skit"}
+{"channel_id": "UCt8tknTkbX9rZ1ZF8g3c3aw", "name": "Izzyaccess TV", "sample_vid": "DRrIFLHaWHo", "views": "1879", "dialect_hints": ["bono"], "src": "Brong Twi comedy skit"}
+{"channel_id": "UC8m0c5CWRhKjlMMBdLC4HMw", "name": "Bring The Funny", "sample_vid": "K4F5kYM8beQ", "views": "1441945", "dialect_hints": ["bono"], "src": "Brong Twi comedy skit"}
+{"channel_id": "UCQVzyAzJkhGUo14IVP9qhjQ", "name": "Mustapha Abayomi", "sample_vid": "9zx57jkL_AQ", "views": "106", "dialect_hints": ["bono"], "src": "Brong Twi comedy skit"}
+{"channel_id": "UC2FxgRUMyCZNGcAoW221rhA", "name": "Sir Godwin Maths TV ", "sample_vid": "FQXT3WkZuUA", "views": "180", "dialect_hints": ["bono"], "src": "Brong Twi comedy skit"}
+{"channel_id": "UCXjxQ3A055bXBmnLifPidNg", "name": "baba unbeatable fx", "sample_vid": "lZsVP-sapf0", "views": "90", "dialect_hints": ["bono"], "src": "Brong Twi comedy skit"}
+{"channel_id": "UCqU49poE-Vsy32ST5FZG4cA", "name": "YoungChief YIC Comedian", "sample_vid": "OxvEa7rb-jE", "views": "142", "dialect_hints": ["bono"], "src": "Brong Twi comedy skit"}
+{"channel_id": "UCbb2-08h7K4Q3_d6Pc4o9Rw", "name": "DramaBreak", "sample_vid": "kBdpwQfcXsY", "views": "6457", "dialect_hints": ["bono"], "src": "Brong Twi drama series"}
+{"channel_id": "UCNv-2VfV9VAgWsSQR2N6CDw", "name": "Hawaii Drama", "sample_vid": "eeDCd-5ddh0", "views": "4806", "dialect_hints": ["bono"], "src": "Brong Twi drama series"}
+{"channel_id": "UCzp6dHh_67lu8hbRxHVBwyg", "name": "Glint Halo", "sample_vid": "hbsRqc2yReA", "views": "5449", "dialect_hints": ["bono"], "src": "Brong Twi drama series"}
+{"channel_id": "UCf3zuohrhVuJIDUuiUlgUeg", "name": "Mansen drama", "sample_vid": "YGq56pxBFbM", "views": "686", "dialect_hints": ["bono"], "src": "Brong Twi drama series"}
+{"channel_id": "UC_fNLsxVNs4rIeb6nj3c-hA", "name": "AmberLight Drama", "sample_vid": "jbyFPedUeWQ", "views": "88235", "dialect_hints": ["bono"], "src": "Brong Twi drama series"}
+{"channel_id": "UCMgPrBMDeS8X5XEIYVMVgSQ", "name": "Phoenix Media Distribution", "sample_vid": "aUyAoo0iC18", "views": "3771", "dialect_hints": ["bono"], "src": "Brong Twi drama series"}
+{"channel_id": "UC2DVcER6W02_18Q0ukco1Cg", "name": "BABA KAMO ", "sample_vid": "-GBFBgWIGsE", "views": "130481", "dialect_hints": ["bono"], "src": "Brong Twi drama series"}
+{"channel_id": "UCMcdf1JjOluceT7CF5oJvtQ", "name": "The Church of Pentecost", "sample_vid": "7Ew0cC1AZSI", "views": "99525", "dialect_hints": ["bono", "akan"], "src": "Brong Twi sermon preaching"}
+{"channel_id": "UCFJgUU_BgzhjMEAh3UOrn0Q", "name": "Mission Bible Church", "sample_vid": "KBF1MRlWVLc", "views": "139989", "dialect_hints": ["bono"], "src": "Brong Twi sermon preaching"}
+{"channel_id": "UCNdVuoGe_MhVLCJ0CeHnRew", "name": "Eagles Faith", "sample_vid": "OVPhAby2SfA", "views": "148081", "dialect_hints": ["bono"], "src": "Brong Twi sermon preaching"}
+{"channel_id": "UC9zATH3GCBBV2hwI9FhACVQ", "name": "Pastor Isaac Okore Botuo", "sample_vid": "x4VisEiTvg0", "views": "550", "dialect_hints": ["bono"], "src": "Brong Twi sermon preaching"}
+{"channel_id": "UCTHQYaJQEDHKMfvmGLBOJOg", "name": "Ewura Abena", "sample_vid": "RoHt0XNvluU", "views": "2265661", "dialect_hints": ["bono", "akan"], "src": "Brong Twi gospel testimony"}
+{"channel_id": "UC_qUtVIh3-IAZUaKtsX3IKg", "name": "Southern Seminary", "sample_vid": "TQvzOSHUkIo", "views": "140727", "dialect_hints": ["bono"], "src": "Brong Twi gospel testimony"}
+{"channel_id": "UCJy77m1qHj7vg9KwuVUTA1w", "name": "Jubal Phone Tap", "sample_vid": "htkt7dRQmB4", "views": "183281", "dialect_hints": ["bono"], "src": "Brong Twi radio call-in show"}
+{"channel_id": "UC7eBNeDW1GQf2NJQ6G6gAxw", "name": "The Ramsey Show Highlights", "sample_vid": "Bj6HfHLTtoE", "views": "1497996", "dialect_hints": ["bono"], "src": "Brong Twi radio call-in show"}
+{"channel_id": "UCp0hYYBW6IMayGgR-WeoCvQ", "name": "TheEllenShow", "sample_vid": "aDnJcvM6wrU", "views": "3416500", "dialect_hints": ["bono"], "src": "Brong Twi radio call-in show"}
+{"channel_id": "UCk7ceedafkAIbETcPbN_Q1Q", "name": "Audio Insider by James Mulvany", "sample_vid": "DBjp1JE7HQk", "views": "66584", "dialect_hints": ["bono", "akan"], "src": "Brong Twi radio call-in show"}
+{"channel_id": "UCOQV8_K_Bjpa_ALjpPwp1Ng", "name": "Bat Country", "sample_vid": "jYGxY5icxjc", "views": "1603768", "dialect_hints": ["bono"], "src": "Brong Twi radio call-in show"}
+{"channel_id": "UCc5WO93Z4fQFhOVKXIu6GOA", "name": "No Jumper Clips", "sample_vid": "wEcEALg7cWI", "views": "140116", "dialect_hints": ["bono"], "src": "Brong Twi radio call-in show"}
+{"channel_id": "UCZ-8PpoBeoiw4xZRm0W9jGg", "name": "R&BHype", "sample_vid": "vJlhycipSR8", "views": "4194296", "dialect_hints": ["bono"], "src": "Brong Twi radio call-in show"}
+{"channel_id": "UCn8zNIfYAQNdrFRrr8oibKw", "name": "VICE", "sample_vid": "TZzJbEklD5I", "views": "1186684", "dialect_hints": ["bono"], "src": "Brong Twi market street interview"}
+{"channel_id": "UCF4LEacx9sDvAbEJnlaJfKQ", "name": "KPIX | CBS NEWS BAY AREA", "sample_vid": "ry_eW38sfVQ", "views": "97107", "dialect_hints": ["bono"], "src": "Brong Twi market street interview"}
+{"channel_id": "UCbZTfDwLrq_sl77NYfvnvhQ", "name": "Ben Talks Talent - Interview Tips", "sample_vid": "y4OUD4J_e5o", "views": "90900", "dialect_hints": ["bono"], "src": "Brong Twi market street interview"}
+{"channel_id": "UC4GSVLQDZE6VTEn9b7d8oGQ", "name": "Bill Benoist ", "sample_vid": "u9GtKYwJi5M", "views": "117359", "dialect_hints": ["bono"], "src": "Brong Twi market street interview"}
+{"channel_id": "UCeNm7lbfRg9wiBDSLQ-M8RA", "name": "Self Made Millennial", "sample_vid": "PzGwYzVHp-0", "views": "317296", "dialect_hints": ["bono"], "src": "Brong Twi market street interview"}
+{"channel_id": "UCpgkaUn1AssqDPnFuof1GLg", "name": "Bridging the Gap - Resources for Business Analysts", "sample_vid": "c6LwqcaTdB4", "views": "381443", "dialect_hints": ["bono"], "src": "Brong Twi market street interview"}
+{"channel_id": "UCSbgQOPHnLhKMus6O4lFM2A", "name": "Entertaining With Beth", "sample_vid": "zqjiNDP5CIM", "views": "59638", "dialect_hints": ["bono"], "src": "Brong Twi cooking recipe"}
+{"channel_id": "UCIEv3lZ_tNXHzL3ox-_uUGQ", "name": "Gordon Ramsay", "sample_vid": "pk0ncEW6bQ8", "views": "1612483", "dialect_hints": ["bono"], "src": "Brong Twi cooking recipe"}
+{"channel_id": "UCf2b3rTkkWo_OZSH5NJqgUg", "name": "Jacques Pépin Official", "sample_vid": "Zid6PcjD7lM", "views": "72", "dialect_hints": ["bono"], "src": "Brong Twi cooking recipe"}
+{"channel_id": "UC6CGhVqZTOYHbB4UVEYSBBA", "name": "Exhibiting Mummy's Recipes", "sample_vid": "kITlqPDgQ34", "views": "146272", "dialect_hints": ["bono"], "src": "Brong Twi cooking recipe"}
+{"channel_id": "UCuqBZWK9Wrol_4Y22DzisFQ", "name": "Food Fusion", "sample_vid": "GLcst9zXD0U", "views": "781967", "dialect_hints": ["bono"], "src": "Brong Twi cooking recipe"}
+{"channel_id": "UCfpCQ89W9wjkHc8J_6eTbBg", "name": "Outdoor Boys", "sample_vid": "PDPIfsm52T4", "views": "3526132", "dialect_hints": ["bono"], "src": "Brong Twi cooking recipe"}
+{"channel_id": "UClU1_8hUFeixVByX_MG5pMg", "name": "Soul Food Cooking", "sample_vid": "ZtZmlK2xLcY", "views": "2552993", "dialect_hints": ["bono"], "src": "Brong Twi cooking recipe"}
+{"channel_id": "UCupvZG-5ko_eiXAupbDfxWw", "name": "CNN", "sample_vid": "etVV7wa33Lg", "views": "148893", "dialect_hints": ["bono"], "src": "Brong Twi football commentary"}
+{"channel_id": "UChOPHlZwfawoV3ZqHOvdkzA", "name": "Nev Kaye", "sample_vid": "Tv0ueEI4OBQ", "views": "1741432", "dialect_hints": ["bono"], "src": "Brong Twi football commentary"}
+{"channel_id": "UCqO2HLVxbcajUiRqXIv1YGg", "name": "V&B ENTERTAINMENT", "sample_vid": "Cl7LfQhlmYQ", "views": "194", "dialect_hints": ["bono"], "src": "Brong Twi football commentary"}
+{"channel_id": "UCOIaQxIvcpPjxgSaYmqaE6g", "name": "CoshReport", "sample_vid": "infsJ-Xtji8", "views": "3016381", "dialect_hints": ["bono"], "src": "Brong Twi football commentary"}
+{"channel_id": "UC2scTsYOgxGHx0uEsHFrqfQ", "name": "HaytersTV", "sample_vid": "Pb64tKZDe4U", "views": "18028", "dialect_hints": ["bono"], "src": "Brong Twi football commentary"}
+{"channel_id": "UCfnY_josNJlifDdqLO6pVfA", "name": "SHEEPSKINS FOR GOALPOSTS", "sample_vid": "yTmO7EKhWQg", "views": "2216", "dialect_hints": ["bono"], "src": "Brong Twi football commentary"}
+{"channel_id": "UCRVrcSqDGjCG_SjO4EvpPHw", "name": "90 Minutes", "sample_vid": "sWXZBD_t1i4", "views": "5969214", "dialect_hints": ["bono"], "src": "Brong Twi football commentary"}
+{"channel_id": "UCA-mWX9CvCTVFWRMb9bKc9w", "name": "Dan Martell", "sample_vid": "r6zFZQm0hcc", "views": "3969125", "dialect_hints": ["bono"], "src": "Brong Twi motivation advice"}
+{"channel_id": "UCAPByrKU5-R1emswVlyH_-g", "name": "Motiversity", "sample_vid": "IVNK5gkVq2Q", "views": "3033993", "dialect_hints": ["bono"], "src": "Brong Twi motivation advice"}
+{"channel_id": "UC4OHCb9cCKYfuQ1uKw_-LKA", "name": "EvolveNow", "sample_vid": "QXndKFq0hfc", "views": "2", "dialect_hints": ["bono"], "src": "Brong Twi motivation advice"}
+{"channel_id": "UCAk_loXdoKqPXwnTMmCuDeQ", "name": "LenaLifts", "sample_vid": "ZcYoma31I-U", "views": "637091", "dialect_hints": ["bono"], "src": "Brong Twi motivation advice"}
+{"channel_id": "UC3gWv-0A3qEeFBJESlsJa0g", "name": "HESMotivation", "sample_vid": "IcxZa7HOW1o", "views": "1374537", "dialect_hints": ["bono"], "src": "Brong Twi motivation advice"}
+{"channel_id": "UCf5oxFG8bGEIdBvpUSXQHPA", "name": "Smart Ghana Update", "sample_vid": "os10JJb7YRA", "views": "8604", "dialect_hints": ["bono"], "src": "Brong Twi news Asemsebe"}
+{"channel_id": "UC3MJVwoumJMTqCe9IaEhtiw", "name": "World at War", "sample_vid": "FKMfeRg6FLw", "views": "27867", "dialect_hints": ["bono"], "src": "Brong Twi documentary"}
+{"channel_id": "UC81VD6eeuLLSfyY_D-N8sVw", "name": "Madonna", "sample_vid": "yJtckcMHM2g", "views": "1280008", "dialect_hints": ["bono"], "src": "Brong Twi documentary"}
+{"channel_id": "UC7_WiJnJxpm4MRNesRttzWg", "name": "Reel Rejects", "sample_vid": "G_mIvUELt1M", "views": "4539", "dialect_hints": ["bono"], "src": "Brong Twi documentary"}
+{"channel_id": "UCYfRiVnVGv6rnwdcRkoP1Fw", "name": "Lightright group", "sample_vid": "6Fv1H8Wknko", "views": "650758", "dialect_hints": ["bono"], "src": "Brong Twi documentary"}
+{"channel_id": "UCHr2GqhllLpeUkw67ueN1-A", "name": "American Masters PBS", "sample_vid": "cxb2mMR1eQ0", "views": "258", "dialect_hints": ["bono"], "src": "Brong Twi documentary"}
+{"channel_id": "UCUVbLD8BUOmlzTxShDo-ooQ", "name": "Montage Africa TV Official", "sample_vid": "nAOtPeOkGhs", "views": "95", "dialect_hints": ["bono"], "src": "Brong Twi vox pop"}
+{"channel_id": "UCIt6zGqyRfSjDT3AB0lKUGA", "name": "FASHIONSQUARED2", "sample_vid": "6aiq6Ve8f7Q", "views": "215", "dialect_hints": ["bono"], "src": "Brong Twi vox pop"}
+{"channel_id": "UCXYTpqOgqx9rGxCJHlC6XFQ", "name": "Calidad Studios", "sample_vid": "gJX4o6Oc5po", "views": "345", "dialect_hints": ["bono"], "src": "Brong Twi vox pop"}
+{"channel_id": "UCeJM_WX9j-n9q4b7AmvWL-Q", "name": "True Scoop TV", "sample_vid": "Uf1iUT_kqDU", "views": "123", "dialect_hints": ["bono"], "src": "Brong Twi vox pop"}
+{"channel_id": "UC6_Neh_rTiN4Px7p7vWKSjw", "name": "David Venn Enterprises", "sample_vid": "yo3G_Mj3s1w", "views": "133", "dialect_hints": ["bono"], "src": "Brong Twi vox pop"}
+{"channel_id": "UCMAjuNMJHx5WnMnOHqNI0jQ", "name": "Romain Toko", "sample_vid": "AKFXsB3Bv_c", "views": "15152", "dialect_hints": ["bono"], "src": "Sunyani vlog"}
+{"channel_id": "UCrjAjfD8kMLumT6foL7zNzQ", "name": "AFRICAN TIGRESS", "sample_vid": "yRQ6NWerOtw", "views": "73028", "dialect_hints": ["bono"], "src": "Sunyani vlog"}
+{"channel_id": "UC7Inzty4Qpr84zTlZaMdY_Q", "name": "Manuel On Air", "sample_vid": "W2AOmP4is3g", "views": "172", "dialect_hints": ["bono"], "src": "Sunyani vlog"}
+{"channel_id": "UCE1DUaBDpxvstbvw6GC6F9Q", "name": "Sunyani Teaching Hospital", "sample_vid": "1T-3muZXPOk", "views": "40", "dialect_hints": ["bono"], "src": "Sunyani podcast full episode"}
+{"channel_id": "UCklPKeiYfxU2cC3JViiMjrQ", "name": "Sani Podcast", "sample_vid": "4qfMUBgj3gI", "views": "35", "dialect_hints": ["bono"], "src": "Sunyani podcast full episode"}
+{"channel_id": "UCHkAFxnELM_Pg3GUHK8sQrA", "name": "MELODIES TV", "sample_vid": "zS6LuTZn8Dk", "views": "889", "dialect_hints": ["bono"], "src": "Sunyani podcast full episode"}
+{"channel_id": "UCtZepmvSjqltahCpuKQenZw", "name": "Premanentertainment ", "sample_vid": "AhfZ9ow_bcw", "views": "19", "dialect_hints": ["bono"], "src": "Sunyani interview"}
+{"channel_id": "UC6x6rYhqvP3-yxu_vUHCEMw", "name": "Sounyuor Bernard", "sample_vid": "E2Dz3HXA1e4", "views": "0", "dialect_hints": ["bono"], "src": "Sunyani interview"}
+{"channel_id": "UCZgrtDnuOGvkTSE9H-XF72Q", "name": "Mmrantiehene", "sample_vid": "igauNhBUGB4", "views": "6736", "dialect_hints": ["bono"], "src": "Sunyani interview"}
+{"channel_id": "UCEh4rOuMCdFncQUQ6VRlH0Q", "name": "NIC Sunyani", "sample_vid": "3adaDb3E53I", "views": "33", "dialect_hints": ["bono"], "src": "Sunyani interview"}
+{"channel_id": "UCQtuqsM1T2kkqrULut8dToQ", "name": "KAALU MUSIC", "sample_vid": "B-spg8bm95Q", "views": "54", "dialect_hints": ["bono"], "src": "Sunyani interview"}
+{"channel_id": "UCYq4IlUF2Wtod_XCVm21b6w", "name": "GETWAY STUDIOS", "sample_vid": "P0_b0Ddh0Lk", "views": "79", "dialect_hints": ["bono"], "src": "Sunyani storytelling Anansesem"}
+{"channel_id": "UCGTWKdViJewysTa-wn29rpQ", "name": "The Ghanaian Farmer TV", "sample_vid": "hljpf69DjoE", "views": "3516", "dialect_hints": ["bono", "kwawu"], "src": "Sunyani storytelling Anansesem"}
+{"channel_id": "UC8yOkVMR7Mx446QdGbwBbyQ", "name": "ADUMASA TV", "sample_vid": "mYOMMarFwlE", "views": "586", "dialect_hints": ["bono"], "src": "Sunyani storytelling Anansesem"}
+{"channel_id": "UCXh8tQZIeplUalPP-BW2CGQ", "name": "Stephen Adom Kyei-Duah", "sample_vid": "cqnX7AoYAbE", "views": "224", "dialect_hints": ["bono"], "src": "Sunyani storytelling Anansesem"}
+{"channel_id": "UCucw27Cqrne4UJNNbSuZk2g", "name": "Emadek TV ", "sample_vid": "cAUSAJZAPF4", "views": "249", "dialect_hints": ["bono"], "src": "Sunyani storytelling Anansesem"}
+{"channel_id": "UChiUBIRj8MtUSi6NHPDfOAg", "name": "Adehye99.1fm", "sample_vid": "AsIBAQxivjw", "views": "9672", "dialect_hints": ["bono"], "src": "Sunyani storytelling Anansesem"}
+{"channel_id": "UCUsxfkynjj7eMqlb9yo2omA", "name": "GRAVITY TV 🎲", "sample_vid": "ghbCru3m60I", "views": "353", "dialect_hints": ["bono"], "src": "Sunyani comedy skit"}
+{"channel_id": "UCsJGSk1ko4Xcj4fQCtT9Kjw", "name": "Magraheb TV", "sample_vid": "nH0HTO1HTso", "views": "20224", "dialect_hints": ["bono"], "src": "Sunyani comedy skit"}
+{"channel_id": "UC01AyZDFiS1ylAHzu6-8XFg", "name": "ABREWA MAFIA OFFICIAL TV", "sample_vid": "Yq2msXLF3Jk", "views": "76652", "dialect_hints": ["bono"], "src": "Sunyani comedy skit"}
+{"channel_id": "UCwWarJayX1Z4wCkm5Vliptw", "name": "OB Amponsah", "sample_vid": "EW7EZVRDBvw", "views": "46557", "dialect_hints": ["bono"], "src": "Sunyani comedy skit"}
+{"channel_id": "UCCxaLQwC7Wrq-Yhc8d04_Lg", "name": "XBLIT STUDIOS ", "sample_vid": "Nh_1NwLYsBI", "views": "3124", "dialect_hints": ["bono"], "src": "Sunyani comedy skit"}
+{"channel_id": "UCpThTZeOBxYlklhlVLVfk5w", "name": "27seconds Mallu Comedy King", "sample_vid": "vJEDCTctQBY", "views": "44245", "dialect_hints": ["bono"], "src": "Sunyani comedy skit"}
+{"channel_id": "UC8_7S5leLFceJGfrGEXf5gg", "name": "BATV PLUS ", "sample_vid": "hu4-BxO3cr0", "views": "27", "dialect_hints": ["bono"], "src": "Sunyani comedy skit"}
+{"channel_id": "UCRWpCLC1EZ_WmbqqrSAGygw", "name": "Hypeman Lets JumpOn ", "sample_vid": "322R8s9Yj5U", "views": "118", "dialect_hints": ["bono"], "src": "Sunyani comedy skit"}
+{"channel_id": "UCP679s36QyUVGP5cH-lJmpA", "name": "Official Liezer-Legacy Productions", "sample_vid": "EHmwYMkQ-Tk", "views": "349925", "dialect_hints": ["bono"], "src": "Sunyani Kumawood movie"}
+{"channel_id": "UC1sEZns2eR1eLZRUSBF0_Ag", "name": "EVANDER CREATIVES", "sample_vid": "xtl63mykzL0", "views": "2474", "dialect_hints": ["bono"], "src": "Sunyani Kumawood movie"}
+{"channel_id": "UC48AF_TRr-TMf0vdXdHWpEQ", "name": "ERICUS MULTIMEDIA", "sample_vid": "hQngqzPv__0", "views": "79", "dialect_hints": ["bono"], "src": "Sunyani Kumawood movie"}
+{"channel_id": "UCAOSbyoINsNyRl8iCbtxRow", "name": "Poleeno Multimedia", "sample_vid": "WUSfD9ctWBQ", "views": "10856", "dialect_hints": ["bono"], "src": "Sunyani Kumawood movie"}
+{"channel_id": "UC3bNaPZQyxT0GJwc_zG_pUQ", "name": "Christian Ofori kumah Koofori Bossu Denkye", "sample_vid": "msSSpmVwUsY", "views": "1825", "dialect_hints": ["bono"], "src": "Sunyani Kumawood movie"}
+{"channel_id": "UCYJVNk5boDWTk9P741GR3dg", "name": "KAREEM CITIZEN TV", "sample_vid": "ZjTTsDNHa_I", "views": "724", "dialect_hints": ["bono"], "src": "Sunyani drama series"}
+{"channel_id": "UCyz-8M_kokQpmwRj9wLH2Zw", "name": "Shark Tv Gh.", "sample_vid": "Hsz1MSA84ZI", "views": "62", "dialect_hints": ["bono"], "src": "Sunyani drama series"}
+{"channel_id": "UCt57Ynl7dyIszkvaasOJI-w", "name": "af History and Heritage Tv", "sample_vid": "bX9oRgn8gA0", "views": "1719", "dialect_hints": ["bono"], "src": "Sunyani drama series"}
+{"channel_id": "UCU4tSFoq6qlVbWAkeGAs-pg", "name": "GHANA KINGDOM TV", "sample_vid": "VmJc9nXuKeM", "views": "4171", "dialect_hints": ["bono"], "src": "Sunyani drama series"}
+{"channel_id": "UCLO0DqZS3BtSgFvqOvMczVg", "name": "Bra Emma", "sample_vid": "CLdz133grEU", "views": "122", "dialect_hints": ["bono"], "src": "Sunyani drama series"}
+{"channel_id": "UC73hsVHey__m0KcQx8hmPSw", "name": "Lily Ogini", "sample_vid": "2nRkDpgzgso", "views": "15446", "dialect_hints": ["bono", "kwawu"], "src": "Sunyani drama series"}
+{"channel_id": "UC7rn7mEqG4zgdHgRlcLv_Rg", "name": "Gossips24 Studios", "sample_vid": "s5J8W9x3-0A", "views": "28729", "dialect_hints": ["bono"], "src": "Sunyani drama series"}
+{"channel_id": "UCNYOHPROBBTgT2TNOYE111Q", "name": "Morning Dew Family", "sample_vid": "DaR0XMQTwAQ", "views": "19", "dialect_hints": ["bono"], "src": "Sunyani sermon preaching"}
+{"channel_id": "UCY80TnNtUVmq52PpqPW2WQw", "name": "BIBIANI GHANA DISTRICT CONFERENCE", "sample_vid": "GhXN16uJIs4", "views": "11", "dialect_hints": ["bono"], "src": "Sunyani sermon preaching"}
+{"channel_id": "UCB9Vgp_o12KrHYFC_cIO-ig", "name": "WESLEYAN INTERNATIONAL SOCIETY - SUNYANI", "sample_vid": "w72YjSJ9q1k", "views": "140", "dialect_hints": ["bono"], "src": "Sunyani sermon preaching"}
+{"channel_id": "UCMKXLvDPkXmq6kg3C0j5H6A", "name": "Pastor Ebenezer Manu", "sample_vid": "Soolh3EU0CI", "views": "84", "dialect_hints": ["bono"], "src": "Sunyani sermon preaching"}
+{"channel_id": "UC-mEqBzif4dsQRFmiPq4pnA", "name": "Fountain Gate Chapel-Philadelphia Pastures, Tamale", "sample_vid": "IiI9yULK3eQ", "views": "37", "dialect_hints": ["bono"], "src": "Sunyani gospel testimony"}
+{"channel_id": "UC9GIr3-yLRocd-Mcrs4i-Kw", "name": "Power TVGhana", "sample_vid": "WLjUe6qNe5k", "views": "30", "dialect_hints": ["bono"], "src": "Sunyani gospel testimony"}
+{"channel_id": "UC7qH-uzX0yfgfZ9oOO6oE1w", "name": "Daniel Kolenda", "sample_vid": "MJoQ47OhiSY", "views": "2480", "dialect_hints": ["bono"], "src": "Sunyani gospel testimony"}
+{"channel_id": "UCpg51Ns2GQDjvHeXmzjVd8Q", "name": "Kwaminat TV", "sample_vid": "4tHtlaYPTkE", "views": "259", "dialect_hints": ["bono"], "src": "Sunyani radio call-in show"}
+{"channel_id": "UCFLQ6oUhaGTkmOHOk2CJ-Jw", "name": "CYRICK HOME OF MUSIC AND ENTERTAINMENT", "sample_vid": "c70spWoq22Q", "views": "67", "dialect_hints": ["bono"], "src": "Sunyani radio call-in show"}
+{"channel_id": "UC-22lCDFkFJq_OWiTJjgwhA", "name": "WILFRED VLOGG", "sample_vid": "0Xm05TMaHik", "views": "2785", "dialect_hints": ["bono"], "src": "Sunyani radio call-in show"}
+{"channel_id": "UCfjxhptgS_lEeP2L-o-_6XQ", "name": "ARK FM 107.1", "sample_vid": "t5jHmfNolSo", "views": "5", "dialect_hints": ["bono"], "src": "Sunyani radio call-in show"}
+{"channel_id": "UC4RVLAyX1MSmS0j5uo_7BNQ", "name": "L4C Multimedia", "sample_vid": "hNzjoFGuqF4", "views": "267", "dialect_hints": ["bono"], "src": "Sunyani radio call-in show"}
+{"channel_id": "UCSntcXjSXEAl7HraQ5b4Nig", "name": "Ghana Daily Street Tour", "sample_vid": "2nhIvJ9WPpc", "views": "646", "dialect_hints": ["bono"], "src": "Sunyani market street interview"}
+{"channel_id": "UC11XPE11kmnaIZCgRilbpCA", "name": "YMedia Online", "sample_vid": "XRJsbJSBWew", "views": "2849", "dialect_hints": ["bono"], "src": "Sunyani market street interview"}
+{"channel_id": "UCPQ6NDawXmN2RNeWXvzvD-g", "name": "CookingwithangelaKOD", "sample_vid": "WrjlNRYa4CA", "views": "34456", "dialect_hints": ["bono"], "src": "Sunyani cooking recipe"}
+{"channel_id": "UC49cSmuhaMK2SedIGYpnt1w", "name": "OFFSIDE FC TV", "sample_vid": "xjx-nOF8f0U", "views": "22", "dialect_hints": ["bono"], "src": "Sunyani football commentary"}
+{"channel_id": "UCEuqFjl32ub3KuG3sfXxVmQ", "name": "theo sampah", "sample_vid": "CzYbnN5bkaM", "views": "3", "dialect_hints": ["bono"], "src": "Sunyani football commentary"}
+{"channel_id": "UC5EtFNjhuexJOw-3ZGSugVw", "name": "Crucial tv gh", "sample_vid": "XTRSE3e225c", "views": "22", "dialect_hints": ["bono"], "src": "Sunyani football commentary"}
+{"channel_id": "UCG-bydNWNP87ViLltu5_hWg", "name": "Ghana League TV", "sample_vid": "xTVSBNyg5cE", "views": "1309", "dialect_hints": ["bono"], "src": "Sunyani football commentary"}
+{"channel_id": "UC9dQUPQ1ZDg8LeHhHevFfMA", "name": "KINGS TV GH", "sample_vid": "qw-RtT4_d58", "views": "31", "dialect_hints": ["bono"], "src": "Sunyani football commentary"}
+{"channel_id": "UCTVAl2R6RVJLGBLEUEExMEw", "name": "Asanteman UK TV ", "sample_vid": "A50ljAPeLOg", "views": "3861", "dialect_hints": ["bono"], "src": "Sunyani history proverbs"}
+{"channel_id": "UCz5-Najzcob6Jq5IaO9GlNQ", "name": "Yayra Rose", "sample_vid": "T3GVDcb7WOQ", "views": "178", "dialect_hints": ["bono"], "src": "Sunyani history proverbs"}
+{"channel_id": "UC1f3kgJPXf5UK3zqZsjwiOA", "name": "Odehyieba Priscilla", "sample_vid": "b1I9UfyQmCk", "views": "209446", "dialect_hints": ["bono"], "src": "Sunyani history proverbs"}
+{"channel_id": "UCc9FNinFb32xcjysX0vwZ4Q", "name": "CHIEF EXECUTIVE MOTIVATOR,ANDRIANA ACQUAH ", "sample_vid": "er7J7WO6Zno", "views": "33", "dialect_hints": ["bono"], "src": "Sunyani motivation advice"}
+{"channel_id": "UCD68fTYIKPecsO_3xy5LN1Q", "name": "Teteh  Motivational Times. ", "sample_vid": "P5OFcuhzX_Q", "views": "61", "dialect_hints": ["bono"], "src": "Sunyani motivation advice"}
+{"channel_id": "UCA7yFlBqlp_THOhkePtX0ng", "name": "2AJ RECORDS", "sample_vid": "ZNRynFdf4dY", "views": "1574493", "dialect_hints": ["bono"], "src": "Sunyani motivation advice"}
+{"channel_id": "UCn7KIuGz5SSfEU6MKXdqUIg", "name": "ASEM SEBE TV", "sample_vid": "jWbeb-k8QUE", "views": "95", "dialect_hints": ["bono"], "src": "Sunyani news Asemsebe"}
+{"channel_id": "UC4D8PdCRtACC_QKpedlvhaw", "name": "OGB MUSIC", "sample_vid": "tKgNtoRPGAM", "views": "40387", "dialect_hints": ["bono"], "src": "Sunyani news Asemsebe"}
+{"channel_id": "UChZJkSv8MBOx9WMXq3chOOA", "name": "Charterhouselive", "sample_vid": "-KaW0I85sf8", "views": "1209", "dialect_hints": ["bono"], "src": "Sunyani news Asemsebe"}
+{"channel_id": "UCDBJuOTFQteXWynIYgDpSvA", "name": "lindsay dekker", "sample_vid": "ouK4e_YNjB0", "views": "328", "dialect_hints": ["bono"], "src": "Sunyani documentary"}
+{"channel_id": "UCWpZM30KcHzRx5ZtJz3pHzA", "name": "Go There", "sample_vid": "nOj8lGWa6FQ", "views": "8984", "dialect_hints": ["bono"], "src": "Sunyani documentary"}
+{"channel_id": "UC1-7mA0mKsCTyCMG4JNO3EQ", "name": "space and science", "sample_vid": "aVxPIVbN5JA", "views": "938718", "dialect_hints": ["bono"], "src": "Sunyani documentary"}
+{"channel_id": "UC8-xffW8TFa-fctlPOOmLAw", "name": "Engineer Newton ", "sample_vid": "fScA8LAMq7M", "views": "6449", "dialect_hints": ["bono"], "src": "Sunyani documentary"}
+{"channel_id": "UCd9l6eRCqD8ZR5q8T7TS85Q", "name": "TopTheWorld", "sample_vid": "0wf1nWhVa1s", "views": "2001", "dialect_hints": ["bono"], "src": "Sunyani documentary"}
+{"channel_id": "UCFfrMhLfKwMOCbGwEU4gKYQ", "name": "Adepa TV", "sample_vid": "3OhzG_MhHI0", "views": "27492", "dialect_hints": ["bono", "kwawu"], "src": "Sunyani vox pop"}
+{"channel_id": "UCZqkjxUOAWcG0XZxvAP-ttA", "name": "YEN.com.gh", "sample_vid": "i-Rr07MziJE", "views": "2270", "dialect_hints": ["bono"], "src": "Sunyani vox pop"}
+{"channel_id": "UC3QTyjejvjqVGgCC15vS-Qg", "name": "EAGLE EYE ANGLE", "sample_vid": "Pl2RRp6cJxs", "views": "461", "dialect_hints": ["kwawu"], "src": "Kwawu Twi vlog"}
+{"channel_id": "UC-DeswhQaYWDvDL6brzN6uQ", "name": "AdlynMay", "sample_vid": "zLpVR3LSEAg", "views": "214", "dialect_hints": ["kwawu"], "src": "Kwawu Twi vlog"}
+{"channel_id": "UCVnWq8axs4DjGHVjinKeG_w", "name": "DEVINE MEDIA GHANA", "sample_vid": "83sdKEIaoK8", "views": "1945", "dialect_hints": ["kwawu"], "src": "Kwawu Twi vlog"}
+{"channel_id": "UCnZ-STbqzEC7na1iR8x4-Pg", "name": "Edem Fiawosime", "sample_vid": "sTfMHLBS7uc", "views": "1698", "dialect_hints": ["kwawu"], "src": "Kwawu Twi vlog"}
+{"channel_id": "UCpIjB7fCfUwUSTe1JgZXoWQ", "name": "GHANA NEWS TV", "sample_vid": "jev8xNIPvfI", "views": "841", "dialect_hints": ["kwawu"], "src": "Kwawu Twi vlog"}
+{"channel_id": "UCsvVR6exMrklRUZliqPN5Sg", "name": "The PG Lifestyle", "sample_vid": "0SGndR3nQSg", "views": "290", "dialect_hints": ["kwawu"], "src": "Kwawu Twi vlog"}
+{"channel_id": "UCWuenNZCreWbdFRknXSUmOQ", "name": "Global Gyal", "sample_vid": "px9lfanwBEQ", "views": "2346", "dialect_hints": ["kwawu"], "src": "Kwawu Twi vlog"}
+{"channel_id": "UCofFmxFv6jtO1jdnMFRykPA", "name": "Passport To Freedom with Jay Cameron", "sample_vid": "mQTrLI0s500", "views": "2277", "dialect_hints": ["kwawu"], "src": "Kwawu Twi podcast full episode"}
+{"channel_id": "UCDKFQmGV2CKJXBnpHS6N0Vw", "name": "The Compass Show", "sample_vid": "ttmgiuuGpA4", "views": "3344", "dialect_hints": ["kwawu"], "src": "Kwawu Twi podcast full episode"}
+{"channel_id": "UCoqskWmvpPFfQKJJMRxzt-A", "name": "XYZ Broadcasting", "sample_vid": "tsm6EG2HeYY", "views": "1150", "dialect_hints": ["kwawu"], "src": "Kwawu Twi interview"}
+{"channel_id": "UCSLTFFwhBF4caJyoE_htoNQ", "name": "Antwi Hyde", "sample_vid": "85fJmrYuL1U", "views": "1799", "dialect_hints": ["kwawu"], "src": "Kwawu Twi interview"}
+{"channel_id": "UCkehucvkBXq3BOM8zco6BBQ", "name": "Miss Gw3Nn", "sample_vid": "O5Z9qdDi3BY", "views": "1683", "dialect_hints": ["kwawu"], "src": "Kwawu Twi interview"}
+{"channel_id": "UCZeuxMV7HAKP5viTijVTn8A", "name": "Nii Ayi", "sample_vid": "Dun6NSqXKA4", "views": "19974", "dialect_hints": ["kwawu"], "src": "Kwawu Twi interview"}
+{"channel_id": "UCzfsRic_DpYx9mamKh9d7gg", "name": "True African", "sample_vid": "eXLTAtc3qRg", "views": "215", "dialect_hints": ["kwawu"], "src": "Kwawu Twi interview"}
+{"channel_id": "UCb5YEX1SRvWiElWyJ_80mqw", "name": "Ani", "sample_vid": "bA_Rd-arlaM", "views": "789", "dialect_hints": ["kwawu"], "src": "Kwawu Twi interview"}
+{"channel_id": "UCX1CTD3UJoKIOq0-hs1UPXA", "name": "Adomonline", "sample_vid": "EqVNffM-c3A", "views": "239", "dialect_hints": ["kwawu"], "src": "Kwawu Twi storytelling Anansesem"}
+{"channel_id": "UCoOs4rx07l-sFD_IS3c2aQw", "name": " STRONG IN THE BROKEN PLACES: POETRY & POWER", "sample_vid": "aPn5GotRXn0", "views": "61", "dialect_hints": ["kwawu"], "src": "Kwawu Twi storytelling Anansesem"}
+{"channel_id": "UCMIxCa8QEP1uksvK63z8KWg", "name": "KSBTV", "sample_vid": "X3BanLskBkE", "views": "3699", "dialect_hints": ["kwawu"], "src": "Kwawu Twi comedy skit"}
+{"channel_id": "UCg48Qo4KBtbFDkBG1TkOInw", "name": "AKROBETO OFFICIAL TV", "sample_vid": "5mnem9fz8Bw", "views": "46892", "dialect_hints": ["kwawu"], "src": "Kwawu Twi comedy skit"}
+{"channel_id": "UCIHs-S6XXPqXW5IJ9dmmb5w", "name": "GOWITHENFRANS", "sample_vid": "nJRkDU3LhgY", "views": "1651", "dialect_hints": ["kwawu"], "src": "Kwawu Twi comedy skit"}
+{"channel_id": "UCn8wEpjZV7zncgQKtnIspBA", "name": "Kwame Broni [Nana Djan]", "sample_vid": "7uXqt_kFut8", "views": "5919", "dialect_hints": ["kwawu"], "src": "Kwawu Twi comedy skit"}
+{"channel_id": "UCAokBSA81P-t3r0wzf7EFOw", "name": "Gracechild Chesca", "sample_vid": "QE9kOUnMQ0E", "views": "225", "dialect_hints": ["kwawu"], "src": "Kwawu Twi comedy skit"}
+{"channel_id": "UCONo8JwYnWMa9y7T1-DIEqQ", "name": "Lovers TV Africa", "sample_vid": "7VNQS-MDXkA", "views": "49", "dialect_hints": ["kwawu"], "src": "Kwawu Twi comedy skit"}
+{"channel_id": "UC_K8PO9l40fZQ1JkguRJTGQ", "name": "DJ PAKORICH", "sample_vid": "tfbqK_bHqzo", "views": "55136", "dialect_hints": ["kwawu"], "src": "Kwawu Twi comedy skit"}
+{"channel_id": "UCRoERmxCzB8cIB-5TZeK1aw", "name": "BisaGhana", "sample_vid": "vZlJyB1kVcE", "views": "16467", "dialect_hints": ["kwawu"], "src": "Kwawu Twi Kumawood movie"}
+{"channel_id": "UCppmmWK4Q3lc8nmd7kuDadA", "name": "Apple Media Gh", "sample_vid": "fgZlTvqBK5M", "views": "90", "dialect_hints": ["kwawu"], "src": "Kwawu Twi Kumawood movie"}
+{"channel_id": "UCi3NWsv8UU9Ofc4eKUwHfKA", "name": "Embassy of the Word of God Edinburgh", "sample_vid": "2kfwwlnmVb4", "views": "132", "dialect_hints": ["kwawu"], "src": "Kwawu Twi sermon preaching"}
+{"channel_id": "UC9jd3zSKWa-_Fu0O3fP0piA", "name": "Jesus Christ The Same Today", "sample_vid": "VNskdeXJ5Bg", "views": "25", "dialect_hints": ["kwawu"], "src": "Kwawu Twi sermon preaching"}
+{"channel_id": "UC5FEjvG2-G1KhDyqf0KRaBA", "name": "Takoradi Central Church of Christ", "sample_vid": "2R2LxTmX2lo", "views": "5759", "dialect_hints": ["kwawu"], "src": "Kwawu Twi sermon preaching"}
+{"channel_id": "UCZ-bhspBG0tq0_0i1aEezKg", "name": "oppong Ebenezer", "sample_vid": "pFpYswj9IOE", "views": "199140", "dialect_hints": ["kwawu"], "src": "Kwawu Twi gospel testimony"}
+{"channel_id": "UC6Qd40bmuR4n-gNNKSfFllA", "name": "All Media GH", "sample_vid": "2_OK-asN7F8", "views": "502870", "dialect_hints": ["kwawu"], "src": "Kwawu Twi gospel testimony"}
+{"channel_id": "UC9p8LEHZFSlvYrNSxOvPzyg", "name": "Heaven Seekers Ministry", "sample_vid": "oM9p0iEXemA", "views": "1536", "dialect_hints": ["kwawu"], "src": "Kwawu Twi gospel testimony"}
+{"channel_id": "UCLUcIakbD2kWJseDn29rfGQ", "name": "Kriz Tv", "sample_vid": "MQTa3atqVQE", "views": "3085", "dialect_hints": ["kwawu"], "src": "Kwawu Twi radio call-in show"}
+{"channel_id": "UChiXztM8eXMO5YHTpaJ_PAw", "name": "Atenteben Edem", "sample_vid": "VGQRpani3bg", "views": "126", "dialect_hints": ["kwawu"], "src": "Kwawu Twi radio call-in show"}
+{"channel_id": "UClTUqIWVTRyxVgmLO8NJSaQ", "name": "Official Daddy Lumba", "sample_vid": "9gxUfHjEb50", "views": "3478261", "dialect_hints": ["kwawu"], "src": "Kwawu Twi radio call-in show"}
+{"channel_id": "UCvqnQdEEdrWZvZo8AO6dwLQ", "name": "Leon4Mr", "sample_vid": "TOgmxHoPUHA", "views": "68352", "dialect_hints": ["kwawu"], "src": "Kwawu Twi radio call-in show"}
+{"channel_id": "UChAMlo30RuceggQ3GdKsCDg", "name": "AGOO FM GH", "sample_vid": "65o0X0SX2E8", "views": "5688", "dialect_hints": ["kwawu"], "src": "Kwawu Twi radio call-in show"}
+{"channel_id": "UCexi0xz1mO6CiSH656eTFaA", "name": "Justified Melody", "sample_vid": "o7F58b0Cpo4", "views": "257666", "dialect_hints": ["kwawu"], "src": "Kwawu Twi radio call-in show"}
+{"channel_id": "UCaJisLGTpArpe9-Us8Bd3xA", "name": "Kstreet Mag", "sample_vid": "9nFlhmI7sJ0", "views": "182", "dialect_hints": ["kwawu"], "src": "Kwawu Twi market street interview"}
+{"channel_id": "UC3LpYypaOy_Oy1LKtsoEsQA", "name": "Okwawuman TV", "sample_vid": "SIVAzekW3yY", "views": "2219", "dialect_hints": ["kwawu"], "src": "Kwawu Twi market street interview"}
+{"channel_id": "UCvEk32SOcYWwSt-XUMy-3tQ", "name": "Dela's World", "sample_vid": "nWDq-d4D7N4", "views": "1764", "dialect_hints": ["kwawu"], "src": "Kwawu Twi market street interview"}
+{"channel_id": "UCs2nYmiIYM9OUNiHSzY7aew", "name": "The JumzTV", "sample_vid": "F3hh2ZjeyXo", "views": "20673", "dialect_hints": ["kwawu"], "src": "Kwawu Twi market street interview"}
+{"channel_id": "UCP9UKnlKC7UcY5SpnDyis4g", "name": "The Evans", "sample_vid": "neTh2dAjA7Y", "views": "922", "dialect_hints": ["kwawu"], "src": "Kwawu Twi market street interview"}
+{"channel_id": "UCWaHZE5kWPTsXU0Yh9Secqg", "name": "Gina Amon Channel", "sample_vid": "9uiLlah7Qls", "views": "38656", "dialect_hints": ["kwawu"], "src": "Kwawu Twi cooking recipe"}
+{"channel_id": "UCkuacQGRdM7X9dO-jvYYNCQ", "name": "Joe Dufu", "sample_vid": "HOQBS7svPXI", "views": "3111520", "dialect_hints": ["kwawu"], "src": "Kwawu Twi cooking recipe"}
+{"channel_id": "UCNBbQfbO_sOoxwdGVvQx65g", "name": "MyAfricanFoodMap", "sample_vid": "qqqAiHmu5d4", "views": "1304", "dialect_hints": ["kwawu"], "src": "Kwawu Twi cooking recipe"}
+{"channel_id": "UCiclcQoxkrpPG6iJX5SLOfw", "name": "Kosimah's tv", "sample_vid": "4_l0rFxKWQU", "views": "138", "dialect_hints": ["kwawu"], "src": "Kwawu Twi cooking recipe"}
+{"channel_id": "UC9sRdCV5VW9Nf8dU86J8xSw", "name": "KSFOOT CHANNEL", "sample_vid": "P5kLx0T0ECU", "views": "479", "dialect_hints": ["kwawu"], "src": "Kwawu Twi football commentary"}
+{"channel_id": "UCLyyuDLY8lG7x7LcuHzE79Q", "name": "FOOTBALL AGENT FOR THE TALENTED", "sample_vid": "imXPVtJmElI", "views": "26", "dialect_hints": ["kwawu"], "src": "Kwawu Twi football commentary"}
+{"channel_id": "UCckuerI4Scp8F5oPXRUGmQA", "name": "Okwawu United FC", "sample_vid": "iLhBjDAMIGE", "views": "7585", "dialect_hints": ["kwawu"], "src": "Kwawu Twi football commentary"}
+{"channel_id": "UCeRiRtWlMKSZnsDPvO-mchw", "name": "Stickydogg", "sample_vid": "YMsnzkH6H1o", "views": "898", "dialect_hints": ["kwawu"], "src": "Kwawu Twi football commentary"}
+{"channel_id": "UCD4sgTNaYmmv8-ZG7-J7_Tg", "name": "Sikapa Root Culture Foundation", "sample_vid": "7jlCix9aEFM", "views": "2158", "dialect_hints": ["kwawu"], "src": "Kwawu Twi history proverbs"}
+{"channel_id": "UC-mXq4ocP9-qni58nxZjgyg", "name": "Kwame Nkansah ", "sample_vid": "NE46Uv2eDCw", "views": "301", "dialect_hints": ["kwawu"], "src": "Kwawu Twi motivation advice"}
+{"channel_id": "UCdtg0gcjp_tWl_tdw18tU5Q", "name": "TRENDS GH", "sample_vid": "9RZbesziqz4", "views": "305162", "dialect_hints": ["kwawu"], "src": "Kwawu Twi motivation advice"}
+{"channel_id": "UCUuY1DcZI5mNXWgWeP_t6Ow", "name": "Dinpa TV", "sample_vid": "BGpxA_qlydE", "views": "295", "dialect_hints": ["kwawu"], "src": "Kwawu Twi news Asemsebe"}
+{"channel_id": "UC1zW6QZbvZwHGEaU8kMO3yg", "name": "Bambi’s Journey", "sample_vid": "RjnGSHL39iM", "views": "16960", "dialect_hints": ["kwawu"], "src": "Kwawu Twi documentary"}
+{"channel_id": "UC3lnDRwdK-CD2xjO-16zmmg", "name": "Sarkodie", "sample_vid": "QZItbPCRez0", "views": "2550048", "dialect_hints": ["kwawu"], "src": "Kwawu Twi vox pop"}
+{"channel_id": "UCM7idw0FYwhU7qQwP2v9q3Q", "name": "PREMIER GH", "sample_vid": "e1z10uC4iTc", "views": "1177094", "dialect_hints": ["kwawu"], "src": "Kwawu Twi vox pop"}
+{"channel_id": "UC-tAx6tWF3x-7COrjnpV4Zg", "name": "Hurricane Wisdom", "sample_vid": "O_Rc_ujEpFU", "views": "4529915", "dialect_hints": ["kwawu"], "src": "Kwawu Twi vox pop"}
+{"channel_id": "UCIlNbtq9FYy5L5kG0rmsjTQ", "name": "Torgbe", "sample_vid": "kp2rCGJwnM8", "views": "81533", "dialect_hints": ["kwawu"], "src": "Kwawu Twi vox pop"}
+{"channel_id": "UC1dgOhpnedlNHJPXnPdb8sQ", "name": "The Reggae Chefs", "sample_vid": "3NKSAOk4u5o", "views": "9030", "dialect_hints": ["kwawu"], "src": "Kwawu Twi vox pop"}
+{"channel_id": "UCwCjDIBcPwLhRyt4KPFkdpg", "name": "VOM TV", "sample_vid": "fT4_6-EBFec", "views": "68", "dialect_hints": ["kwawu"], "src": "Kwahu Twi vlog"}
+{"channel_id": "UCjup6xZqkmJwbVFImepRSUA", "name": "Mariska Appiah", "sample_vid": "qokHpntowrw", "views": "1964", "dialect_hints": ["kwawu"], "src": "Kwahu Twi vlog"}
+{"channel_id": "UCBZNSZJpgQbQTJ2lB0tr4ww", "name": "Biamah TV", "sample_vid": "j8d75zGUU2Q", "views": "90", "dialect_hints": ["kwawu"], "src": "Kwahu Twi vlog"}
+{"channel_id": "UCCW0rc5chOV4Gc24TEu9ESw", "name": "ENOS TRAVELS", "sample_vid": "nifffdhdoEI", "views": "211", "dialect_hints": ["kwawu"], "src": "Kwahu Twi vlog"}
+{"channel_id": "UCgtl8gHYBZpgHrlISWJNCOQ", "name": "Adventure Junkies", "sample_vid": "NMgpOgsWV88", "views": "1485", "dialect_hints": ["kwawu"], "src": "Kwahu Twi vlog"}
+{"channel_id": "UC0dvFUatPG1nBetItMx579w", "name": "Tusankine’s life", "sample_vid": "2UDwUIU2c_c", "views": "8675", "dialect_hints": ["kwawu"], "src": "Kwahu Twi vlog"}
+{"channel_id": "UCSDZacKQ1NAJrPi0fi1qABg", "name": "The-Re-Up Podcast", "sample_vid": "xfKgq2_hIu8", "views": "1045", "dialect_hints": ["kwawu"], "src": "Kwahu Twi podcast full episode"}
+{"channel_id": "UCvUW0xT38Ho7qyUmBgBZXQA", "name": "Two Hot Takes", "sample_vid": "mIRvLkCzmwA", "views": "1844683", "dialect_hints": ["kwawu"], "src": "Kwahu Twi podcast full episode"}
+{"channel_id": "UCtSyweTUP8dhTWfsybLFdRw", "name": "Pastor Elvis Agyemang", "sample_vid": "COWvKxT6dTs", "views": "240010", "dialect_hints": ["kwawu", "akan"], "src": "Kwahu Twi podcast full episode"}
+{"channel_id": "UC7htuVs06oduI3xSfTdcxPA", "name": "48 Hours", "sample_vid": "lwrkwELp6kY", "views": "1689463", "dialect_hints": ["kwawu", "akan"], "src": "Kwahu Twi podcast full episode"}
+{"channel_id": "UCl5ORk64Hm3175Hk5XBVZsQ", "name": "Kiki Sanford", "sample_vid": "Eh16F0oy6pw", "views": "40", "dialect_hints": ["kwawu"], "src": "Kwahu Twi podcast full episode"}
+{"channel_id": "UC0yDPy7IvuztZC4JvcIywFg", "name": "PreViewGh", "sample_vid": "n9skkcSUHFQ", "views": "879", "dialect_hints": ["kwawu"], "src": "Kwahu Twi interview"}
+{"channel_id": "UCGwZSKrRfsrm0lF12F1ue2A", "name": "KayB Media", "sample_vid": "HmgkkITnZt4", "views": "39278", "dialect_hints": ["kwawu"], "src": "Kwahu Twi interview"}
+{"channel_id": "UCQJdEdB_w1Rvl4tt7F3LF0A", "name": "KOFI TV", "sample_vid": "CxCP29_Rxq0", "views": "103053", "dialect_hints": ["kwawu"], "src": "Kwahu Twi interview"}
+{"channel_id": "UCqfgSR_n-fW58IXwyK8jrsQ", "name": "ODANA NETWORK", "sample_vid": "KhWxwIpDI-k", "views": "4863", "dialect_hints": ["kwawu"], "src": "Kwahu Twi interview"}
+{"channel_id": "UC8nPq47UMsJ4Eunk6p_50Dg", "name": "FAVOR CITY PRAYER CENTER", "sample_vid": "FnWHUJvK0eg", "views": "46", "dialect_hints": ["kwawu"], "src": "Kwahu Twi sermon preaching"}
+{"channel_id": "UCZN9K2fKtw429zE7HkWHLVA", "name": "HOUR of FIRE Tv", "sample_vid": "JMQTbNDP_r4", "views": "607", "dialect_hints": ["kwawu"], "src": "Kwahu Twi sermon preaching"}
+{"channel_id": "UCrP4bjy7YBaLuOqXL6mF7qQ", "name": "RESURRECTION TELEVISION", "sample_vid": "3pMHpYdm4oE", "views": "4361", "dialect_hints": ["kwawu"], "src": "Kwahu Twi sermon preaching"}
+{"channel_id": "UCkZYtp4HikGtUuzos3rju8Q", "name": "CITY SAMMY TV", "sample_vid": "kdmPSRDZeRU", "views": "6644", "dialect_hints": ["kwawu"], "src": "Kwahu Twi sermon preaching"}
+{"channel_id": "UCZOKrDoQPAlvjfpge8DkEng", "name": "Blackrhythmz", "sample_vid": "r2PAPEzu6Xk", "views": "449855", "dialect_hints": ["kwawu"], "src": "Kwahu Twi gospel testimony"}
+{"channel_id": "UC0wEvQ72mByANR61zrNeOgw", "name": "Patience Abor", "sample_vid": "xxg0DXPCEXc", "views": "509", "dialect_hints": ["kwawu"], "src": "Kwahu Twi gospel testimony"}
+{"channel_id": "UC7RfMrnJ3690erUKaystOBA", "name": "Sammy Flex TV", "sample_vid": "HrwSaYs5iVY", "views": "3693", "dialect_hints": ["kwawu"], "src": "Kwahu Twi radio call-in show"}
+{"channel_id": "UCn6hG8Wy4RisYEAaDFWFxuA", "name": "Iraq124 ArdeyFamilyTV", "sample_vid": "KObrRR8TQrs", "views": "120", "dialect_hints": ["kwawu"], "src": "Kwahu Twi market street interview"}
+{"channel_id": "UCpt7ZjOc30xGvv17IQs6n_g", "name": "KINGTEE9497", "sample_vid": "e-o0lIcrZ9Y", "views": "140", "dialect_hints": ["kwawu"], "src": "Kwahu Twi market street interview"}
+{"channel_id": "UCpCE9fZxdQy92Z5AWJ3zSaQ", "name": "Beat the Street", "sample_vid": "thq6q1r7cCk", "views": "2877", "dialect_hints": ["kwawu"], "src": "Kwahu Twi market street interview"}
+{"channel_id": "UCMJB-2NbfmqoP1ChI089Qyw", "name": "David0034tamilta", "sample_vid": "O5-RWrDS5vU", "views": "181", "dialect_hints": ["kwawu"], "src": "Kwahu Twi market street interview"}
+{"channel_id": "UCovzFz8CyNRyTwBCjA-n-DA", "name": "With Efua", "sample_vid": "268VjsEM9_I", "views": "978", "dialect_hints": ["kwawu"], "src": "Kwahu Twi cooking recipe"}
+{"channel_id": "UC0OH3AYEpMjXBGcz3N6Fmnw", "name": "Janine Travels", "sample_vid": "-JQiWgCOsa0", "views": "137", "dialect_hints": ["kwawu"], "src": "Kwahu Twi cooking recipe"}
+{"channel_id": "UCtQLod9RbwLv1KeOCsZttFQ", "name": "Ghanaian Nomad", "sample_vid": "ep0wNF1rE-c", "views": "245", "dialect_hints": ["kwawu"], "src": "Kwahu Twi cooking recipe"}
+{"channel_id": "UCtip5tHnzVkPfBBfJXHYUZg", "name": "NKOSUOHENE", "sample_vid": "TaBq2TjlNU0", "views": "536", "dialect_hints": ["kwawu"], "src": "Kwahu Twi motivation advice"}
+{"channel_id": "UCUtPICDthE4FXBa6IoirFnQ", "name": "JAK LENS TV", "sample_vid": "k6GGqSUb0Nw", "views": "3909", "dialect_hints": ["kwawu"], "src": "Kwahu Twi motivation advice"}
+{"channel_id": "UC4ZyLHnYywedtwpi301BsnQ", "name": "LOCALSPORTS PLUS", "sample_vid": "1M91rZ9laNk", "views": "52", "dialect_hints": ["kwawu"], "src": "Kwahu Twi vox pop"}
+{"channel_id": "UC1VN8_Liyzs-bRMPCEL1ECA", "name": "Ablade TV", "sample_vid": "IIUVFuz3_xM", "views": "1255", "dialect_hints": ["kwawu"], "src": "Kwahu Twi vox pop"}
+{"channel_id": "UCI1YydVs9W8z3RQ3r-QS5fg", "name": "Neil Hartmann", "sample_vid": "VfTIHr9bm0Q", "views": "2314", "dialect_hints": ["akan"], "src": "Akan vlog"}
+{"channel_id": "UCuoR1sDvW8l5D-shThaWr5Q", "name": "Zee 65", "sample_vid": "EWL-8O6FV0I", "views": "7580", "dialect_hints": ["akan"], "src": "Akan vlog"}
+{"channel_id": "UCU8nAY7towv3Q57skfPyNRQ", "name": "Jasmine Boateng", "sample_vid": "x3mSyui11Eo", "views": "15199", "dialect_hints": ["akan"], "src": "Akan vlog"}
+{"channel_id": "UCkgGlNirqAw3K1O6qteQdfQ", "name": "Ringsan", "sample_vid": "1BGq4bg0C7Y", "views": "5496", "dialect_hints": ["akan"], "src": "Akan vlog"}
+{"channel_id": "UC7oXNenr5DxJsKLTryOzGtA", "name": "Sanele Baloyi", "sample_vid": "1vFOhInj5Bk", "views": "43966", "dialect_hints": ["akan"], "src": "Akan vlog"}
+{"channel_id": "UCMPQjm1GjFZCz56pJmADaIw", "name": "Loren Kimou", "sample_vid": "Sgnf7MiMVLI", "views": "408", "dialect_hints": ["akan"], "src": "Akan vlog"}
+{"channel_id": "UCqO-_PeT6CMPo8KN34e-q_A", "name": "Vàng Hoa", "sample_vid": "Psi8WEVXiJg", "views": "10550", "dialect_hints": ["akan"], "src": "Akan vlog"}
+{"channel_id": "UCupoJwIuL5vIFKjqVQMzOGA", "name": "Evie Gibbons", "sample_vid": "BNApi-UtxVg", "views": "6514", "dialect_hints": ["akan"], "src": "Akan vlog"}
+{"channel_id": "UCIpwPuJsrboNnf200oV8cWQ", "name": "Fleccas Talks", "sample_vid": "APMt2YtMRfI", "views": "4490", "dialect_hints": ["akan"], "src": "Akan podcast full episode"}
+{"channel_id": "UCgM5P6QGHmrvu5fDPx79mug", "name": "Love Island", "sample_vid": "bBrX9VLN1AA", "views": "105038", "dialect_hints": ["akan"], "src": "Akan podcast full episode"}
+{"channel_id": "UCkyrQu--zrmUcFuDWBEY8uA", "name": "Sahal", "sample_vid": "sTnzDUGk9cE", "views": "123", "dialect_hints": ["akan"], "src": "Akan podcast full episode"}
+{"channel_id": "UCufv2B9fcRLF9ae_P0A6ynA", "name": "akanwar", "sample_vid": "v478NMeT-i4", "views": "24", "dialect_hints": ["akan"], "src": "Akan podcast full episode"}
+{"channel_id": "UCyz3SNkazMKoDezcfdFYgIw", "name": "Odwirafo", "sample_vid": "iGwKwmhCSCg", "views": "977", "dialect_hints": ["akan"], "src": "Akan podcast full episode"}
+{"channel_id": "UCzzA4YA25NtxHCCEC3214tA", "name": "L1 STUDIOS", "sample_vid": "-Vd3rafuc3s", "views": "49", "dialect_hints": ["akan"], "src": "Akan podcast full episode"}
+{"channel_id": "UCmjiYkb6XMJI-_H8HFmc3PQ", "name": "Ghana Weekend TV", "sample_vid": "e3puNiARlHU", "views": "317", "dialect_hints": ["akan"], "src": "Akan interview"}
+{"channel_id": "UCv0z8nEnQutRGjyjjzwdLEg", "name": "Hitz 103.9 FM", "sample_vid": "8klkIIxnntQ", "views": "2739", "dialect_hints": ["akan"], "src": "Akan interview"}
+{"channel_id": "UCd-uFT1nQR4SiiBd8dAXSTg", "name": "Jon Gruden", "sample_vid": "7YlWZHTZdss", "views": "76763", "dialect_hints": ["akan"], "src": "Akan interview"}
+{"channel_id": "UCFQyVljCrdof5Uqmo8p3c0Q", "name": "13WHAM ABC News", "sample_vid": "FdCV85dyGIU", "views": "23878", "dialect_hints": ["akan"], "src": "Akan interview"}
+{"channel_id": "UCanCEzn_8XTISzrwh3tvJMA", "name": "SAMSHINE TV Gh.", "sample_vid": "XU6XDeiEXFw", "views": "37", "dialect_hints": ["akan"], "src": "Akan interview"}
+{"channel_id": "UCvn_XCl_mgQmt3sD753zdJA", "name": "Rachel's English", "sample_vid": "-JNjsOX0N0c", "views": "3563454", "dialect_hints": ["akan"], "src": "Akan interview"}
+{"channel_id": "UCGiKlOBHnhWnb2hv6IVOb4w", "name": "Learn Urdu with UrduPod101.com", "sample_vid": "yzGO_be35-M", "views": "441427", "dialect_hints": ["akan"], "src": "Akan kasa nkɔmmɔ conversation"}
+{"channel_id": "UC0ox9NuTHYeRys63yZpBFuA", "name": "Learn Japanese with JapanesePod101.com", "sample_vid": "a4dghkyVOnE", "views": "1776586", "dialect_hints": ["akan"], "src": "Akan kasa nkɔmmɔ conversation"}
+{"channel_id": "UCrbQKtL47yzrnUjdqhQJ8TA", "name": "Lively LIFE", "sample_vid": "fcTbOjd7cNc", "views": "1419779", "dialect_hints": ["akan"], "src": "Akan kasa nkɔmmɔ conversation"}
+{"channel_id": "UCBw50CkQl7shMP_l4mxUwaA", "name": "DOORA", "sample_vid": "oTmYnYt-L6s", "views": "5", "dialect_hints": ["akan"], "src": "Akan kasa nkɔmmɔ conversation"}
+{"channel_id": "UCTpLiy89UAe4A7jpTveALWA", "name": "tina", "sample_vid": "bA0RLZjcTKo", "views": "28551", "dialect_hints": ["akan"], "src": "Akan kasa nkɔmmɔ conversation"}
+{"channel_id": "UCkFdztdJXfz6cqGv5VgzFSQ", "name": "Nana Yaa Yeboaa Podcast ", "sample_vid": "6_C34cO9xr4", "views": "6125", "dialect_hints": ["akan"], "src": "Akan storytelling Anansesem"}
+{"channel_id": "UCMYmZ26ZwLsUCGV2Lk9NIKw", "name": "Comedian Calibird", "sample_vid": "g46oHeEk-as", "views": "99", "dialect_hints": ["akan"], "src": "Akan comedy skit"}
+{"channel_id": "UCqNFalyS2eTyY8aWTd0NDTw", "name": "TOMMY K TV", "sample_vid": "3ZH4dX_qH9I", "views": "169", "dialect_hints": ["akan"], "src": "Akan comedy skit"}
+{"channel_id": "UCueJOpg1SG9mahPjhALlvJw", "name": "ARD Stand-Up", "sample_vid": "hcW-ioYblGk", "views": "19190", "dialect_hints": ["akan"], "src": "Akan comedy skit"}
+{"channel_id": "UC2kkU18MIJpUaCdokZj3_kQ", "name": "Zeducation", "sample_vid": "CXN9oumReOA", "views": "13559", "dialect_hints": ["akan"], "src": "Akan comedy skit"}
+{"channel_id": "UCyaZTYLcxBLf6CHJ4_Ijvjw", "name": "akanatuf", "sample_vid": "31JvkD8lqNY", "views": "111", "dialect_hints": ["akan"], "src": "Akan comedy skit"}
+{"channel_id": "UC4o5IjqMrg8qGA4lz8WK13g", "name": "PAT THOMAS MUSIC & MOVIE PRODUCTIONS", "sample_vid": "mccnqQWvrHI", "views": "108859", "dialect_hints": ["akan"], "src": "Akan Kumawood movie"}
+{"channel_id": "UCb_FHzYiD_XsAzraMPuG-qQ", "name": "enn jay channel", "sample_vid": "4cl7Y8zouFI", "views": "131364", "dialect_hints": ["akan"], "src": "Akan drama series"}
+{"channel_id": "UCvGqdD97_md3gonMFkTLerg", "name": "Reminiscing with Sae", "sample_vid": "aUVqVxA4AGo", "views": "15042", "dialect_hints": ["akan"], "src": "Akan drama series"}
+{"channel_id": "UCe9JSDmyqNgA_l2BzGHq1Ug", "name": "HAR PAL GEO", "sample_vid": "6o5VUhElu1s", "views": "20851", "dialect_hints": ["akan"], "src": "Akan drama series"}
+{"channel_id": "UC3oRayTxUDtX7ChU9ESKGrQ", "name": "FunFactoryUganda", "sample_vid": "GhxOEeswdFk", "views": "506", "dialect_hints": ["akan"], "src": "Akan drama series"}
+{"channel_id": "UCvdkmXouHpEGOV-m4bOPOng", "name": "COP Houston Central", "sample_vid": "xA-uuyyt4Jg", "views": "119", "dialect_hints": ["akan"], "src": "Akan sermon preaching"}
+{"channel_id": "UC39mVtuFPbzgoBdQY6QW5nw", "name": "Paul Offin Bible Class", "sample_vid": "_Zp1FwWjvdY", "views": "146", "dialect_hints": ["akan"], "src": "Akan sermon preaching"}
+{"channel_id": "UCPFezlk0AwoIfT1LLmnwK3A", "name": "Church Of Pentecost NYD", "sample_vid": "kpeyVwvnDME", "views": "1870", "dialect_hints": ["akan"], "src": "Akan sermon preaching"}
+{"channel_id": "UCJ3sq_9V-O6nR4TqmuUhdOg", "name": "The Church of Pentecost Australia Sydney District", "sample_vid": "1UlX-g1zpk0", "views": "1684", "dialect_hints": ["akan"], "src": "Akan sermon preaching"}
+{"channel_id": "UC-DstKBNcO4wjJBpN2LDRnQ", "name": "TBC West Norwood Oasis House", "sample_vid": "rT2FFbtXKro", "views": "268", "dialect_hints": ["akan"], "src": "Akan sermon preaching"}
+{"channel_id": "UCbgRG0eGKAXinkpXHoTd8wA", "name": "Sam R Jones", "sample_vid": "Bllp5MygKJQ", "views": "535", "dialect_hints": ["akan"], "src": "Akan gospel testimony"}
+{"channel_id": "UCnm99agRmGJIca7cvowv0og", "name": "The Church of Almighty God", "sample_vid": "HtX_CuP0714", "views": "4004", "dialect_hints": ["akan"], "src": "Akan gospel testimony"}
+{"channel_id": "UCT5spSct9reSpomOU0u6ESA", "name": "Prime Testimony Channel", "sample_vid": "XvhT4yDPAhw", "views": "56", "dialect_hints": ["akan"], "src": "Akan gospel testimony"}
+{"channel_id": "UCKIArkCDHQAJQfOsovXJnsw", "name": "World Mission Society Church of God / Global", "sample_vid": "WIDDVO7IDUQ", "views": "2931", "dialect_hints": ["akan"], "src": "Akan gospel testimony"}
+{"channel_id": "UCQ0-Bx2iQ-IxAUb3WUF78jg", "name": "Willowbrook Park Baptist Church NY", "sample_vid": "jTnsv5rkbL8", "views": "56", "dialect_hints": ["akan"], "src": "Akan gospel testimony"}
+{"channel_id": "UC_qeWYKaZPnaGiQ4tazlJUA", "name": "COPBellaire Assembly", "sample_vid": "HZ0B8294HD0", "views": "6", "dialect_hints": ["akan"], "src": "Akan gospel testimony"}
+{"channel_id": "UCUSSnoEQ8DSRK-gnWS0vfyA", "name": "Arirang Radio K-Pop", "sample_vid": "PWucNdydFn8", "views": "266320", "dialect_hints": ["akan"], "src": "Akan radio call-in show"}
+{"channel_id": "UCYmx9c2je1hEZL1iguPyvUg", "name": "Brooke and Jeffrey In The Morning", "sample_vid": "sq33CSsnZfY", "views": "527", "dialect_hints": ["akan"], "src": "Akan radio call-in show"}
+{"channel_id": "UCSUf5_EPEfl4zlBKZHkZdmw", "name": "Danny Gonzalez", "sample_vid": "Fw5AjLE2kqw", "views": "6979377", "dialect_hints": ["akan"], "src": "Akan radio call-in show"}
+{"channel_id": "UC6WTr4CP8S5jm9_LM8uzj6w", "name": "Nikki Osborne", "sample_vid": "SjQk5IKjkqU", "views": "8621", "dialect_hints": ["akan"], "src": "Akan radio call-in show"}
+{"channel_id": "UCPPS0RvtIq8E9nTSRgbbNbw", "name": "F1Fun4u", "sample_vid": "FJ1jbh0bx9A", "views": "15368", "dialect_hints": ["akan"], "src": "Akan radio call-in show"}
+{"channel_id": "UCfzSs9X9g_qebXinbMQ570g", "name": "Quant Blueprint", "sample_vid": "3agR1a0ACeY", "views": "136158", "dialect_hints": ["akan"], "src": "Akan market street interview"}
+{"channel_id": "UCDsVC_ewpcEW_AQcO-H-RDQ", "name": "Jane Street", "sample_vid": "qqILuggyfkA", "views": "72512", "dialect_hints": ["akan"], "src": "Akan market street interview"}
+{"channel_id": "UCwAywyPrQlf5XvqzE8Y6GWg", "name": "Dianna Yau", "sample_vid": "KYkT7I2wZh8", "views": "44391", "dialect_hints": ["akan"], "src": "Akan market street interview"}
+{"channel_id": "UCmtBqvOp6xHlecDO0Un9O4w", "name": "School of Hard Knocks", "sample_vid": "AATw4YRFSw8", "views": "808937", "dialect_hints": ["akan"], "src": "Akan market street interview"}
+{"channel_id": "UCSSk133f3OecvJG14EngpbA", "name": "NBCU Academy", "sample_vid": "zCZMmTlTv6Q", "views": "66844", "dialect_hints": ["akan"], "src": "Akan market street interview"}
+{"channel_id": "UCp6aBHRM6ZS_kLeC57HV4kg", "name": "TheStreet", "sample_vid": "sff2sGYraKM", "views": "39574", "dialect_hints": ["akan"], "src": "Akan market street interview"}
+{"channel_id": "UCnqmCZsfmr4HyhILpxfgY8w", "name": "PanTry to PlaTe ", "sample_vid": "3AIZGAjIjPI", "views": "2", "dialect_hints": ["akan"], "src": "Akan cooking recipe"}
+{"channel_id": "UC7yubJJC6OQf77p5s_R5gUw", "name": "Del-campo-nace-la-Vida ", "sample_vid": "qDhm0laC1cM", "views": "62", "dialect_hints": ["akan"], "src": "Akan cooking recipe"}
+{"channel_id": "UClXz5X1AxMoUZujKxFfrqyA", "name": "MPAT TV", "sample_vid": "rtPQMQaTVqM", "views": "918", "dialect_hints": ["akan"], "src": "Akan cooking recipe"}
+{"channel_id": "UCnJD6GBywxK2JmEeb6neflA", "name": "Trình Hồ  Tv", "sample_vid": "W4rEtBu00IY", "views": "45721", "dialect_hints": ["akan"], "src": "Akan cooking recipe"}
+{"channel_id": "UCvtSTxC4p4K3J7O_HlRRLVQ", "name": "MissBabyloved", "sample_vid": "-N5J4HopUTc", "views": "105", "dialect_hints": ["akan"], "src": "Akan cooking recipe"}
+{"channel_id": "UC2jM0X76r3OmBBvJAPZO80Q", "name": "Kumasi Mail TV", "sample_vid": "ZhfTeeiMtdk", "views": "45", "dialect_hints": ["akan"], "src": "Akan football commentary"}
+{"channel_id": "UC-GPBQAsj31UvsdUdZrWZFQ", "name": "Romeo Oduro", "sample_vid": "9P_RxP7hwYQ", "views": "312", "dialect_hints": ["akan"], "src": "Akan football commentary"}
+{"channel_id": "UCAND1td-OhOUbi7S1EnRWzg", "name": "Isaac Punts", "sample_vid": "v0LHYIlnCrU", "views": "50849", "dialect_hints": ["akan"], "src": "Akan football commentary"}
+{"channel_id": "UCXCpvBklDltdnYy5VaHXPTA", "name": "JOHN KWEKU GYAN", "sample_vid": "GWtN17i2DHc", "views": "9", "dialect_hints": ["akan"], "src": "Akan football commentary"}
+{"channel_id": "UC-hfYFkXZ6sTmI-BrW1fPAQ", "name": "RADIOTV10 RWANDA", "sample_vid": "SBCJ4z-7iWs", "views": "3828", "dialect_hints": ["akan"], "src": "Akan football commentary"}
+{"channel_id": "UC4QolzCx6IK1sCXiY6IpCHw", "name": "Dinho", "sample_vid": "xgVJ1ro54LY", "views": "3490107", "dialect_hints": ["akan"], "src": "Akan football commentary"}
+{"channel_id": "UCWDhvnWBVqiHzow5YBfpBBw", "name": "Ahenkan 93.3 FM", "sample_vid": "R2aTYs8_qgQ", "views": "26", "dialect_hints": ["akan"], "src": "Akan football commentary"}
+{"channel_id": "UCmd2Cw8lYC9_eu74z2cyz1Q", "name": "Nana Ansu Kwakye", "sample_vid": "tp926G6TTDA", "views": "106", "dialect_hints": ["akan"], "src": "Akan history proverbs"}
+{"channel_id": "UCvPialDBJK97omec_xreo-w", "name": "Alpha Mentors", "sample_vid": "4oN5JShOs2I", "views": "9209511", "dialect_hints": ["akan"], "src": "Akan motivation advice"}
+{"channel_id": "UCVzKn6x13BwyMQttaQei9Jg", "name": "Gavin Dees", "sample_vid": "hjXGyMlI-_M", "views": "30719", "dialect_hints": ["akan"], "src": "Akan motivation advice"}
+{"channel_id": "UCKmkpoEqg1sOMGEiIysP8Tw", "name": "Evan Carmichael", "sample_vid": "mwCI5I230y8", "views": "4137430", "dialect_hints": ["akan"], "src": "Akan motivation advice"}
+{"channel_id": "UCbk_QsfaFZG6PdQeCvaYXJQ", "name": "Jay Shetty Podcast", "sample_vid": "QoJcom4KFrM", "views": "30430", "dialect_hints": ["akan"], "src": "Akan motivation advice"}
+{"channel_id": "UCqT0riCPLydNh-d1PKcHD9Q", "name": "Men Need To Be Heard Too", "sample_vid": "3Gw8-lHncoA", "views": "484", "dialect_hints": ["akan"], "src": "Akan motivation advice"}
+{"channel_id": "UCaH6vBP6dDSa40HNnn0230Q", "name": "Motivation Mentors", "sample_vid": "6OoEXMpldWg", "views": "3544594", "dialect_hints": ["akan"], "src": "Akan motivation advice"}
+{"channel_id": "UCwUNutyujDfttqEpDmugPRA", "name": "Today's tv ", "sample_vid": "DhFKIaQQY5k", "views": "41", "dialect_hints": ["akan"], "src": "Akan motivation advice"}
+{"channel_id": "UCBMlAJlZn5_OIXFUnZLx2aA", "name": "Elevated Mental", "sample_vid": "4iQuk3Kh_1o", "views": "15558", "dialect_hints": ["akan"], "src": "Akan documentary"}
+{"channel_id": "UCjuyyAA0htXOcKdbPuCv-Eg", "name": "Max's Mythic Archives ", "sample_vid": "7iu0uCtR-FA", "views": "456", "dialect_hints": ["akan"], "src": "Akan documentary"}
+{"channel_id": "UCo7Q30Srx9_xh-Kbe56AHpw", "name": "GODDESS OF WISDOM", "sample_vid": "kLPdBYeHAjc", "views": "5019", "dialect_hints": ["akan"], "src": "Akan documentary"}
+{"channel_id": "UCh0gqpQOKf3ehz5fIu-pYyA", "name": "THE PRIDE OF AFRICA", "sample_vid": "cHBcNxRi3_I", "views": "444", "dialect_hints": ["akan"], "src": "Akan documentary"}
+{"channel_id": "UCSPEjw8F2nQDtmUKPFNF7_A", "name": "NHK WORLD-JAPAN", "sample_vid": "xnXGBKhTLsw", "views": "30495", "dialect_hints": ["akan"], "src": "Akan documentary"}
+{"channel_id": "UC2PCqWekq5kCEtZeSfZ7kTQ", "name": "LBS Bina Group", "sample_vid": "gEIhrGCEpBY", "views": "2978", "dialect_hints": ["akan"], "src": "Akan vox pop"}
+{"channel_id": "UCbysmY4hyViQAAYEzOR-uCQ", "name": "WNYC", "sample_vid": "9ybkE3jEuzg", "views": "62125", "dialect_hints": ["akan"], "src": "Akan vox pop"}
+{"channel_id": "UC_wdp70ISEAl0wzI_86bMDw", "name": "INSYDIUM LTD", "sample_vid": "Oc9ABSORpa0", "views": "3476", "dialect_hints": ["akan"], "src": "Akan vox pop"}
+{"channel_id": "UCwFbuTe_-se7xsiXUatpn9Q", "name": "MonashBerwickCampus", "sample_vid": "vjWyXWK8_Qc", "views": "1656", "dialect_hints": ["akan"], "src": "Akan vox pop"}
+{"channel_id": "UCoIHUO8I3hqRVXw-DpZzAJA", "name": "Jojo Falani", "sample_vid": "8yt3pXAyGU8", "views": "4452", "dialect_hints": ["akan"], "src": "Akan vox pop"}
+{"channel_id": "UCLNoXf8gq6vhwsrYp-l0J-Q", "name": "Xiaomanyc 小马在纽约", "sample_vid": "A4AcCtQLE54", "views": "3292123", "dialect_hints": ["akan"], "src": "Twi Ghana vlog"}
+{"channel_id": "UCMnLIEvd-i-XPSj-NwvWTCw", "name": "Jackie Amoako", "sample_vid": "z13AL9Q8BrA", "views": "1257", "dialect_hints": ["akan"], "src": "Twi Ghana vlog"}
+{"channel_id": "UCoiG2TWc8zlz-pXtE9yGnFw", "name": "karren lovejoy", "sample_vid": "6cYELmJP_Dw", "views": "27111", "dialect_hints": ["akan"], "src": "Twi Ghana vlog"}
+{"channel_id": "UCgLcDoeWpezN9Kc35xwwbfw", "name": "AdviceKeeper", "sample_vid": "DbJ7vAKWcPU", "views": "2437", "dialect_hints": ["akan"], "src": "Twi Ghana vlog"}
+{"channel_id": "UCskU8T7PZrieSFuv_gja5Qg", "name": "More To Dela Vlogs", "sample_vid": "COKgpZT5_Pg", "views": "16553", "dialect_hints": ["akan"], "src": "Twi Ghana vlog"}
+{"channel_id": "UC_1P7a0ndlpDTy2qPvNItZA", "name": "NICOLE THEA REIGN", "sample_vid": "kBS5gew-jQs", "views": "909191", "dialect_hints": ["akan"], "src": "Twi Ghana vlog"}
+{"channel_id": "UCx5ACZ9HuGGmE73zr9ER9sA", "name": "Life of Michele", "sample_vid": "2iyr_vEjm1I", "views": "3719", "dialect_hints": ["akan"], "src": "Twi Ghana vlog"}
+{"channel_id": "UCG86HH2nzjLenFmoYlVnGqw", "name": "Nile AG", "sample_vid": "X3_6Xuwt-Xo", "views": "1635", "dialect_hints": ["akan"], "src": "Twi Ghana podcast full episode"}
+{"channel_id": "UCXqKANfQoZD3-KEexv1xh5g", "name": "Daughters of Deborah Ministries -GHANA", "sample_vid": "gldz9HUFmwE", "views": "61", "dialect_hints": ["akan"], "src": "Twi Ghana podcast full episode"}
+{"channel_id": "UCbB_WVM-e7nuhWd_FB_8KBQ", "name": "One54 Africa", "sample_vid": "1K01m6mT2Kw", "views": "152567", "dialect_hints": ["akan"], "src": "Twi Ghana podcast full episode"}
+{"channel_id": "UCuVm9SVz3K6WdxovKygHUfA", "name": "MyJoyonline TV", "sample_vid": "wXUmuvsVwxA", "views": "21412", "dialect_hints": ["akan"], "src": "Twi Ghana interview"}
+{"channel_id": "UCCwQW6uJrUn7r17fsIoZz7w", "name": "CAMS tv", "sample_vid": "P9JX_YgFWis", "views": "852555", "dialect_hints": ["akan"], "src": "Twi Ghana comedy skit"}
+{"channel_id": "UC6j3WnjVchwgcls4j82tL1w", "name": "Louicage Studios", "sample_vid": "l6fEszkvwCo", "views": "240934", "dialect_hints": ["akan"], "src": "Twi Ghana comedy skit"}
+{"channel_id": "UC2uKKYXaTcX-vk0jKlSp11Q", "name": "GHANA WE DEY TV", "sample_vid": "Bj0A-ooZsLo", "views": "775055", "dialect_hints": ["akan"], "src": "Twi Ghana comedy skit"}
+{"channel_id": "UCjDjTzRKOAKGXgOkU4vRnow", "name": "GHASA TV", "sample_vid": "VL9b0pMKnUI", "views": "6714", "dialect_hints": ["akan"], "src": "Twi Ghana drama series"}
+{"channel_id": "UCVW8w3_AFJujuF9r6QoAVeQ", "name": "Iknie tv", "sample_vid": "fI_mgsFEsO8", "views": "1232", "dialect_hints": ["akan"], "src": "Twi Ghana sermon preaching"}
+{"channel_id": "UCfpnK6ZQyGhXvWIFdGtvSyA", "name": "FGC Empowerment Pastures - Ofankor, Accra, Ghana.", "sample_vid": "a8wRxQJlb-Q", "views": "110", "dialect_hints": ["akan"], "src": "Twi Ghana sermon preaching"}
+{"channel_id": "UCMEVStmJEjvBaTPAl8s8lOA", "name": "APOSTLE OKOH AGYEMANG (The Dynamic Preacher)", "sample_vid": "WKmNfq6tL0Q", "views": "61473", "dialect_hints": ["akan"], "src": "Twi Ghana sermon preaching"}
+{"channel_id": "UCxKTVAWA-AQ4TW4rybgkHOQ", "name": "Melisa Hellen", "sample_vid": "0HEyGngPAQo", "views": "492", "dialect_hints": ["akan"], "src": "Twi Ghana gospel testimony"}
+{"channel_id": "UCDQ1bfF2oKNOn1afbMoHHsw", "name": "TOP 3 GHANA TV", "sample_vid": "FBUJYjiMUhw", "views": "392", "dialect_hints": ["akan"], "src": "Twi Ghana radio call-in show"}
+{"channel_id": "UCHsK1w-6gy9AZses6PP-8Xw", "name": "THE REASON SHOW ", "sample_vid": "x3ww9KTsuUI", "views": "5716", "dialect_hints": ["akan"], "src": "Twi Ghana radio call-in show"}
+{"channel_id": "UCa3kA3Z1p29CFdwnH8VYtxQ", "name": "Francis", "sample_vid": "7h8CNpWoEO8", "views": "18880", "dialect_hints": ["akan"], "src": "Twi Ghana radio call-in show"}
+{"channel_id": "UCNIsDiVwWCR3c4zo1ACzbAA", "name": "Winston Tackie", "sample_vid": "MVyvp6Tl-qg", "views": "29737", "dialect_hints": ["akan"], "src": "Twi Ghana radio call-in show"}
+{"channel_id": "UC_kxFZXu-sGNGZxb-lLgPzQ", "name": "Afro Direct Ghana", "sample_vid": "JOv4QkmC6Ik", "views": "1130", "dialect_hints": ["akan"], "src": "Twi Ghana market street interview"}
+{"channel_id": "UCaBCdN-90Fzch9SOiEzdjzw", "name": "uncutgh", "sample_vid": "YfPUCq1GA64", "views": "220", "dialect_hints": ["akan"], "src": "Twi Ghana market street interview"}
+{"channel_id": "UCkQQ7vN0CJFP3JL_r1vzYCw", "name": "Ghanaian Traveller", "sample_vid": "wjwzkG0_rC4", "views": "552", "dialect_hints": ["akan"], "src": "Twi Ghana market street interview"}
+{"channel_id": "UC8oS2wZApyyzvESetSrwQyA", "name": "Brown44", "sample_vid": "fLilMkCzoAQ", "views": "6599", "dialect_hints": ["akan"], "src": "Twi Ghana market street interview"}
+{"channel_id": "UCEP671RmNQz5cNptG-XB1Og", "name": "Ezra  Wellness TWI", "sample_vid": "5bEE_MD0m1E", "views": "20412", "dialect_hints": ["akan"], "src": "Twi Ghana cooking recipe"}
+{"channel_id": "UCUykwevXZD5jINHqosJbxbA", "name": "Aku Dede", "sample_vid": "v-FfP86pwZs", "views": "16464", "dialect_hints": ["akan"], "src": "Twi Ghana cooking recipe"}
+{"channel_id": "UCej6uhskCmpXrq61WlSRyCA", "name": "Mavis D.", "sample_vid": "LLvEzqNu1WQ", "views": "8624", "dialect_hints": ["akan"], "src": "Twi Ghana cooking recipe"}
+{"channel_id": "UCnhsaLNZZk2jx8GL5A7515g", "name": "YawKonaduTV", "sample_vid": "49VuJr5L8Tw", "views": "7663", "dialect_hints": ["akan"], "src": "Twi Ghana football commentary"}
+{"channel_id": "UC9tpWTCfhkYVOPw9QiO9dgg", "name": "Original Vande-P", "sample_vid": "XvNlIuTPtUM", "views": "14276", "dialect_hints": ["akan"], "src": "Twi Ghana football commentary"}
+{"channel_id": "UCOT4VSM47EPi-dqK_RhP_hQ", "name": "BELINDA THE JOURNALIST", "sample_vid": "eY2QaMosB5M", "views": "1427", "dialect_hints": ["akan"], "src": "Twi Ghana football commentary"}
+{"channel_id": "UCmKRYhyxlaGRPQHVmiMrdAg", "name": "GH Exclusives", "sample_vid": "a4z5NNt1bAM", "views": "2055", "dialect_hints": ["akan"], "src": "Twi Ghana football commentary"}
+{"channel_id": "UCBU3go8XCwtkpCbFCAa5A9w", "name": "Izay Mann", "sample_vid": "SUCIELO4jkQ", "views": "69", "dialect_hints": ["akan"], "src": "Twi Ghana football commentary"}
+{"channel_id": "UC_0ayf44_9Ifw967pi_ckTA", "name": "BogaMedia", "sample_vid": "BqV3l3m9J0Y", "views": "314", "dialect_hints": ["akan"], "src": "Twi Ghana motivation advice"}
+{"channel_id": "UCdGCGNWQzPprXgWGtGr8C0g", "name": "Erika The Conqueror", "sample_vid": "aGziRoumyVQ", "views": "80", "dialect_hints": ["akan"], "src": "Twi Ghana motivation advice"}
+{"channel_id": "UC9hKpjMxWev7U81xLZC_IWw", "name": "Bisi", "sample_vid": "ApcxTQL2-eM", "views": "168394", "dialect_hints": ["akan"], "src": "Twi Ghana documentary"}
