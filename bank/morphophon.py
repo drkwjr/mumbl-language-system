@@ -54,21 +54,52 @@ def pkey(word: str):
     return s.lower()
 
 
+VOWELS = set("aeiouɛɔ")
+_ATR_FLIP = {"e": "ɛ", "ɛ": "e", "o": "ɔ", "ɔ": "o"}
+# elided subject/possessive before a vowel-initial stem: m'abusua, n'adwuma, w'akɔ, y'ahunu
+_ELIDED = {"m": "me", "n": "ne", "w": "wo", "y": "yɛ"}
+
+
+def _surface_variants(stem: str):
+    """Surface forms of a stem that map to the same root: past-tense / emphatic final-vowel
+    lengthening (kɔ~kɔɔ) and word-final ATR vowel-harmony alternation (aduane~aduanɛ)."""
+    forms = [stem]
+    if len(stem) >= 2 and stem[-1] == stem[-2] and stem[-1] in VOWELS:
+        forms.append(stem[:-1])  # de-lengthen a doubled final vowel (past tense)
+    for f in list(forms):
+        if f and f[-1] in _ATR_FLIP:
+            forms.append(f[:-1] + _ATR_FLIP[f[-1]])  # flip the final vowel's ATR value
+    return forms
+
+
+def _root_known(stem: str, is_known):
+    return any(is_known(f) for f in _surface_variants(stem) if f)
+
+
 def decompose(word: str, is_known):
-    """Strip subject (+TAM) prefixes; return (root, [affixes]) if the root is known, else None."""
+    """Strip subject (+TAM) prefixes / elision; return (root, [affixes]) if a known root is reached.
+
+    Robust to past-tense final-vowel lengthening and ATR spelling variants via _surface_variants, so
+    inflected forms like mekɔɔ (me+kɔ+past) and yɛbɔɔ (yɛ+bɔ+past) resolve to their known roots.
+    """
     w = word.lower()
+    # elided subject/possessive: m'abusua -> abusua, n'adwuma -> adwuma
+    m = re.match(r"^([mnwy])['’](.+)$", w)
+    if m and _root_known(m.group(2), is_known):
+        return (m.group(2), [_ELIDED[m.group(1)] + "'"])
+
     fallback = None
     for s in SUBJECTS:
         if not w.startswith(s):
             continue
         r1 = w[len(s):]
-        if r1 and is_known(r1):
+        if r1 and _root_known(r1, is_known):
             fallback = fallback or (r1, [s])
         for t in TAM:
             if not r1.startswith(t):
                 continue
             r2 = r1[len(t):]
-            if r2 and is_known(r2):
+            if r2 and _root_known(r2, is_known):
                 return (r2, [s, t])  # subject + TAM is the strongest decomposition
     return fallback
 
@@ -81,6 +112,10 @@ def is_known_morph(bank, word: str, pkey_index=None) -> dict:
     d = decompose(word, lambda w: bank.is_known(w)["known"])
     if d:
         return {"known": True, "how": "morph", "root": d[0], "affixes": d[1]}
+    # whole-word surface variant (ATR harmony / lengthening) with no affix to strip: aduanɛ ~ aduane
+    for v in _surface_variants(word.lower()):
+        if v != word.lower() and bank.is_known(v)["known"]:
+            return {"known": True, "how": "variant", "of": [v]}
     if pkey_index is not None:
         k = pkey(word)
         if k and k in pkey_index:
