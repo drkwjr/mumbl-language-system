@@ -51,3 +51,4 @@ bank/corpus/aka-asante/_books/
 # LearnAkan paid course materials (copyrighted — local/external-drive only, verifier+generation use)
 bank/sources/learnakan/
 bank/data/aka/lyric-unknowns.jsonl
+bank/data/aka/constructions.jsonl
