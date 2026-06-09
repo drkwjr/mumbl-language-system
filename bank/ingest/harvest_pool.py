@@ -84,26 +84,28 @@ def main():
           f"proxy {'ON' if proxied else 'OFF (direct — will throttle)'} · "
           f"budget {budget_min or '∞'}min · already done {len(done)}\n", flush=True)
 
-    # build the fresh job list (skip cached transcripts + checkpointed dones + exhausted failures)
-    jobs = []
-    for i, ref in enumerate(refs, 1):
-        if budget_min and (time.time() - t0) / 60 > budget_min:
-            print("  (budget reached during listing — harvesting what we have)", flush=True)
-            break
-        url, _ = vc.resolve(ref)
+    # build the fresh job list IN PARALLEL — listing 996 channels serially (with a wasted resolve() name
+    # lookup each) was ~50min of dead time; direct URL for UC-ids/@handles + a worker pool makes it ~5min.
+    def list_channel(ref):
+        if ref.startswith("UC") and len(ref) > 20:
+            url = f"https://www.youtube.com/channel/{ref}"
+        elif ref.startswith("http"):
+            url = ref.split("/videos")[0].rstrip("/")
+        elif ref.startswith("@"):
+            url = f"https://www.youtube.com/{ref}"
+        else:
+            url, _ = vc.resolve(ref)  # only opaque names need the lookup
         if not url:
-            continue
-        for vid in vc.channel_videos(url, per):
-            if vid in done or failed.get(vid, 0) > MAX_RETRY:
-                continue
-            if (md.CACHE / f"{vid}.twi.txt").exists():
-                done.add(vid)
-                continue
-            jobs.append(vid)
-        if i % 25 == 0:
-            print(f"  listed {i}/{len(refs)} channels · {len(jobs)} fresh clips queued", flush=True)
-        if max_clips and len(jobs) >= max_clips:
-            break
+            return []
+        return [v for v in vc.channel_videos(url, per)
+                if v not in done and failed.get(v, 0) <= MAX_RETRY and not (md.CACHE / f"{v}.twi.txt").exists()]
+
+    jobs = []
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        for i, vids in enumerate(ex.map(list_channel, refs), 1):
+            jobs.extend(vids)
+            if i % 50 == 0:
+                print(f"  listed {i}/{len(refs)} channels · {len(jobs)} fresh clips queued", flush=True)
     if max_clips:
         jobs = jobs[:max_clips]
     print(f"\nharvesting {len(jobs)} fresh clips...\n", flush=True)
