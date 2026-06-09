@@ -57,18 +57,29 @@ def main():
     grams = {2: Counter(), 3: Counter()}
     opens, closes = Counter(), Counter()
     func = Counter()
-    aka_cache = {}
+    cls_cache = {}
 
-    def is_twi(t):
-        if t not in aka_cache:
+    def classify(t):
+        """twi (real Twi, INCLUDING words that also exist in English: wo/me/ho/de) · eng (English-ONLY:
+        the/of/ghana) · other (names/unknowns). The Twi grammatical core collides with English, so we
+        must NOT drop it per-token — we gate Twi-ness at the line level instead."""
+        if t not in cls_cache:
             m = lid.membership(t, bank)
-            # strict for constructions: real Twi and NOT also English (drops of/in/ghana ambiguity)
-            aka_cache[t] = "aka" in m and "eng" not in m
-        return aka_cache[t]
+            if "aka" in m:
+                cls_cache[t] = "twi"
+            elif "eng" in m:
+                cls_cache[t] = "eng"
+            else:
+                cls_cache[t] = "other"
+        return cls_cache[t]
 
     for line in lines:
-        toks = [t.strip("'’").lower() for t in WORD.findall(line)]
-        toks = [t for t in toks if len(t) >= 2 and is_twi(t)]  # real Twi only (drops English/nav)
+        raw = [t.strip("'’").lower() for t in WORD.findall(line) if len(t.strip("'’")) >= 2]
+        tags = [classify(t) for t in raw]
+        ntwi, neng = tags.count("twi"), tags.count("eng")
+        if ntwi < 2 or ntwi <= neng:
+            continue  # line-level gate: keep only Twi-dominant lines (drops English/nav lines wholesale)
+        toks = [t for t, g in zip(raw, tags) if g != "eng"]  # keep Twi + names/unknowns; drop English-only
         if len(toks) < 2:
             continue
         for w in toks:
