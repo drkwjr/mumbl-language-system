@@ -11,6 +11,7 @@ Copyrighted -> verifier/vocab-reference only, gitignored. Verify-not-trust: corr
   python3 bank/ingest/lyrics_ingest.py <notjustok-lyric-url> [more urls...]
 """
 import html as H
+import json
 import re
 import sys
 import urllib.request
@@ -65,13 +66,26 @@ def main():
             df[w].add(url)
         print(f"  {url.split('/')[-2][:46]:46} {len(lines)} lines · {len(song_words)} new-Twi candidates")
 
+    # Lyrics are CLEAN TEXT (not noisy ASR), so a language_id="aka" word is trustworthy even from one
+    # song — no corroboration bar. Capture every new Twi word (Sam: "any Twi word we find is good").
+    found = sorted(df.items(), key=lambda x: -len(x[1]))
+    have = {json.loads(line)["word"] for line in (STAGED.read_text(encoding="utf-8").splitlines() if STAGED.exists() else []) if line.strip()}
+    new = 0
+    if not (len(sys.argv) > 1 and "--dry-run" in sys.argv):
+        with STAGED.open("a", encoding="utf-8") as f:
+            for w, songs in found:
+                if w in have:
+                    continue
+                f.write(json.dumps({"word": w, "freq": len(songs), "gloss_proposed": None,
+                                    "method": "lyric", "verification": "unverified",
+                                    "use": "staged-for-review"}, ensure_ascii=False) + "\n")
+                new += 1
+
     tot = sum(counts.values()) or 1
-    corroborated = sorted(((w, len(c)) for w, c in df.items() if len(c) >= 2), key=lambda x: -x[1])
-    oneoff = [w for w, c in df.items() if len(c) == 1]
     print(f"\nlyric language mix: Twi {100*counts['twi']//tot}% · English {100*counts['eng']//tot}% · unknown {100*counts['unk']//tot}%")
-    print(f"NEW Twi words: {len(df)} total · {len(corroborated)} corroborated (>=2 songs) · {len(oneoff)} one-offs")
-    for w, n in corroborated[:24]:
-        print(f"  {w:16} in {n} songs")
+    print(f"NEW Twi words captured: {len(found)}  ·  {new} newly staged")
+    for w, songs in found[:28]:
+        print(f"  {w:18} ({len(songs)} song{'s' if len(songs) > 1 else ''})")
 
 
 if __name__ == "__main__":
