@@ -14,6 +14,12 @@ Snapshot of the construct-and-verify language bank: where it stands and the open
   bad words named, keeping the best attempt — replies self-correct to 100% attested Twi. Bounded
   (MAX_REPAIRS=2; common case 0), so the hot path stays fast. The word axis drives repair; structure
   breaks ties.
+- **Conversational-quality eval** (new, the third axis): `mumbl-server/eval/` — tone-tagged multi-turn
+  scenarios, the bank as objective code-graders + a CoT-forced per-dimension LLM judge on the *meaning*
+  (gloss), N-trial `pass^k`, versioned baseline + regression. Design + lab-grounded methodology in
+  `mumbl-server/EVAL_DESIGN.md`. First baseline: 100% attestation, ~4/5 on coherence/tone/engagement/
+  naturalness, and it *localizes* weakness (humor + some follow-ups score low) — discriminating, not
+  rubber-stamping.
 - **Harvest pipeline**: wide discovery (996 channels, dialect-tagged) → residential-proxy audio+ASR
   (checkpointed, resumable) → corroboration → construction mining. Corpus ~1,000 spoken clips and counting.
 - **Portfolio tooling**: dialect tagger, multi-language seed capture, and a per-language **readiness map**
