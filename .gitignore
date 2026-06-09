@@ -52,3 +52,6 @@ bank/corpus/aka-asante/_books/
 bank/sources/learnakan/
 bank/data/aka/lyric-unknowns.jsonl
 bank/data/aka/constructions.jsonl
+bank/data/aka/class_bigrams.jsonl
+bank/data/aka/_captured_languages.jsonl
+bank/data/aka/harvest_state.json
