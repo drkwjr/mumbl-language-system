@@ -10,6 +10,10 @@ Snapshot of the construct-and-verify language bank: where it stands and the open
 - **Construction / syntax layer** (new): ~11.7k attested word-bigrams + ~240 grammatical-class transitions.
   Generation grounds on it (assembles the Twi way, not calqued English) and the reply is verified on two
   axes — words attested (`bankVerify`) and assembled-like-Twi (`bankStructural`, smoothed).
+- **Construct-verify-REPAIR loop** (new): a reply that contains unattested words is regenerated with the
+  bad words named, keeping the best attempt — replies self-correct to 100% attested Twi. Bounded
+  (MAX_REPAIRS=2; common case 0), so the hot path stays fast. The word axis drives repair; structure
+  breaks ties.
 - **Harvest pipeline**: wide discovery (996 channels, dialect-tagged) → residential-proxy audio+ASR
   (checkpointed, resumable) → corroboration → construction mining. Corpus ~1,000 spoken clips and counting.
 - **Portfolio tooling**: dialect tagger, multi-language seed capture, and a per-language **readiness map**
@@ -23,10 +27,11 @@ Snapshot of the construct-and-verify language bank: where it stands and the open
    another residential route. Unlocks: dialect diversity (Fante/Bono channels weren't reached), more
    mid-range construction coverage, and clean multi-language seeds. → *ticket: resume full harvest.*
 
-2. **Structural metric → hard gate.** Today it's a reported signal (class-backoff is too coarse to catch
-   scrambling). It sharpens two ways: more corpus (watch `exactPct` climb) and/or a smarter model
-   (trigrams / function-word placement). The product payoff is a **verify-and-repair loop** — regenerate
-   the reply when the word OR structure axis is low, instead of just reporting it.
+2. **Structural metric → hard gate (so it *also* drives repair).** The repair loop now self-corrects the
+   WORD axis to 100% attested. Structure is still only a tiebreaker, because the smoothed metric
+   undercounts good novel sentences and would over-trigger repair. To make structure a repair driver too,
+   sharpen it: more corpus (watch `exactPct` climb) and/or a smarter model (trigrams / function-word
+   placement). Then a calqued-but-attested reply gets repaired, not just a hallucinated-word one.
 
 3. **Meaning sourcing for discoveries (the rule reconciliation).** `promote.py` currently graduates words
    with a *Gemini-proposed* gloss — which conflicts with the hard rule "never invent a definition." Fix:
@@ -48,6 +53,9 @@ Snapshot of the construct-and-verify language bank: where it stands and the open
 
 ## The shape of the work
 
-Construction (#2) and meaning-via-native-review (#3/#4) are the highest-leverage *quality* work — they make
-the Twi sound native and keep meaning honest. The full pull (#1) is *quantity* — pinned, resumes on one
-command once a proxy is funded. Onboarding (#5) is where this becomes a repeatable product line.
+The construct-verify-**repair** loop is now closed: replies self-correct to attested Twi. The remaining
+*quality* lever is making structure a repair driver too (#2), which is corpus-bound.
+
+Parked by choice (2026-06-09): native-review for meaning (#3/#4) and second-language onboarding (#5) — the
+plan is to return to product work next, not stand these up now. The full pull (#1) is pinned on proxy
+credit and resumes on one command. So the loop here is closed; these are the named re-entry points.
