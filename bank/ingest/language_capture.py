@@ -46,20 +46,28 @@ def akan_english_pct(text, bank):
     return 100 * c["aka"] // tot, 100 * c["eng"] // tot
 
 
+# Constrain the ID to real, plausible languages — an unbounded prompt returned garbage ("A", "Viet",
+# "Neder") on music/noisy clips. Off-list or low-confidence -> "unclear", never banked as a seed.
+ALLOWED = ["Akan", "Ga", "Ewe", "Dagbani", "Dagaare", "Frafra", "Gonja", "Kasem", "Nzema", "Hausa",
+           "Yoruba", "Igbo", "Fula", "Wolof", "English", "French", "Arabic"]
+
+
 def id_audio_language(mp3):
-    """One cheap Gemini call on the AUDIO (not the Twi-forced transcript): what language is spoken?"""
+    """One cheap Gemini call on the AUDIO (not the Twi-forced transcript): which language, from a fixed
+    list. Returns a list language, or None for unclear/music/noise (so noise never becomes a fake seed)."""
     key = os.environ["GEMINI_API_KEY"]
     b64 = base64.b64encode(mp3.read_bytes()).decode()
-    p = ("What single language is primarily spoken in this audio? If it's a Ghanaian/African language name "
-         "it specifically (e.g. Akan/Twi, Ga, Ewe, Hausa, Dagbani, Yoruba, Igbo). Reply with ONLY the "
-         "language name, nothing else.")
+    p = ("Identify the single language primarily SPOKEN in this audio. Reply with EXACTLY ONE of these "
+         "words and nothing else: " + ", ".join(ALLOWED) + ", or 'unclear' if it is mostly music, noise, "
+         "silence, or you are not confident.")
     body = json.dumps({"contents": [{"parts": [{"text": p}, {"inline_data": {"mime_type": "audio/mp3", "data": b64}}]}],
-                       "generationConfig": {"temperature": 0, "maxOutputTokens": 20}}).encode()
+                       "generationConfig": {"temperature": 0, "maxOutputTokens": 30}}).encode()
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={key}"
     try:
         r = json.loads(urllib.request.urlopen(
             urllib.request.Request(url, data=body, headers={"Content-Type": "application/json"}), timeout=60).read())
-        return r["candidates"][0]["content"]["parts"][0]["text"].strip().split("\n")[0][:30]
+        ans = r["candidates"][0]["content"]["parts"][0]["text"].strip().split("\n")[0].strip(".,!?\"' ")
+        return next((a for a in ALLOWED if a.lower() == ans.lower()), None)  # only a real list match counts
     except Exception:
         return None
 
