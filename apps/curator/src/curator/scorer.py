@@ -1,11 +1,17 @@
 """
 Scoring rubric implementation for text and audio segments.
+
+`validity` is bank-backed: the bank's verifier decides whether the text is real target-language
+content (the judgment heuristics can't make), and the conversational labels (dialogue / topic /
+register) add learner-value on top. Falls back to the metadata heuristic if the bank is unavailable.
 """
 
 from typing import Optional
 
 from mumbl_data_contracts.scores import SegmentScore
 from mumbl_data_contracts.segments import AudioSegment, TextSegment
+
+from .language_validity import BankValidator
 
 
 class SegmentScorer:
@@ -14,8 +20,8 @@ class SegmentScorer:
     transcript_accuracy, validity, shape.
     """
 
-    def __init__(self):
-        """Initialize scorer with default weights."""
+    def __init__(self, validator: Optional[BankValidator] = None):
+        """Initialize scorer with default weights and a bank-backed language validator."""
         # Equal weights for all dimensions
         self.weights = {
             "clarity": 1.0,
@@ -25,6 +31,8 @@ class SegmentScorer:
             "validity": 1.0,
             "shape": 1.0,
         }
+        # The bank is the language-truth half of the system; wired in by default (lazy + graceful).
+        self.validator = validator if validator is not None else BankValidator()
 
     def score_text_segment(self, segment: TextSegment) -> SegmentScore:
         """
@@ -39,8 +47,9 @@ class SegmentScorer:
         # Clarity: Text readability (based on length, punctuation, etc.)
         clarity = self._score_text_clarity(segment.text)
 
-        # Validity: Language match, content quality
-        validity = self._score_text_validity(segment)
+        # Validity: bank language-attestation (the spine) + conversational labels on top
+        lang = self.validator.validity(segment.text) if self.validator else None
+        validity = self._score_text_validity(segment, lang)
 
         # Shape: Length, structure appropriateness
         shape = self._score_text_shape(segment.text)
@@ -65,6 +74,7 @@ class SegmentScorer:
             total=total,
             eligible_learner=total >= 90,
             eligible_training=total >= 70,
+            notes=self._segment_notes(segment.labels, lang),
         )
 
     def score_audio_segment(self, segment: AudioSegment) -> SegmentScore:
@@ -89,8 +99,13 @@ class SegmentScorer:
         # Transcript accuracy: Transcription quality
         transcript_accuracy = self._score_transcript_accuracy(segment)
 
-        # Validity: Language match, content quality
-        validity = self._score_audio_validity(segment)
+        # Validity: bank-attested transcript is the spine; falls back to metadata heuristic
+        lang = (
+            self.validator.validity(segment.transcript_text)
+            if self.validator and segment.transcript_text
+            else None
+        )
+        validity = self._score_audio_validity(segment, lang)
 
         # Shape: Length, structure appropriateness
         shape = self._score_audio_shape(segment)
@@ -107,6 +122,7 @@ class SegmentScorer:
         total_weight = sum(self.weights.values())
         total = sum(dims) / total_weight if total_weight > 0 else 0.0
 
+        notes = self._segment_notes(None, lang) if lang is not None else None
         return SegmentScore(
             clarity=clarity,
             alignment=alignment,
@@ -117,6 +133,7 @@ class SegmentScorer:
             total=total,
             eligible_learner=total >= 90,
             eligible_training=total >= 70,
+            notes=notes,
         )
 
     def _score_text_clarity(self, text: str) -> float:
@@ -144,19 +161,57 @@ class SegmentScorer:
 
         return min(100.0, score)
 
-    def _score_text_validity(self, segment: TextSegment) -> float:
-        """Score text validity (0-100)."""
-        score = 80.0  # Base score
+    def _score_text_validity(self, segment: TextSegment, lang=None) -> float:
+        """Score text validity (0-100).
 
-        # Has topic metadata (indicates good extraction)
-        if segment.labels.topic:
-            score += 10
+        Bank-backed: language attestation is the spine (real target-language text scores high,
+        English or noise scores low), and the conversational labels add learner-value ON TOP of
+        valid content; they no longer rescue non-target text. Falls back to the heuristic if absent.
+        """
+        if lang is None:
+            score = 80.0  # Base score (no bank — metadata-only fallback)
+            if segment.labels.topic:
+                score += 10
+            if segment.labels.register_type:
+                score += 10
+            return min(100.0, score)
 
-        # Has register type (indicates good labeling)
-        if segment.labels.register_type:
-            score += 10
-
+        pct, _unknown = lang
+        score = pct
+        # Reward the conversational labels only once the content is plausibly real target language,
+        # so a well-labeled English segment stays correctly invalid.
+        if pct >= 50:
+            if segment.labels.is_dialogue:
+                score += 3
+            if segment.labels.topic:
+                score += 4
+            if segment.labels.register_type:
+                score += 3
         return min(100.0, score)
+
+    @staticmethod
+    def _segment_notes(labels, lang) -> Optional[str]:
+        """Keep the conversational labels visible downstream, and surface what the bank couldn't
+        attest (those unknown words are exactly the discovery/promotion-loop candidates)."""
+        parts = []
+        if labels is not None:
+            tags = [
+                t
+                for t in [
+                    ("dialogue" if labels.is_dialogue else None),
+                    labels.topic,
+                    labels.register_type,
+                ]
+                if t
+            ]
+            if tags:
+                parts.append("labels: " + " · ".join(tags))
+        if lang is not None:
+            pct, unknown = lang
+            parts.append(f"bank-validity {pct:.0f}%")
+            if unknown:
+                parts.append("unattested: " + ", ".join(unknown[:8]))
+        return "; ".join(parts) or None
 
     def _score_text_shape(self, text: str) -> float:
         """Score text shape (0-100)."""
@@ -210,22 +265,26 @@ class SegmentScorer:
 
         return 0.0
 
-    def _score_audio_validity(self, segment: AudioSegment) -> float:
-        """Score audio validity (0-100)."""
-        score = 70.0  # Base score
+    def _score_audio_validity(self, segment: AudioSegment, lang=None) -> float:
+        """Score audio validity (0-100). Bank-attested transcript is the spine when available;
+        otherwise the metadata heuristic."""
+        if lang is not None:
+            pct, _unknown = lang
+            score = pct
+            if pct >= 50:  # plausibly real target-language transcript
+                if segment.lang:
+                    score += 5
+                if segment.speaker_id:
+                    score += 5
+            return min(100.0, score)
 
-        # Has language
+        score = 70.0  # Base score (no bank — metadata-only fallback)
         if segment.lang:
             score += 10
-
-        # Has transcript
         if segment.transcript_text:
             score += 10
-
-        # Has speaker ID
         if segment.speaker_id:
             score += 10
-
         return min(100.0, score)
 
     def _score_audio_shape(self, segment: AudioSegment) -> float:
