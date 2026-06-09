@@ -10,48 +10,42 @@ Copyrighted -> verifier/vocab-reference only, gitignored. Verify-not-trust: corr
 
   python3 bank/ingest/lyrics_ingest.py <notjustok-lyric-url> [more urls...]
 """
-import html as H
 import json
+import os
 import re
+import subprocess
 import sys
-import urllib.request
 from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from serve import Bank  # noqa: E402
 import language_id as lid  # noqa: E402
+import morphophon as mp  # noqa: E402
 
 STAGED = Path(__file__).resolve().parents[1] / "data" / "aka" / "discovered.jsonl"
-UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36"
 TOK = re.compile(r"[a-zɛɔŋ'’]+", re.I)
 LABEL = re.compile(r"^(verse|chorus|bridge|hook|intro|outro|refrain|pre-?chorus)\b", re.I)
 
 
-def _fetch(url):
-    """Chrome-impersonation first (beats 403 bot-walls — the AthleteFit doctrine), urllib fallback."""
-    try:
-        from curl_cffi import requests as creq
-
-        r = creq.get(url, impersonate="chrome", timeout=30)
-        if r.status_code == 200 and r.text:
-            return r.text
-    except Exception:
-        pass
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    return urllib.request.urlopen(req, timeout=30).read().decode("utf-8", "ignore")
+_RENDER = str(Path(__file__).resolve().parent / "render_lyrics.js")
+_NODE_PATH = subprocess.run(["npm", "root", "-g"], capture_output=True, text=True).stdout.strip()
 
 
 def fetch_lyrics(url):
-    raw = _fetch(url)
-    # blog lyric body lives in <p> tags; keep the ones that are actual lyric lines
-    ps = [H.unescape(re.sub(r"<[^>]+>", "", p)).strip() for p in re.findall(r"<p[^>]*>(.*?)</p>", raw, re.S)]
-    return [p for p in ps if len(p) > 8 and not LABEL.match(p) and "Notjustok" not in p and "LISTEN" not in p]
+    """Render the page with Playwright and take the lyric block's innerText — clean, line-broken
+    (handles JS sites AND avoids the raw-HTML word-gluing). One subprocess per song."""
+    r = subprocess.run(["node", _RENDER, url], capture_output=True, text=True, timeout=90,
+                       env={**os.environ, "NODE_PATH": _NODE_PATH})
+    lines = [line.strip() for line in r.stdout.splitlines() if line.strip()]
+    return [line for line in lines if len(line) > 3 and not LABEL.match(line)
+            and "Notjustok" not in line and "LISTEN" not in line]
 
 
 def norm(s):
-    """ASCII-Twi conventions used by lyric sites: 3->ɛ, and bare o/e stay (we can't always recover ɔ)."""
-    return s.replace("3", "ɛ").replace("ε", "ɛ")
+    """These rendered sources already use real ɛ/ɔ; only fix the Greek-epsilon encoding slip.
+    (Don't map 3->ɛ — it corrupts English numerics like '3rd' -> 'ɛrd'.)"""
+    return s.replace("ε", "ɛ")
 
 
 def main():
@@ -73,8 +67,9 @@ def main():
                     continue
                 m = lid.membership(tok, bank)
                 counts["twi" if "aka" in m else "eng" if "eng" in m else "unk"] += 1
-                if "aka" in m and not bank.is_known(tok)["known"]:
-                    song_words.add(tok)  # Twi word the bank doesn't have yet
+                # genuinely new Twi: language_id says aka AND morphology can't already derive it
+                if "aka" in m and not mp.is_known_morph(bank, tok, bank.pkey_index)["known"]:
+                    song_words.add(tok)
         for w in song_words:
             df[w].add(url)
         print(f"  {url.split('/')[-2][:46]:46} {len(lines)} lines · {len(song_words)} new-Twi candidates")
