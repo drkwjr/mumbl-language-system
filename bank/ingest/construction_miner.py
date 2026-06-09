@@ -62,7 +62,8 @@ def main():
     def is_twi(t):
         if t not in aka_cache:
             m = lid.membership(t, bank)
-            aka_cache[t] = "aka" in m and not ("eng" in m and "aka" not in m)
+            # strict for constructions: real Twi and NOT also English (drops of/in/ghana ambiguity)
+            aka_cache[t] = "aka" in m and "eng" not in m
         return aka_cache[t]
 
     for line in lines:
@@ -82,15 +83,20 @@ def main():
         opens[" ".join(toks[:2])] += 1
         closes[" ".join(toks[-2:])] += 1
 
+    # Export ALL attested bigrams (freq>=2) for the structural-naturalness check, plus the top trigrams.
+    # The full bigram set makes "is this assembled like Twi" meaningful; the top entries (file is freq-
+    # sorted) are what generation grounds on.
     rows = []
     for n in (2, 3):
-        for chunk, c in grams[n].most_common(200):
-            if c < 3:
+        thresh, cap = (2, None) if n == 2 else (3, 250)
+        for chunk, c in grams[n].most_common(cap):
+            if c < thresh:
                 continue
             rev = " ".join(reversed(chunk.split()))  # X Y and Y X both high = a repeated song line
             if grams[n].get(rev, 0) >= 0.7 * c:
                 continue
-            rows.append({"chunk": chunk, "n": n, "freq": c, "type": "ngram"})
+            rows.append({"chunk": chunk, "n": n, "freq": c})
+    rows.sort(key=lambda r: -r["freq"])
     OUT.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows) + "\n", encoding="utf-8")
 
     print(f"=== HOW TWI TALKS — mined from {len(lines):,} lines -> {OUT.name} ({len(rows)} constructions) ===\n")

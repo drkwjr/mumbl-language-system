@@ -35,7 +35,14 @@ def main():
     pairs = [{"twi": p["twi"], "en": p["en"], "source": p["source"]} for p in b.pairs]
     (OUT / "grounding.json").write_text(json.dumps(pairs, ensure_ascii=False), encoding="utf-8")
 
-    meta = {"glosses": len(b.glosses), "known": len(b.known), "grounding": len(pairs), "lang": "aka", "langName": "Twi"}
+    # construction layer: how Twi chains words (for syntax grounding + structural verification)
+    cpath = Path(__file__).resolve().parent / "data" / "aka" / "constructions.jsonl"
+    cons = [json.loads(line) for line in cpath.read_text(encoding="utf-8").splitlines() if line.strip()] if cpath.exists() else []
+    cons = [{"chunk": c["chunk"], "freq": c["freq"], "n": c["n"]} for c in cons]
+    (OUT / "constructions.json").write_text(json.dumps(cons, ensure_ascii=False), encoding="utf-8")
+
+    meta = {"glosses": len(b.glosses), "known": len(b.known), "grounding": len(pairs),
+            "constructions": len(cons), "lang": "aka", "langName": "Twi"}
     (OUT / "meta.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
     print(f"exported -> {OUT}")
     print(f"  glosses {meta['glosses']:,} · known {meta['known']:,} · grounding {meta['grounding']:,}")
