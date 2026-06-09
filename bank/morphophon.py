@@ -17,9 +17,12 @@ import re
 # §54 prefixed nominative forms: me- wo- ɔ- ɛ- yɛ- mo- wɔ-, with i/u-stem variants mi- wu- mu- and the
 # ɔ/ɛ ASCII variants o-/e-. (Earlier hand-list wrongly included ne [possessive §55], wɔn [object/
 # independent], na, obi — and was MISSING wɔ, the real 3pl subject prefix.)
-SUBJECTS = ["me", "wo", "ɔ", "ɛ", "yɛ", "mo", "wɔ", "o", "e", "mi", "wu", "mu"]
+SUBJECTS = ["me", "mɛ", "wo", "ɔ", "ɛ", "yɛ", "mo", "wɔ", "o", "e", "mi", "wu", "mu"]
+# mɛ = the contracted 1sg future (me + bɛ -> mɛ), e.g. mɛtena = "I will stay".
 # TAM: progressive re-, future bɛ- (his 'be'), proximate-future rebɛ-, perfect a-, Fante neg-future kɔ-.
 TAM = ["bɛ", "re", "a", "kɔ", "be", "ko"]
+# Negative marker: a homorganic nasal that precedes the (unchanged) root, e.g. ɔ-re-n-gyaw, mo-n-pɛ.
+NEG = ["nn", "mm", "n", "m"]
 
 _g2p = None
 
@@ -62,8 +65,11 @@ _ELIDED = {"m": "me", "n": "ne", "w": "wo", "y": "yɛ"}
 
 def _surface_variants(stem: str):
     """Surface forms of a stem that map to the same root: past-tense / emphatic final-vowel
-    lengthening (kɔ~kɔɔ) and word-final ATR vowel-harmony alternation (aduane~aduanɛ)."""
+    lengthening (kɔ~kɔɔ), word-final ATR vowel-harmony alternation (aduane~aduanɛ), and the sh~hw
+    consonant alternation lyric/Fante spellings use (shwɛ~hwɛ)."""
     forms = [stem]
+    if "sh" in stem:
+        forms.append(stem.replace("sh", "hw"))  # shwɛ -> hwɛ
     if len(stem) >= 2 and stem[-1] == stem[-2] and stem[-1] in VOWELS:
         forms.append(stem[:-1])  # de-lengthen a doubled final vowel (past tense)
     for f in list(forms):
@@ -74,6 +80,16 @@ def _surface_variants(stem: str):
 
 def _root_known(stem: str, is_known):
     return any(is_known(f) for f in _surface_variants(stem) if f)
+
+
+def _strip_neg(stem: str, is_known):
+    """The root itself, or the root after a negative nasal (n-/m-/nn-/mm-); None if neither is known."""
+    if _root_known(stem, is_known):
+        return stem
+    for n in NEG:
+        if stem.startswith(n) and len(stem) > len(n) + 1 and _root_known(stem[len(n):], is_known):
+            return stem[len(n):]
+    return None
 
 
 def decompose(word: str, is_known):
@@ -93,14 +109,18 @@ def decompose(word: str, is_known):
         if not w.startswith(s):
             continue
         r1 = w[len(s):]
-        if r1 and _root_known(r1, is_known):
-            fallback = fallback or (r1, [s])
+        if r1:
+            nr = _strip_neg(r1, is_known)  # subject (+ optional negative nasal) -> root
+            if nr:
+                fallback = fallback or (nr, [s] + (["NEG"] if nr != r1 else []))
         for t in TAM:
             if not r1.startswith(t):
                 continue
             r2 = r1[len(t):]
-            if r2 and _root_known(r2, is_known):
-                return (r2, [s, t])  # subject + TAM is the strongest decomposition
+            if r2:
+                nr2 = _strip_neg(r2, is_known)  # subject + TAM (+ optional negative) -> root
+                if nr2:
+                    return (nr2, [s, t] + (["NEG"] if nr2 != r2 else []))
     return fallback
 
 
