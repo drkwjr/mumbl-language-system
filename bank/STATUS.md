@@ -33,7 +33,16 @@ Snapshot of the construct-and-verify language bank: where it stands and the open
    another residential route. Unlocks: dialect diversity (Fante/Bono channels weren't reached), more
    mid-range construction coverage, and clean multi-language seeds. → *ticket: resume full harvest.*
 
-2. **Structural metric → hard gate (so it *also* drives repair).** The repair loop now self-corrects the
+2. **First-class corpus retrieval + sentence assembly (the coherence fix).** The meta-judge eval caught
+   it: replies are attested but *incoherent* over multiple turns — the character ignores the learner
+   (grabs off-topic phrases like "fabric" when asked about tomatoes). Root cause: `bankGrounding` retrieves
+   by crude English-keyword overlap and, on a weak match, falls back to the *first k phrases in the pool* —
+   "random ass words." The fix is two real systems: (a) **semantic retrieval** over the corpus (embeddings /
+   pgvector, ANO-1699) so generation gets *relevant* attested material, and (b) a **sentence-assembly
+   layer** that composes grounded, relevant, coherent sentences instead of dumping 30 phrases at the model.
+   This is the attestation-vs-coherence tension — currently the highest-leverage quality fix.
+
+3. **Structural metric → hard gate (so it *also* drives repair).** The repair loop now self-corrects the
    WORD axis to 100% attested. Structure is still only a tiebreaker, because the smoothed metric
    undercounts good novel sentences and would over-trigger repair. To make structure a repair driver too,
    sharpen it: more corpus (watch `exactPct` climb) and/or a smarter model (trigrams / function-word
