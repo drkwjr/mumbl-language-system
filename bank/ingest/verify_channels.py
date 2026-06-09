@@ -24,6 +24,13 @@ YTDLP = "/tmp/ytenv/bin/yt-dlp"
 TWITOK = re.compile(r"[a-zɛɔŋ'’]+", re.I)
 
 
+def _proxy():
+    """Route listing through HARVEST_PROXY too — 996 metadata calls from one IP would otherwise throttle."""
+    import os
+    p = os.environ.get("HARVEST_PROXY", "").strip()
+    return ["--proxy", p] if p else []
+
+
 def resolve(arg):
     """arg may be an exact @handle, a channel URL, a UC… channel-id, or (fallback) a search name.
     Prefer exact — fuzzy search resolves to the wrong channel (Khemical TV != KMTV)."""
@@ -34,18 +41,18 @@ def resolve(arg):
     elif arg.startswith("UC") and len(arg) > 20:
         url = f"https://www.youtube.com/channel/{arg}"
     else:
-        cid = subprocess.run([YTDLP, f"ytsearch1:{arg}", "--flat-playlist", "--print", "%(channel_id)s"],
+        cid = subprocess.run([YTDLP, f"ytsearch1:{arg}", "--flat-playlist", "--print", "%(channel_id)s"] + _proxy(),
                              capture_output=True, text=True, timeout=60).stdout.strip().splitlines()
         url = f"https://www.youtube.com/channel/{cid[0]}" if cid and cid[0] else None
     if not url:
         return None, arg
-    name = subprocess.run([YTDLP, f"{url}/videos", "--flat-playlist", "--playlist-end", "1", "--print", "%(channel,uploader)s"],
+    name = subprocess.run([YTDLP, f"{url}/videos", "--flat-playlist", "--playlist-end", "1", "--print", "%(channel,uploader)s"] + _proxy(),
                           capture_output=True, text=True, timeout=60).stdout.strip().splitlines()
     return url, (name[0] if name and name[0] not in ("NA", "") else arg.lstrip("@"))
 
 
 def channel_videos(url, m):
-    out = subprocess.run([YTDLP, f"{url}/videos", "--flat-playlist", "--playlist-end", str(m), "--print", "%(id)s"],
+    out = subprocess.run([YTDLP, f"{url}/videos", "--flat-playlist", "--playlist-end", str(m), "--print", "%(id)s"] + _proxy(),
                          capture_output=True, text=True, timeout=90).stdout
     return out.split()
 
