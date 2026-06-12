@@ -89,6 +89,18 @@ class Bank:
             for s in e["senses"]:
                 self.glosses.setdefault(e["lemma"].lower(), s["gloss_en"])
 
+        # Tonal score (ANO-1741): lexicon-christaller carries a tone-marked `headword` (e.g. dọ́kọ̄) alongside
+        # the toneless `lemma` (dɔkɔ) used for matching — but serve only ever read lemma/gloss, dropping tone.
+        # Index the tone-marked form, modernizing ATR orthography (ẹọñụ -> ɛɔŋu, per christaller_dictionary.
+        # to_modern) while KEEPING the tone diacritics. Matching stays toneless; this exposes tone as a feature
+        # — the reference the synthesizer reads (tone-aware TTS) and the grader checks against (ANO-1781).
+        self.tonal_forms = {}
+        for e in self.dict_entries:
+            lemma, head = e.get("lemma"), e.get("headword")
+            if lemma and head:
+                t = head.replace("ẹ", "ɛ").replace("ọ", "ɔ").replace("ñ", "ŋ").replace("ụ", "u")
+                self.tonal_forms.setdefault(lemma.lower(), t)
+
         # unified bilingual grounding pool — EVERY Twi<->English pair we have feeds generation, restricted
         # sources included. Construct-and-verify isolates the problem to the voice: the grounding vocabulary
         # is sourced, but the reply is synthesized + verified, not copied. (Settle licensing before a public
@@ -134,6 +146,11 @@ class Bank:
 
     def lookup(self, word):
         return self.by_lemma.get(word.strip().lower(), [])
+
+    def tonal(self, word):
+        """The tone-marked form (the phonetic+tonal 'score') for a word, or None. Toneless matching
+        (lookup / is_known) is unchanged; this surfaces the tone lexicon-christaller carries (ANO-1741)."""
+        return self.tonal_forms.get(word.strip().lower())
 
     def ways_to_say(self, english):
         return [e["lemma"] for e, _ in self.by_gloss.get(english.strip().lower(), [])]
